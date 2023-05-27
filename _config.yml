@@ -45,4 +45,4 @@ sphinx:
       assessment: "Vraag %s"
 #    graphviz_output_format: "svg"
   
-exclude_patterns: [opmerkingen.md, ext/*,_build, Thumbs.db, .DS_Store, ".ipynb_checkpoints/*", "**.ipynb_checkpoints", figuren/*]
+exclude_patterns: [README.md, opmerkingen.md, ext/*,_build, Thumbs.db, .DS_Store, ".ipynb_checkpoints/*", "**.ipynb_checkpoints", figuren/*]

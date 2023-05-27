@@ -1,3 +1,4 @@
+(wanneer-is-iets-intelligent)=
 # Wanneer is iets intelligent?
 
 Wanneer is iemand eigenlijk slim of intelligent? Als je er lang genoeg over nadenkt, dan kom je erachter dat het antwoord niet zo eenvoudig is. Er zijn zo veel factoren die meespelen bij intelligentie. Denk bijvoorbeeld aan leervermogen, taalbegrip, logisch inzicht (dit wordt vaak getoetst bij intelligentietesten), sociaal vermogen, vermogen om te kunnen plannen en nog veel meer. Er lijkt niet echt een eenduidige definitie te zijn voor intelligentie. Of in andere woorden: iedereen geeft zijn/haar eigen betekenis aan dit begrip.
