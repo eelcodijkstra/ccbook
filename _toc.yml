@@ -1,0 +1,52 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: materiaal
+
+parts:
+- caption: Materiaal
+  numbered: True
+  chapters:
+  - file: achtergrond/achtergrond
+    sections:
+    - file: achtergrond/introductie
+    - file: achtergrond/geschiedenis
+    - file: achtergrond/intelligentie
+    - file: achtergrond/in-de-praktijk
+    - file: achtergrond/terugkoppeling
+  - file: ethiek
+    sections:
+    - file: ethiek/gevaren
+    - file: ethiek/fast-principes
+    - file: ethiek/fair-data
+    - file: ethiek/terugkoppeling
+- caption: Verdieping
+  numbered: True
+  chapters:
+  - file: ethiek-en-ai/ethiek-en-ai
+    sections:
+    - file: ethiek-en-ai/fast-and-fair
+    - file: ethiek-en-ai/fast-principes
+    - file: ethiek-en-ai/fair-data
+    - file: ethiek-en-ai/terugkoppeling
+  - file: neurale-netwerken/neurale-netwerken
+    sections:
+    - file: neurale-netwerken/hoe-leert-neuraal-netwerk
+    - file: neurale-netwerken/naar-meer-lagen
+  - file: neurale-netwerken/tensorflow-app
+    sections:
+    - file: neurale-netwerken/fase-1
+    - file: neurale-netwerken/fase-2
+    - file: neurale-netwerken/fase-3
+    - file: neurale-netwerken/fase-4
+- caption: Appendices
+  numbered: False
+  chapters:
+  - file: over-ons
+  - file: verantwoording
+  - file: colofon
+  
+    
+    
+
