@@ -1,0 +1,641 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="nl" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>5.1. Fase 1: Maak een eerste app &#8212; Cognitive computing</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/assessment.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/assessment.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'neurale-netwerken/fase-1';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Zoeken" href="../search.html" />
+    <link rel="next" title="5.2. Fase 2: Optimaliseren Neuraal Netwerk" href="fase-2.html" />
+    <link rel="prev" title="5. N.3 Tensorflow app" href="tensorflow-app.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="nl"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../materiaal.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../materiaal.html">
+                    Introductie
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Materiaal</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../achtergrond/achtergrond.html">1. Achtergrond</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../achtergrond/introductie.html">1.1. Introductie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../achtergrond/geschiedenis.html">1.2. Geschiedenis en toekomst</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../achtergrond/intelligentie.html">1.3. Wanneer is iets intelligent?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../achtergrond/in-de-praktijk.html">1.4. In de praktijk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../achtergrond/terugkoppeling.html">1.5. Terugkoppeling</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ethiek.html">2. Ethiek</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek/gevaren.html">2.1. Gevaren van kunstmatige intelligentie</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../ethiek/fast-principes.html">2.4. 2.2. De FAST-principes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek/fair-data.html">2.5. 2.3. FAIR data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek/terugkoppeling.html">2.6. 2.4. Terugkoppeling</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Verdieping</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ethiek-en-ai/ethiek-en-ai.html">3. E. Ethiek en AI</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek-en-ai/fast-and-fair.html">3.1. E.1. FAST &amp; FAIR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek-en-ai/fast-principes.html">3.2. 2.2. De FAST-principes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek-en-ai/fair-data.html">3.3. 2.3. FAIR data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek-en-ai/terugkoppeling.html">3.4. 2.4. Terugkoppeling</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="neurale-netwerken.html">4. N. Neurale netwerken</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="hoe-leert-neuraal-netwerk.html">4.1. N.1. Hoe leert een neuraal netwerk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="naar-meer-lagen.html">4.2. N.2. Op weg naar meer lagen</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="tensorflow-app.html">5. N.3 Tensorflow app</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.1. Fase 1: Maak een eerste app</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fase-2.html">5.2. Fase 2: Optimaliseren Neuraal Netwerk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fase-3.html">5.3. Fase 3: Andere dataset gebruiken</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fase-4.html">5.4. Fase 4: Eigen dataset gebruiken</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../over-ons.html">Over ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../colofon.html">Colofon</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/keuzethemas/ccbook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Bronopslagplaats"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/keuzethemas/ccbook/issues/new?title=Issue%20on%20page%20%2Fneurale-netwerken/fase-1.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open een probleem"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download deze pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/neurale-netwerken/fase-1.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download het bronbestand"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Afdrukken naar pdf"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Volledig scherm"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Fase 1: Maak een eerste app</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhoud </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maak-een-neuraal-netwerk-dat-bepaalde-bloemen-herkent">5.1.1. Maak een neuraal netwerk dat bepaalde bloemen herkent</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maak-een-agent-app-die-dit-neurale-netwerk-gebruikt">5.1.2. Maak een agent (= app) die dit neurale netwerk gebruikt</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zet-de-app-op-een-android-telefoon">5.1.3. Zet de App op een Android telefoon</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-de-app">5.1.4. Test de App</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="fase-1-maak-een-eerste-app">
+<h1><span class="section-number">5.1. </span>Fase 1: Maak een eerste app<a class="headerlink" href="#fase-1-maak-een-eerste-app" title="Permalink naar deze titel">#</a></h1>
+<p>We gaan een eerste App voor een Android telefoon maken waarmee je bepaalde bloemen kunt herkennen met je camera zoals je hiernaast ziet: Je richt je camera op een bloem en de app reageert door onder in het scherm te vertellen wat de meest passende bloemsoort is.</p>
+<aside>
+🛠 We nemen daartoe de volgende stappen:
+</aside>
+<p><img alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e821f581-ecc5-455b-b5a5-591fc17ddb12/Untitled.png" src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e821f581-ecc5-455b-b5a5-591fc17ddb12/Untitled.png" /></p>
+<section id="maak-een-neuraal-netwerk-dat-bepaalde-bloemen-herkent">
+<h2><span class="section-number">5.1.1. </span>Maak een neuraal netwerk dat bepaalde bloemen herkent<a class="headerlink" href="#maak-een-neuraal-netwerk-dat-bepaalde-bloemen-herkent" title="Permalink naar deze titel">#</a></h2>
+<ul class="simple">
+<li><p>Maak eerst een Google Account aan als je dit nog niet hebt en meld je aan voor Google Drive (<a class="reference external" href="https://drive.google.com/">https://drive.google.com/</a>)</p></li>
+<li><p>Volg <a class="reference external" href="https://github.com/SLO-AI/tensorflow/blob/main/model_maker_image_classification.ipynb">deze link</a> naar de Google Colab tutorial voor het classificeren van beelden, die is aangepast door Daniël Haitink zodat het netwerk kan worden getoond.</p></li>
+<li><p>Of volg <a class="reference external" href="https://www.tensorflow.org/lite/tutorials/model_maker_image_classification">deze link</a> naar de Google Colab tutorial voor het classificeren van beelden.</p></li>
+<li><p>Klik op: <strong>Run in Google Colab</strong></p></li>
+<li><p>Er komt een tabblad in je browser bij “Model Maker Image Classification”. Zorg dat dat tabblad geopend is.</p></li>
+</ul>
+<p>Je bent nu in een notebook. In een notebook heb je bepaalde gedeeltes die je cellen noemt. In deze cellen staat code in de taal python die je op de je op de server kunt laten uitvoeren. Bij de cellen met code die je kunt laten uitvoeren staat links boven []. Als je hier boven gaat staan krijg je een pijltje en als je op het pijltje klikt wordt de code in de cel uitgevoerd. Meestal moet je alle cellen   van een notebook van boven naar beneden uitvoeren om een totaal programma uit te voeren.</p>
+<ul class="simple">
+<li><p>Het huidige notebook kun je niet opslaan. Zorg eerst dat je met de knop een eigen kopie maakt en ga naar het nieuwe tabblad</p></li>
+</ul>
+<p><img alt="Save_to_drive.jpg" src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/72f83f41-239c-4887-810b-e150e995f32d/Save_to_drive.jpg" /></p>
+<ul>
+<li><p>Voer de eerste cel die met <strong>!pip</strong> begint uit. Hiermee installeer je de <strong>tensorflow lite library waarin  door Google ontwikkelde AI gereedschappen aanwezig zijn</strong>.</p></li>
+<li><p>Voer de tweede cel die met <strong>import os</strong> begint uit. Hiermee haal je onder andere een aantal onderdelen uit de tensor bibliotheken op, die later gebruikt worden. Vooral de regel “<strong>from tflite_model_maker import image_classifier</strong>” is belangrijk voor dit project. <strong>image_clasifier is een voorgebakken AI module om beelden te kunnen classificeren</strong>.</p></li>
+<li><p>Zorg dat je het driehoekje bij <strong>“Simple End-to_End Example”</strong> naar beneden laat wijzen zodat <strong>“Get the data path”</strong> zichtbaar wordt.</p>
+<p><img alt="expand_input_3.jpg" src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1ee04604-c170-4eef-acc0-609813d5e3da/expand_input_3.jpg" /></p>
+</li>
+<li><p>Voer de derde cel die met <strong>image_path</strong> begint uit. <strong>Hiermee geef je aan op basis van welke gegevens het neurale netwerk getraind moet worden</strong>. Scroll in het notebook even naar beneden naar Step1 (flower_photos) om te zien wat de structuur is van de gegevens.</p>
+<p><img alt="view_step_1.jpg" src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4e910e3d-e5ce-4652-925c-c3b63cfdf9b3/view_step_1.jpg" /></p>
+<p>Je hebt dus een aantal mappen met de naam van een bloem en in elke map een aantal plaatjes van deze bloem. Er zijn per bloem best veel plaatjes, wel zo’n 5000 per bloem. Scroll weer naar boven zodat je de derde cel weer ziet.</p>
+</li>
+<li><p>Ga terug naar <strong>“Run the example”</strong> en voer de cel onder “<strong>Step 1”</strong>  die met <strong>data</strong> begint uit. Hier geef je aan dat de gegevens in twee groepen moeten worden gesplitst. Een groep met de naam <strong>train_data</strong> om te trainen en een groep met de naam <strong>test_data</strong> om te testen. 90% van de gegevens wordt voor testen gebruikte en 10% voor trainen.</p></li>
+<li><p>Voer de cel onder <strong>“Step 2. Customize the TensorFlow model”</strong> uit die met <strong>model</strong> begint uit. In deze stap wordt het model gemaakt en tegelijkertijd getraind, dit duurt een tijdje. Na afloop zie je hoeveel parameters het neurale netwerk heeft en hoeveel daarvan te trainen waren. Hoeveel zijn dit er?</p></li>
+<li><p>Hoe ziet het netwerk er dan uit?
+Druk op “+ Code” en voer in de nieuwe cel onderstaande code in en voer de cel uit. Je krijgt dan een plaatje met de verschillende lagen te zien.</p></li>
+</ul>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span>tf.keras.utils.plot_model(model.model,to_file=&#39;pic.png&#39;,show_shapes=True)
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Voer de cel onder <strong>“Step 3. Evaluate the model”</strong> die met <strong>loss</strong> begint uit. In deze stap wordt gekeken hoe accuraat het model is.</p></li>
+</ul>
+<p>Nu heb je een neuraal netwerk getraind en wordt het tijd een agent (ofwel een app)  rond dit netwerk te bouwen.</p>
+<ul>
+<li><p>Voer de cel onder <strong>“Step 4. Export to TensorFlow Lite model” uit</strong> cel die met <strong>model.export</strong> begint. Hiermee exporteer je het model, dat we straks in onze app kunnen inlezen. Dit duurt weer een tijdje.</p></li>
+<li><p>Je ziet onderstaand scherm  (zonder rode omcirkeling) met aan de linkerkant van de uitgevoerde cel een aantal knopjes. Klik op het rood omcirkelde <strong>mapje.</strong></p>
+<p><img alt="After_model_export.jpg" src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2d52dd9c-89d9-4588-8411-724c8459a6cd/After_model_export.jpg" /></p>
+<p>Je krijgt dan links het volgende te zien als je met  je rechter muis knop op <strong>model.tflite</strong> klikt.</p>
+<p><img alt="Download_tflite.jpg" src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/93020aa6-0a75-42ee-99f1-aa7af9960795/Download_tflite.jpg" /></p>
+</li>
+<li><p>Selecteer vervolgens <strong>Downloaden</strong>. Het model <strong>model.tflite</strong> staat daarna in de <strong>Download map</strong> van je PC of laptop.</p></li>
+</ul>
+</section>
+<section id="maak-een-agent-app-die-dit-neurale-netwerk-gebruikt">
+<h2><span class="section-number">5.1.2. </span>Maak een agent (= app) die dit neurale netwerk gebruikt<a class="headerlink" href="#maak-een-agent-app-die-dit-neurale-netwerk-gebruikt" title="Permalink naar deze titel">#</a></h2>
+<ul>
+<li><p>Installeer zo nodig Android Studio (<a class="reference external" href="https://developer.android.com/studio">https://developer.android.com/studio</a>)</p></li>
+<li><p>Download het volgende bestand en pak dit uit.</p>
+<p><a class="reference external" href="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/09fea157-d5a0-438b-aa71-aca6b60cb8ab/TFLClassify.zip">TFLClassify.zip</a></p>
+</li>
+<li><p>Kopieer <strong>model.tflite</strong> uit je Downloads map naar de map <strong>TFLClassify</strong> en verander van de kopie de naam in <strong>FlowerModel.tflite</strong>.</p></li>
+<li><p>Start Android Studio</p></li>
+<li><p>Selecteer  Open</p></li>
+<li><p>Ga naar de map <strong>TFLClassify</strong> en selecteer deze**.**</p></li>
+<li><p>Laat alle Updates uitvoeren (Duurt een tijdje)</p></li>
+<li><p>Selecteer <strong>finish</strong> links boven in het linker venster.</p></li>
+<li><p>Selecteer met je rechter muisknop <strong>New &gt; Other &gt; TensorFlow Lite Model</strong>.</p></li>
+<li><p>Selecteer het mapje aan de rechterkant van Model location en ga naar de map <strong>TFLClassify</strong>.</p></li>
+<li><p>Selecteer <strong>FlowerModel.tflite</strong> en daarna OK en Finish.</p></li>
+</ul>
+<p>Als het goed gegaan is zie je een tab voor dit bestand met de volgende informatie:</p>
+<p><img alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/61497d6e-19cf-4467-a0c5-a05a3495dbc7/Untitled.png" src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/61497d6e-19cf-4467-a0c5-a05a3495dbc7/Untitled.png" /></p>
+<ul class="simple">
+<li><p>Zorg dat er naast het hamertje aan de bovenkant finish geselecteerd is. Dit ziet er zo uit:</p></li>
+</ul>
+<p><img alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0efa3b1e-a0b5-4543-9d30-4cdc2f958879/Untitled.png" src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0efa3b1e-a0b5-4543-9d30-4cdc2f958879/Untitled.png" /></p>
+<ul class="simple">
+<li><p>Druk op het hamertje om de App te maken. Onderin het scherm zie je <strong>“Gradle build running”</strong>. Je kunt op Event log rechts onder klikken als je wilt zien wat er tijdens het maken gebeurt. Duurt een paar minuten</p></li>
+</ul>
+</section>
+<section id="zet-de-app-op-een-android-telefoon">
+<h2><span class="section-number">5.1.3. </span>Zet de App op een Android telefoon<a class="headerlink" href="#zet-de-app-op-een-android-telefoon" title="Permalink naar deze titel">#</a></h2>
+<ul class="simple">
+<li><p>Zet op je Android telefoon de Developer options en USB debugging aan volgens deze instructie: <a class="reference external" href="https://developer.android.com/studio/debug/dev-options.html#enable">https://developer.android.com/studio/debug/dev-options.html#enable</a></p></li>
+<li><p>(<strong>Let op:</strong> Je moet eerst de de Developer options en USB debugging  op je Android telefoon aanzetten en daarna pas de Android telefoon verbinden met he USB - mini USB kabeltje)</p></li>
+<li><p>Verbind je Android telefoon met het USB - USB mini kabeltje met je PC of laptop.</p></li>
+<li><p>Als dit goed gaat zie je het device verschijnen. Dit ziet er ongeveer zo uit:</p></li>
+</ul>
+<p><img alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/171c0b81-b833-4133-952a-41c555749155/Untitled.png" src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/171c0b81-b833-4133-952a-41c555749155/Untitled.png" /></p>
+<ul class="simple">
+<li><p>Druk op het pijltje rechts om de App op je Android telefoon te installen. Geef op je Android telefoon toestemming.</p></li>
+</ul>
+<p>Daarna moet je een tijd wachten.  Tenslotte zie je op je Android telefoon een App als de volgende:</p>
+<p><img alt="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e821f581-ecc5-455b-b5a5-591fc17ddb12/Untitled.png" src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e821f581-ecc5-455b-b5a5-591fc17ddb12/Untitled.png" /></p>
+</section>
+<section id="test-de-app">
+<h2><span class="section-number">5.1.4. </span>Test de App<a class="headerlink" href="#test-de-app" title="Permalink naar deze titel">#</a></h2>
+<p>Je kunt de App testen door plaatjes van bijv. zonnebloemen op het internet te zoeken en kijken of deze als zonnebloemen herkend worden als je met de camera van je Android telefoon naar het plaatje kijkt. Doe dit ook voor wat andere bloemen waarvoor het neurale netwerk getraind is.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./neurale-netwerken"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="tensorflow-app.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">vorige</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>N.3 Tensorflow app</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="fase-2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">volgende</p>
+        <p class="prev-next-title"><span class="section-number">5.2. </span>Fase 2: Optimaliseren Neuraal Netwerk</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhoud
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maak-een-neuraal-netwerk-dat-bepaalde-bloemen-herkent">5.1.1. Maak een neuraal netwerk dat bepaalde bloemen herkent</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maak-een-agent-app-die-dit-neurale-netwerk-gebruikt">5.1.2. Maak een agent (= app) die dit neurale netwerk gebruikt</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zet-de-app-op-een-android-telefoon">5.1.3. Zet de App op een Android telefoon</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-de-app">5.1.4. Test de App</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Door cc-team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright SLO 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
