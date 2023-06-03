@@ -1,12 +1,9 @@
+(geschiedenis-en-toekomst)=
 # Geschiedenis en toekomst
 
 De studie naar kunstmatige intelligentie is ouder dan je misschien zou denken. Eigenlijk is er vanaf de komst van de eerste computer al gewerkt aan denkende machines. De studie naar KI is dus vrijwel net zo oud als de studie naar informatica. Opvallend is dat men in het begin torenhoge verwachtingen had. Zo zijn er verschillende wetenschappers geweest die beweerden dat computers al voor het jaar 2000 net zo slim of slimmer zouden zijn dan mensen. De ontwikkelingen in het vak zijn echter tegen het einde van de vorige eeuw een andere richting ingeslagen. De nieuwste ontwikkelingen richtten zich meer op toepassingen dan op het creëren van intelligentie zelf.
 
 We hebben een deel van de geschiedenis van kunstmatige intelligentie in kaart gebracht in onderstaande tijdlijn. Het bevat alleen de belangrijkste ontwikkelingen, uiteraard kunnen we de lijn nog uitgebreider maken! Het is ook moeilijk om te bepalen waar kunstmatige intelligentie echt is begonnen.
-
-[src sheets link: [https://docs.google.com/spreadsheets/d/19XLd2jUhwf4NNwlfKtrmf8QdN64I2LRuH_yT8Gb3SsA/edit?usp=sharing](https://docs.google.com/spreadsheets/d/19XLd2jUhwf4NNwlfKtrmf8QdN64I2LRuH_yT8Gb3SsA/edit?usp=sharing)](https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=19XLd2jUhwf4NNwlfKtrmf8QdN64I2LRuH_yT8Gb3SsA&font=Default&lang=nl&initial_zoom=2&height=650)
-
-src sheets link: [https://docs.google.com/spreadsheets/d/19XLd2jUhwf4NNwlfKtrmf8QdN64I2LRuH_yT8Gb3SsA/edit?usp=sharing](https://docs.google.com/spreadsheets/d/19XLd2jUhwf4NNwlfKtrmf8QdN64I2LRuH_yT8Gb3SsA/edit?usp=sharing)
 
 <iframe src="https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=19XLd2jUhwf4NNwlfKtrmf8QdN64I2LRuH_yT8Gb3SsA&font=Default&lang=nl&initial_zoom=2&height=650" width="100%" height="650" style="border:none;">
 </iframe>

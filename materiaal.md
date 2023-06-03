@@ -6,7 +6,12 @@ In deze module willen we je graag verbazen met techniek, succes en ongemak rond 
 
 Hoeveel heb je nodig om iets te herkennen? Misschien ken je het spel *Pictionary*. In dit spel moet je een tekening maken bij een woord en je teamgenoot moet dit woord dan raden. Speel het spel hieronder en laat je verbazen hoe goed AI als teamgenoot in dit spel is.
 
-[Quick, Draw!](https://quickdraw.withgoogle.com)
+:::{figure} figs/quick-draw-google.png
+:width: 400
+
+Link naar het spel: [Quick, Draw!](https://quickdraw.withgoogle.com)
+
+:::
 
 Geweldig toch? Misschien heb je nu dezelfde vragen als wij hadden:
 
@@ -22,7 +27,7 @@ In deze cursus kun je na een algemeen deel een pad kiezen waarin je je kunt verd
 
 Er zijn vele terreinen waar kunstmatige intelligentie een groot succes is, waaronder de gezondheidszorg. Het diagnosticeren van ziekten of aandoeningen aan de hand van beeldmateriaal is niet altijd even makkelijk, voor zowel mens als machine. Het bundelen van menselijke intelligentie en kunstmatige intelligentie leidt in veel gevallen tot succes. Het volgende filmpje is een voorbeeld hiervan (Tip: je kunt via de instellingen onderin de ondertiteling laten vertalen naar het Nederlands.)
 
-[https://www.youtube.com/embed/Mur70YjInmI?cc_load_policy=1](https://www.youtube.com/embed/Mur70YjInmI?cc_load_policy=1)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Mur70YjInmI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 In het filmpje zie je dat de radiologen trainingsdata moeten vormgeven. In het Quickdraw voorbeeld zijn er 50 miljoen tekeningen gebruikt met weinig tot geen overbodige informatie. In de video zag je beelden voorbij komen met veel meer informatie, maar slechts een klein deel van deze informatie was ook daadwerkelijk nuttig. Bij het zien van het filmpje, kwamen bij ons gelijk een paar vragen naar boven. Hopelijk bij jou ook.
 
@@ -39,7 +44,7 @@ In deze cursus kun je na het algemene deel een pad kiezen waar je meer gaat nade
 
 Bekijk de onderstaande video van *The Economist* over controle met behulp van KI.
 
-[https://www.youtube.com/embed/lH2gMNrUuEY?cc_load_policy=1](https://www.youtube.com/embed/lH2gMNrUuEY?cc_load_policy=1)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/lH2gMNrUuEY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 Hmm..., ook hier komen bij ons vragen naar boven:
 
