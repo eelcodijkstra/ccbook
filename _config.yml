@@ -34,8 +34,7 @@ html:
   
 sphinx:
   extra_extensions:
-    - sphinx_exercise
-    - sphinx_assessment
+
 #  local_extensions:
 #    sphinx_progress: ./ext/sphinx-progress
   config:

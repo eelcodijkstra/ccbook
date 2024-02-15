@@ -1,5 +1,10 @@
 # N.3 Tensorflow app
 
+:::{image} figs/tensorflow-zonnebloem.png
+:width: 300
+:align: right
+:::
+
 Dit hoofdstuk is een praktische opdracht waarin je in ongeveer 9 lessen een Android app gaat bouwen waarmee je als gebruiker van de app bepaalde beelden (van bijv. bloemen) die men via de camera ziet, kunt categoriseren (en dus bepaalde bloemen kunt herkennen). Je doorloopt het hele proces van het ontwikkelen van een dergelijke app. We hopen dat je daar veel plezier aan beleeft.
 
 Voor de herkenning van beelden gebruiken we de AI tools van Google: Google Colab ([https://colab.research.google.com/](https://colab.research.google.com/)). De app bouw je met Android Studio ([https://developer.android.com/studio](https://developer.android.com/studio)). 
@@ -10,11 +15,11 @@ Voorwaarden om deze opdracht uit te kunnen voeren zijn:
 - Een Android telefoon
 - De mogelijkheid om Android studio op een computer te installeren.
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e821f581-ecc5-455b-b5a5-591fc17ddb12/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e821f581-ecc5-455b-b5a5-591fc17ddb12/Untitled.png)
+
 
 De opdracht is in verschillende fasen opgebouwd:
 
-[Docentenhandleiding](https://www.notion.so/Docentenhandleiding-6f3f75d1bb2c45f7ac2a70f3dff3d554)
+* [Docentenhandleiding](docentenhandleiding.md)
 
 [Fase 1: Maak een eerste app](https://www.notion.so/Fase-1-Maak-een-eerste-app-c1cc8e2a95ee4958a9b1ce3e31542bf9)
 

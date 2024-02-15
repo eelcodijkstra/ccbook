@@ -6,7 +6,7 @@ root: materiaal
 
 parts:
 - caption: Materiaal
-  numbered: True
+  numbered: 3
   chapters:
   - file: achtergrond/achtergrond
     sections:
@@ -21,8 +21,19 @@ parts:
     - file: ethiek/fast-principes
     - file: ethiek/fair-data
     - file: ethiek/terugkoppeling
+  - file: technieken
+    sections:
+    - file: technieken/introductie
+    - file: technieken/machine-learning
+    - file: technieken/associatie-analyse
+    - file: technieken/cluster-analyse
+    - file: technieken/neurale-netwerken
+    - file: technieken/eigen-quickdraw
+    - file: technieken/multi-agentsystemen
+    - file: technieken/terugkoppeling    
+
 - caption: Verdieping
-  numbered: True
+  numbered: 3
   chapters:
   - file: ethiek-en-ai/ethiek-en-ai
     sections:
@@ -36,6 +47,7 @@ parts:
     - file: neurale-netwerken/naar-meer-lagen
   - file: neurale-netwerken/tensorflow-app
     sections:
+    - file: neurale-netwerken/docentenhandleiding
     - file: neurale-netwerken/fase-1
     - file: neurale-netwerken/fase-2
     - file: neurale-netwerken/fase-3
@@ -46,6 +58,8 @@ parts:
   - file: over-ons
   - file: verantwoording
   - file: colofon
+  - file: achtergrond/robotica
+  - file: appendix/verzamelingen
   
     
     

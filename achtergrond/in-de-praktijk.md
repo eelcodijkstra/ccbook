@@ -98,7 +98,7 @@ Deepfakes zijn sinds de laatste jaren steeds populairder en makkelijker om te ma
 :::
 :::{grid-item}
 
-<iframe width="300" height="169" src="https://www.youtube.com/embed/gNYkspmq5e0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="300" height="169" src="https://www.youtube.com/embed/IvY-Abd2FfM?si=WYKiZwbEn7S0b592" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 :::
 ::::
@@ -121,7 +121,23 @@ De onderzoekers van OpenAI hebben [GANs](https://openai.com/blog/jukebox/) gebru
 
 ![Pop, in the style of Rick Astley - Jukebox by OpenAI](https://soundcloud.com/openai_audio/jukebox-914891098)
 
+[Pop, in the style of Rick Astley - Jukebox by OpenAI](https://soundcloud.com/openai_audio/jukebox-914891098)
+
 ![All Star, but an AI continues the song [OpenAI Jukebox]](https://www.youtube.com/watch?v=8sFXsP71wfA)
+
+::::{grid} 1 1 2 2
+
+:::{grid-item-card}
+:link: https://soundcloud.com/openai_audio/jukebox-914891098
+Pop, in the style of Rick Astley - Jukebox by OpenAI
+:::
+
+:::{grid-item-card}
+:link: https://www.youtube.com/watch?v=8sFXsP71wfA
+All Star, but an AI continues the song [OpenAI Jukebox]
+:::
+
+::::
 
 :::{admonition} 🛠 Opdracht
 
