@@ -42,7 +42,8 @@ De meest logische indeling is om s1 en s4 in groep A te stoppen en s2,s3 en s5 i
 
 In het voorbeeld was het niet zo moeilijk om te bepalen welke clusters je het best kon maken. Maar wat nu als er veel meer studenten zijn en/of veel meer eigenschappen zijn waar je rekening mee wilt houden?
 
-**Clusteranalyse** is het classificeren of het groeperen in 'clusters' of 'klassen' van *objecten* op grond van hun *kenmerken* zonder vooraf de clusters vast te leggen. De gebruikte algoritmen bepalen wel de weg om tot clusters te komen, maar de gegevens bepalen welke clusters het worden. Deze algoritmen zijn, net als de algoritmen uit de associatie analyse, vormen van **unsupervised learning** (= ongestuurd leren). Het belangrijkste AI-kenmerk is ook hier: **de invoer die het programma krijgt, is niet volledig te bepalen en is complex.**
+**Clusteranalyse** is het classificeren of het groeperen in 'clusters' of 'klassen' van *objecten* op grond van hun *kenmerken* zonder vooraf de clusters vast te leggen. De gebruikte algoritmen bepalen wel de weg om tot clusters te komen, maar de gegevens bepalen welke clusters het worden. Deze algoritmen zijn, net als de algoritmen uit de 
+associatie-analyse, vormen van **unsupervised learning** (= ongestuurd leren). Het belangrijkste AI-kenmerk is ook hier: **de invoer die het programma krijgt, is niet volledig te bepalen en is complex.**
 
 ::::{admonition} Vraag
 
@@ -75,7 +76,7 @@ Deze leerling past het best in groep A.
 
 ::::
 
-Voor we één algoritme ($K$-means-clustering) meer in detail uitwerken en jullie laten kennismaken met alternatieven geven we eerst een aantal voorbeelden van terreinen waarin clusteranalyse wordt toegepast. Meer voorbeelden zijn onder andere hier en hier te vinden.
+Voor we één algoritme ($K$-means-clustering) meer in detail uitwerken en jullie laten kennismaken met alternatieven geven we eerst een aantal voorbeelden van terreinen waarin clusteranalyse wordt toegepast. Meer voorbeelden zijn onder andere [hier](https://datafloq.com/read/7-innovative-uses-of-clustering-algorithms/) en [hier](https://www.analytixlabs.co.in/blog/types-of-clustering-algorithms/#sub4) te vinden.
 
 ## Toepassingen
 
@@ -121,8 +122,6 @@ Er is een as voor verstaan en een as voor lezen.
 :width: 400
 :align: center
 :::
-
-![clust_analyse.svg](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/93c86331-fe10-497d-8a84-2016eac7fa01/clust_analyse.svg)
 
 **Vraag:** Wat is de afstand tussen $s_{1}$ en $s_{4}$?
 
@@ -244,7 +243,7 @@ D & 5.10 & 3.00 & 1.41 & 0.00
 \end{array}
 $$
 
-Horizontaal en verticaal staan de punten, op het kruispunt de afstand. Op de diagonaal staan natuurlijk nullen (van A naar A is ...) en de tabel is gespiegeld.
+Horizontaal en verticaal staan de punten, op het kruispunt de afstand. Op de diagonaal staan natuurlijk nullen (van A naar A is ...) en de tabel is symmetrisch om de diagonaal.
 
 </aside>
 
@@ -369,19 +368,34 @@ M= \left( \frac{0 + 7 + 4 +3 }{4},\frac{0+8+8+0}{4}\right)=( 3\frac{1 }{2},4)
 $$
 :::
 
-## Clustermethoden
+## $K$-means-clustering
 
-Er zijn verschillende methoden die gebruikt worden om tot clusters te komen. We presenteren hier K-means-clustering. In figuur 4 zie je een animatie van de werking, waarbij de data stap voor stap in drie groepen wordt verdeeld. De kleuren geven de clusters aan en de kruisjes die je ziet bewegen zijn de centra van de clusters.
+:::{Figure} figs/clusters-k-means-animatie.gif
+:width: 400
+:align: right
 
-### $K$-means-clustering
+Animatie van k-means clustering
+:::
+
+Er zijn verschillende methoden die gebruikt worden om tot clusters te komen. We presenteren hier K-means-clustering. In figuur 4 zie je een animatie van de werking, waarbij de data stap voor stap in drie groepen wordt verdeeld. De kleuren geven de clusters aan en de kruisjes die je ziet bewegen zijn de centra van de clusters. 
 
 K-means clustering is een eenvoudige en relatief snelle iteratieve manier van clusteren. Het is het oudste en meest bekende clusteralgoritme. Later zijn er veel varianten van deze methode ontwikkeld die het clusteren weer net wat sneller, slimmer aanpakken. Het gaat te ver om die hier te bekijken.
 
-Voorafgaande aan het clusteren wordt bepaald hoeveel clusters ( b.v. k=3 ) je wilt krijgen. De clustering (training) op basis van de gegevens levert dan die clusters die worden samengevat door de bijbehorende centra. Het algoritme meet veel afstanden, we passen het daarom toe op punten in het platte vlak, zodat je met pen, papier en liniaal eenvoudig het algoritme na kan spelen.
+Je bepaalt vooraf hoeveel clusters je wilt krijgen, bijvoorbeeld $k=3$. De clustering (training) op basis van de gegevens levert dan die clusters die worden samengevat door de bijbehorende centra. 
 
-In figuur 5 staat de flowchart van het algoritme dat we hieronder in meer detail beschouwen.
+> Het algoritme meet veel afstanden, we passen het daarom toe op punten in het platte vlak, zodat je met pen, papier en liniaal eenvoudig het algoritme na kan spelen.
+>
 
-Om de optimale clustering te vinden ga je als volgt te werk:
+:::{Figure} figs/clusters-k-means-flowchart.svg
+:width: 400
+:align: right
+
+K-means clustering algoritme
+:::
+
+In figuur 5 staat het stroomdiagram van het algoritme dat we hieronder in meer detail beschouwen.
+
+Om de optimale(???) clustering te vinden ga je als volgt te werk:
 
 1. Start: Kies de centra van de clusters de eerste keer willekeurig en bepaal het maximaal aantal stappen dat je toestaat.
 
@@ -401,23 +415,6 @@ $n$ is dan het aantal elementen in één cluster.
 Met die nieuwe centra veranderen ook weer de afstanden van de datapunten tot die centra en moet je dus het hele proces vanaf stap 2 weer herhalen, ofwel start de volgende iteratie.
 
 Leuk zo'n verhaal maar voorbeelden maken het inzichtelijker.
-
-<aside>
-👓 **Voorbeeld E**
-
-Gegeven zijn de volgende vier objecten:
-
-$$
-\begin{array}{l|ll}
-      & x & y \\ \hline
-A_{1} & 2 & 2 \\
-A_{2} & 4 & 2 \\
-A_{3} & 6 & 1 \\
-A_{4} & 8 & 2
-\end{array}
-$$
-
-We bepalen vooraf dat we twee clusters willen, dus $k=2$. Bepaal met het $K$-means algoritme een geschikte clustering. Als afstandsmaat gebruik je de normale (Euclidische) afstand.
 
 :::{admonition} 👓 **Voorbeeld E**
 
@@ -529,7 +526,7 @@ We bepalen vooraf dat we twee clusters willen, dus $k=2$. Bepaal een juiste clus
 
 Kies twee willekeurig centra. $M_{1}=(2,2)$ en $M_{2}=(3,0)$
 
-### Iteratie 1
+**Iteratie 1**
 
 1. De afstandsmatrix wordt:
 
@@ -555,15 +552,885 @@ $$
 De nieuwe centra zijn: 
 
 $$
-\footnotesize \begin{array}{lclcl}M_{1}'&=&(\frac{0+3+0}{3},\frac{1+2+3}{3})&=&(1,2)\\ \\
+\begin{array}{lclcl}M_{1}'&=&(\frac{0+3+0}{3},\frac{1+2+3}{3})&=&(1,2)\\ \\
 M_{2}'&=&(\frac{3+4}{2},\frac{1+1}{2})&=&(3.5,1)
 \end{array}
 $$
 
 **Iteratie 2**
 
+1. De afstandsmatrix wordt:
+
+$$
+\begin{array}{l|ll|l}
+      & M_1  & M_2  & \mathrm{toewijzing}  \\ \hline
+A_{1} & 1.41 & 3.5 & C_1 \\
+A_{2} & 2.24 & 0.5 & C_2 \\
+A_{3} & 2 & 1.12 & C_2 \\
+A_{4} & 1.41 & 4.03 & C_1 \\
+A_{5} & 3.16 & 0.5 & C_2
+\end{array}
+$$
+
+2. De nieuwe clusters zijn:
+
+$$
+\begin{array}{lcl}C_{1}& =& \{A_{1},A_{4}\} \\
+C_{2} & = & \{A_{2},A_{3},A_{5}\}
+\end{array}
+$$
+
+3. De nieuwe centra zijn:
+
+$$
+\begin{array}{lclcl}M_{1}''&=&(\frac{0+0}{2},\frac{1+3}{2})&=&(0,2)\\ \\
+M_{2}''&=&(\frac{3+3+4}{3},\frac{1+2+1}{3})&=&(3.33,1.33)
+\end{array}
+$$
+
+In het plaatje na iteratie 2 zie je eenvoudig in dat een derde iteratie niet tot een verandering van clusters zal gaan leiden. De iteratie moet een computer wel uitvoeren. Maar jij als mens ziet dat in deze situatie in één oogopslag.  Dus de juiste clusters met bijbehorende centra zijn:
+
+$$
+\begin{array}{lcl}C_{1}& =& \{A_{1},A_{4}\} \\
+C_{2} & = & \{A_{2},A_{3},A_{5}\}
+\end{array}
+$$
+
+$$
+\begin{array}{lclcl}M_{1}&=&(0,2)\\ 
+M_{2}&=&(3.33,1.33)
+\end{array}
+$$
+
+Om te bepalen tot welk cluster het punt P=(1,1) behoort berekenen we de afstand van P tot M_1 en M_2. 
+
+$$
+\begin{array}{l|ll|l}
+      & M_1  & M_2  & \mathrm{toewijzing}  \\ \hline
+P & 1.41 & 2,4 & C_1 
+\end{array}
+$$
+
+P wordt ingedeeld bij het cluster behorende bij het dichtstbijzijnde centrum, $C_1$. 
+
 :::
 
+**Keuze van startpunten.** De keuze van de startpunten voor de centra is willekeurig, maar ze moeten wel een beetje in de buurt van de objecten liggen. Als een cluster leeg blijft kan het algoritme niet goed werken, het geeft zelfs een fout. Een simpele keuze is gewoon een paar punten uit de lijst van objecten te nemen.
+
+**Maximaal aantal iteraties.** Ten tweede is er het aantal iteraties. Bij grote puntenwolken kan het algoritme heel lang doorgaan, waarbij steeds minder punten van cluster wisselen. Er verandert dan op den duur weinig meer en je kunt net zo goed stoppen. Wat ook kan optreden is dat een object in een oneindige herhaling per iteratie van cluster wisselt. Om dergelijke problemen te voorkomen kun je een maximaal aantal iteraties opgeven.
+
+---
+
+:::::{admonition} Opdracht 1
+
+Gegeven is een dataset met 6 datapunten:
+
+$$
+\begin{array}{l|llll}
+      & x_1 & x_2 & x_3 & x_4 \\ \hline
+A_{1} & 6 & 3 & 4 & 5 \\
+A_{2} & 2 & 3 & 5 & 4 \\
+A_{3} & 5 & 4 & 6 & 3 \\
+A_{4} & 9 & 1 & 1 & 8 \\
+A_{5} & 8 & 2 & 0 & 9 \\
+A_{6} & 8 & 0 & 1 & 8
+\end{array}
+$$
+
+Als afstandsmaat gebruiken we de normale (Euclidische) afstand.
+
+(a) Bereken de Euclidische afstand van $A_{1}$ en $A_{2}$
+
+:::{dropdown} Antwoord
+$$
+\begin{array}{lcl}
+     d(A_{1},A_{2})&=&\sqrt{(6-2)^{2}+(3-3)^{2}+(4-5)^{2}+(5-4)^{2}}\\ &=&\sqrt{18}=3\sqrt{2}
+\end{array}
+$$
+:::
+ 
+(b) We clusteren deze gegevens in twee clusters:
+
+$$
+\begin{array}{lcl}C_{1}& =& \{A_{1},A_{2},A_{3}\} \\
+C_{2} & = & \{A_{4},A_{5},A_{6}\}
+\end{array}
+$$
+
+Vul de volgende afstandsmatrix in:
+
+$$
+\begin{array}{l|l|l|l|}
+      & A_3 & A_4 & A_5  \\ \hline
+A_{1} & & & \\ \hline
+A_{2} & & & \\ \hline
+A_{3} & & & \\ \hline
+\end{array}
+$$
+
+:::{dropdown} Antwoord
+
+$$
+\begin{array}{l|l|l|l}
+      & A_3 & A_4 & A_5  \\ \hline
+A_{1} & 5.57 & 6.08 & 5.57  \\ \hline
+A_{2} & 9.22 & 9.33 & 8.77 \\ \hline
+A_{3} & 8.66 & 9.22 & 8.66  \\
+\end{array}
+$$
+
+:::
+
+(c) Geef de afstand tussen de clusters $C_1$ en $C_2$
+
+:::{dropdown} Antwoord
+
+De afstand tussen  $C_1$ en $C_2$ is de kleinste afstand in de tabel dus: $d(C_{1},C_{2})=5.57$
+
+:::
+
+(d) Bereken de centra van de clusters  $C_1$ en  $C_1$ 
+
+:::{dropdown} Antwoord
+$$
+\begin{array}{l l l}
+C_{1} : & \mathrm{centrum} &  M_{1}=(4.33,3.33,5,4) \\
+					C_{2} : &  \mathrm{centrum} &M_{2}=(8.33,1,0.67,8.33)
+\end{array}
+$$
+:::
+
+:::::
+
+:::::{admonition} Opdracht 2
+
+Gegeven zijn de volgende vier objecten:
+
+$$
+\begin{array}{l|ll}
+      & x_{1} & x_{2} \\ \hline
+O_{1} & 2 & 2 \\
+O_{2} & 8 & 6 \\
+O_{3} & 6 & 8 \\
+O_{4} & 2 & 4
+\end{array}
+$$
+
+Als afstandsmaat gebruiken we de normale (Euclidische) afstand. We willen deze gegevens clusteren in twee clusters (k=2), met behulp van het K-means algoritme. Start met de clusters:
+
+$$
+\begin{array}{lcl}C_{1}& =& \{O_{1},O_{3}\} \\
+C_{2} & = & \{O_{2},O_{4}\}
+\end{array}
+$$
+
+(a) Bereken het centrum $M_1$ van $C_1$ en het centrum $M_2$ van $C_2$.
+
+:::{dropdown} Antwoord
+$$
+\begin{array}{l l l}
+C_{1} : & \mathrm{centrum} &  M_{1}=(4,5) \\
+					C_{2} : &  \mathrm{centrum} &M_{2}=(5,5)
+\end{array}
+$$
+
+:::
+
+(b) Maak een tekening van de situatie en vul de volgende afstandsmatrix in en bereken daarmee de afstand tussen clusters $C_1$ en $C_2$ :
+
+$$
+\begin{array}{l|l|l|}
+      & O_2 & O_4   \\ \hline
+O_{1} &  &  \\ \hline
+O_{3} &  &  \\ \hline
+\end{array}
+$$
+
+:::{dropdown} Antwoord
+
+$$
+\begin{array}{l|l|l|}
+      & O_2 & O_4   \\ \hline
+O_{1} & 7.21 & 2 \\ \hline
+O_{3} & 2.83 &  5.7 \\ \hline
+\end{array}
+$$
+
+:::
+
+Dus de afstand $d(C_{1},C_{2})=2$
+
+(c) Bereken de afstanden tot de centra $M_1$  en $M_2$  en vul de volgende tabel in:
+
+$$
+\begin{array}{l|ll|l}
+      & M_1  & M_2  & \mathrm{toewijzing}  \\ \hline
+O_{1} &  &  &  \\
+O_{2} &  &  &  \\
+O_{3} &  &  &  \\
+O_{4} &  &  &  
+\end{array}
+$$
+
+:::{dropdown} Antwoord
+$$
+\begin{array}{l|ll|l}
+      & M_1  & M_2  & \mathrm{toewijzing}  \\ \hline
+O_{1} & 3.6 & 4.2 & C_{1} \\
+O_{2} & 3.6 & 3.2 & C_{2} \\
+O_{3} & 4.1 & 3.2 & C_{2} \\
+O_{4} & 2.2 & 3.2 & C_{1} 
+\end{array}
+$$
+:::
+
+(d) Wat zijn uiteindelijk de clusters van het K-means algoritme?
+
+:::{dropdown} Antwoord
+De clusters na iteratie 1 zijn:
+
+$$
+\begin{array}{lcl}C_{1}& =& \{O_{1},O_{4}\} \\
+C_{2} & = & \{O_{2},O_{3}\}
+\end{array}
+$$
+
+Met centra: 
+
+$$
+\begin{array}{l l l}
+C_{1} : & \mathrm{centrum} &  M'_{1}=(2,3) \\
+					C_{2} : &  \mathrm{centrum} &M'_{2}=(7,7)
+\end{array}
+$$
+
+Iteratie 2: bepaal de afstanden tot de nieuwe centra
+
+$$
+\begin{array}{l|ll|l}
+      & M'_1  & M'_2  & \mathrm{toewijzing}  \\ \hline
+O_{1} & 1 & 7.1 & C_{1} \\
+O_{2} & 6.7 & 1.4 & C_{2} \\
+O_{3} & 6.4 & 1.4 & C_{2} \\
+O_{4} & 1 & 5.8 & C_{1} 
+\end{array}
+$$
+
+Clusters zijn gelijk gebleven. Dus een juiste clustering is:
+
+$$
+\begin{array}{lcl}C_{1}& =& \{O_{1},O_{4}\} \\
+C_{2} & = & \{O_{2},O_{3}\}
+\end{array}
+$$
+:::
+
+:::::
+
+:::::{admonition} Opdracht 3
+
+Gegeven zijn de volgende 6 datapunten:
+
+\begin{array}{l|ll}
+      & x_{1} & x_{2} \\ \hline
+D_{1} & 6 & 3 \\
+D_{2} & 2 & 3 \\
+D_{3} & 5 & 4 \\
+D_{4} & 9 & 1 \\
+D_{5} & 8 & 2 \\
+D_{6} & 8 & 0
+\end{array}
+
+Als afstandsmaat gebruiken we de normale (Euclidische) afstand. We willen deze gegevens clusteren in drie clusters (k=3), met behulp van het K-means algoritme. Initialiseer het algoritme met de clusters:
+
+$$
+\begin{array}{lcl}C_{1}& =& \{D_{1},D_{2}\} \\
+C_{2} & = & \{D_{3},D_{4}\}\\
+C_{3} & = & \{D_{5},D_{6}\}
+\end{array}
+$$
+
+(a) Bereken het centrum $M_1$ van $C_1$ , het centrum $M_2$  van $C_2$ en het centrum $M_3$ van $C_3$.
+
+::::{dropdown} Antwoord
+
+$$
+\begin{array}{l l l}
+C_{1} : & \mathrm{centrum} &  M_{1}=(4,3) \\
+					C_{2} : &  \mathrm{centrum} &M_{2}=(7,2.5) \\
+					C_{3} : &  \mathrm{centrum} &M_{3}=(8,1)
+\end{array
+$$
+::::
+
+(b) Bereken de afstanden van de datapunten tot de centra $M_1$, $M_2$ en $M_3$ vul de volgende tabel in en voer zo nodig een herclustering uit:
+
+$$
+\begin{array}{l|lll|l}
+      & M_1  & M_2  & M_3  &\mathrm{toewijzing}  \\ \hline
+D_{1} &  &  &  \\
+D_{2} &  &  &  \\
+D_{3} &  &  &  \\
+D_{4} &  &  &  \\
+D_{5} &  &  &  \\
+D_{6} &  &  &  
+\end{array}
+$$
+
+::::{dropdown} Antwoord
+
+$$
+\begin{array}{l|lll|l}
+      & M_1  & M_2  & M_3  &\mathrm{toewijzing}  \\ \hline
+D_{1} & 2 & 1.1 &  2.8 & C_{2} \\
+D_{2} & 2  & 5.0 &  6.3 &C_{1}\\
+D_{3} & 1.4 & 2.5  & 4.2 &C_{1}\\
+D_{4} & 5.4 & 2.5 &  1 &C_{3}\\
+D_{5} & 4.1 & 1.1  &  1 &C_{3}\\
+D_{6} & 5 & 2.7 &  1 &C_{3}
+\end{array}
+$$
+::::
+
+Er is de herclustering:
+
+$$
+\begin{array}{lcl}C_{1}& =& \{D_{2},D_{3}\} \\
+C_{2} & = & \{D_{1}\}\\
+C_{3} & = & \{D_{4},D_{5},D_{6}\}
+\end{array}
+$$
+
+(c) Wat zijn de nieuwe centra en zijn we nu klaar?.
+
+::::{dropdown} Antwoord
+
+$$
+\begin{array}{l l l}
+C_{1} : & \mathrm{centrum} &  M'_{1}=(3.5,3.5) \\
+					C_{2} : &  \mathrm{centrum} &M'_{2}=(6,3) \\
+					C_{3} : &  \mathrm{centrum} &M'_{3}=(8.3,1)
+\end{array}
+$$
+
+De afstand tussen de nieuwe centra en de datapunten zijn nu:
+
+$$
+\begin{array}{l|lll|l}
+      & M'_1  & M'_2  & M'_3  &\mathrm{toewijzing}  \\ \hline
+D_{1} & 2.5 & 0 &  3 & C_{2} \\
+D_{2} & 1.6  & 4 &  6.6 &C_{1}\\
+D_{3} & 1.6 & 1.4  & 4.5 &C_{2}\\
+D_{4} & 6  & 3.6 &  0.7 &C_{3}\\
+D_{5} & 4.8 & 2.3  &  1.1 &C_{3}\\
+D_{6} & 5.7 & 3.6 &  1.1 &C_{3}
+\end{array}
+$$
+
+Er is weer verandering in de clustering, met:
+
+$$
+\begin{array}{lcl}C_{1}& =& \{D_{2}\} \\
+C_{2} & = & \{D_{1},D_{3}\}\\
+C_{3} & = & \{D_{4},D_{5},D_{6}\}
+\end{array}
+$$
+
+Er is dus minstens nog een iteratie nodig.
+
+::::
+
+:::::
+
+:::::{admonition} Opdracht 4
+
+Gegeven de volgende vier objecten:
+
+$$
+\begin{array}{l|ll}
+      & x_{1} & x_{2} \\ \hline
+A_{1} & 0 & 0 \\
+A_{2} & 7 & 8 \\
+A_{3} & 4 & 8 \\
+A_{4} & 3 & 0
+\end{array}
+$$
+
+Als afstandsmaat gebruiken we de normale (Euclidische) afstand.
+Cluster de gegevens volledig in twee clusters (k=2), met behulp van het K-means algoritme. Bepaal na afloop bij welk cluster het punt P=(5,5) wordt ingedeeld.
+
+*Wees verstandig en maak tekeningen zoals in het voorbeeld en gebruik je liniaal om afstanden te meten.*
+
+Initialiseer het algoritme met de willekeurige centra: 
+
+$$
+\begin{array}{l l l}
+C_{1} : & \mathrm{centrum} &  M_{1}=(0,6) \\
+					C_{2} : &  \mathrm{centrum} &M_{2}=(7,2) 
+\end{array}
+$$
+
+Vul je resultaten in onderstaande tabel in:
+
+$$
+\begin{array}{l|l|l}
+      & \mathrm{Clusters} & \mathrm{Centra} \\ \hline
+\mathrm{Start} & & 
+\begin{array}{lcl}
+M_{1}&=&(0,6) \\
+M_{2}&=&(7,2)
+\end{array} \\ \hline
+\mathrm{Iteratie} 1 & 
+\begin{array}{lcl}
+C_{1}&=& \\
+C_{2}&=&
+\end{array} & 
+\begin{array}{lcl}
+M'_{1}&=& \\
+M'_{2}&=&
+\end{array} \\ \hline
+\mathrm{Iteratie} 2 & 
+\begin{array}{lcl}
+C_{1}&=& \\
+C_{2}&=&
+\end{array} & 
+\begin{array}{lcl}
+M''_{1}&=& \\
+M''_{2}&=&
+\end{array} \\ \hline
+\cdots & & \\ \hline
+\end{array}
+$$
+
+::::{dropdown} Antwoord
+
+Iteratie 1:
+
+$$
+\begin{array}{l|ll|l}
+      & M_1  & M_2  & \mathrm{toewijzing}  \\ \hline
+A_{1} & 6.0 & 7.3 & C_{1} \\
+A_{2} & 7.3 & 6.0 & C_{2} \\
+A_{3} & 4.5 & 6.7 & C_{1} \\
+A_{4} & 6.7 & 4.5 & C_{2} 
+\end{array}
+$$
+
+$$
+\begin{array}{l|l|l}
+      & \mathrm{Clusters} & \mathrm{Centra} \\ \hline
+\mathrm{Start} & & 
+\begin{array}{lcl}
+M_{1}&=&(0,6) \\
+M_{2}&=&(7,2)
+\end{array} \\ \hline
+\mathrm{Iteratie} 1 & 
+\begin{array}{lcl}
+C_{1}&=& \{A_1,A_3\}\\
+C_{2}&=& \{A_2,A_4\}
+\end{array} & 
+\begin{array}{lcl}
+M'_{1}&=& (2,4)\\
+M'_{2}&=& (5,4)
+\end{array} \\ \hline
+\end{array}
+$$
+
+Iteratie 2:
+
+$$
+\begin{array}{l|ll|l}
+      & M'_1  & M'_2  & \mathrm{toewijzing}  \\ \hline
+A_{1} & 4.5 & 6.4 & C_{1} \\
+A_{2} & 6.4 & 4.5 & C_{2} \\
+A_{3} & 4.5 & 4.1 & C_{2} \\
+A_{4} & 4.1 & 4.5 & C_{1} 
+\end{array}
+$$
+
+$$
+\begin{array}{l|l|l}
+      & \mathrm{Clusters} & \mathrm{Centra} \\ \hline
+\mathrm{Start} & & 
+\begin{array}{lcl}
+M_{1}&=&(0,6) \\
+M_{2}&=&(7,2)
+\end{array} \\ \hline
+\mathrm{Iteratie} 1 & 
+\begin{array}{lcl}
+C_{1}&=& \{A_1,A_3\}\\
+C_{2}&=& \{A_2,A_4\}
+\end{array} & 
+\begin{array}{lcl}
+M'_{1}&=& (2,4)\\
+M'_{2}&=& (5,4)
+\end{array} \\ \hline
+\mathrm{Iteratie} 2 & 
+\begin{array}{lcl}
+C_{1}&=& \{A_1,A_4\}\\
+C_{2}&=& \{A_2,A_3\}
+\end{array} & 
+\begin{array}{lcl}
+M''_{1}&=& (1.5,0)\\
+M''_{2}&=& (5.5,8)
+\end{array} \\ \hline
+\cdots & & \\ \hline
+\end{array}
+$$
+
+Iteratie 3:
+
+$$
+\begin{array}{l|ll|l}
+      & M'_1  & M'_2  & \mathrm{toewijzing}  \\ \hline
+A_{1} & 1.5 & 9.7 & C_{1} \\
+A_{2} & 9.7 & 1.5 & C_{2} \\
+A_{3} & 8.4 & 1.5 & C_{2} \\
+A_{4} & 1.5 & 8.4 & C_{1} 
+\end{array}
+$$
+
+Geen verandering clustering dus klaar:
+
+$$
+\begin{array}{lcl}C_{1}& =& \{A_{1},A_{4}\} \\
+C_{2} & = & \{A_{2},A_{3}\}
+\end{array}
+$$
+
+$$
+\begin{array}{lcl}M_{1}& =& (1.5,0)\\
+M_{2} & = &  (5.5,8)
+\end{array}
+$$
+
+Voor P=(5,5) geldt nu de afstandsmatrix met als conclusie een toewijzing aan cluster $C_2$:
+
+$$
+\begin{array}{l|ll|l}
+      & M_1  & M_2  & \mathrm{toewijzing}  \\ \hline
+P & 6.1 & 3.0 & C_{2} 
+\end{array}
+$$
+
+::::
+
+:::::
+
+:::::{admonition} Opdracht 5
+
+Een reisagentschap wil zijn klanten opdelen in twee clusters (k=2), op basis van leeftijd en duur van geboekte vakanties. De informatie van het reisagentschap is gegeven in de onderstaande tabel. De leeftijd van klanten uitgedrukt in aantal jaren, de duur van de vakantie in het aantal dagen.
+
+$$
+\begin{array}{l|ll}
+      & \mathrm{Leeftijd} & \mathrm{Duur\,vakantie} \\ \hline
+TO_{1} & 19 & 3 \\
+TO_{2} & 25 & 8 \\
+TO_{3} & 43 & 14 \\
+TO_{4} & 61 & 14 \\
+TO_{5} & 30 & 7 \\
+TO_{6} & 22 & 10
+\end{array}
+$$
+
+Als afstandsmaat gebruiken we de normale (Euclidische) afstand. Cluster de gegevens volledig in twee clusters (k=2), met behulp van het K-means algoritme. Initialiseer het algoritme met centra:
+
+$$
+\begin{array}{l l l}
+C_{1} : & \mathrm{centrum} &  M_{1}=TO_{1} \\
+					C_{2} : &  \mathrm{centrum} &M_{2}=TO_{2} 
+\end{array}
+$$
+
+Vul je resultaten in onderstaande tabel in.
+
+$$
+\begin{array}{l|l|l}
+      & \mathrm{Clusters} & \mathrm{Centra} \\ \hline
+\mathrm{Start} & & 
+\begin{array}{lcl}
+M_{1}&=&(19,3) \\
+M_{2}&=&(25,8)
+\end{array} \\ \hline
+\mathrm{Iteratie} 1 & 
+\begin{array}{lcl}
+C_{1}&=& \\
+C_{2}&=&
+\end{array} & 
+\begin{array}{lcl}
+M'_{1}&=& \\
+M'_{2}&=&
+\end{array} \\ \hline
+\mathrm{Iteratie} 2 & 
+\begin{array}{lcl}
+C_{1}&=& \\
+C_{2}&=&
+\end{array} & 
+\begin{array}{lcl}
+M''_{1}&=& \\
+M''_{2}&=&
+\end{array} \\ \hline
+\cdots & & \\ \hline
+\end{array}
+$$
+
+::::{dropdown} Antwoord
+
+Iteratie 1:
+
+$$
+\begin{array}{l|ll|l}
+      & M_1  & M_2  & \mathrm{toewijzing}  \\ \hline
+TO_{1} & 0.0 & 7.8 & C_{1} \\
+TO_{2} & 7.8 & 0.0 & C_{2} \\
+TO_{3} & 26.4 & 19.0 & C_{2} \\
+TO_{4} & 43.4 & 36.5 & C_{2} \\
+TO_{5} & 11.7 & 5.1& C_{2} \\
+TO_{6} & 7.6 & 3.6 & C_{2} 
+\end{array}
+$$
+
+$$
+\begin{array}{l|l|l}
+      & \mathrm{Clusters} & \mathrm{Centra} \\ \hline
+\mathrm{Start} & & 
+\begin{array}{lcl}
+M_{1}&=&(19,3) \\
+M_{2}&=&(25,8)
+\end{array} \\ \hline
+\mathrm{Iteratie} 1 & 
+\begin{array}{lcl}
+C_{1}&=& \{TO_1\}\\
+C_{2}&=& \{TO_2,TO_3,TO_4,TO_5,TO_6\}
+\end{array} & 
+\begin{array}{lcl}
+M'_{1}&=& (19,3)\\
+M'_{2}&=& (36.2,10.6)
+\end{array} \\ \hline
+\end{array}
+$$
+
+Iteratie 2:
+
+$$
+\begin{array}{l|ll|l}
+      & M'_1  & M'_2  & \mathrm{toewijzing}  \\ \hline
+TO_{1} & 0.0 & 18.8 & C_{1} \\
+TO_{2} & 7.8 & 11.5 & C_{1} \\
+TO_{3} & 26.4 & 7.6 & C_{2} \\
+TO_{4} & 43.4 & 25.0 & C_{2} \\
+TO_{5} & 11.7 & 7.2 & C_{2} \\
+TO_{6} & 7.6 & 14.2 & C_{1} 
+\end{array}
+$$
+
+$$
+\begin{array}{l|l|l}
+      & \mathrm{Clusters} & \mathrm{Centra} \\ \hline
+\mathrm{Start} & & 
+\begin{array}{lcl}
+M_{1}&=&(19,3) \\
+M_{2}&=&(25,8)
+\end{array} \\ \hline
+\mathrm{Iteratie} 1 & 
+\begin{array}{lcl}
+C_{1}&=& \{TO_1\}\\
+C_{2}&=& \{TO_2,TO_3,TO_4,TO_5,TO_6\}
+\end{array} & 
+\begin{array}{lcl}
+M'_{1}&=& (19,3)\\
+M'_{2}&=& (36.2,10.6)
+\end{array} \\ \hline
+\mathrm{Iteratie} 2 & 
+\begin{array}{lcl}
+C_{1}&=& \{TO_1,TO_2,TO_6\}\\
+C_{2}&=& \{TO_3,TO_4,TO_5\}
+\end{array} & 
+\begin{array}{lcl}
+M'_{1}&=& (22,7)\\
+M'_{2}&=& (44.7,11.7)
+\end{array} \\ \hline
+\end{array}
+$$
+
+Iteratie 3:
+
+$$
+\begin{array}{l|ll|l}
+      & M'_1  & M'_2  & \mathrm{toewijzing}  \\ \hline
+TO_{1} & 5 & 27.1 & C_{1} \\
+TO_{2} & 3.2 & 20.0 & C_{1} \\
+TO_{3} & 22.1 & 2.9 & C_{2} \\
+TO_{4} & 39.6 & 16.5 & C_{2} \\
+TO_{5} & 8 & 15.4 & C_{1} \\
+TO_{6} & 3 & 22.7 & C_{1} 
+\end{array}
+$$
+
+$$
+\begin{array}{l|l|l}
+      & \mathrm{Clusters} & \mathrm{Centra} \\ \hline
+\mathrm{Start} & & 
+\begin{array}{lcl}
+M_{1}&=&(19,3) \\
+M_{2}&=&(25,8)
+\end{array} \\ \hline
+\mathrm{Iteratie} 1 & 
+\begin{array}{lcl}
+C_{1}&=& \{TO_1\}\\
+C_{2}&=& \{TO_2,TO_3,TO_4,TO_5,TO_6\}
+\end{array} & 
+\begin{array}{lcl}
+M'_{1}&=& (19,3)\\
+M'_{2}&=& (36.2,10.6)
+\end{array} \\ \hline
+\mathrm{Iteratie} 2 & 
+\begin{array}{lcl}
+C_{1}&=& \{TO_1,TO_2,TO_6\}\\
+C_{2}&=& \{TO_3,TO_4,TO_5\}
+\end{array} & 
+\begin{array}{lcl}
+M'_{1}&=& (22,7)\\
+M'_{2}&=& (44.7,11.7)
+\end{array} \\ \hline
+\mathrm{Iteratie} 3 & 
+\begin{array}{lcl}
+C_{1}&=& \{TO_1,TO_2,TO_5,TO_6\}\\
+C_{2}&=& \{TO_3,TO_4\}
+\end{array} & 
+\begin{array}{lcl}
+M'_{1}&=& (24,7)\\
+M'_{2}&=& (52,14)
+\end{array} \\ \hline
+\end{array}
+$$
+
+Iteratie 4:
+
+$$
+\begin{array}{l|ll|l}
+      & M'_1  & M'_2  & \mathrm{toewijzing}  \\ \hline
+TO_{1} & 6.4 & 34.8 & C_{1} \\
+TO_{2} & 1.4 & 27.7 & C_{1} \\
+TO_{3} & 20.3 & 9 & C_{2} \\
+TO_{4} & 37.7 & 9 & C_{2} \\
+TO_{5} & 6 & 23.1 & C_{1} \\
+TO_{6} & 3.6 & 30.3 & C_{1} 
+\end{array}
+$$
+
+Geen verandering clustering dus klaar:
+
+$$
+\begin{array}{lcl}
+C_{1}&=& \{TO_1,TO_2,TO_5,TO_6\}\\
+C_{2}&=& \{TO_3,TO_4\}
+\end{array}
+$$
+
+::::
+:::::
+
+:::::{admonition} Opdracht 6
+
+Hieronder staan gegevens van 4 (fictieve) studenten van een data mining cursus. We noteren respectievelijk het aantal bijgewoonde lessen, het aantal dagen examenvoorbereiding, en of ze al dan niet voor het examen kwamen opdagen:
+    
+$D=\{S_{1}(0.0,0,1),S_{2}(7.8 ,2,1),S_{3}(4.8,2,1),S_{4}(3.0,0,1)\}$
+    
+We willen deze objecten clusteren met de K-means methode.	Kies k=2, en als initiële willekeurige cluster centra: $M_1=(0.6,1,0)$ en  $M_2=(7.2,1,0)$.
+Pas de K-means methode toe op $D$ tot een maximum van 3 stappen. Noteer voor elke iteratie welke clusters gevormd worden en wat de centra zijn.
+
+Convergeert de methode? Zo ja, leg uit.
+
+Vul de resultaten in de onderstaande tabel in:
+
+$$
+\begin{array}{l|l|l}
+      & \mathrm{Clusters} & \mathrm{Centra} \\ \hline
+\mathrm{Start} & & 
+\begin{array}{lcl}
+M_{1}&=&(0.6,1,0) \\
+M_{2}&=&(7.2,1,0)
+\end{array} \\ \hline
+\mathrm{Iteratie} 1 & 
+\begin{array}{lcl}
+C_{1}&=& \\
+C_{2}&=&
+\end{array} & 
+\begin{array}{lcl}
+M'_{1}&=& \\
+M'_{2}&=&
+\end{array} \\ \hline
+\mathrm{Iteratie} 2 & 
+\begin{array}{lcl}
+C_{1}&=& \\
+C_{2}&=&
+\end{array} & 
+\begin{array}{lcl}
+M''_{1}&=& \\
+M''_{2}&=&
+\end{array} \\ \hline
+\cdots & & \\ \hline
+\end{array}
+$$
+
+::::{dropdown} Antwoord
+
+Iteratie 1:
+
+$$
+\begin{array}{l|ll|l}
+      & M_1  & M_2  & \mathrm{toewijzing}  \\ \hline
+S_{1} & 1.5 & 7.3 & C_{1} \\
+S_{2} & 7.3 & 1.5 & C_{2} \\
+S_{3} & 4.4 & 2.8 & C_{2} \\
+S_{4} & 2.8 & 4.4 & C_{1} 
+\end{array}
+$$
+
+$$
+\begin{array}{l|l|l}
+      & \mathrm{Clusters} & \mathrm{Centra} \\ \hline
+\mathrm{Start} & & 
+\begin{array}{lcl}
+M_{1}&=&(0.6,1,0) \\
+M_{2}&=&(7.2,1,0)
+\end{array} \\ \hline
+\mathrm{Iteratie} 1 & 
+\begin{array}{lcl}
+C_{1}&=& \{S_{1},S_{4}\}\\
+C_{2}&=& \{S_{2},S_{3}\}
+\end{array} & 
+\begin{array}{lcl}
+M'_{1}&=& (1.5,0,1)\\
+M'_{2}&=& (6.3,2,1)
+\end{array} \\ \hline
+\end{array}
+$$
+
+Iteratie 2:
+
+$$
+\begin{array}{l|ll|l}
+      & M_1  & M_2  & \mathrm{toewijzing}  \\ \hline
+S_{1} & 1.5 & 6.6 & C_{1} \\
+S_{2} & 6.6 & 1.5 & C_{2} \\
+S_{3} & 3.9 & 1.5 & C_{2} \\
+S_{4} & 1.5 & 3.9 & C_{1} 
+\end{array}
+$$
+
+De clusters zijn ongewijzigd, binnen 3 stappen is er convergentie.
+
+$$
+\begin{array}{lcl}
+C_{1}&=& \{S_{1},S_{4}\}\\
+C_{2}&=& \{S_{2},S_{3}\}
+\end{array}
+$$
+::::
+
+:::::
 
 ## Andere methoden
 
