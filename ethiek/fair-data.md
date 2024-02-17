@@ -1,4 +1,5 @@
-# 2.3. FAIR data
+(ethiek-fair-data)=
+# FAIR data
 
 ## De principes van FAIR data
 

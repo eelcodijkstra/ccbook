@@ -65,11 +65,9 @@ Sommigen van jullie willen misschien graag met de technieken aan de slag, andere
 
 Het algemene deel biedt een stukje geschiedenis en de huidige stand van zaken van kunstmatige intelligentie aan. Er is een overzicht van technieken en waar die in de wereld worden toegepast. Je leert nadenken over de betekenis van kunstmatige intelligentie voor personen en de samenleving. KI wordt door gegevens gestuurd en je leert een aantal simpele technieken die inzicht geven in de manier waarop KI leert.
 
-[1. Achtergrond](https://www.notion.so/1-Achtergrond-013c5e50dbaa45e186ec6d21c040a3db)
-
-[2. Ethiek](https://www.notion.so/2-Ethiek-fea038c7c3ad4ff5a846ffe7765c7aeb)
-
-[3. Technieken](https://www.notion.so/3-Technieken-4cf53c6234f5447e8fd90a2ba3361c81)
+* [Achtergrond](algemeen-achtergrond)
+* [Ethiek](algemeen-ethiek)
+* [Technieken](algemeen-technieken)
 
 ## Verdiepende deel
 

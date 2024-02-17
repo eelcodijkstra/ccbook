@@ -1,3 +1,4 @@
+(algemeen-achtergrond)=
 # Achtergrond
 
 Dit hoofdstuk beschrijft de basisstof voor de module. We gaan hier in op wat kunstmatige intelligentie is en in welke vormen je kunstmatige intelligentie tegenkomt. We verdiepen ons ook in de maatschappelijke kwesties rondom kunstmatige intelligentie.

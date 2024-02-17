@@ -1,10 +1,14 @@
+(algemeen-ethiek)=
 # Ethiek
 
+:::{figure} figs/ethiek-responsibility-ai.png
+:width: 250
+:align: right
+
+[Bron](https://cloudblogs.microsoft.com/industry-blog/en-gb/cross-industry/2018/10/31/how-to-use-ai-responsibly/)
+:::
+
 Misschien heb je weleens gehoord van het bedrijf [Clearview](https://www.clearview.ai/), dat software aanbiedt om gezichten te kunnen herkennen. Dit bedrijf verzamelde foto's van onder andere de publiekelijk toegankelijke delen van Facebook, Twitter en YouTube. Kortom, als jij op dergelijke platformen een foto had staan, en daarbij ook nog eens je naam te vinden was, dan is die informatie waarschijnlijk in de Clearview database terechtgekomen en wel ongevraagd. Een gebruiker biedt de Clearview software een foto aan en krijgt als resultaat de gegevens van de personen die het meest daarop lijken. 
-
-![[https://cloudblogs.microsoft.com/industry-blog/en-gb/cross-industry/2018/10/31/how-to-use-ai-responsibly/](https://cloudblogs.microsoft.com/industry-blog/en-gb/cross-industry/2018/10/31/how-to-use-ai-responsibly/)](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/283a81b4-cc20-4370-a00b-ea8f353b1d74/Responsibility-AI.png)
-
-[https://cloudblogs.microsoft.com/industry-blog/en-gb/cross-industry/2018/10/31/how-to-use-ai-responsibly/](https://cloudblogs.microsoft.com/industry-blog/en-gb/cross-industry/2018/10/31/how-to-use-ai-responsibly/)
 
 Het achterliggende idee van Clearview was dat overheden met behulp van deze database criminelen beter konden opsporen. Volgens het bedrijf werd de software alleen verkocht aan gerechtelijke instellingen. Door een [datalek](https://en.wikipedia.org/wiki/Clearview_AI) bleek dit niet het geval. Als je maar [genoeg betaalde](https://www.rtlnieuws.nl/tech/artikel/5045686/gezichtsherkenning-clearview-gezicht-database-herkenning-face-privacy-herken), kon de toegang geregeld worden. Je begrijpt dat dit veel stof heeft doen opwaaien. Het verzamelen van de data, het gebruik van die data door overheidsinstanties en het verkrijgen van toegang tot die data door privépersonen stonden en staan ter discussie. Deze discussie is een **ethische** discussie. In dit hoofdstuk maken we je bewust van de ethische aspecten rond AI-toepassingen en leer je hoe je AI-toepassingen kunt beoordelen.
 
@@ -28,10 +32,10 @@ In dit hoofdstuk leer je:
 
 ---
 
-[2.1. Gevaren van kunstmatige intelligentie](https://www.notion.so/2-1-Gevaren-van-kunstmatige-intelligentie-8a36029c21314cfdb07729abd81c1b3a)
+[2.1. Gevaren van kunstmatige intelligentie](ethiek-gevaren)
 
-[2.2. De FAST-principes](https://www.notion.so/2-2-De-FAST-principes-8c679e95b2ff482fa902548989243f72)
+[2.2. De FAST-principes](ethiek-fast-principes)
 
-[2.3. FAIR data](https://www.notion.so/2-3-FAIR-data-131105f05af44006b3784262464701e7)
+[2.3. FAIR data](ethiek-fair-data)
 
-[2.4. Terugkoppeling](https://www.notion.so/2-4-Terugkoppeling-22da04066a8944b6b10371be0a4fdc69)
+[2.4. Terugkoppeling](ethiek-terugkoppeling)

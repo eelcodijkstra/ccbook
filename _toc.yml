@@ -15,13 +15,13 @@ parts:
     - file: achtergrond/intelligentie
     - file: achtergrond/in-de-praktijk
     - file: achtergrond/terugkoppeling
-  - file: ethiek
+  - file: ethiek/ethiek
     sections:
     - file: ethiek/gevaren
     - file: ethiek/fast-principes
     - file: ethiek/fair-data
     - file: ethiek/terugkoppeling
-  - file: technieken
+  - file: technieken/technieken
     sections:
     - file: technieken/introductie
     - file: technieken/machine-learning

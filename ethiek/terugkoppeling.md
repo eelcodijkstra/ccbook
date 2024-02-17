@@ -1,4 +1,5 @@
-# 2.4. Terugkoppeling
+(ethiek-terugkoppeling)=
+# Terugkoppeling
 
 <aside>
 🛠️ **Vragen**
