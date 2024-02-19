@@ -2,9 +2,9 @@
 
 Bron
 
-In [3.1. Introductie](https://www.notion.so/3-1-Introductie-b49a35ee8d8b45bba29636e026abc2fa?pvs=21) heb je gezien dat AI applicaties data gestuurd zijn. Hoe werkt dat sturen door data? In dit hoofdstuk en volgende hoofdstukken gaan we dat in een aantal technieken bekijken. De meeste toepassingen gebruiken artificiële intelligentie om bijvoorbeeld patronen te herkennen of groeperingen te maken. 
+In [3.1. Introductie](https://www.notion.so/3-1-Introductie-b49a35ee8d8b45bba29636e026abc2fa?pvs=21) heb je gezien dat AI applicaties data-gestuurd zijn. Hoe werkt dat sturen door data? In dit hoofdstuk en volgende hoofdstukken gaan we dat in een aantal technieken bekijken. De meeste toepassingen gebruiken artificiële intelligentie om bijvoorbeeld patronen te herkennen of groeperingen te maken. 
 
-De berekeningen in deze paragraaf en in [3.4. Cluster analyse](https://www.notion.so/3-4-Cluster-analyse-94a4337d3d4441bba1a5c358300074dc?pvs=21)  zijn niet heel erg ingewikkeld en zouden voor iedere leerling op havo en vwo uit te voeren moeten zijn. Lukt het niet stel dan vragen aan je docent.
+De berekeningen in deze paragraaf en in [cluster-analyse](cluster-analyse.md)  zijn niet heel erg ingewikkeld en zouden voor iedere leerling op havo en vwo uit te voeren moeten zijn. Lukt het niet stel dan vragen aan je docent.
 
 Na deze paragraaf:
 
@@ -325,7 +325,9 @@ Als laatste gaan we in de eerste iteratie naar het paarse blok:
 
 In de tabel hierboven zie je dat alleen $\{melk\}$,$\{brood\}$,$\{banaan\}$  en $\{chocolade\}$ de grens van 30% halen. De collectie $F$ met itemsets met voldoende support breiden we dus uit met deze vier 1-itemsets.
 
-*F*={{*Spaghetti*},{*Tomatensaus*},{*Brood*}}
+$$
+F=\{Spaghetti\},\{Tomatensaus\}, \{Brood\}
+$$
 
 </aside>
 
@@ -338,7 +340,9 @@ We verzamelen de 2-itemset in de collectie *S2*. De collectie *S2* bestaat da
 
 **voorbeeld:**
 
-*S*2={{*Spaghetti*,*Tomatensaus*},{*Spaghetti*,*Brood*},{*Tomatensaus*,*Brood*}}
+$$
+*S*2=\{Spaghetti, Tomatensaus\}, \{Spaghetti, Brood\}, \{Tomatensaus, Brood\}
+$$
 
 </aside>
 

@@ -37,10 +37,11 @@ parts:
   chapters:
   - file: ethiek-en-ai/ethiek-en-ai
     sections:
-    - file: ethiek-en-ai/fast-and-fair
-    - file: ethiek-en-ai/fast-principes
-    - file: ethiek-en-ai/fair-data
-    - file: ethiek-en-ai/terugkoppeling
+    - file: ethiek-en-ai/ai-standaarden
+    - file: ethiek-en-ai/fast-en-fair
+    - file: ethiek-en-ai/engheidsmatrix
+    - file: ethiek-en-ai/ethiek-opdracht-essay
+    - file: ethiek-en-ai/ethiek-bedenk-een-ai
   - file: neurale-netwerken/neurale-netwerken
     sections:
     - file: neurale-netwerken/hoe-leert-neuraal-netwerk

@@ -5,7 +5,7 @@ AI-systemen kunnen grote voordelen hebben, die het leven van de mens vergemakkel
 > (Herschreven door ChatGPT) 
 AI-systemen, ofwel kunstmatige intelligentie, kunnen ons leven een stuk makkelijker en beter maken. Kijk bijvoorbeeld naar de Monocam van de Nationale Politie. Dit slimme apparaat helpt om het aantal auto-ongelukken te verlagen, omdat het mensen betrapt die tijdens het rijden met hun smartphone bezig zijn. Ook in de gezondheidszorg zijn er voordelen. Dankzij AI kunnen dokters in afgelegen delen van Afrika tuberculose sneller opsporen en behandelen.
 
-Maar niet alles is positief. Soms kan AI ook problemen veroorzaken. Een voorbeeld hiervan is wat er gebeurde bij de Belastingdienst. Hier werd AI op een verkeerde manier gebruikt om te bepalen wie er recht had op toeslagen. Dit leidde tot discriminatie en schending van privacy. Dit laat zien dat we goed moeten nadenken over hoe we AI gebruiken, zodat het voor iedereen eerlijk en veilig blijft.
+> Maar niet alles is positief. Soms kan AI ook problemen veroorzaken. Een voorbeeld hiervan is wat er gebeurde bij de Belastingdienst. Hier werd AI op een verkeerde manier gebruikt om te bepalen wie er recht had op toeslagen. Dit leidde tot discriminatie en schending van privacy. Dit laat zien dat we goed moeten nadenken over hoe we AI gebruiken, zodat het voor iedereen eerlijk en veilig blijft.
 
 ---
 
@@ -15,9 +15,11 @@ In dit deel van de lessenserie, ‘De ethische kant van AI’ gaan we dieper in 
 
 ---
 
-In de eerdere hoofdstukken 'Achtergrond' en 'Ethiek' heb je al een beetje kunnen zien wat AI (kunstmatige intelligentie) inhoudt en wat de ethische kant ervan is. Om ervoor te zorgen dat AI-systemen geen nadelen hebben, zijn experts wereldwijd bezig met het bedenken van ethische regels. De FAST- en FAIR-principes, die je in het algemene deel hebt gezien, zijn hier een voorbeeld van. Dit betekent dat ethiek steeds belangrijker wordt bij het maken en gebruiken van AI.
+> (ChatGPT versie) In de eerdere hoofdstukken 'Achtergrond' en 'Ethiek' heb je al een beetje kunnen zien wat AI (kunstmatige intelligentie) inhoudt en wat de ethische kant ervan is. Om ervoor te zorgen dat AI-systemen geen nadelen hebben, zijn experts wereldwijd bezig met het bedenken van ethische regels. De FAST- en FAIR-principes, die je in het algemene deel hebt gezien, zijn hier een voorbeeld van. Dit betekent dat ethiek steeds belangrijker wordt bij het maken en gebruiken van AI.
 
-In dit deel van onze lessen, 'De ethische kant van AI', gaan we dieper in op deze ethiek. We gebruiken de FAST- en FAIR-principes als uitgangspunt. We kijken of een systeem eerlijk, open en duidelijk is. We vragen ons af of het geen foute aannames heeft. Je leert dat niet alleen de regels belangrijk zijn, maar dat AI ook kan helpen om eerlijke systemen te creëren. We bekijken verschillende AI-toepassingen in de praktijk, zoals de Monocam en een systeem dat in CT-scans COVID-19 opspoort. Aan het einde van dit deel denk je na over wat jij belangrijk vindt bij het gebruik van AI en verwerk je je gedachten in een essay.
+> In dit deel van onze lessen, 'De ethische kant van AI', gaan we dieper in op deze ethiek. We gebruiken de FAST- en FAIR-principes als uitgangspunt. We kijken of een systeem eerlijk, open en duidelijk is. We vragen ons af of het geen foute aannames heeft. Je leert dat niet alleen de regels belangrijk zijn, maar dat AI ook kan helpen om eerlijke systemen te creëren. We bekijken verschillende AI-toepassingen in de praktijk, zoals de Monocam en een systeem dat in CT-scans COVID-19 opspoort. Aan het einde van dit deel denk je na over wat jij belangrijk vindt bij het gebruik van AI en verwerk je je gedachten in een essay.
+
+---
 
 ![**['Bias deep inside the code': the problem with AI 'ethics' in Silicon Valley](https://www.theguardian.com/technology/2019/mar/28/big-tech-ai-ethics-boards-prejudice) Source The Guardian.**](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3193a505-e64a-4101-81e0-ff71155b0aec/AI_bias_Guardian.jpg)
 
@@ -43,8 +45,8 @@ Deze lessenreeks over 'Ethiek en AI' is opgezet rond een aantal leerdoelen:
 
 ---
 
-* [FAST & FAIR](fast-and-fair.md)
-* [AI-standaarden en -richtlijnen](ai-standaarden-en-richtlijnen.md)
+* [FAST & FAIR](fast-en-fair.md)
+* [AI-standaarden en -richtlijnen](ai-standaarden.md)
 * [De engheidsmatrix](engheidsmatrix.md)
 * 
 
