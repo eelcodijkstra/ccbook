@@ -1,8 +1,8 @@
 # Associatie-analyse
 
-Bron
 
-In [3.1. Introductie](https://www.notion.so/3-1-Introductie-b49a35ee8d8b45bba29636e026abc2fa?pvs=21) heb je gezien dat AI applicaties data-gestuurd zijn. Hoe werkt dat sturen door data? In dit hoofdstuk en volgende hoofdstukken gaan we dat in een aantal technieken bekijken. De meeste toepassingen gebruiken artificiële intelligentie om bijvoorbeeld patronen te herkennen of groeperingen te maken. 
+
+In de [Introductie](technieken-introductie) heb je gezien dat AI applicaties data-gestuurd zijn. Hoe werkt dat sturen door data? In dit hoofdstuk en volgende hoofdstukken gaan we dat in een aantal technieken bekijken. De meeste toepassingen gebruiken artificiële intelligentie om bijvoorbeeld patronen te herkennen of groeperingen te maken. 
 
 De berekeningen in deze paragraaf en in [cluster-analyse](cluster-analyse.md)  zijn niet heel erg ingewikkeld en zouden voor iedere leerling op havo en vwo uit te voeren moeten zijn. Lukt het niet stel dan vragen aan je docent.
 
@@ -19,27 +19,48 @@ Na deze paragraaf:
     - het berekenen van de betrouwbaarheid (confidence) van een associatieregel van een deelverzameling;
     - het uitvoeren van alle nodige iteraties in het apriori algoritme.
  
-# Introductie
+## Inleiding
 
-Stel je wordt manager van een supermarkt in een wijk waar veel studenten wonen. Na een paar dagen krijg je de indruk dat er veel bananen en chocolade verkocht worden. Daarom overweeg je de bananen en de chocolade samen vlak bij de kassa's te leggen om zo de klanten die langs lopen tot meer impulsaankopen te verleiden.  Je wilt als verkoper ook niet impulsief te werk gaan, dus ga je een onderzoek doen met alle kassaregistraties van de klanten als gegevens voor je onderzoek. Eén kassaregistratie geeft dan natuurlijk aan wat de klant in het winkelmandje had.  
+:::{figure} figs/technieken-rumchocobanaan1.png
+:align: right
+:width: 200
 
-![RumChocoBanaan1.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/861931a1-beda-4738-a550-8fac4902cdd0/RumChocoBanaan1.png)
+Rum-choco-banaan
+:::
 
-De methoden die je als onderzoeker tot je beschikking hebt om deze gegevens te onderzoeken vallen onder *associatie-analyse*. Voor we algemeen aan de slag gaan en één van de methoden, het *apriori algoritime*, in detail uitwerken gaan we eerst intuïtief met bovenstaand voorbeeld aan de slag. Na een week heb je deze gegevens verzameld:
+Stel je wordt manager van een supermarkt in een wijk waar veel studenten wonen. Na een paar dagen krijg je de indruk dat er veel bananen samen met chocolade verkocht worden. Daarom overweeg je de bananen met de chocolade vlak bij de kassa's te leggen om zo de klanten die langs lopen tot meer impulsaankopen te verleiden.  Je wilt als verkoper ook niet impulsief te werk gaan, dus ga je een onderzoek doen met alle kassaregistraties van de klanten als gegevens voor je onderzoek. Eén kassaregistratie geeft dan natuurlijk aan wat de klant in het winkelmandje had.  
+
+De methoden die je als onderzoeker tot je beschikking hebt om deze gegevens te onderzoeken vallen onder *associatie-analyse*. Voor we algemeen aan de slag gaan en één van de methoden, het *apriori algoritme*, in detail uitwerken gaan we eerst intuïtief met bovenstaand voorbeeld aan de slag. Na een week heb je deze gegevens verzameld:
 
 - er blijken 8051 klanten te zijn geweest;
 - 905 keer stond banaan op de rekening;
 - 750 keer stond chocolade op de rekening;
 - samen kwamen bananen en chocolade 653 keer voor.
 
+:::{figure} figs/bananen-chocolade.drawio.png
+:width: 500
+
+De verzamelingen mandjes, mandjes met bananen, mandjes met chocolade, en met de combinatie.
+:::
+
 Begrippen die centraal staan in de associatie analyse zijn *support*, *associatieregel* en *betrouwbaarheid*. 
 
-Support van één of meerdere artikelen is niets anders dan de experimentele kans dat een mandje deze artikelen bevat. Zo is $\mathrm{support}(\{\mathrm{banaan}\}) = 905/8051 \approx 0.112$ of wel ongeveer 11%. Verder is  $\mathrm{support}(\{\mathrm{chocolade}\}) = 750/8051 \approx 0.093$ en  $\mathrm{support}(\{\mathrm{chocolade}, \mathrm{banaan}\}) = 653/8051 \approx 0.081$. 
+**Support** van een artikel of van een combinatie van artikelen is de experimentele kans dat een mandje deze artikelen bevat. Zo is
 
-Om nu te weten te komen of het vermoeden dat bananen vaker samen met chocolade worden verkocht werkelijkheid is, ben je geïnteresseerd in de vraag: als een klant bananen koopt, hoe groot is dan de kans dat deze klant ook chocolade koopt? Ofwel hoe waar is de uitspraak: **Als een klant bananen koopt, koopt de klant ook chocolade**? Een dergelijke uitspraak noemt men een **associatieregel.**  Met de gegevens hierboven kunnen we de betrouwbaarheid (**=confidence**) van deze uitspraak uitrekenen in de vorm van een kans:
+- $\mathrm{support}(\{\mathrm{banaan}\}) = 905/8051 \approx 0.112$ of wel ongeveer 11%.
+- $\mathrm{support}(\{\mathrm{chocolade}\}) = 750/8051 \approx 0.093$
+- $\mathrm{support}(\{\mathrm{chocolade}, \mathrm{banaan}\}) = 653/8051 \approx 0.081$. 
 
-Confidence ( **Als een klant bananen koopt, koopt de klant ook chocolade ) =** 
-aantal winkelmandjes met bananen en chocolade / aantal winkelmandjes met alleen bananen= 653/905=0,72.
+:::{figure} figs/als-banaan-dan-chocolade.drawio.png
+:width: 400
+
+De verzameling bananen-mandjes - totaal en met chocolade.
+:::
+
+Om nu te weten te komen of het vermoeden dat bananen vaker samen met chocolade worden verkocht klopt, ben je geïnteresseerd in de vraag: als een klant bananen koopt, hoe groot is dan de kans dat deze klant ook chocolade koopt? Ofwel hoe waar is de uitspraak(**???**): *Als een klant bananen koopt, koopt de klant ook chocolade*? Een dergelijke uitspraak noemt men een **associatieregel.**  Met de gegevens hierboven kunnen we de betrouwbaarheid (**=confidence**) van deze uitspraak uitrekenen in de vorm van een kans:
+
+**Confidence** ( *Als een klant bananen koopt, koopt de klant ook chocolade* ) = 
+aantal winkelmandjes met bananen èn chocolade / totaal aantal winkelmandjes met bananen= 653/905=0,72.
 
 In ongeveer driekwart van de gevallen zal de klant die bananen in zijn mandje legt doorlopen naar de chocolade. Zullen we het die klant maar eens gemakkelijker maken door deze producten dichter bij elkaar te plaatsen?
 
@@ -50,6 +71,8 @@ Bij [associatie analyse](https://en.wikipedia.org/wiki/Association_rule_learnin
 Bedrijven verkrijgen deze gegevens via de verkoopregistraties van de kassa's of via de registratie van het gebruik door personen van hun apps, bijvoorbeeld een webwinkel, sociaal medium, enzovoort. Gezocht wordt dan naar overeenkomsten tussen de personen die samengaan, zoals de gezamenlijke aankoop van bananen en chocola.
 
 De AI techniek associatie analyse die voor deze situaties wordt gebruikt heeft als belangrijkste AI-kenmerk: *de invoer die het programma krijgt, is niet volledig te bepalen en is complex* . Het leerproces dat in associatie analyse wordt gebruikt is  *unsupervised learning*. 
+
+## Toepassingen
 
 Voor we de theorie van associatie analyse behandelen en leren toepassen geven we een aantal voorbeelden van gebieden waarin associatie analyse wordt gebruikt:
 
@@ -71,7 +94,7 @@ Ontwikkelaars kunnen gegevens verzamelen over hoe consumenten een door hen gemaa
 
 Services zoals Facebook, Youtube, Netflix, Twitter, Spotify kunnen associatieregels gebruiken om hun engine voor contentaanbeveling van brandstof te voorzien. Machine learning-modellen analyseren gegevens over gebruikersgedrag uit het verleden op frequente patronen, ontwikkelen associatieregels en gebruiken die regels om gebruikers aanbevelingen te doen die hun ook zal interesseren, b.v. die leuke foto van een ooievaar, omdat je als vogelaar heel vaak foto's van vogels bekijkt.
 
-# Theorie
+## Theorie
 
 In de opwarmer aan het begin van dit hoofdstuk hebben we geprobeerd om op een intuïtieve manier het doel van associatie analyse, een AI algoritme, duidelijk te maken. We meldden daar ook al dat we op basis van alle kassaregistraties zinvolle verbanden willen vinden. Zoals typisch is voor AI bepalen de gegevens, door deze te in te voeren in een iteratief proces, de uitkomst van de analyse.
 
@@ -269,7 +292,7 @@ Het Apriori algoritme voor een collectie *C* bestaat uit de volgende twee fase
 2. Het opstellen van associatieregels met verzamelingen uit *F* met voldoende betrouwbaarheid (groter dan een minimale confidence) in *C*.
 </aside>
 
-### **voorbeeld:**
+### voorbeeld
 
 We gaan door deze twee fasen heen aan de hand van de collectie winkelmandjes die we al eerder gebruikten. Die is klein, in echte toepassing zijn dat er duizenden, of miljoenen.
 
