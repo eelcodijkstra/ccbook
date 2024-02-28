@@ -1,4 +1,5 @@
-# N. Neurale netwerken
+(verdieping-neurale-netwerken)=
+# Neurale netwerken
 
 Je bent nu aangekomen bij het verdiepingsmateriaal voor de leerling die geïnteresseerd in de technische kant van kunstmatige intelligentie. We hebben gekozen voor een verdieping in neurale netwerken omdat deze vorm van AI het meest tot de verbeelding spreekt en ook het meest centraal staat in het ethische deel van deze cursus.
 

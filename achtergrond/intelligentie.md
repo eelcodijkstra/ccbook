@@ -23,7 +23,7 @@ De term **kunstmatige intelligentie** is al een aantal malen gevallen, maar wat 
     > 
 3. De geestelijke vader van AI, [Alan Turing](https://nl.wikipedia.org/wiki/Alan_Turing), definieert het als volgt:
     
-    > “AI is de wetenschap en de techniek van het vervaardigen van intelligente machines, voornamelijk intelligente computerprogramma’s.”
+    > “KI is de wetenschap en de techniek van het vervaardigen van intelligente machines, voornamelijk intelligente computerprogramma’s.”
     > 
 :::
 
@@ -33,13 +33,12 @@ In deze definities wordt intelligentie beschouwd als een vermogen om te plannen,
 
 ::::{admonition} 🛠 **Vragen**
 
-1. Wat is een essentieel verschil tussen de algemene definities (1) en (2) voor AI? En tussen (2) en (3)?
+1. Wat is een essentieel verschil tussen de algemene definities (1) en (2) voor KI? En tussen (2) en (3)?
 2. Bedenk een taak waarvan jij denkt dat het heel lastig is voor KI en een taak die jij zelf lastig vind, maar waarvan je denkt dat een KI systeem het beter dan jij zal doen. Bediscussieer jouw bedachte taken met medeleerlingen.
 
 :::{dropdown} Antwoorden
 
-1. (2) is het proces dat het product in (1) levert: Een automatisch systeem is een machine voortvloeiend uit wetenschappelijk onderzoek.
-        
+1. (2) is het proces dat het product in (1) levert: Een automatisch systeem is een machine voortvloeiend uit wetenschappelijk onderzoek.  
 (3) verwijst niet naar de noodzaak van intelligentie van menselijk niveau en deze definitie is daarom weer breder dan definitie (2). Daarnaast moet de machine in (3) zelf intelligent zijn, terwijl bij (2) de machine intelligentie toont.
         
 2. –
@@ -50,7 +49,7 @@ In deze definities wordt intelligentie beschouwd als een vermogen om te plannen,
 
 ### Chatten met een bot
 
-In de [Cleverbot website](https://www.cleverbot.com/) kun je chatten met een chatbot. In één van de latere opdrachten (‣) in deze cursus kun je zelf aan de slag met het opzetten van een chatbot.
+In de [Cleverbot website](https://www.cleverbot.com/) kun je chatten met een chatbot. In één van de latere opdrachten (LINK??) in deze cursus kun je zelf aan de slag met het opzetten van een chatbot.
 
 :::{figure} figs/cleverbot-fig.png
 :width: 300
@@ -72,23 +71,25 @@ Open de [Cleverbot website](https://www.cleverbot.com/)
 
 ### Turing Test
 
-:::{sidebar} **Alan Turing**
+::::{sidebar} **Alan Turing**
 
 Alan Mathison Turing (Londen, 1912 – Wilmslow, 1954) was een Britse wiskundige, computerpionier en informaticus, mathematisch bioloog en logicus. Hij ontwikkelde o.a. de Turing machine, die nog steeds de basis vormt van onze huidige computers.
 
-![Alan Turing (scienceabc.com)](https://www.scienceabc.com/wp-content/uploads/2015/12/alan-turing.jpg)
+:::{figure} figs/alan-turing.jpg
+:width: 200
 
 Alan Turing (scienceabc.com)
+:::
 
 Gedurende de Tweede Wereldoorlog werkte hij mee aan het kraken van de Enigma, het apparaat waarmee de Duitsers  berichten gecodeerd verstuurden. Het kraken hiervan heeft o.a. geleid tot de overwinning van de geallieerden.
 
 Ondanks zijn vele bijdragen aan de informatica, werd hij in 1952 gearresteerd wegens homoseksuele handelingen en veroordeeld tot chemische castratie. In 2009 heeft de Britse regering hem postuum excuses aangeboden.
 
-:::
+::::
 
 Deze vragen spelen ook binnen het vakgebied van kunstmatige intelligentie. Er zijn wetenschappers die zich hiermee bezighouden: wanneer is kunstmatige intelligentie intelligent? Een van de oudste en bekendste oplossingen voor deze vraag kwam van Alan Turing. Hij bedacht een test waaruit zou moeten blijken of een computerprogramma menselijk gedrag kan vertonen wat niet te onderscheiden is van echte mensen. Hij noemde de test het **imitatiespel**, maar tegenwoordig kennen we het als de **Turing Test**.
 
-De test werkt als volgt. Er zijn drie afgesloten kamers met in elke kamer een computer. Deze computers zijn met elkaar verbonden met een chatprogramma. In de eerste kamer zit een persoon. De tweede kamer bevat een computerprogramma dat het chatprogramma kan bedienen: een chatbot. De derde kamer bevat weer een persoon, dit is de jury. Deze jury chat met de persoon en met de chatbot, zonder te weten in welke kamer deze zich bevinden. De jury moet vervolgens door te chatten beslissen wie de persoon van vlees en bloed is. Als de chatbot er in minstens 50% van de gevallen in weet te slagen om als persoon aangemerkt te worden, dan bestempelt Turing deze als intelligent. Want, zo redeneerde hij, de chatbot heeft met succes een mens gesimuleerd.
+De test werkt als volgt. Er zijn drie afgesloten kamers met in elke kamer een computer. Deze computers zijn met elkaar verbonden met een chatprogramma. In de eerste kamer zit een persoon. De tweede kamer bevat een computerprogramma dat het chatprogramma kan bedienen: een chatbot. De derde kamer bevat weer een persoon, dit is de jury. Deze jury chat met de persoon en met de chatbot, zonder te weten in welke kamer deze zich bevinden. De jury moet vervolgens door te chatten beslissen wie de persoon van vlees en bloed is. Als de chatbot er in minstens 50% van de gevallen in weet te slagen om als persoon aangemerkt te worden, dan bestempelt Turing deze als intelligent. Want, zo redeneerde hij, de chatbot heeft met succes een mens geïmiteerd.
 
 
 
@@ -148,7 +149,7 @@ De term ‘zwak’ of ‘sterk’ geeft hier aan hoe breed het expertisegebied v
 
 Als we spreken van sterke kunstmatige intelligentie, dan hebben we het over een machine die de intelligentie van een mens evenaart of zelfs overstijgt. Daarnaast is een machine met sterke kunstmatige intelligentie zelfbewust. Dat houdt in dat de machine weet dat hij bestaat en onderscheid kan maken tussen zichzelf en de omgeving. Vooral dit laatste is een struikelblok. We begrijpen bewustzijn bij mensen niet eens, laat staan dat we het kunnen (na)maken.
 
-In populaire science fiction films zijn het vooral de sterke kunstmatig intelligente machines die in een verre toekomst voor een hoop drama zorgen (denk bijvoorbeeld aan WALL-E van Disney of BB-8 uit Start Wars). Toch behoort sterke kunstmatige intelligentie in de hedendaagse wereld nog slechts tot de fantasie. Er bestaat nog geen sterke kunstmatige intelligentie en sommige wetenschappers twijfelen of het überhaupt mogelijk is om het te bouwen.
+In populaire science fiction films zijn het vooral de sterke kunstmatig intelligente machines die in een verre toekomst voor een hoop drama zorgen (denk bijvoorbeeld aan WALL-E van Disney of BB-8 uit Star Wars). Toch behoort sterke kunstmatige intelligentie in de hedendaagse wereld nog slechts tot de fantasie. Er bestaat nog geen sterke kunstmatige intelligentie en sommige wetenschappers twijfelen of het überhaupt mogelijk is om het te bouwen.
 
 Bij de ChatBot heb je kennisgemaakt met een *zwakke* kunstmatige intelligentie. Van de technieken die we gaan bespreken in [3. Technieken](https://www.notion.so/3-Technieken-067b7f56311f492481ca7fb750f70f85), is [3.4. Cluster analyse](https://www.notion.so/3-4-Cluster-analyse-94a4337d3d4441bba1a5c358300074dc) een voorbeeld van een zwakke AI en zijn [3.5. Neurale netwerken](https://www.notion.so/3-5-Neurale-netwerken-4778ac2fbe494b9cbe50001b3d19d1c9) een voorbeelden van sterkere AI.
 
@@ -166,7 +167,7 @@ Bij de ChatBot heb je kennisgemaakt met een *zwakke* kunstmatige intelligentie. 
 :::{dropdown} Antwoorden
 
 1. Een toepassing in de klasse zwakke AI kan slechts een beperkt aantal taken uitvoeren. Een toepassing in de klasse sterke AI is breder inzetbaar en evenaart of overstijgt de intelligente vaardigheden van een mens.
-2. d, e, b, c, a
+2. 4, 5, 2, 3, 1
 3. In 1997 won Deep Blue een schaaktoernooi van de toenmalige schaakkampioen Garry Kasparov. Dat was een enorme prestatie en een mijlpaal in de informatica en kunstmatige intelligentie. Zou je echter Deep Blue vragen om te ganzenborden, dan zou er niets van terecht komen. Deep Blue was dus een zwakke kunstmatige intelligentie.
 
 :::

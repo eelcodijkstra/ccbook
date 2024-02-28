@@ -39,7 +39,7 @@ Samen op de bank met je ouders zit je in het fotoalbum van jouw jeugd te bladere
 
 Probleemoplossend vermogen, creërend denkvermogen en invoelend vermogen worden tot de **menselijke intelligentie** gerekend. Soms noemen we dit ook **natuurlijke intelligentie**. Jij bent in staat om in elke situatie jouw intelligentie aan te spreken om te reageren op die situatie. Meestal is die reactie niet de meest optimale, maar daar leer je dan ook weer van. 
 
-Binnen de computerwetenschap wordt er ook gewerkt aan zelflerende systemen. Deze werkzaamheden vallen onder de term **artificiële intelligentie** (AI), ofwel **kunstmatige intelligentie** (KI). De heilige graal (het hoogste doel wat men probeert  te behalen) van het onderzoek in artificiële intelligentie is de zoektocht naar één systeem dat vaardigheden kan leren en vervolgens elk probleem kan oplossen waarmee het te maken krijgt, precies zoals een mens dat kan en liefst nog beter. 
+Binnen de computerwetenschap wordt er ook gewerkt aan zelflerende systemen. Deze werkzaamheden vallen onder de term **artificiële intelligentie** (AI), ofwel **kunstmatige intelligentie** (KI). De **heilige graal** (het hoogste doel wat men probeert  te behalen) van het onderzoek in artificiële intelligentie is de zoektocht naar één systeem dat vaardigheden kan leren en vervolgens elk probleem kan oplossen waarmee het te maken krijgt, precies zoals een mens dat kan en liefst nog beter. 
 
 Is de wetenschap al in de buurt van die heilige graal? Helaas, één systeem dat overal op kan reageren is nog ver weg. Er zijn echter voor specifieke doeleinden al heel wat computeralgoritmen met een lerend vermogen. Nog beter, veel van die algoritmen doen het na training beter en/of sneller dan de mens, zoals je kon zien bij het voorbeeld over  kankerdiagnostiek. Er is nog een heel groot voordeel: als één computer het kunstje heeft geleerd hoeft een andere, vergelijkbare computer dat niet meer. De status van het leerproces kunnen we naar andere systemen kopiëren. Jij als leerling kan helaas de inhoud van het brein van je docent niet simpel uploaden in jouw brein, een computer kan dat wel.
 
@@ -49,7 +49,7 @@ Is de wetenschap al in de buurt van die heilige graal? Helaas, één systeem dat
 2. Je hebt bij de Quick Draw app gezien dat er verschrikkelijk veel data nodig is om AI een goede voorspeller te laten zijn. Weet jij nog hoeveel voorbeelden je nodig had om een hond van een kat te onderscheiden?
 
 :::{dropdown} Antwoorden
-1. De heilige graal van het onderzoek in kunstmatige intelligentie is de zoektocht naar één systeem dat vaardigheden kan leren en vervolgens elk probleem kan oplossen waarmee het te maken krijgt, precies zoals een mens dat kan en liefst nog beter.
+1. De heilige graal van het onderzoek in kunstmatige intelligentie is één systeem dat kennis en vaardigheden op alle gebieden kan leren en vervolgens elk probleem kan oplossen waarmee het te maken krijgt, precies zoals een mens dat kan en liefst nog beter.
 
 2. Als kind heb je waarschijnlijk met je ouders, opa's, oma's, etc. heel veel plaatjes bekeken, maar 50 miljoen is erg veel. Waarschijnlijk had jij er veel minder nodig om nu tekeningen van anderen te kunnen herkennen.
 :::

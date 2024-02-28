@@ -1,7 +1,7 @@
 (geschiedenis-en-toekomst)=
 # Geschiedenis en toekomst
 
-De studie naar kunstmatige intelligentie is ouder dan je misschien zou denken. Eigenlijk is er vanaf de komst van de eerste computer al gewerkt aan denkende machines. De studie naar KI is dus vrijwel net zo oud als de studie naar informatica. Opvallend is dat men in het begin torenhoge verwachtingen had. Zo zijn er verschillende wetenschappers geweest die beweerden dat computers al voor het jaar 2000 net zo slim of slimmer zouden zijn dan mensen. De ontwikkelingen in het vak zijn echter tegen het einde van de vorige eeuw een andere richting ingeslagen. De nieuwste ontwikkelingen richtten zich meer op toepassingen dan op het creëren van intelligentie zelf.
+De studie naar kunstmatige intelligentie is ouder dan je misschien zou denken. Eigenlijk is er vanaf de komst van de eerste computer al gewerkt aan denkende machines. De studie naar KI is dus vrijwel net zo oud als de informatica. Opvallend is dat men in het begin torenhoge verwachtingen had. Zo zijn er verschillende wetenschappers geweest die beweerden dat computers al voor het jaar 2000 net zo slim of slimmer zouden zijn dan mensen. De ontwikkelingen in het vak zijn echter tegen het einde van de vorige eeuw een andere richting ingeslagen. De nieuwste ontwikkelingen richtten zich meer op toepassingen dan op het creëren van intelligentie zelf.
 
 We hebben een deel van de geschiedenis van kunstmatige intelligentie in kaart gebracht in onderstaande tijdlijn. Het bevat alleen de belangrijkste ontwikkelingen, uiteraard kunnen we de lijn nog uitgebreider maken! Het is ook moeilijk om te bepalen waar kunstmatige intelligentie echt is begonnen.
 
@@ -10,10 +10,10 @@ We hebben een deel van de geschiedenis van kunstmatige intelligentie in kaart ge
 
 ## Voor de 20e eeuw
 
-Hoewel AI vooral de laatste jaren enorm groot en populair is geworden, zijn de ideeën al erg oud. Mensen hebben eeuwen lang gefantaseerd over concepten die wij nu als kunstmatige intelligentie beschouwen.
+Hoewel KI vooral de laatste jaren enorm groot en populair is geworden, zijn de ideeën al erg oud. Mensen hebben eeuwen lang gefantaseerd over concepten die wij nu als kunstmatige intelligentie beschouwen.
 
 :::{figure} figs/cc-geschiedenis-fig1.png
-:width: 200
+:width: 250
 :align: right
 
 Talos ([bron: esepuntoazulpalido.com](http://esepuntoazulpalido.com/))
@@ -22,7 +22,7 @@ Talos ([bron: esepuntoazulpalido.com](http://esepuntoazulpalido.com/))
 Er zijn meerdere Griekse mythes over **automata**, ofwel zelfstandig opererende en geheel mechanische machines. Zo is er Hephaistos, de god van onder andere de smeedkunst, die zijn eigen mechanische knechten smeedde. Daarnaast is er een mythe over Talos, een mechanische reus die op het eiland Kreta de princes Europa moest beschermen.
 
 
-:::{admonition} 💡 Automata
+:::{admonition} Automata
 :class: tip
 
 Automata werden vooral vroeger gemaakt. Toepassingen waren speelgoed, bewegende beelden, klokken, analoge computers, etc. Waar we tegenwoordig alles met elektriciteit, motoren en chips kunnen maken, moesten vroegen automatische systemen gemaakt worden met hout, metaal en andere 'ouderwetse' materialen. Ze werden bewogen door waterkracht, zwaartekracht en/of menselijke kracht.
@@ -56,7 +56,7 @@ het toneelstuk R.U.R. <br>
 De robot valt een mens aan.
 :::
 
-In het begin van de 20e eeuw begon men meer te fantaseren over **robotica**. De term **robot** komt van het Slavische *robota*, dat *werk* betekent. Een robot is dus iets dat werk voor je doet. Het woord werd voor het eerst gebruikt in het scifi toneelstuk R.U.R. van de Tsjechische schrijver Karel Čapek. Het zou nog even duren voordat een échte robot gemaakt zou worden.
+In het begin van de 20e eeuw begon men meer te fantaseren over **robotica**. De term **robot** komt van het Slavische *robota*, dat *werk* betekent. Een robot is dus iets dat werk voor je doet. Het woord werd voor het eerst gebruikt in het SciFi toneelstuk R.U.R. van de Tsjechische schrijver Karel Čapek. Het zou nog even duren voordat een échte robot gemaakt zou worden.
 
 In deze tijd werd ook al hard gewerkt aan de fundering van informatica en kunstmatige intelligentie. Zo werd formele logica bedacht, wat tegenwoordig heel veel gebruikt wordt in algoritmes. Ook werd speltheorie bedacht, een wiskundig model dat helpt met keuzes maken in bepaalde omstandigheden.
 
@@ -64,13 +64,13 @@ In deze tijd werd ook al hard gewerkt aan de fundering van informatica en kunstm
 
 Na de jaren '50 begon KI veel harder te groeien, er gebeurde enorm veel. Door de opkomst van de eerste computers tijdens en na de Tweede Wereldoorlog, was het voor onderzoekers mogelijk om sneller berekeningen te doen.
 
-In de jaren tijdens en na de oorlog kwamen ook de voorvaders van AI in beeld: Alan Turing, Marvin Minsky, Allen Newell en Herbert A. Simon. Gezamenlijk hebben zij het veld van KI geschapen en gevormd.
+In de jaren tijdens en na de oorlog kwamen ook de voorvaders van KI in beeld: Alan Turing, Marvin Minsky, Allen Newell en Herbert A. Simon. Gezamenlijk hebben zij het veld van KI geschapen en gevormd.
 
-Alan Turing, een Britse wiskundige, heeft bijzonder veel betekend voor KI en informatica. Tijdens de oorlog was hij verantwoordelijk voor het kraken van de Duitse Enigma encryptie. Na de oorlog bedacht hij onder andere in 1950 de Turing Test, deze test moest laten zien of een robot realistisch menselijk gedrag kan vertonen. Niet iedereen was het met de redenatie van Turing eens, zoals John Searle. Hij bedacht een gedachte experiment om het tegendeel te bewijzen. Hier lees je in {ref}`wanneer-is-iets-intelligent` meer over. 
+Alan Turing, een Britse wiskundige, heeft bijzonder veel betekend voor KI en informatica. Tijdens de oorlog was hij mede verantwoordelijk voor het kraken van de Duitse Enigma encryptie. Na de oorlog bedacht hij onder andere in 1950 de Turing Test, deze test moest laten zien of een robot realistisch menselijk gedrag kan vertonen. Niet iedereen was het met de redenatie van Turing eens, zoals John Searle. Hij bedacht een gedachte-experiment om het tegendeel te bewijzen. Hier lees je in {ref}`wanneer-is-iets-intelligent` meer over. 
 
 In 1956 werd door Allen Newell een algoritme geschreven die men ook wel ziet als het "eerste KI algoritme". Het programma was gemaakt om, net als de mens, logisch te kunnen denken en logische problemen op te lossen. Het algoritme werkte goed en kon wiskundige theorieën bewijzen. 
 
-:::{admonition} 💡 Onderzoek in de jaren '60
+:::{admonition} Onderzoek in de jaren '60
 :class: tip
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/5YBIrc-6G-0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -81,10 +81,10 @@ In de jaren 60 werd dus al veel onderzoek gedaan naar kunstmatige intelligentie.
 
 :::
 
-In de jaren die hierop volgen begint het veld van KI echt te bloeien en worden enorm veel onderzoeken gedaan, vooral ook doordat de rekenkracht van computers veel groter werd. Het trainen van KI kost namelijk veel rekenkracht. Veel nieuwe algoritmes worden bedacht en toegepast in nieuwe indrukwekkende systemen. Zo heb je in de jaren 80 *MYCIN*, een medisch kennissysteem dat aan de hand van deductie antwoorden kan geven op problemen. Kennissystemen zou je tegenwoordig niet echt meer snel als KI beschouwen, toch was dit voor die tijd enorm indrukwekkend.
+In de jaren die hierop volgen begint het veld van KI echt te bloeien en worden enorm veel onderzoeken gedaan, vooral ook doordat de rekenkracht van computers veel groter werd. Het trainen van KI kost namelijk veel rekenkracht. Veel nieuwe algoritmes worden bedacht en toegepast in nieuwe indrukwekkende systemen. Zo heb je in de jaren 80 *MYCIN*, een medisch expertsysteem dat aan de hand van deductie antwoorden kan geven op problemen. Expertsystemen zou je tegenwoordig niet echt meer snel als KI beschouwen, toch was dit voor die tijd enorm indrukwekkend.
 
-:::{admonition} 💡 **MYCIN**
-:class: important
+:::{admonition} **MYCIN**
+:class: tip
 
 Een van de eerste expertsystemen was MYCIN. Dit was een medisch expertsysteem dat een diagnose kon stellen voor infecties. Het systeem stelde simpele ja/nee-vragen. Er waren zo’n 600 regels in geprogrammeerd. Gebruikers kregen uiteindelijk een uitslag welke bacterie de infectie waarschijnlijk zou veroorzaken.
 
@@ -97,7 +97,7 @@ Een nadeel van expertsystemen is het gebrek aan menselijk vertrouwen. Mensen zij
 ::::{grid-item}
 :columns: 8
 
-De grootste en bekendste doorbraak in de 20e eeuw was *Deep Blue*, een schaakcomputer ontwikkeld in de jaren '80 en '90 door IBM. Dit systeem was zo bijzonder omdat het in 1997 als eerste AI een potje schaak gewonnen heeft van de wereldkampioen, Garri Kasparov. Kasparov was hier niet over te spreken en beschuldigde de makers van valsspel.
+De grootste en bekendste doorbraak in de 20e eeuw was *Deep Blue*, een schaakcomputer ontwikkeld in de jaren '80 en '90 door IBM. Dit systeem was zo bijzonder omdat het in 1997 als eerste KI gewonnen heeft van de wereldkampioen, Garri Kasparov. Kasparov was hier niet over te spreken en beschuldigde de makers van valsspel.
 
 Deep Blue maakt gebruik van zoekalgoritmes die zoeken naar de "beste" zetten. Hiervoor zoekt het systeem door allemaal mogelijke zetten in een database. Het systeem zoekt niet alleen voor de beste zet voor de huidige beurt, maar ook voor ideale zetten voor toekomstige beurten. De machine kon wel 200 miljoen zetten per seconde evalueren.
 
@@ -119,9 +119,9 @@ Deep Blue (en.wikipedia.org)
 
 ## Heden
 
-In het begin van de jaren '00, maar ook in de jaren '90, worden veel nieuwe ontdekkingen op het gebied van AI gedaan.
+In het begin van de jaren '00, maar ook in de jaren '90, worden veel nieuwe ontdekkingen op het gebied van KI gedaan.
 
-Veel grote doorbraken van deze tijd zijn te danken aan het groeiende aantal transistoren op een chip. De *Wet van Moore* beschrijft dat het aantal transistoren op een chip elke twee jaar verdubbelt. Deze wet is tegenwoordig niet meer toepasbaar, maar heel lang klopte het wel degelijk. Hierdoor konden veel meer berekeningen gedaan worden dan jaren ervoor. Hoewel de berekeningen en algoritmes dus niet nieuw waren, werden er toch nieuwe stappen gezet.
+Veel grote doorbraken van deze tijd zijn te danken aan het groeiende aantal transistoren op een chip. De *Wet van Moore* beschrijft dat het aantal transistoren op een chip elke twee jaar verdubbelt. Deze wet is tegenwoordig niet meer toepasbaar(??), maar heel lang klopte het wel degelijk. Hierdoor konden veel meer berekeningen gedaan worden dan jaren ervoor. Hoewel de berekeningen en algoritmes dus niet nieuw waren, werden er toch nieuwe stappen gezet.
 
 :::::{grid}
 
@@ -164,9 +164,9 @@ Watson van binnen
 
 :::
 
-Een grote stap voor IBM was *Watson*, die het Amerikaanse tv programma *Jeopardy!* won in 2011. In het programma krijgen de deelnemers een antwoord te horen, waarna zij de correcte vraag moeten formuleren. Een voorbeeld:  de quizmaster zegt: "Eén van de rijkste ondernemers ter wereld en tevens bekend van onder andere SpaceX en Tesla".  De kandidaat zal dan moeten antwoorden met: "Wie is Elon Musk?". De AI wist de kandidaten, die vaak erg intelligent zijn, allemaal te slim af te zijn. Hoewel Watson er leuk uitzag voor de kijker, was het eigenlijk een kamer gevuld met computers en harde schrijven.
+Een grote stap voor IBM was *Watson*, die het Amerikaanse tv programma *Jeopardy!* won in 2011. In het programma krijgen de deelnemers een antwoord te horen, waarna zij de correcte vraag moeten formuleren. Een voorbeeld:  de quizmaster zegt: "Eén van de rijkste ondernemers ter wereld en tevens bekend van onder andere SpaceX en Tesla".  De kandidaat zal dan moeten antwoorden met: "Wie is Elon Musk?". De KI wist de kandidaten, die vaak erg intelligent zijn, allemaal te slim af te zijn. Hoewel Watson er leuk uitzag voor de kijker, was het eigenlijk een kamer gevuld met computers en harde schrijven.
 
-Vanaf deze tijd werden er op grotere schaal systemen gemaakt die veel verschillende AI-technieken implementeerden. Een belangrijk voorbeeld is de spraakassistent *Siri* van Apple dat in 2011 werd uitbracht in Amerika. Dit systeem kan door middel van spraakherkenning vragen van gebruikers beantwoorden. In de jaren die hierop volgden werden ook andere assistenten gelanceerd, zoals *Google Now*, *Cortana*, en *Alexa*.
+Vanaf deze tijd werden er op grotere schaal systemen gemaakt die veel verschillende KI-technieken implementeerden. Een belangrijk voorbeeld is de spraakassistent *Siri* van Apple dat in 2011 werd uitbracht in Amerika. Dit systeem kan door middel van spraakherkenning vragen van gebruikers beantwoorden. In de jaren die hierop volgden werden ook andere assistenten gelanceerd, zoals *Google Now*, *Cortana*, en *Alexa*.
 
 :::{figure} figs/cc-geschiedenis-go-bord.png
 :width: 250
@@ -181,13 +181,13 @@ In 2015 maakte het bedrijf DeepMind een doorbraak met *AlphaGo*, een kunstmatige
 
 Zoals boven gemeld wist in 1996 IBM's Deep Blue al 's werelds beste schaakspeler te verslaan. Bij schaken zijn veel minder zetten per beurt mogelijk, hierdoor was het onderzoekers al eerder gelukt om dit probleem op te lossen.
 
-We zagen in de jaren hierna AI steeds meer in populariteit toenemen. Het woord werd bekender onder  de algemene bevolking en het werd steeds vaker gebruikt door bedrijven. Het werd niet alleen populairder voor gebruik, maar ook populairder als marketing term. Tegenwoordig zitten veel vormen van AI verwerkt in enorm veel software die gebruikt wordt door mensen. Ook veel instanties waar op grote schaal beslissingen en voorspellingen gemaakt moeten worden gebruiken vormen van AI; denk bijvoorbeeld aan banken, verzekeraars en overheden.
+We zagen in de jaren hierna KI steeds meer in populariteit toenemen. Het woord werd bekender onder  de algemene bevolking en het werd steeds vaker gebruikt door bedrijven. Het werd niet alleen populairder voor gebruik, maar ook populairder als marketing term. Tegenwoordig zitten veel vormen van KI verwerkt in enorm veel software die gebruikt wordt door mensen. Ook veel instanties waar op grote schaal beslissingen en voorspellingen gemaakt moeten worden gebruiken vormen van KI; denk bijvoorbeeld aan banken, verzekeraars en overheden.
 
-Doordat kunstmatige intelligentie in het leerproces vaak heel veel data nodig heeft om tot een goed resultaat te komen, zijn bedrijven door de jaren heen ook gretiger geworden in het verzamelen van de data van gebruikers. Deze data kan immers gebruikt worden om nieuwe of bestaande algoritmes te verbeteren en om deze data door te verkopen aan bedrijven die ook dergelijke AI toepassingen bedenken.
+Doordat kunstmatige intelligentie in het leerproces vaak heel veel data nodig heeft om tot een goed resultaat te komen, zijn bedrijven door de jaren heen ook gretiger geworden in het verzamelen van de data van gebruikers. Deze data kan immers gebruikt worden om nieuwe of bestaande algoritmes te verbeteren en om deze data door te verkopen aan bedrijven die ook dergelijke KI-toepassingen bedenken.
 
 ## Toekomst
 
-De toekomst is natuurlijk altijd onzeker, maar we kunnen wel stellen dat de vormen van AI, die op dagelijkse basis gebruikt worden, niet snel worden vervangen en dat ze alleen maar breder worden ingezet. Tegenwoordig is het namelijk steeds makkelijker en toegankelijker om AI technieken te gebruiken in software, zo wordt het vandaag al verkocht door bedrijven als Google, Microsoft en Amazon.
+De toekomst is natuurlijk altijd onzeker, maar we kunnen wel stellen dat de vormen van KI, die op dagelijkse basis gebruikt worden, niet snel worden vervangen en dat ze alleen maar breder worden ingezet. Tegenwoordig is het namelijk steeds makkelijker en toegankelijker om KI technieken te gebruiken in software, zo wordt het vandaag al verkocht door bedrijven als Google, Microsoft en Amazon.
 
 :::{figure} figs/cc-geschiedenis-deep-fake.png
 :width: 300
@@ -199,15 +199,16 @@ rest van het plaatje gelijk blijft.
 
 :::
 
-Een vorm van AI waar we waarschijnlijk in de nabije toekomst meer van zullen zien is de **GAN** (*Generative Adversarial Network*, deze vorm van AI wordt meer toegelicht in [1.4. In de praktijk](https://www.notion.so/1-4-In-de-praktijk-86f01e9c495f456cadb11a2ff7bba1cc)). Hoewel de term GAN je waarschijnlijk nog niet veel zegt, ken je waarschijnlijk al wel toepassingen van de AI. Het wordt namelijk veel gebruikt om **Deep Fakes** te genereren. Deep Fakes zijn video's of plaatjes waarvan de inhoud door middel van een AI is aangepast, zo kan het gezicht vervangen zijn door het gezicht van iemand anders of is de mond aangepast om te laten lijken alsof iets anders gezegd wordt.
+Een vorm van KI waar we waarschijnlijk in de nabije toekomst meer van zullen zien is de **GAN** (*Generative Adversarial Network*, deze vorm van KI wordt meer toegelicht in [In de praktijk](ki-in-de-praktijk)). Hoewel de term GAN je waarschijnlijk nog niet veel zegt, ken je waarschijnlijk al wel toepassingen van de KI. Het wordt namelijk veel gebruikt om **Deep Fakes** te genereren. Deep Fakes zijn video's of plaatjes waarvan de inhoud door middel van een KI is aangepast, zo kan het gezicht vervangen zijn door het gezicht van iemand anders of is de mond aangepast om te laten lijken alsof iets anders gezegd wordt.
 
-De term AI zal over de langere periode ook veranderen, zoals we ook gezien hebben in de geschiedenis. Waar vroeger systemen als MYCIN (het kennissysteem) als AI werden gezien, denken we daar tegenwoordig niet meer zo over. Misschien dat wij over 20 jaar neurale netwerken gaan zien als *gewone* algoritmes en niet meer als ultramoderne technologie.
+De term KI zal over de langere periode ook veranderen, zoals we ook gezien hebben in de geschiedenis. Waar vroeger systemen als MYCIN (het expertsysteem) als KI werden gezien, denken we daar tegenwoordig niet meer zo over. Misschien dat wij over 20 jaar neurale netwerken gaan zien als *gewone* algoritmes en niet meer als ultramoderne technologie.
 
-:::{admonition} 💡 **Robotica**
+:::{admonition} **Robotica**
+:class: tip
 
 Een ander groot onderdeel van het veld van kunstmatige intelligentie is robotica. Dit is in de geschiedenis redelijk onderbelicht. Indien je het interessant vindt om hier meer over te lezen kan je hier verder lezen.
 
-[Robotica](https://www.notion.so/Robotica-c7f74fa216c44fc498854814e3ee498c)
+[Robotica](robotica)
 
 :::
 

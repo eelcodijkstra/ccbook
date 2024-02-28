@@ -1,4 +1,5 @@
-# E. Ethiek en AI
+(verdieping-ethiek)=
+# Ethiek en AI
 
 AI-systemen kunnen grote voordelen hebben, die het leven van de mens vergemakkelijken of verbeteren. Denk bijvoorbeeld maar eens aan de Monocam van de Nationale Politie, die zorgt voor een afname van het aantal verkeersongelukken dat een gevolg is van het bezig zijn met de smartphone tijdens het autorijden. Of bedenk hoe goed het is dat AI meehelpt om tuberculose vroegtijdig te herkennen en te genezen in afgelegen gebieden in Afrika. Helaas zijn er ook al AI-systemen gebruikt (of nog in gebruik) die groepen mensen benadelen. Je hoeft alleen maar te denken aan het onjuiste gebruik van AI voor het toekennen van toeslagen bij de Belastingdienst, wat leidde tot discriminatie en privacyschendingen.
 

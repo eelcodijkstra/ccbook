@@ -65,7 +65,7 @@ In de figuur rechts bestaat de vereniging uit de gele gebieden.
 $\{\text{melk}, \text{brood}, \text{kaas}\} \cup \{\text{melk}, \text{brood}, \text{pindakaas}\} = \{\text{melk}, \text{brood}, \text{kaas}, \text{pindakaas}\}$
 
     
-::::{adminition} definitie: kardinaliteit
+::::{admonition} definitie: kardinaliteit
 
 Voor een eindige verzameling $X$ definiëren we $\#X$ als het **aantal** elementen in $X$. Dit wordt ook wel de ***kardinaliteit*** genoemd.
 ::::

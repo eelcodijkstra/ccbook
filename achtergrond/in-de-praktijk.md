@@ -1,3 +1,4 @@
+(ki-in-de-praktijk)=
 # In de praktijk
 Tegenwoordig zie je op steeds meer plekken kunstmatige intelligentie terug komen. Er zijn tal van fantastische voorbeelden die je misschien wel eens tegen bent gekomen, en elk jaar komen er tientallen nieuwe plekken bij! We zullen gaan kijken naar een klein aantal bekende en recente implementaties van KI.
 
@@ -151,6 +152,9 @@ Een GAN kan ook foto's generen aan de hand van simplistische tekeningen. Deze te
 
 [https://slo-ai.github.io/pix2pix/](https://slo-ai.github.io/pix2pix/)
 
+<iframe width="800" height="500" src="https://slo-ai.github.io/pix2pix/" title="pix2pix" frameborder="0"
+allowfullscreen></iframe>
+
 :::{admonition} 🛠 Opdracht
 
 Probeer zelf een in bovenstaande applet een aantal eigen tekeningen (minimaal 5 voor één categorie) naar een foto om te zetten. Maak screenshots van je pogingen  en geef ze een cijfer van 1 tot 10 voor de mate van realisme .
@@ -180,25 +184,33 @@ Op de website wordt groot een foto van een persoon getoond, maar de grap is dat 
 
 :::
 
-::::{admonition} 🛠 Opdracht
+:::::{admonition} 🛠 Opdracht
 
 Ga naar de website en bekijk de personen. De website laat een nieuwe foto zien als je de pagina herlaadt (F5). Kan jij de foto's van echt onderscheiden? Zo ja, hoe? Zo niet, waarom niet?
 
-:::{dropdown} Antwoord
+::::{dropdown} Antwoord
 
-- Antwoord
-    
-    ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/10b442ce-49de-49df-9177-008117a8f203/5_example.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/10b442ce-49de-49df-9177-008117a8f203/5_example.png)
-    
-    ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/11dbd4de-b03c-4598-95b2-82df3e15d931/3_example.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/11dbd4de-b03c-4598-95b2-82df3e15d931/3_example.png)
-    
-    ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/80d75380-cfb1-463f-b9b7-5e0c34bdce58/7_example.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/80d75380-cfb1-463f-b9b7-5e0c34bdce58/7_example.png)
-    
-    Misschien vond je het erg lastig, of had je het snel door als je goed keek naar het plaatje. Vaak kan je bij overgangen van personen naar objecten/achtergrond nog wel eens een "artifact" vinden. Haar, ogen en kleding kunnen ook nog wel eens fout gaan. Als je heel ver in de plaatjes inzoomt kan je ook soms wel zien dat het een beetje raar oogt.
-    
-    Ook kan het gebeuren dat het netwerk een object een beetje half heeft gegenereerd. Hierdoor is het voor een deel zichtbaar of doorzichtig. Een beetje een geest-achtig effect geeft dit.
+:::{image} figs/5_example.png
+:width: 300
+:align: center
 :::
+
+:::{image} figs/3_example.png
+:width: 300
+:align: center
+:::
+
+:::{image} figs/7_example.png
+:width: 300
+:align: center
+:::
+
+Misschien vond je het erg lastig, of had je het snel door als je goed keek naar het plaatje. Vaak kan je bij overgangen van personen naar objecten/achtergrond nog wel eens een "artifact" vinden. Haar, ogen en kleding kunnen ook nog wel eens fout gaan. Als je heel ver in de plaatjes inzoomt kan je ook soms wel zien dat het een beetje raar oogt.
+    
+Ook kan het gebeuren dat het netwerk een object een beetje half heeft gegenereerd. Hierdoor is het voor een deel zichtbaar of doorzichtig. Een beetje een geest-achtig effect geeft dit.
+
 ::::
+:::::
 
 ::::{admonition} 🛠 Vragen
 
@@ -206,7 +218,10 @@ Ga naar de website en bekijk de personen. De website laat een nieuwe foto zien a
 2. Wat is de overkoepelende term voor het verwerken en schrijven van taal in informatica?
 3. Leg uit wat een GAN is en noem 2 serieuze toepassingen waarin GAN's worden gebruikt.
 
-:::{dropdown} (nog geen) Antwoorden
+:::{dropdown} Antwoorden
+1. Monte Carlo Tree search is een techniek die gebruik wordt om zo optimaal mogelijk te zoeken naar een oplossing.
+2. Natural language processing / Natuurlijke taalverwerking
+3. Een GAN is een neuraal netwerk dat nieuwe data genereert op basis van trainingsdata van de zelfde vorm. Serieuze voorbeelden: Restauratie van oud beeldmateriaal, Zoeken naar nieuwe chemische verbindingen voor werkende medicijnen, ...
 
 :::
 ::::

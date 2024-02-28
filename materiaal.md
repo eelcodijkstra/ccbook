@@ -72,3 +72,6 @@ Het algemene deel biedt een stukje geschiedenis en de huidige stand van zaken va
 ## Verdiepende deel
 
 Heb je de stof uit het algemene deel doorgewerkt, dan ga je zelf op onderzoek uit. Je bent in het algemene deel vast een aantal onderwerpen tegengekomen waar je meer over wilt weten. Er zijn voor jou al een aantal opdrachten verzonnen om de verdieping te starten, vul die aan met eigen vragen en beschrijf wat je geleerd hebt in een verslag.
+
+* [Ethiek en AI](verdieping-ethiek)
+* [Neurale netwerken](verdieping-neurale-netwerken)
