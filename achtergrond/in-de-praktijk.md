@@ -20,7 +20,7 @@ Het spel heeft enorm veel mogelijke zetten, waardoor het niet mogelijk is voor s
 
 ### Technieken
 
-AlphaGo gebruikt een combinatie van [*Monte Carlo Tree Search*](https://en.wikipedia.org/wiki/Monte_Carlo_tree_search) (MCTS) en deep learning [*neurale netwerken*](https://www.notion.so/3-5-Neurale-netwerken-4778ac2fbe494b9cbe50001b3d19d1c9). Monte Carlo Tree search is een techniek die gebruik wordt om zo goed mogelijk te zoeken naar een oplossing. Het maakt hiervoor gebruik van heuristieken, zoals bijvoorbeeld ook gedaan wordt bij het [zoekalgoritme A*](https://www.educative.io/edpresso/what-is-the-a-star-algorithm).
+AlphaGo gebruikt een combinatie van [*Monte Carlo Tree Search*](https://en.wikipedia.org/wiki/Monte_Carlo_tree_search) (MCTS) en deep learning [*neurale netwerken*](https://www.notion.so/3-5-Neurale-netwerken-4778ac2fbe494b9cbe50001b3d19d1c9). Monte Carlo Tree search is een techniek die gebruikt wordt om zo goed mogelijk te zoeken naar een oplossing. Het maakt hiervoor gebruik van heuristieken, zoals bijvoorbeeld ook gedaan wordt bij het [zoekalgoritme A*](https://www.educative.io/edpresso/what-is-the-a-star-algorithm).
 
 *Deep learning* gebruikt een neuraal netwerk met meerdere "lagen" aan neuronen. Over het algemeen zijn veel toepasbare vormen van AI *deep neural networks*. 
 
@@ -32,7 +32,7 @@ Daarnaast wordt het ook gebruikt door de [autopiloot in Tesla](https://youtu.be/
 
 Deep learning is enorm breed en wordt in veel gebieden toegepast. Zoals Financial fraud detection, Medical image analysis, Drug discovery and toxicology, Natural language processing, Image recognition en nog veel andere velden.
 
-Je kunt hier later meer over leren in [3.5. Neurale netwerken](https://www.notion.so/3-5-Neurale-netwerken-4778ac2fbe494b9cbe50001b3d19d1c9).
+Je kunt hier later meer over leren in [](technieken-neurale-netwerken).
 
 ## Tay de Twitter bot
 
@@ -56,8 +56,6 @@ Microsoft zal een vorm van *Reinforcement Learning* gebruikt hebben, om te kunne
 NLP wordt enorm veel gebruikt, elke keer als je met een chatbot praat (bij een online webshop of ergens anders) dan wordt er gebruik gemaakt van NLP. 
 
 Hele bekende voorbeelden die enorm veel gebruik moeten maken van NLP zijn Google Now, Siri en Alexa, de spraakassistenten van Google, Apple en Amazon. Deze systemen moeten onder andere gebruik maken van NLP om spraak naar tekst om te zetten, tekst te begrijpen en een tekst weer uit te kunnen spreken.
-
-Je kunt hier later meer over leren in ‣.
 
 ## GAN
 
@@ -120,12 +118,6 @@ Zoek zelf nog een aansprekend Deepfake videofragment.
 
 De onderzoekers van OpenAI hebben [GANs](https://openai.com/blog/jukebox/) gebruikt om een [kunstmatige intelligentie muziek](https://openai.com/blog/jukebox/) te laten maken. Of beter gezegd, de KI moet bekende liedjes afmaken. Het systeem krijgt het begin van een liedje te *horen*, waarna het zelf moet bedenken hoe het liedje verder zal gaan. De uitkomsten zijn vaak erg bizar en klinken totaal anders dan je zou verwachten.
 
-![Pop, in the style of Rick Astley - Jukebox by OpenAI](https://soundcloud.com/openai_audio/jukebox-914891098)
-
-[Pop, in the style of Rick Astley - Jukebox by OpenAI](https://soundcloud.com/openai_audio/jukebox-914891098)
-
-![All Star, but an AI continues the song [OpenAI Jukebox]](https://www.youtube.com/watch?v=8sFXsP71wfA)
-
 ::::{grid} 1 1 2 2
 
 :::{grid-item-card}
@@ -134,8 +126,8 @@ Pop, in the style of Rick Astley - Jukebox by OpenAI
 :::
 
 :::{grid-item-card}
-:link: https://www.youtube.com/watch?v=8sFXsP71wfA
-All Star, but an AI continues the song [OpenAI Jukebox]
+:link: https://openai.com/research/jukebox
+OpenAI jukebox achtergronden (research)
 :::
 
 ::::

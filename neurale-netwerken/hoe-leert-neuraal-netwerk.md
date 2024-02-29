@@ -867,7 +867,7 @@ Figuur 6: Een trainers app
     
     - Voor deze situatie is aan de trainer class hierboven de functie **sampleTrainingTotKlopt(a,b)** toegevoegd.
         
-        ```html
+        ```javascript
         /*
          * functie sampleTrainingTotKlopt(a,b,n) voert 
          *    meerdere trainingen op een punten verzameling uit, 

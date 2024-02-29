@@ -3,17 +3,23 @@
 
 In het hoofdstuk @1. Achtergrond heb je geleerd wat AI betekent en heb je enkele toepassingen gezien. Ook heb je in het hoofdstuk @2. Ethiek gezien dat men AI applicaties mooie dingen kan laten doen, maar dat er sociale gevaren op de loer liggen. Je las daar dat vooringenomenheid en ondoorzichtigheid voor deze problemen de voedingsbodem zijn. Maar waarom treden deze problemen juist bij AI op? Ook op andere manieren kan met behulp van programmatuur de wereld worden ontwricht, zo zijn er bijvoorbeeld computervirussen die ons het ICT leven lastig maken  en worden softwarematige aanvallen op computernetwerken gedaan. 
 
-::::{grid} 1 1 2 2
+:::::{grid} 1 1 2 2
+
+::::{grid-item}
 :::{figure} figs/cartoon-danger-ai.jpg
 :height: 250
 Bron: http://www.mit.edu/~irahwan/cartoons.html
 :::
+::::
 
+::::{grid-item}
 :::{figure} figs/cartoon-cyber-attack.png
 :height: 250
 Bron: http://www.glasbergen.com/wp-content/gallery/security/toon1213.gif
 :::
 ::::
+
+:::::
 
 Wat maakt AI nu anders? Het is nu tijd om te kijken naar technieken die worden gebruikt in AI applicaties. Het spreekt natuurlijk vanzelf dat we in deze cursus niet alles kunnen behandelen. We gaan wel proberen de rode lijn uit te leggen en deze rode lijn met behulp van de meest eenvoudige technieken te verduidelijken. Wil je na deze introductie in de technieken meer inzicht krijgen dan kun je het verdiepingsdeel [N. Neurale netwerken](https://www.notion.so/N-Neurale-netwerken-a0cfa2a90fc244f98f28bf75a7dd10d9?pvs=21) gaan volgen.
 
