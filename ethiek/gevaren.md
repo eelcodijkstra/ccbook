@@ -1,11 +1,11 @@
 (ethiek-gevaren)=
 # Gevaren van kunstmatige intelligentie
 
-*Skynet, HAL 9000, V.I.K.I., the Matrix*, misschien ken je er zelf ook nog wel een paar: kwaadaardige kunstmatige intelligentie en robots. Het is al tijden een populair thema in sciencefictionboeken en -films. Natuurlijk zijn de situaties in deze films allemaal verzonnen, maar er zijn wetenschappers die echt vrezen dat denkende computers zich ooit tegen de mensheid zullen keren. Allereerst kun je je afvragen of computers wel intelligenter kunnen worden dan mensen, of dat computers überhaupt intelligent kunnen zijn (daarover later meer). Toch blijft het een interessant onderwerp van debat en houden mensen zich ermee bezig. Het moment dat computers slimmer worden dan de mens wordt de **technologische singulariteit** genoemd. 
+*Skynet, HAL 9000, V.I.K.I., the Matrix*, misschien ken je er zelf ook nog wel een paar: kwaadaardige kunstmatige intelligentie en robots. Het is al tijden een populair thema in sciencefictionboeken en -films. Natuurlijk zijn de situaties in deze films allemaal verzonnen, maar er zijn wetenschappers die echt vrezen dat denkende computers zich ooit tegen de mensheid zullen keren. Allereerst kun je je afvragen of computers wel intelligenter kunnen worden dan mensen, of dat computers überhaupt intelligent kunnen zijn (daarover later meer). Toch blijft het een interessant onderwerp van debat en houden mensen zich ermee bezig. Het moment dat computers slimmer worden dan de mens wordt de [**technologische singulariteit**](https://en.wikipedia.org/wiki/Technological_singularity) genoemd. 
 
 Is het eigenlijk wel logisch om bang te zijn voor superslimme computers? Misschien zorgen hyperintelligente computers in hun wijsheid juist wel voor vrede en harmonie. We weten het niet en misschien komen we er nooit achter.
 
-Maar ook minder intelligente vormen van AI zouden kunnen worden ingezet om de mensheid te benadelen. Wat zal een AI-robot besluiten als je deze slechts één taak geeft en wel de volgende: zorg dat er geen overbodige CO₂ wordt uitgestoten? De robot zou kunnen concluderen dat de gehele mensheid moet worden uitgeroeid.
+Maar ook minder intelligente vormen van KI zouden kunnen worden ingezet om de mensheid te benadelen. Wat zal een KI-robot besluiten als je deze slechts één taak geeft en wel de volgende: zorg dat er geen overbodige CO₂ wordt uitgestoten? De robot zou kunnen concluderen dat de gehele mensheid moet worden uitgeroeid.
 
 ## Misbruik van computers
 
@@ -15,9 +15,9 @@ Wat in elk geval wél een realistisch puntje van zorg is, is misbruik van kunstm
 
 “Computers maken geen fouten, het zijn mensen die computers programmeren die fouten maken.” Je kent deze uitspraak misschien wel, en grotendeels klopt hij ook. Computerprogramma’s doen altijd precies waarvoor ze geprogrammeerd zijn. Toch ligt dit met kunstmatige intelligentie net iets anders. Bij kunstmatige intelligentie worden de acties van de software niet van tevoren geprogrammeerd, maar komt de software tot acties die deze zichzelf aanleert. In dit leerproces kunnen ongewenste fouten optreden. Het gevaar is hier dat mensen te veel gaan vertrouwen op kunstmatige intelligentie.
 
-Een leuke anekdote gaat over een groep AI-robots op wieltjes, die moeten proberen elkaar zo min mogelijk te raken in een speelveld. De robots leren op een gegeven moment dat stilstaan de beste oplossing is. Geweldig bedacht, maar niet wat de ontwikkelaars in gedachten hadden. Een ander verrassend resultaat was de studie die [OpenAI](https://openai.com/blog/emergent-tool-use/) heeft gedaan naar AI in een "hide and seek" gamewereld. Na een tijd kwam de AI achter bugs in de software van de geprogrammeerde wereld, waardoor ze verder en hoger konden komen dan bedoeld.
+Een leuke anekdote gaat over een groep KI-robots op wieltjes, die moeten proberen elkaar zo min mogelijk te raken in een speelveld. De robots leren op een gegeven moment dat stilstaan de beste oplossing is. Geweldig bedacht, maar niet wat de ontwikkelaars in gedachten hadden. Een ander verrassend resultaat was de studie die [OpenAI](https://openai.com/blog/emergent-tool-use/) heeft gedaan naar KI in een "hide and seek" gamewereld. Na een tijd kwam de KI achter bugs in de software van de geprogrammeerde wereld, waardoor ze verder en hoger konden komen dan bedoeld.
 
-Hiernaast vind je een artikel over een dodelijk ongeval door een ‘zelfrijdende’ auto. In het artikel staat een goed voorbeeld van een foutje van kunstmatige intelligentie met een treurig gevolg. Nu gaat het in dit voorbeeld over één slachtoffer, maar wat kan er allemaal niet misgaan als de straten straks overspoeld worden met zelfrijdende auto’s? Zelfs al zou een zelfrijdende auto minder fouten maken dan een mens, dan nog rest na een dergelijk ongeluk de vervelende vraag: wie is er verantwoordelijk voor de schade bij een ongeval? Is dat de eigenaar van de kunstmatig intelligente auto? Of is dat de programmeur van de software in de auto? Of misschien de kunstmatige intelligentie zelf?
+Via [deze link](https://nos.nl/artikel/2114618-eerste-dode-door-zelfrijdende-auto.html) vind je een artikel over een dodelijk ongeval door een ‘zelfrijdende’ auto. In het artikel staat een goed voorbeeld van een foutje van kunstmatige intelligentie met een treurig gevolg. Nu gaat het in dit voorbeeld over één slachtoffer, maar wat kan er allemaal niet misgaan als de straten straks overspoeld worden met zelfrijdende auto’s? Zelfs al zou een zelfrijdende auto minder fouten maken dan een mens, dan nog rest na een dergelijk ongeluk de vervelende vraag: wie is er verantwoordelijk voor de schade bij een ongeval? Is dat de eigenaar van de kunstmatig intelligente auto? Of is dat de programmeur van de software in de auto? Of misschien de kunstmatige intelligentie zelf?
 
 [https://nos.nl/artikel/2114618-eerste-dode-door-zelfrijdende-auto.html](https://nos.nl/artikel/2114618-eerste-dode-door-zelfrijdende-auto.html)
 
@@ -43,7 +43,7 @@ Hiernaast vind je een artikel over een dodelijk ongeval door een ‘zelfrijdende
 
 We hebben net stilgestaan bij mogelijke gevaren uit de hoek van kunstmatige intelligentie. Als slimme computers echt deel gaan uitmaken van onze samenleving, zullen er dingen moeten veranderen. Er zullen nieuwe afspraken gemaakt moeten worden. Bijvoorbeeld over wie wanneer verantwoordelijk is bij een ongeluk met een robot. Of wat een slimme computer wel of niet mag doen.
 
-Er wordt hierbij vaak verwezen naar Isaac Asimov en zijn drie wetten van de robotica. Hoewel Asimov deze wetten in een sciencefictionboek (*I, Robot*) publiceerde, is er vaak serieus over nagedacht. De wetten zijn bedoeld om mensen te beschermen tegen intelligente computers. Hieronder staan ze:
+Er wordt hierbij vaak verwezen naar Isaac Asimov en zijn drie wetten van de robotica. Hoewel Asimov deze wetten in een sciencefictionboek ([*I, Robot*](https://nl.wikipedia.org/wiki/Ik,_robot)) publiceerde, is er vaak serieus over nagedacht. De wetten zijn bedoeld om mensen te beschermen tegen intelligente computers. Hieronder staan ze:
 
 :::{admonition} Wetten van Asimov
 :class: tip
@@ -124,16 +124,16 @@ Het mooie van filosofie is dat je overal over kunt en mag denken, hoe bizar iets
 
 ## De engheidsmatrix
 
-Wanneer techneuten of social media influencers praten over AI, hebben ze het vaak over de ‘coole’, leuke en nuttige toepassingen daarvan. Vaak gaat het dan om de razend knappe nieuwe technieken die worden gebruikt, of over het allerlaatste, supersnelle neural network algoritme. Maar wanneer je sommige andere mensen over AI hoort, noemen zij AI juist vaak ‘eng’. 
+Wanneer techneuten of social media influencers praten over KI, hebben ze het vaak over de ‘coole’, leuke en nuttige toepassingen daarvan. Vaak gaat het dan om de razend knappe nieuwe technieken die worden gebruikt, of over het allerlaatste, supersnelle neural network algoritme. Maar wanneer je sommige andere mensen over KI hoort, noemen zij KI juist vaak ‘eng’. 
 
 > “Ik heb geen idee hoe het allemaal werkt, maar het is ons vast aan het bespioneren. Hartstikke eng, vind ik…”
 > 
 
-En eigenlijk hebben al deze mensen een beetje gelijk. Want AI kan gaaf en leuk zijn, maar het kan ook eng en fout zijn. In dit deel van de lessenserie ga je zélf aan de slag om te ontdekken wat voorbeelden zijn van goede, nuttige en leuke AI-toepassingen, en wat voorbeelden zijn van ‘enge AI’.
+En eigenlijk hebben al deze mensen een beetje gelijk. Want KI kan gaaf en leuk zijn, maar het kan ook eng en fout zijn. In dit deel van de lessenserie ga je zélf aan de slag om te ontdekken wat voorbeelden zijn van goede, nuttige en leuke KI-toepassingen, en wat voorbeelden zijn van ‘enge KI’.
 
-Maar waarom vinden mensen de ene AI-toepassing nou ontzettend nuttig en ethisch verantwoord, en een andere juist heel eng en totaal overbodig? In paragraaf [1.4. In de praktijk](https://www.notion.so/1-4-In-de-praktijk-86f01e9c495f456cadb11a2ff7bba1cc) heb je een aantal voorbeelden gekregen waarin je hebt kennisgemaakt met de ethische aspecten van AI. Maar nu is het tijd te gaan bedenken wat jij zélf vindt van AI.
+Maar waarom vinden mensen de ene KI-toepassing nou ontzettend nuttig en ethisch verantwoord, en een andere juist heel eng en totaal overbodig? In het onderdeel [](ki-in-de-praktijk) heb je een aantal voorbeelden gekregen waarin je hebt kennisgemaakt met de ethische aspecten van KI. Maar nu is het tijd te gaan bedenken wat jij zélf vindt van KI.
 
-Een handige manier om zelf te beginnen met kritisch nadenken over AI is het maken van een **engheidsmatrix**. In zo'n matrix plot je verschillende AI-toepassingen om te ontdekken wat nou duidelijke voorbeelden van goede, nuttige en leuke AI-toepassingen zijn, en wat typisch voorbeelden zijn van ‘enge AI’. Begin met het tekenen van een matrix, zoals in het voorbeeld hieronder. Het is handig om de matrix bijvoorbeeld groot op een muur of op een whiteboard te tekenen. Gebruik vervolgens een geeltje om een AI-toepassing te beschrijven en in de matrix te plaatsen, zodat je er met anderen over kunt discussiëren.
+Een handige manier om zelf te beginnen met kritisch nadenken over KI is het maken van een **engheidsmatrix**. In zo'n matrix plot je verschillende KI-toepassingen om te ontdekken wat nou duidelijke voorbeelden van goede, nuttige en leuke KI-toepassingen zijn, en wat typisch voorbeelden zijn van ‘enge KI’. Begin met het tekenen van een matrix, zoals in het voorbeeld hieronder. Het is handig om de matrix bijvoorbeeld groot op een muur of op een whiteboard te tekenen. Gebruik vervolgens een geeltje om een KI-toepassing te beschrijven en in de matrix te plaatsen, zodat je er met anderen over kunt discussiëren.
 
 :::{figure} figs/ethiek-engheidsmatrix2.png
 :width: 600
@@ -143,11 +143,11 @@ De engheidsmatrix
 
 :::{admonition} 🛠 Groepsopdracht
 
-1. Probeer eens de AI-toepassing [Quick, Draw!](https://quickdraw.withgoogle.com/) van Google in de matrix te plaatsen: dat is echt nog niet zo gemakkelijk. Hoe gaat Google met je gegevens om? Ga jij de Privacy Policy van Google doorspitten voordat je iets tekent? En hoe zit het met het nut van deze AI-toepassing?
-2. Geef op het geeltje ook aan hoe je je keuzes maakt. Welke criteria gebruik je om *Quick, Draw!* op de horizontale as te plaatsen? Wanneer noem jij een AI-systeem eng, en wanneer vind je een systeem ethisch verantwoord? En welke criteria gebruik je om een AI-toepassing op de verticale as te plotten? Hoe bepaal je het nut van een AI-systeem? Onderbouw de keuzes die je maakt.
-3. In paragraaf [1.4. In de praktijk](https://www.notion.so/1-4-In-de-praktijk-86f01e9c495f456cadb11a2ff7bba1cc) hebben wij bepaalde uitspraken bij de voorbeelden gedaan. Plaats jouw mening over deze voorbeelden in de matrix.
+1. Probeer eens de KI-toepassing [Quick, Draw!](https://quickdraw.withgoogle.com/) van Google in de matrix te plaatsen: dat is echt nog niet zo gemakkelijk. Hoe gaat Google met je gegevens om? Ga jij de Privacy Policy van Google doorspitten voordat je iets tekent? En hoe zit het met het nut van deze KI-toepassing?
+2. Geef op het geeltje ook aan hoe je je keuzes maakt. Welke criteria gebruik je om *Quick, Draw!* op de horizontale as te plaatsen? Wanneer noem jij een KI-systeem eng, en wanneer vind je een systeem ethisch verantwoord? En welke criteria gebruik je om een KI-toepassing op de verticale as te plotten? Hoe bepaal je het nut van een KI-systeem? Onderbouw de keuzes die je maakt.
+3. In het onderdeel [](ki-in-de-praktijk) hebben wij bepaalde uitspraken bij de voorbeelden gedaan. Plaats jouw mening over deze voorbeelden in de matrix.
 4. Vergelijk je keuzes met die van de andere leerlingen en discussieer over de uitkomsten. Waarin verschillen jullie uitkomsten? Kun je aangeven waarom die verschillen er zijn? En waar zijn jullie het eens?
 
-Wil je meer weten over de engheidsmatrix en hoe je die kunt gebruiken om het nut en de ethische aspecten van een AI-toepassing in kaart te brengen? In het keuzedeel [E. Ethiek en AI](https://www.notion.so/E-Ethiek-en-AI-040d6779dbd947afa6ca13872c54245b)  gaan we verder op de matrix in.
+Wil je meer weten over de engheidsmatrix en hoe je die kunt gebruiken om het nut en de ethische aspecten van een KI-toepassing in kaart te brengen? In het keuzedeel [](verdieping-ethiek)  gaan we verder op de matrix in.
 
 :::
