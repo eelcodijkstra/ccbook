@@ -1,0 +1,664 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="nl" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Introductie &#8212; Cognitive computing</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'materiaal';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Zoeken" href="search.html" />
+    <link rel="next" title="1. Achtergrond" href="achtergrond/achtergrond.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="nl"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Cognitive computing - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Cognitive computing - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Zoeken</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
+                    Introductie
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Materiaal</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="achtergrond/achtergrond.html">1. Achtergrond</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="achtergrond/introductie.html">1.1. Introductie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="achtergrond/geschiedenis.html">1.2. Geschiedenis en toekomst</a></li>
+<li class="toctree-l2"><a class="reference internal" href="achtergrond/intelligentie.html">1.3. Wanneer is iets intelligent?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="achtergrond/in-de-praktijk.html">1.4. In de praktijk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="achtergrond/terugkoppeling.html">1.5. Terugkoppeling</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="ethiek/ethiek.html">2. Ethiek</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="ethiek/gevaren.html">2.1. Gevaren van kunstmatige intelligentie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ethiek/fast-principes.html">2.2. De FAST-principes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ethiek/fair-data.html">2.3. FAIR data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ethiek/terugkoppeling.html">2.4. Terugkoppeling</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="technieken/technieken.html">3. Technieken</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="technieken/introductie.html">3.1. Introductie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="technieken/machine-learning.html">3.2. Machine learning</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="technieken/associatie-analyse.html">3.4. Associatie-analyse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="technieken/cluster-analyse.html">3.5. Clusteranalyse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="technieken/neurale-netwerken.html">3.6. Neurale netwerken</a></li>
+<li class="toctree-l2"><a class="reference internal" href="technieken/eigen-quickdraw.html">3.7. Eigen QuickDraw</a></li>
+<li class="toctree-l2"><a class="reference internal" href="technieken/multi-agentsystemen.html">3.8. Multi-agentsystemen</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="technieken/terugkoppeling.html">3.10. Terugkoppeling</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Verdieping</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="ethiek-en-ai/ethiek-en-ai.html">4. Ethiek en AI</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="ethiek-en-ai/ai-standaarden.html">4.1. AI standaarden en richtlijnen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ethiek-en-ai/fast-en-fair.html">4.2. FAST en FAIR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ethiek-en-ai/engheidsmatrix.html">4.3. De engheidsmatrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ethiek-en-ai/ethiek-opdracht-essay.html">4.4. Opdracht: schrijf een essay over Ethiek en AI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ethiek-en-ai/ethiek-bedenk-een-ai.html">4.5. Opdracht: bedenk een AI toepassing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="neurale-netwerken/neurale-netwerken.html">5. Neurale netwerken</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="neurale-netwerken/hoe-leert-neuraal-netwerk.html">5.1. N.1. Hoe leert een neuraal netwerk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="neurale-netwerken/naar-meer-lagen.html">5.2. N.2. Op weg naar meer lagen</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="neurale-netwerken/tensorflow-app.html">6. N.3 Tensorflow app</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="neurale-netwerken/docentenhandleiding.html">6.1. Docentenhandleiding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="neurale-netwerken/fase-1.html">6.2. Fase 1: Maak een eerste app</a></li>
+<li class="toctree-l2"><a class="reference internal" href="neurale-netwerken/fase-2.html">6.3. Fase 2: Optimaliseren Neuraal Netwerk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="neurale-netwerken/fase-3.html">6.4. Fase 3: Andere dataset gebruiken</a></li>
+<li class="toctree-l2"><a class="reference internal" href="neurale-netwerken/fase-4.html">6.5. Fase 4: Eigen dataset gebruiken</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="over-ons.html">Over ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="colofon.html">Colofon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="achtergrond/robotica.html">Robotica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix/verzamelingen.html">Verzamelingenleer</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/keuzethemas/ccbook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Bronopslagplaats"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/keuzethemas/ccbook/issues/new?title=Issue%20on%20page%20%2Fmateriaal.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open een probleem"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download deze pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/materiaal.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download het bronbestand"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Afdrukken naar pdf"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Volledig scherm"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introductie</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhoud </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Introductie</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-draw">Quick draw</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#succesverhaal">Succesverhaal</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#gevaren">Gevaren</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#de-module">De module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algemeen-deel">Algemeen deel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verdiepende-deel">Verdiepende deel</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introductie">
+<h1>Introductie<a class="headerlink" href="#introductie" title="Permalink to this heading">#</a></h1>
+<p>In deze module willen we je graag verbazen met techniek, succes en ongemak rond <em>kunstmatige intelligentie</em> (KI). We hopen natuurlijk dat je hierna niet kunt wachten om met de rest van de module te beginnen om meer te weten te komen over dit interessante en best wel actuele onderwerp. We beginnen de verbazing met beeldherkenning voor de leuk, daarna geven we een voorbeeld van een serieuzere succesvolle toepassing en zadelen we je op met wat ongemak. Als laatste presenteren we het doel van de cursus.</p>
+<section id="quick-draw">
+<h2>Quick draw<a class="headerlink" href="#quick-draw" title="Permalink to this heading">#</a></h2>
+<p>Hoeveel heb je nodig om iets te herkennen? Misschien ken je het spel <em>Pictionary</em>. In dit spel moet je een tekening maken bij een woord en je teamgenoot moet dit woord dan raden. Speel het spel hieronder en laat je verbazen hoe goed AI als teamgenoot in dit spel is.</p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="_images/quick-draw-google.png"><img alt="_images/quick-draw-google.png" src="_images/quick-draw-google.png" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Link naar het spel: <a class="reference external" href="https://quickdraw.withgoogle.com">Quick, Draw!</a></span><a class="headerlink" href="#id1" title="Permallink naar deze afbeelding">#</a></p>
+</figcaption>
+</figure>
+<p>Geweldig toch? Misschien heb je nu dezelfde vragen als wij hadden:</p>
+<ul class="simple">
+<li><p>Hoeveel figuurtjes zijn er gebruikt om jouw tekeningen mee te vergelijken?</p></li>
+<li><p>Was de app goed in het herkennen? Lag dat aan jouw tekenkunsten of aan de slimheid van de app?</p></li>
+<li><p>Denk je dat het ingewikkeld is om zo’n spel te bouwen? Leg uit waarom wel/niet.</p></li>
+</ul>
+<p>Quick draw is een open project. Iedereen kan met de code en de dataset aan de slag. Volg <a class="reference external" href="https://github.com/googlecreativelab/quickdraw-dataset">deze link</a> en geef het antwoord op de eerste vraag. Het antwoord op de tweede vraag is dat er een neuraal netwerk is ingezet om eerst van 50 miljoen tekeningen te leren. Daardoor is de app in staat heel snel te bepalen tot welke groep jouw tekening behoort, zoals bijvoorbeeld een bal of een fiets. Het indelen van een object bij een groep (categorie, klasse) op basis van vergelijkbare eigenschappen noemt men classificeren. Maar hoe doet zo’n netwerk dat dan?</p>
+<p>In deze cursus kun je na een algemeen deel een pad kiezen waarin je je kunt verdiepen in de achterliggende technieken.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="succesverhaal">
+<h1>Succesverhaal<a class="headerlink" href="#succesverhaal" title="Permalink to this heading">#</a></h1>
+<p>Er zijn vele terreinen waar kunstmatige intelligentie een groot succes is, waaronder de gezondheidszorg. Het diagnosticeren van ziekten of aandoeningen aan de hand van beeldmateriaal is niet altijd even makkelijk, voor zowel mens als machine. Het bundelen van menselijke intelligentie en kunstmatige intelligentie leidt in veel gevallen tot succes. Het volgende filmpje is een voorbeeld hiervan (Tip: je kunt via de instellingen onderin de ondertiteling laten vertalen naar het Nederlands.)</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Mur70YjInmI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<p>In het filmpje zie je dat de radiologen trainingsdata moeten vormgeven. In het Quickdraw voorbeeld zijn er 50 miljoen tekeningen gebruikt met weinig tot geen overbodige informatie. In de video zag je beelden voorbij komen met veel meer informatie, maar slechts een klein deel van deze informatie was ook daadwerkelijk nuttig. Bij het zien van het filmpje, kwamen bij ons gelijk een paar vragen naar boven. Hopelijk bij jou ook.</p>
+<ul class="simple">
+<li><p>Is dit een toepassing die voor de patiënt voordelig is?</p></li>
+<li><p>Is dit een toepassing die de zorg duurder maakt?</p></li>
+<li><p>Hoeveel voorbeelden heeft de KI in de video gezien?</p></li>
+<li><p>Kan de KI bijleren? Er waren situaties dat de KI niets zag maar zes radiologen wel.</p></li>
+</ul>
+<p>De eerste vraag is natuurlijk positief te beantwoorden. Hoe beter de detectie, des te sneller een diagnose gesteld kan worden. Ook de laatste vraag is te beantwoorden met “ja”. We kunnen de beschikbare dataset uitbreiden met de niet goed geclassificeerde beelden en daarna de applicatie opnieuw trainen. Dit hertrainen is trouwens niet een garantie dat daarna de diagnose juist gaat zijn. Het grote voordeel is dat alle radiologen die de applicatie gebruiken, tegelijk de nieuwe versie kunnen gebruiken. Er hoeven geen duizenden radiologen op cursus om de nieuwe diagnoses te leren begrijpen.</p>
+<p>In deze cursus kun je na het algemene deel een pad kiezen waar je meer gaat nadenken over de toepassingen van kunstmatige intelligentie, dan over de techniek erachter.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="gevaren">
+<h1>Gevaren<a class="headerlink" href="#gevaren" title="Permalink to this heading">#</a></h1>
+<p>Bekijk de onderstaande video van <em>The Economist</em> over controle met behulp van KI.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/lH2gMNrUuEY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<p>Hmm…, ook hier komen bij ons vragen naar boven:</p>
+<ul class="simple">
+<li><p>Is de informatie in de video juist?</p></li>
+<li><p>Als dat zo is, kunnen er naast de goede dingen van gezichtsherkenning ook de negatieve dingen, zoals de staatscontrole, naar onze samenleving komen?</p></li>
+<li><p>Of erger: is er hier al staatscontrole met behulp van KI?</p></li>
+<li><p>In welke andere landen gebeurt dit ook?</p></li>
+</ul>
+<p>Klakkeloos kunstmatige intelligentie inzetten is geen goed plan. Ook in Nederland komt geautomatiseerde verwerking van <a class="reference external" href="https://bewijs-in-strafzaken.nl/anpr-automatische-kentekenherkenning/">beelden uit de publieke ruimte voor</a>. Aan welke ethische voorwaarden moet KI voldoen? Daar moet iedereen iets over weten, dus komt het in het algemene deel van deze cursus aan bod. Ook is er de mogelijkheid in deze cursus om je verder te verdiepen in de sociale en ethische aspecten van KI.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="de-module">
+<h1>De module<a class="headerlink" href="#de-module" title="Permalink to this heading">#</a></h1>
+<p>De module kunstmatige intelligentie, waar je nu bent aanbeland, heeft als hoofddoel je bewust te maken van de veelheid van technieken die in dit deel van computertechnologie aanwezig zijn. Daarbij willen we je laten zien wat voor moois deze technieken te bieden hebben. De eerste twee voorbeelden hebben je hopelijk al warm doen lopen. Het zijn echter allemaal technieken die gebaseerd zijn op het menselijke brein. We moeten daarom goed nadenken over de gevolgen van het toepassen van deze technieken. Niet alleen is het menselijke brein niet onfeilbaar, zelfs met goede intenties kan er toch iets goed fout gaan. Er zijn ook menselijke breinen die iedere kans aangrijpen om het eigen gewin boven dat van een ander te plaatsen, bijvoorbeeld dictators en criminelen. Het derde voorbeeld geeft een beeld van een situatie waartegen we als samenleving echt iets moeten doen.</p>
+<p>Sommigen van jullie willen misschien graag met de technieken aan de slag, anderen willen zich juist meer in de maatschappelijke kant verdiepen. Daarom hebben we ervoor gekozen om in deze module beide onderwerpen aan bod te laten komen. De module verlangt een inspanning van ongeveer 8 lesweken. Het lesmateriaal voor de eerste vier weken moet een basis vormen waarmee iedereen ons hoofddoel bereikt. De laatste vier weken staat jouw eigen interesse centraal. Zoek je meer verdieping in de technieken, of wil je juist meer aandacht geven aan de ethische kant van de zaak?</p>
+<section id="algemeen-deel">
+<h2>Algemeen deel<a class="headerlink" href="#algemeen-deel" title="Permalink to this heading">#</a></h2>
+<p>Het algemene deel biedt een stukje geschiedenis en de huidige stand van zaken van kunstmatige intelligentie aan. Er is een overzicht van technieken en waar die in de wereld worden toegepast. Je leert nadenken over de betekenis van kunstmatige intelligentie voor personen en de samenleving. KI wordt door gegevens gestuurd en je leert een aantal simpele technieken die inzicht geven in de manier waarop KI leert.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="achtergrond/achtergrond.html#algemeen-achtergrond"><span class="std std-ref">Achtergrond</span></a></p></li>
+<li><p><a class="reference internal" href="ethiek/ethiek.html#algemeen-ethiek"><span class="std std-ref">Ethiek</span></a></p></li>
+<li><p><a class="reference internal" href="technieken/technieken.html#algemeen-technieken"><span class="std std-ref">Technieken</span></a></p></li>
+</ul>
+</section>
+<section id="verdiepende-deel">
+<h2>Verdiepende deel<a class="headerlink" href="#verdiepende-deel" title="Permalink to this heading">#</a></h2>
+<p>Heb je de stof uit het algemene deel doorgewerkt, dan ga je zelf op onderzoek uit. Je bent in het algemene deel vast een aantal onderwerpen tegengekomen waar je meer over wilt weten. Er zijn voor jou al een aantal opdrachten verzonnen om de verdieping te starten, vul die aan met eigen vragen en beschrijf wat je geleerd hebt in een verslag.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="ethiek-en-ai/ethiek-en-ai.html#verdieping-ethiek"><span class="std std-ref">Ethiek en AI</span></a></p></li>
+<li><p><a class="reference internal" href="neurale-netwerken/neurale-netwerken.html#verdieping-neurale-netwerken"><span class="std std-ref">Neurale netwerken</span></a></p></li>
+</ul>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="right-next"
+       href="achtergrond/achtergrond.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">volgende</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Achtergrond</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhoud
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Introductie</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-draw">Quick draw</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#succesverhaal">Succesverhaal</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#gevaren">Gevaren</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#de-module">De module</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algemeen-deel">Algemeen deel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verdiepende-deel">Verdiepende deel</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Door cc-team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright SLO 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

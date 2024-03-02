@@ -1,0 +1,740 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="nl" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>2.1. Gevaren van kunstmatige intelligentie &#8212; Cognitive computing</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ethiek/gevaren';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Zoeken" href="../search.html" />
+    <link rel="next" title="2.2. De FAST-principes" href="fast-principes.html" />
+    <link rel="prev" title="2. Ethiek" href="ethiek.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="nl"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../materiaal.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Cognitive computing - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Cognitive computing - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Zoeken</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../materiaal.html">
+                    Introductie
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Materiaal</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../achtergrond/achtergrond.html">1. Achtergrond</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../achtergrond/introductie.html">1.1. Introductie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../achtergrond/geschiedenis.html">1.2. Geschiedenis en toekomst</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../achtergrond/intelligentie.html">1.3. Wanneer is iets intelligent?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../achtergrond/in-de-praktijk.html">1.4. In de praktijk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../achtergrond/terugkoppeling.html">1.5. Terugkoppeling</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="ethiek.html">2. Ethiek</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.1. Gevaren van kunstmatige intelligentie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fast-principes.html">2.2. De FAST-principes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fair-data.html">2.3. FAIR data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="terugkoppeling.html">2.4. Terugkoppeling</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../technieken/technieken.html">3. Technieken</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../technieken/introductie.html">3.1. Introductie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../technieken/machine-learning.html">3.2. Machine learning</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../technieken/associatie-analyse.html">3.4. Associatie-analyse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../technieken/cluster-analyse.html">3.5. Clusteranalyse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../technieken/neurale-netwerken.html">3.6. Neurale netwerken</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../technieken/eigen-quickdraw.html">3.7. Eigen QuickDraw</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../technieken/multi-agentsystemen.html">3.8. Multi-agentsystemen</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../technieken/terugkoppeling.html">3.10. Terugkoppeling</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Verdieping</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ethiek-en-ai/ethiek-en-ai.html">4. Ethiek en AI</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek-en-ai/ai-standaarden.html">4.1. AI standaarden en richtlijnen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek-en-ai/fast-en-fair.html">4.2. FAST en FAIR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek-en-ai/engheidsmatrix.html">4.3. De engheidsmatrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek-en-ai/ethiek-opdracht-essay.html">4.4. Opdracht: schrijf een essay over Ethiek en AI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek-en-ai/ethiek-bedenk-een-ai.html">4.5. Opdracht: bedenk een AI toepassing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../neurale-netwerken/neurale-netwerken.html">5. Neurale netwerken</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../neurale-netwerken/hoe-leert-neuraal-netwerk.html">5.1. N.1. Hoe leert een neuraal netwerk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neurale-netwerken/naar-meer-lagen.html">5.2. N.2. Op weg naar meer lagen</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../neurale-netwerken/tensorflow-app.html">6. N.3 Tensorflow app</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../neurale-netwerken/docentenhandleiding.html">6.1. Docentenhandleiding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neurale-netwerken/fase-1.html">6.2. Fase 1: Maak een eerste app</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neurale-netwerken/fase-2.html">6.3. Fase 2: Optimaliseren Neuraal Netwerk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neurale-netwerken/fase-3.html">6.4. Fase 3: Andere dataset gebruiken</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neurale-netwerken/fase-4.html">6.5. Fase 4: Eigen dataset gebruiken</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../over-ons.html">Over ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../colofon.html">Colofon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../achtergrond/robotica.html">Robotica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/verzamelingen.html">Verzamelingenleer</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/keuzethemas/ccbook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Bronopslagplaats"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/keuzethemas/ccbook/issues/new?title=Issue%20on%20page%20%2Fethiek/gevaren.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open een probleem"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download deze pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/ethiek/gevaren.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download het bronbestand"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Afdrukken naar pdf"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Volledig scherm"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Gevaren van kunstmatige intelligentie</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhoud </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#misbruik-van-computers">2.1.1. Misbruik van computers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computers-die-foutjes-maken">2.1.2. Computers die foutjes maken</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#robots-reguleren">2.1.3. Robots reguleren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tekortkomingen-van-asimovs-wetten">2.1.4. Tekortkomingen van Asimovs wetten</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rechten-voor-robots">2.1.5. Rechten voor robots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#de-engheidsmatrix">2.1.6. De engheidsmatrix</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="gevaren-van-kunstmatige-intelligentie">
+<span id="ethiek-gevaren"></span><h1><span class="section-number">2.1. </span>Gevaren van kunstmatige intelligentie<a class="headerlink" href="#gevaren-van-kunstmatige-intelligentie" title="Permalink to this heading">#</a></h1>
+<p><em>Skynet, HAL 9000, V.I.K.I., the Matrix</em>, misschien ken je er zelf ook nog wel een paar: kwaadaardige kunstmatige intelligentie en robots. Het is al tijden een populair thema in sciencefictionboeken en -films. Natuurlijk zijn de situaties in deze films allemaal verzonnen, maar er zijn wetenschappers die echt vrezen dat denkende computers zich ooit tegen de mensheid zullen keren. Allereerst kun je je afvragen of computers wel intelligenter kunnen worden dan mensen, of dat computers überhaupt intelligent kunnen zijn (daarover later meer). Toch blijft het een interessant onderwerp van debat en houden mensen zich ermee bezig. Het moment dat computers slimmer worden dan de mens wordt de <a class="reference external" href="https://en.wikipedia.org/wiki/Technological_singularity"><strong>technologische singulariteit</strong></a> genoemd.</p>
+<p>Is het eigenlijk wel logisch om bang te zijn voor superslimme computers? Misschien zorgen hyperintelligente computers in hun wijsheid juist wel voor vrede en harmonie. We weten het niet en misschien komen we er nooit achter.</p>
+<p>Maar ook minder intelligente vormen van KI zouden kunnen worden ingezet om de mensheid te benadelen. Wat zal een KI-robot besluiten als je deze slechts één taak geeft en wel de volgende: zorg dat er geen overbodige CO₂ wordt uitgestoten? De robot zou kunnen concluderen dat de gehele mensheid moet worden uitgeroeid.</p>
+<section id="misbruik-van-computers">
+<h2><span class="section-number">2.1.1. </span>Misbruik van computers<a class="headerlink" href="#misbruik-van-computers" title="Permalink to this heading">#</a></h2>
+<p>Wat in elk geval wél een realistisch puntje van zorg is, is misbruik van kunstmatige intelligentie. Eigenlijk gebeurt dit nu al best vaak. Denk bijvoorbeeld aan deepfakes. Zo heeft <a class="reference external" href="https://www.forbes.com/sites/jessedamiani/2019/09/03/a-voice-deepfake-was-used-to-scam-a-ceo-out-of-243000/#5b10b1802241">iemand</a> een audio-deepfake ingezet om een bank voor $243.000 op te lichten.  Het is niet zozeer het computerprogramma zelf, maar de mens erachter die het gevaar vormt. Een ander voorbeeld van misbruik van kunstmatige intelligentie is misschien wel het gebruik van drones. Door drones volautomatisch te laten vliegen en ze bommen te laten werpen, kunnen mensen op een smerige manier  oorlog voeren. Kunstmatige intelligentie kan in de verkeerde handen als een extreem gevaarlijk wapen werken, iets wat we niet moeten willen!</p>
+</section>
+<section id="computers-die-foutjes-maken">
+<h2><span class="section-number">2.1.2. </span>Computers die foutjes maken<a class="headerlink" href="#computers-die-foutjes-maken" title="Permalink to this heading">#</a></h2>
+<p>“Computers maken geen fouten, het zijn mensen die computers programmeren die fouten maken.” Je kent deze uitspraak misschien wel, en grotendeels klopt hij ook. Computerprogramma’s doen altijd precies waarvoor ze geprogrammeerd zijn. Toch ligt dit met kunstmatige intelligentie net iets anders. Bij kunstmatige intelligentie worden de acties van de software niet van tevoren geprogrammeerd, maar komt de software tot acties die deze zichzelf aanleert. In dit leerproces kunnen ongewenste fouten optreden. Het gevaar is hier dat mensen te veel gaan vertrouwen op kunstmatige intelligentie.</p>
+<p>Een leuke anekdote gaat over een groep KI-robots op wieltjes, die moeten proberen elkaar zo min mogelijk te raken in een speelveld. De robots leren op een gegeven moment dat stilstaan de beste oplossing is. Geweldig bedacht, maar niet wat de ontwikkelaars in gedachten hadden. Een ander verrassend resultaat was de studie die <a class="reference external" href="https://openai.com/blog/emergent-tool-use/">OpenAI</a> heeft gedaan naar KI in een “hide and seek” gamewereld. Na een tijd kwam de KI achter bugs in de software van de geprogrammeerde wereld, waardoor ze verder en hoger konden komen dan bedoeld.</p>
+<p>Via <a class="reference external" href="https://nos.nl/artikel/2114618-eerste-dode-door-zelfrijdende-auto.html">deze link</a> vind je een artikel over een dodelijk ongeval door een ‘zelfrijdende’ auto. In het artikel staat een goed voorbeeld van een foutje van kunstmatige intelligentie met een treurig gevolg. Nu gaat het in dit voorbeeld over één slachtoffer, maar wat kan er allemaal niet misgaan als de straten straks overspoeld worden met zelfrijdende auto’s? Zelfs al zou een zelfrijdende auto minder fouten maken dan een mens, dan nog rest na een dergelijk ongeluk de vervelende vraag: wie is er verantwoordelijk voor de schade bij een ongeval? Is dat de eigenaar van de kunstmatig intelligente auto? Of is dat de programmeur van de software in de auto? Of misschien de kunstmatige intelligentie zelf?</p>
+<p><a class="reference external" href="https://nos.nl/artikel/2114618-eerste-dode-door-zelfrijdende-auto.html">https://nos.nl/artikel/2114618-eerste-dode-door-zelfrijdende-auto.html</a></p>
+<div class="admonition-vragen admonition">
+<p class="admonition-title">🛠️ Vragen</p>
+<ol class="arabic simple">
+<li><p>Denk jij dat de technologische singulariteit realistisch is? Waarom wel/niet?</p></li>
+<li><p>Stel dat computers in de toekomst inderdaad slimmer worden dan mensen. Denk jij dat dit dan goed of slecht voor de mensheid uitpakt? Leg uit waarom je dit denkt.</p></li>
+<li><p>Welk soort gevaar van kunstmatige intelligentie vind jij het meest zorgelijk?</p></li>
+<li><p>Wat zouden we kunnen doen om misbruik van kunstmatige intelligentie te voorkomen?</p></li>
+</ol>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Antwoorden<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<ol class="arabic simple">
+<li><p class="sd-card-text">Dit hangt ervan af hoe je tegen intelligentie en tegen bewustzijn aankijkt. Als mensen eigenlijk ook een soort machines zijn, kunnen robots net zo goed bewustzijn krijgen. Maar als je voor bewustzijn iets nodig hebt wat niet te programmeren is (een ziel/geest of iets dergelijks), dan niet.</p></li>
+<li><p class="sd-card-text">Dit ligt misschien aan de doelen die deze computers dan hebben. Als het doel is om te domineren, kan het slecht uitpakken. Als het doel is om in vrede voort te bestaan, zou het gunstig kunnen zijn.</p></li>
+<li><p class="sd-card-text">Momenteel is de meest reële zorg dat mensen blindelings gaan vertrouwen op kunstmatige intelligentie. Dit ging bijvoorbeeld fout bij de zelfrijdende auto. Helaas wordt kunstmatige intelligentie ook gebruikt bij de ontwikkeling van wapens. Dit is ook een zorgelijke ontwikkeling.</p></li>
+<li><p class="sd-card-text">Helemaal voorkomen is misschien niet mogelijk. Misbruik met wapens zou wellicht wel beperkt kunnen worden door het opstellen van verdragen. Landen die deze verdragen ondertekenen, nemen dan afstand van het gebruik van kunstmatige intelligentie met wapens.</p></li>
+</ol>
+</div>
+</details></section>
+<section id="robots-reguleren">
+<h2><span class="section-number">2.1.3. </span>Robots reguleren<a class="headerlink" href="#robots-reguleren" title="Permalink to this heading">#</a></h2>
+<p>We hebben net stilgestaan bij mogelijke gevaren uit de hoek van kunstmatige intelligentie. Als slimme computers echt deel gaan uitmaken van onze samenleving, zullen er dingen moeten veranderen. Er zullen nieuwe afspraken gemaakt moeten worden. Bijvoorbeeld over wie wanneer verantwoordelijk is bij een ongeluk met een robot. Of wat een slimme computer wel of niet mag doen.</p>
+<p>Er wordt hierbij vaak verwezen naar Isaac Asimov en zijn drie wetten van de robotica. Hoewel Asimov deze wetten in een sciencefictionboek (<a class="reference external" href="https://nl.wikipedia.org/wiki/Ik,_robot"><em>I, Robot</em></a>) publiceerde, is er vaak serieus over nagedacht. De wetten zijn bedoeld om mensen te beschermen tegen intelligente computers. Hieronder staan ze:</p>
+<div class="tip admonition">
+<p class="admonition-title">Wetten van Asimov</p>
+<ol class="arabic simple">
+<li><p>Een robot mag een mens geen kwaad doen, of door niet te handelen toestaan dat een mens kwaad gedaan wordt.</p></li>
+<li><p>Een robot moet de bevelen van mensen opvolgen, behalve als deze in strijd zijn met de eerste wet.</p></li>
+<li><p>Een robot moet zijn eigen bestaan beschermen, zolang dit niet in conflict is met de eerste en de tweede wet.</p></li>
+</ol>
+</div>
+<p>Asimov voegde later een ‘nulde’ wet toe, die in feite gelijk is aan de eerste wet, maar waarin “mens” is vervangen door “mensheid”.</p>
+</section>
+<section id="tekortkomingen-van-asimovs-wetten">
+<h2><span class="section-number">2.1.4. </span>Tekortkomingen van Asimovs wetten<a class="headerlink" href="#tekortkomingen-van-asimovs-wetten" title="Permalink to this heading">#</a></h2>
+<p>Als er echt zoiets komt als de technologische singulariteit, is het goed om alvast na te denken over de vraag hoe we hiermee om moeten gaan. De bovengenoemde wetten zijn dan aardig om mee te beginnen. Er zijn echter ook tekortkomingen: problemen waar deze wetten geen rekening mee houden.</p>
+<p>Als een robot bijvoorbeeld een eigen definitie van ‘kwaad doen’ verzint, kan de eerste wet een heel andere betekenis krijgen. Het kan ook zijn dat sommige robots niet eens weten of iets goed of kwaad is en daarmee de wetten overtreden. En wanneer is iets eigenlijk een robot? Geldt een mens met mechanische lichaamsdelen (zoals een robotarm) ook als een robot?</p>
+<div class="admonition-vragen admonition">
+<p class="admonition-title">🛠 Vragen</p>
+<ol class="arabic simple">
+<li><p>Wat vind jij van de wetten van Asimov? Zou je iets veranderen, toevoegen of weglaten?</p></li>
+<li><p>Stel dat robots net zo slim worden als mensen. Vind je deze wetten dan nog wel eerlijk?</p></li>
+</ol>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Antwoorden<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<ol class="arabic simple">
+<li><p class="sd-card-text">Een probleem met deze wetten is dat er ruimte voor eigen interpretatie is. Je kunt nog zelf invullen wat ‘kwaad doen’ precies betekent. Je zou wet 1 specifieker kunnen maken door op te sommen wat er wordt verstaan onder kwaad. Bijvoorbeeld: doden, stelen, kwetsen, enzovoorts.</p></li>
+<li><p class="sd-card-text">Misschien zijn ze wel eerlijk. Mensen hebben de robots nu eenmaal gemaakt en hebben daarom het recht om wetten en regels in te stellen. Of misschien zijn ze niet eerlijk. Het is oneerlijk als een intelligente creatie de slaaf is van een andere intelligente creatie.</p></li>
+</ol>
+</div>
+</details></section>
+<section id="rechten-voor-robots">
+<h2><span class="section-number">2.1.5. </span>Rechten voor robots<a class="headerlink" href="#rechten-voor-robots" title="Permalink to this heading">#</a></h2>
+<p>We hebben het zojuist gehad over regels waaraan kunstmatige intelligentie en robots zich zouden moeten houden. Je kunt je vast goed voorstellen dat het belangrijk is dat er zulke regels komen. Wat mogelijk minder voor de hand ligt, is dat robots misschien ook wel rechten zouden moeten krijgen. Net zoals er voor dieren ook dierenrechten zijn. Zou het niet raar zijn als er straks ultra-intelligente robots rondlopen met minder rechten dan een kat?</p>
+<p>Denk eens na, of discussieer eens met een klasgenoot, over de volgende vragen.</p>
+<div class="admonition-vragen admonition">
+<p class="admonition-title">🛠 Vragen</p>
+<ol class="arabic simple">
+<li><p>Mag je met een robot zomaar doen wat je wilt? Maakt het bij deze vraag uit hoe slim de robot is?</p></li>
+<li><p>Als robots rechten zouden hebben, wat zouden deze dan volgens jou moeten zijn?</p></li>
+<li><p>Zou een robot ooit minister-president mogen worden?</p></li>
+</ol>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Antwoorden<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<ol class="arabic simple">
+<li><p class="sd-card-text">Je kunt beargumenteren dat een robot niet meer als product mag worden gebruikt wanneer deze bewustzijn heeft. Vergelijk het met slavernij: het houden van slaven is verkeerd, terwijl het houden van bijvoorbeeld werkpaarden wel geaccepteerd wordt. Een mens heeft een hoge mate van bewustzijn, een paard niet.<br />
+Je kunt ook stellen dat een robot een machine blijft. Een machine is hoe dan ook een product, net zoals een tv, auto of balpen dat is. Je zou daarom volledig moeten kunnen beschikken over een robot.</p></li>
+<li><p class="sd-card-text">Denk aan de rechten van de mens en de rechten van het dier. Je zou de rechten voor robots hieraan kunnen ontlenen. Misschien een combinatie van mensen- en dierenrechten?</p></li>
+<li><p class="sd-card-text">Misschien is dit op dit moment ondenkbaar, maar wie weet wat de toekomst brengt. Een zwarte president was ooit ook ondenkbaar, net als een vrouw als regeringsleider. Normen en waarden veranderen door de tijd heen. Wellicht kijken we in de toekomst anders tegen robots aan en is het vanzelfsprekend dat ze dezelfde posities kunnen bekleden als mensen.</p></li>
+</ol>
+</div>
+</details><p>Denk eens na over het volgende verhaal. Probeer dit zonder vooroordelen te lezen.</p>
+<p>Je zit in een les informatica. Het is buiten mooi weer. De docent is bezig om iets uit te leggen over computerarchitectuur en je gedachten dwalen af, naar buiten. Langzaam maar zeker dagdroom je weg terwijl je uit het raam staart. Plotseling word je uit je dromerigheid getrokken als de docent roept: “Hé daar, wel op blijven letten.” Je doet meteen wat hij zegt. Natuurlijk, hij is de docent en jij de leerling, dus luister je.</p>
+<p>Je bent aandachtig aan het luisteren als er ineens iets heel vreemds gebeurt. De docent valt midden in een zin stil en blijft compleet bewegingloos staan. De hele klas is in rep en roer en niemand merkt op dat de conciërge ondertussen het lokaal is binnengewandeld. Hij loopt rustig naar de nog altijd bewegingloze docent en draait wat aan zijn hoofd. Tot ieders verbazing draait hij de bovenkant van het hoofd van de docent als een soort deksel open. In het hoofd zitten allerlei radertjes en schroefjes: je docent blijkt een robot te zijn!</p>
+<p>De conciërge sleutelt wat en draait het hoofd vervolgens weer dicht. Langzaam komt de docent weer op gang en hij gaat verder met zijn verhaal alsof er niets gebeurd is. De conciërge klopt de docent vriendelijk op de schouder en loopt rustig het lokaal uit. Iedereen is stomverbaasd.</p>
+<p>Het mooie van filosofie is dat je overal over kunt en mag denken, hoe bizar iets ook is. Probeer je bovenstaand verhaal eens voor te stellen. Beantwoord daarna de volgende vragen.</p>
+<div class="admonition-vragen admonition">
+<p class="admonition-title">🛠 Vragen</p>
+<ol class="arabic simple">
+<li><p>Is er iets veranderd in de manier waarop je naar je docent kijkt, nu je weet dat hij een robot is? Wat is er veranderd en hoe komt dat?</p></li>
+<li><p>Zou je nog steeds naar de docent luisteren? Waarom wel/niet?</p></li>
+<li><p>Vind je dat deze robot-docent nog steeds dezelfde (mensen)rechten heeft?</p></li>
+</ol>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Antwoorden<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<ol class="arabic simple">
+<li><p class="sd-card-text">Deze vragen zijn natuurlijk moeilijk, omdat de situatie ver van je af ligt. Ze doen een beroep op je fantasie. Je zult waarschijnlijk wel anders tegen de docent aankijken. De docent is niet wat je dacht dat hij was, en dat is schrikken.</p></li>
+<li><p class="sd-card-text">Misschien heb je moeite met het idee dat een robot jou vertelt wat je moet doen. Toch is deze robot kennelijk door de schoolleiding aangesteld als jouw docent. Als je niet luistert, krijg je waarschijnlijk straf.</p></li>
+<li><p class="sd-card-text">We hebben het al eens over robotrechten gehad. Misschien vind je dat de robot-docent nu ook robotrechten verdient. Of verandert er niets? Per slot van rekening gedraagt de docent zich nog zoals hij eerder ook deed.</p></li>
+</ol>
+</div>
+</details></section>
+<section id="de-engheidsmatrix">
+<h2><span class="section-number">2.1.6. </span>De engheidsmatrix<a class="headerlink" href="#de-engheidsmatrix" title="Permalink to this heading">#</a></h2>
+<p>Wanneer techneuten of social media influencers praten over KI, hebben ze het vaak over de ‘coole’, leuke en nuttige toepassingen daarvan. Vaak gaat het dan om de razend knappe nieuwe technieken die worden gebruikt, of over het allerlaatste, supersnelle neural network algoritme. Maar wanneer je sommige andere mensen over KI hoort, noemen zij KI juist vaak ‘eng’.</p>
+<blockquote>
+<div><p>“Ik heb geen idee hoe het allemaal werkt, maar het is ons vast aan het bespioneren. Hartstikke eng, vind ik…”</p>
+</div></blockquote>
+<p>En eigenlijk hebben al deze mensen een beetje gelijk. Want KI kan gaaf en leuk zijn, maar het kan ook eng en fout zijn. In dit deel van de lessenserie ga je zélf aan de slag om te ontdekken wat voorbeelden zijn van goede, nuttige en leuke KI-toepassingen, en wat voorbeelden zijn van ‘enge KI’.</p>
+<p>Maar waarom vinden mensen de ene KI-toepassing nou ontzettend nuttig en ethisch verantwoord, en een andere juist heel eng en totaal overbodig? In het onderdeel <a class="reference internal" href="../achtergrond/in-de-praktijk.html#ki-in-de-praktijk"><span class="std std-ref">In de praktijk</span></a> heb je een aantal voorbeelden gekregen waarin je hebt kennisgemaakt met de ethische aspecten van KI. Maar nu is het tijd te gaan bedenken wat jij zélf vindt van KI.</p>
+<p>Een handige manier om zelf te beginnen met kritisch nadenken over KI is het maken van een <strong>engheidsmatrix</strong>. In zo’n matrix plot je verschillende KI-toepassingen om te ontdekken wat nou duidelijke voorbeelden van goede, nuttige en leuke KI-toepassingen zijn, en wat typisch voorbeelden zijn van ‘enge KI’. Begin met het tekenen van een matrix, zoals in het voorbeeld hieronder. Het is handig om de matrix bijvoorbeeld groot op een muur of op een whiteboard te tekenen. Gebruik vervolgens een geeltje om een KI-toepassing te beschrijven en in de matrix te plaatsen, zodat je er met anderen over kunt discussiëren.</p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="../_images/ethiek-engheidsmatrix21.png"><img alt="../_images/ethiek-engheidsmatrix21.png" src="../_images/ethiek-engheidsmatrix21.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2.2 </span><span class="caption-text">De engheidsmatrix</span><a class="headerlink" href="#id1" title="Permallink naar deze afbeelding">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition-groepsopdracht admonition">
+<p class="admonition-title">🛠 Groepsopdracht</p>
+<ol class="arabic simple">
+<li><p>Probeer eens de KI-toepassing <a class="reference external" href="https://quickdraw.withgoogle.com/">Quick, Draw!</a> van Google in de matrix te plaatsen: dat is echt nog niet zo gemakkelijk. Hoe gaat Google met je gegevens om? Ga jij de Privacy Policy van Google doorspitten voordat je iets tekent? En hoe zit het met het nut van deze KI-toepassing?</p></li>
+<li><p>Geef op het geeltje ook aan hoe je je keuzes maakt. Welke criteria gebruik je om <em>Quick, Draw!</em> op de horizontale as te plaatsen? Wanneer noem jij een KI-systeem eng, en wanneer vind je een systeem ethisch verantwoord? En welke criteria gebruik je om een KI-toepassing op de verticale as te plotten? Hoe bepaal je het nut van een KI-systeem? Onderbouw de keuzes die je maakt.</p></li>
+<li><p>In het onderdeel <a class="reference internal" href="../achtergrond/in-de-praktijk.html#ki-in-de-praktijk"><span class="std std-ref">In de praktijk</span></a> hebben wij bepaalde uitspraken bij de voorbeelden gedaan. Plaats jouw mening over deze voorbeelden in de matrix.</p></li>
+<li><p>Vergelijk je keuzes met die van de andere leerlingen en discussieer over de uitkomsten. Waarin verschillen jullie uitkomsten? Kun je aangeven waarom die verschillen er zijn? En waar zijn jullie het eens?</p></li>
+</ol>
+<p>Wil je meer weten over de engheidsmatrix en hoe je die kunt gebruiken om het nut en de ethische aspecten van een KI-toepassing in kaart te brengen? In het keuzedeel <a class="reference internal" href="../ethiek-en-ai/ethiek-en-ai.html#verdieping-ethiek"><span class="std std-ref">Ethiek en AI</span></a>  gaan we verder op de matrix in.</p>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./ethiek"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ethiek.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">vorige</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Ethiek</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="fast-principes.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">volgende</p>
+        <p class="prev-next-title"><span class="section-number">2.2. </span>De FAST-principes</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhoud
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#misbruik-van-computers">2.1.1. Misbruik van computers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computers-die-foutjes-maken">2.1.2. Computers die foutjes maken</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#robots-reguleren">2.1.3. Robots reguleren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tekortkomingen-van-asimovs-wetten">2.1.4. Tekortkomingen van Asimovs wetten</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rechten-voor-robots">2.1.5. Rechten voor robots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#de-engheidsmatrix">2.1.6. De engheidsmatrix</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Door cc-team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright SLO 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,772 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="nl" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>1.3. Wanneer is iets intelligent? &#8212; Cognitive computing</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'achtergrond/intelligentie';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Zoeken" href="../search.html" />
+    <link rel="next" title="1.4. In de praktijk" href="in-de-praktijk.html" />
+    <link rel="prev" title="1.2. Geschiedenis en toekomst" href="geschiedenis.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="nl"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../materiaal.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Cognitive computing - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Cognitive computing - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Zoeken</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../materiaal.html">
+                    Introductie
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Materiaal</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="achtergrond.html">1. Achtergrond</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introductie.html">1.1. Introductie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geschiedenis.html">1.2. Geschiedenis en toekomst</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.3. Wanneer is iets intelligent?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="in-de-praktijk.html">1.4. In de praktijk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="terugkoppeling.html">1.5. Terugkoppeling</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ethiek/ethiek.html">2. Ethiek</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek/gevaren.html">2.1. Gevaren van kunstmatige intelligentie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek/fast-principes.html">2.2. De FAST-principes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek/fair-data.html">2.3. FAIR data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek/terugkoppeling.html">2.4. Terugkoppeling</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../technieken/technieken.html">3. Technieken</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../technieken/introductie.html">3.1. Introductie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../technieken/machine-learning.html">3.2. Machine learning</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../technieken/associatie-analyse.html">3.4. Associatie-analyse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../technieken/cluster-analyse.html">3.5. Clusteranalyse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../technieken/neurale-netwerken.html">3.6. Neurale netwerken</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../technieken/eigen-quickdraw.html">3.7. Eigen QuickDraw</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../technieken/multi-agentsystemen.html">3.8. Multi-agentsystemen</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../technieken/terugkoppeling.html">3.10. Terugkoppeling</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Verdieping</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ethiek-en-ai/ethiek-en-ai.html">4. Ethiek en AI</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek-en-ai/ai-standaarden.html">4.1. AI standaarden en richtlijnen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek-en-ai/fast-en-fair.html">4.2. FAST en FAIR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek-en-ai/engheidsmatrix.html">4.3. De engheidsmatrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek-en-ai/ethiek-opdracht-essay.html">4.4. Opdracht: schrijf een essay over Ethiek en AI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek-en-ai/ethiek-bedenk-een-ai.html">4.5. Opdracht: bedenk een AI toepassing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../neurale-netwerken/neurale-netwerken.html">5. Neurale netwerken</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../neurale-netwerken/hoe-leert-neuraal-netwerk.html">5.1. N.1. Hoe leert een neuraal netwerk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neurale-netwerken/naar-meer-lagen.html">5.2. N.2. Op weg naar meer lagen</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../neurale-netwerken/tensorflow-app.html">6. N.3 Tensorflow app</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../neurale-netwerken/docentenhandleiding.html">6.1. Docentenhandleiding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neurale-netwerken/fase-1.html">6.2. Fase 1: Maak een eerste app</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neurale-netwerken/fase-2.html">6.3. Fase 2: Optimaliseren Neuraal Netwerk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neurale-netwerken/fase-3.html">6.4. Fase 3: Andere dataset gebruiken</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neurale-netwerken/fase-4.html">6.5. Fase 4: Eigen dataset gebruiken</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../over-ons.html">Over ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../colofon.html">Colofon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="robotica.html">Robotica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/verzamelingen.html">Verzamelingenleer</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/keuzethemas/ccbook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Bronopslagplaats"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/keuzethemas/ccbook/issues/new?title=Issue%20on%20page%20%2Fachtergrond/intelligentie.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open een probleem"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download deze pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/achtergrond/intelligentie.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download het bronbestand"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Afdrukken naar pdf"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Volledig scherm"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Wanneer is iets intelligent?</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhoud </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imitatiespellen">1.3.1. Imitatiespellen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatten-met-een-bot">Chatten met een bot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#turing-test">Turing Test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chinese-kamer">Chinese Kamer</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sterke-en-zwakke-kunstmatige-intelligentie">1.3.2. Sterke en zwakke kunstmatige intelligentie</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="wanneer-is-iets-intelligent">
+<span id="id1"></span><h1><span class="section-number">1.3. </span>Wanneer is iets intelligent?<a class="headerlink" href="#wanneer-is-iets-intelligent" title="Permalink to this heading">#</a></h1>
+<p>Wanneer is iemand eigenlijk slim of intelligent? Als je er lang genoeg over nadenkt, dan kom je erachter dat het antwoord niet zo eenvoudig is. Er zijn zo veel factoren die meespelen bij intelligentie. Denk bijvoorbeeld aan leervermogen, taalbegrip, logisch inzicht (dit wordt vaak getoetst bij intelligentietesten), sociaal vermogen, vermogen om te kunnen plannen en nog veel meer. Er lijkt niet echt een eenduidige definitie te zijn voor intelligentie. Of in andere woorden: iedereen geeft zijn/haar eigen betekenis aan dit begrip.</p>
+<p>Neem iemand als Jar Jar Binks uit StarWars, of Disney’s Goofy, die ken je vast wel. Deze karikaturen maken vaak blunder na blunder of laten grote puinhopen achter. Hun onbegrip van hoe dingen werken zorgt er vaak voor dat zij in lastige situaties terecht komen.</p>
+<p>De meesten zullen het erover eens zijn dat het gedrag van zowel Jar Jar als Goofy niet bepaald intelligent is. Al gaan sommige dingen hen redelijk goed af. Denk bijvoorbeeld aan ‘eenvoudige’ dingen als lezen, autorijden of een tandartsafspraak maken. Vergelijk dit eens met bijvoorbeeld een chimpansee, die zul je dit niet zo snel zien doen. Toch worden apen als slim gezien en wordt Goofy juist gezien als dom. Chimpansees leren snel en zullen zich anders gedragen in vergelijkbare situaties in de toekomst. Zie je het dilemma? Het is niet eenvoudig om te bepalen of iets intelligent of onintelligent is.</p>
+<p>De term <strong>kunstmatige intelligentie</strong> is al een aantal malen gevallen, maar wat is de precieze definitie? Er zijn meerdere definities in omloop. We geven er drie.</p>
+<div class="tip admonition">
+<p class="admonition-title"><strong>Kunstmatige intelligentie</strong></p>
+<ol class="arabic">
+<li><p>Een document van het <a class="reference external" href="https://obamawhitehouse.archives.gov/sites/default/files/whitehouse_files/microsites/ostp/NSTC/preparing_for_the_future_of_ai.pdf">Amerikaanse Witte Huis</a> definieert KI als:</p>
+<blockquote>
+<div><p>“Kunstmatige intelligentie is een geautomatiseerd systeem dat gedrag vertoont waarbij men normaal gesproken verwacht dat er intelligentie voor nodig is.”</p>
+</div></blockquote>
+</li>
+<li><p>Bertram Raphael geeft in zijn boek <em><a class="reference external" href="https://openlibrary.org/books/OL5205255M/The_thinking_computer">The thinking computer</a></em> als definitie:</p>
+<blockquote>
+<div><p>“Kunstmatige intelligentie is de wetenschap die machines ontwikkelt om vaardigheden te laten uitvoeren waarvoor intelligentie van menselijk niveau vereist is.”</p>
+</div></blockquote>
+</li>
+<li><p>De geestelijke vader van AI, <a class="reference external" href="https://nl.wikipedia.org/wiki/Alan_Turing">Alan Turing</a>, definieert het als volgt:</p>
+<blockquote>
+<div><p>“KI is de wetenschap en de techniek van het vervaardigen van intelligente machines, voornamelijk intelligente computerprogramma’s.”</p>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<p>In deze definities wordt intelligentie beschouwd als een vermogen om te plannen, te redeneren en daarvan te leren, waar te nemen en die waarneming te begrijpen en te communiceren in natuurlijke taal.</p>
+<div class="admonition-vragen admonition">
+<p class="admonition-title">🛠 <strong>Vragen</strong></p>
+<ol class="arabic simple">
+<li><p>Wat is een essentieel verschil tussen de algemene definities (1) en (2) voor KI? En tussen (2) en (3)?</p></li>
+<li><p>Bedenk een taak waarvan jij denkt dat het heel lastig is voor KI en een taak die jij zelf lastig vind, maar waarvan je denkt dat een KI systeem het beter dan jij zal doen. Bediscussieer jouw bedachte taken met medeleerlingen.</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Antwoorden<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<ol class="arabic simple">
+<li><p class="sd-card-text">(2) is het proces dat het product in (1) levert: Een automatisch systeem is een machine voortvloeiend uit wetenschappelijk onderzoek.<br />
+(3) verwijst niet naar de noodzaak van intelligentie van menselijk niveau en deze definitie is daarom weer breder dan definitie (2). Daarnaast moet de machine in (3) zelf intelligent zijn, terwijl bij (2) de machine intelligentie toont.</p></li>
+<li><p class="sd-card-text">–</p></li>
+</ol>
+</div>
+</details></div>
+<section id="imitatiespellen">
+<h2><span class="section-number">1.3.1. </span>Imitatiespellen<a class="headerlink" href="#imitatiespellen" title="Permalink to this heading">#</a></h2>
+<section id="chatten-met-een-bot">
+<h3>Chatten met een bot<a class="headerlink" href="#chatten-met-een-bot" title="Permalink to this heading">#</a></h3>
+<p>In de <a class="reference external" href="https://www.cleverbot.com/">Cleverbot website</a> kun je chatten met een chatbot. In één van de latere opdrachten (LINK??) in deze cursus kun je zelf aan de slag met het opzetten van een chatbot.</p>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="../_images/cleverbot-fig.png"><img alt="../_images/cleverbot-fig.png" src="../_images/cleverbot-fig.png" style="width: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1.10 </span><span class="caption-text">Open de <a class="reference external" href="https://www.cleverbot.com/">Cleverbot website</a></span><a class="headerlink" href="#id2" title="Permallink naar deze afbeelding">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition-vragen admonition">
+<p class="admonition-title">🛠 <strong>Vragen</strong></p>
+<ol class="arabic simple">
+<li><p>Lijkt het alsof je met een echt persoon chat? Waarom wel/niet?</p></li>
+<li><p>Heb je het idee dat deze chatbot een eigen bewustzijn of persoonlijkheid heeft?</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Antwoorden<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<ol class="arabic simple">
+<li><p class="sd-card-text">De eerste paar zinnen lijkt het misschien een echt persoon. Maar hoe dieper je het gesprek voert, hoe sneller je zult merken dat er niet echt geluisterd wordt.</p></li>
+<li><p class="sd-card-text">De chatbot lijkt op sommige woorden te zoeken en ingeprogrammeerde antwoorden te geven. Met vragen over gevoelens weet de chatbot eigenlijk geen raad. Je merkt ook dat de chatbot het gesprek niet goed volgt. Als je bijvoorbeeld ergens op doorvraagt, verandert zij van onderwerp. Deze chatbot heeft geen bewustzijn of persoonlijkheid. De programmeur van de chatbot wel.</p></li>
+</ol>
+</div>
+</details></div>
+</section>
+<section id="turing-test">
+<h3>Turing Test<a class="headerlink" href="#turing-test" title="Permalink to this heading">#</a></h3>
+<aside class="sidebar">
+<p class="sidebar-title"><strong>Alan Turing</strong></p>
+<p>Alan Mathison Turing (Londen, 1912 – Wilmslow, 1954) was een Britse wiskundige, computerpionier en informaticus, mathematisch bioloog en logicus. Hij ontwikkelde o.a. de Turing machine, die nog steeds de basis vormt van onze huidige computers.</p>
+<figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="../_images/alan-turing.jpg"><img alt="../_images/alan-turing.jpg" src="../_images/alan-turing.jpg" style="width: 200px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1.11 </span><span class="caption-text">Alan Turing (<a class="reference external" href="http://scienceabc.com">scienceabc.com</a>)</span><a class="headerlink" href="#id3" title="Permallink naar deze afbeelding">#</a></p>
+</figcaption>
+</figure>
+<p>Gedurende de Tweede Wereldoorlog werkte hij mee aan het kraken van de Enigma, het apparaat waarmee de Duitsers  berichten gecodeerd verstuurden. Het kraken hiervan heeft o.a. geleid tot de overwinning van de geallieerden.</p>
+<p>Ondanks zijn vele bijdragen aan de informatica, werd hij in 1952 gearresteerd wegens homoseksuele handelingen en veroordeeld tot chemische castratie. In 2009 heeft de Britse regering hem postuum excuses aangeboden.</p>
+</aside>
+<p>Deze vragen spelen ook binnen het vakgebied van kunstmatige intelligentie. Er zijn wetenschappers die zich hiermee bezighouden: wanneer is kunstmatige intelligentie intelligent? Een van de oudste en bekendste oplossingen voor deze vraag kwam van Alan Turing. Hij bedacht een test waaruit zou moeten blijken of een computerprogramma menselijk gedrag kan vertonen wat niet te onderscheiden is van echte mensen. Hij noemde de test het <strong>imitatiespel</strong>, maar tegenwoordig kennen we het als de <strong>Turing Test</strong>.</p>
+<p>De test werkt als volgt. Er zijn drie afgesloten kamers met in elke kamer een computer. Deze computers zijn met elkaar verbonden met een chatprogramma. In de eerste kamer zit een persoon. De tweede kamer bevat een computerprogramma dat het chatprogramma kan bedienen: een chatbot. De derde kamer bevat weer een persoon, dit is de jury. Deze jury chat met de persoon en met de chatbot, zonder te weten in welke kamer deze zich bevinden. De jury moet vervolgens door te chatten beslissen wie de persoon van vlees en bloed is. Als de chatbot er in minstens 50% van de gevallen in weet te slagen om als persoon aangemerkt te worden, dan bestempelt Turing deze als intelligent. Want, zo redeneerde hij, de chatbot heeft met succes een mens geïmiteerd.</p>
+</section>
+<section id="chinese-kamer">
+<h3>Chinese Kamer<a class="headerlink" href="#chinese-kamer" title="Permalink to this heading">#</a></h3>
+<p>Niet iedereen kan zich vinden in de test van Alan Turing. In 1980 kwam John Searle met een tegenargument: de <a class="reference external" href="https://nl.wikipedia.org/wiki/Chinese_kamer"><strong>Chinese Kamer</strong></a>. Bij dit argument bevindt zich in een denkbeeldige kamer een persoon. Deze persoon spreekt of leest geen woord Chinees. Daarnaast bevindt zich in deze kamer een boekje met instructies over wat de persoon moet doen. In de kamer zitten bovendien twee gleuven. Door één van de gleuven wordt af en toe een vel papier met een Chinees symbool geschoven. De persoon bekijkt het symbool, raadpleegt de instructies en schrijft volgens de instructies een bepaald Chinees symbool op een ander vel papier. Dit nieuwe vel schuift de persoon door de tweede gleuf naar buiten.</p>
+<p><img alt="https://image.pbs.org/video-assets/pbs/brain-david-eagleman/189381/images/mezzanine_332.png" src="https://image.pbs.org/video-assets/pbs/brain-david-eagleman/189381/images/mezzanine_332.png" /></p>
+<p>Voor iemand die buiten deze kamer staat, lijkt het alsof deze kamer Chinees kan begrijpen en erin kan communiceren. Maar Searle redeneert dat de kamer alleen maar pretendeert Chinees te kunnen praten. Met andere woorden: de kamer is slechts een simulatie van iemand die Chinees praat. En, zo vindt Searle, ditzelfde zou gelden voor een computer die slaagt voor de Turing Test. Deze computer zou niet écht begrijpen waarover gecommuniceerd wordt.</p>
+<p>Voor zowel de Turing Test als de Chinese Kamer zijn er voor- en tegenargumenten. Het is dus niet zo dat iedereen in het vakgebied voor het een of het andere is. De argumenten van Alan Turing en John Searle worden vooral veel gebruikt bij discussies over kunstmatige intelligentie.</p>
+<aside class="sidebar">
+<p class="sidebar-title"><strong>John Searle</strong></p>
+<p>John Rogers Searle (Denver, 31 juli 1932) is een <a class="reference external" href="https://nl.wikipedia.org/wiki/Verenigde_Staten">Amerikaans</a> filosoof en hoogleraar aan de <a class="reference external" href="https://nl.wikipedia.org/wiki/Universiteit_van_Californi%C3%AB_-_Berkeley">Universiteit van Californië</a> in <a class="reference external" href="https://nl.wikipedia.org/wiki/Berkeley_(Californi%C3%AB)">Berkeley</a>. Hij is vooral bekend van zijn bijdragen aan de <a class="reference external" href="https://nl.wikipedia.org/wiki/Taalfilosofie">taalfilosofie</a> en de <a class="reference external" href="https://nl.wikipedia.org/wiki/Filosofie_van_de_geest">filosofie van de geest</a>, en zijn bijdrage aan het concept van “sociale realiteit”. Hij wordt beschouwd als een van de toonaangevende taalfilosofen uit de twintigste eeuw, en wordt geplaatst in de stroming van de <em><a class="reference external" href="https://nl.wikipedia.org/wiki/Ordinary_language_philosophy">Ordinary language philosophy</a></em>.</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../_images/johnsearle-fig.jpeg"><img alt="../_images/johnsearle-fig.jpeg" src="../_images/johnsearle-fig.jpeg" style="width: 200px;" /></a>
+</figure>
+<p>In Berkeley ondersteunde Searle de opkomende studentenprotesten en was de eerste, van de vast aangestelde professoren, die de zogenaamde “Free Speech Movement” ondersteunde.</p>
+<p>Voor zijn bijdragen op het gebied van de filosofie van de geest ontving Searle in 2000 de <a class="reference external" href="https://nl.wikipedia.org/wiki/Jean_Nicod_Prijs">Jean Nicod Prijs</a>. In 2004 werd hij ook onderscheiden met de National Humanities Medal. Echter in 2019 is hij zijn Emeritus-status kwijtgeraakt is vanwege <a class="reference external" href="https://www.reddit.com/r/Heimspeki/comments/c3gq8y/searle_found_to_have_violated_sexual_harassment/">seksueel onaanvaardbaar gedrag</a>.</p>
+</aside>
+<div class="admonition-vragen admonition">
+<p class="admonition-title">🛠️ <strong>Vragen</strong></p>
+<ol class="arabic simple">
+<li><p>Vind jij dat de Turing Test een goede test is voor intelligentie bij computers? Onderbouw je mening.</p></li>
+<li><p>Vind jij dat de Chinese Kamer inderdaad intelligent is en Chinees kan vertalen of niet? Onderbouw je mening.</p></li>
+<li><p>Ga nu eens op internet op zoek naar argumenten voor of tegen de Turing Test (minstens 2 argumenten). Welke argumenten vind je sterk? Welke minder?</p></li>
+<li><p>Doe nu hetzelfde voor de Chinese Kamer (minstens 2 argumenten). Welke argumenten vind je sterk? Welke minder?</p></li>
+<li><p>Wat zou volgens jou een goede test zijn om intelligentie aan te tonen bij computers?</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Antwoorden<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<ol class="arabic simple">
+<li><p class="sd-card-text">Bij deze vraag wordt om jouw mening gevraagd. Het is dan vooral belangrijk dat de onderbouwing klopt. Je zou bijvoorbeeld kunnen zeggen dat de Turing Test geen goede test is, omdat deze alleen maar over tekst gaat. Wie zegt er dat intelligentie gemeten kan worden door taal? En wat als de jury zelf niet al te intelligent is? Dan wordt het ineens makkelijker voor de chatbot om intelligent te zijn.</p></li>
+<li><p class="sd-card-text">Ook bij deze vraag is jouw onderbouwing belangrijk. Je zou kunnen zeggen dat de Chinese Kamer niet intelligent is, omdat er steeds hetzelfde trucje herhaald wordt. Dat lijkt eigenlijk gewoon op een normaal computerprogramma.</p></li>
+<li><p class="sd-card-text">Argument voor:</p>
+<ul class="simple">
+<li><p class="sd-card-text">Voor het goed voeren van een gesprek is intelligentie nodig.
+Argument tegen:</p></li>
+<li><p class="sd-card-text">De Turing Test meet geen intelligentie, maar hoe goed een computer kan imiteren.</p></li>
+</ul>
+</li>
+<li><p class="sd-card-text">Argument voor:</p>
+<ul class="simple">
+<li><p class="sd-card-text">De Chinese Kamer verstaat geen Chinees, net zoals Google Translate geen Nederlands verstaat.
+Argument tegen:</p></li>
+<li><p class="sd-card-text">De man in de kamer verstaat zelf geen Chinees, maar de kamer in zijn geheel wel.</p></li>
+</ul>
+</li>
+<li><p class="sd-card-text">Dit is een lastige vraag, omdat intelligentie een lastig begrip is. Je kunt misschien het beste kijken naar mensen. Wanneer ben je intelligent? Misschien als je een diploma haalt en je kennis weet toe te passen. Of misschien als je een goed idee weet uit te werken. Je zou kunnen zeggen dat een computer intelligent is als deze (met een aantal jaar opvoeding) deze zaken zelfstandig weet te bereiken.</p></li>
+</ol>
+</div>
+</details></div>
+</section>
+</section>
+<section id="sterke-en-zwakke-kunstmatige-intelligentie">
+<h2><span class="section-number">1.3.2. </span>Sterke en zwakke kunstmatige intelligentie<a class="headerlink" href="#sterke-en-zwakke-kunstmatige-intelligentie" title="Permalink to this heading">#</a></h2>
+<p>Binnen de toepassingen van kunstmatige intelligentie maken we onderscheid tussen <strong>zwakke</strong> (of <strong>beperkte</strong>) en <strong>sterke</strong> (of <strong>algemene</strong>) KI. Sterke systemen kunnen meerdere taken tegelijkertijd verwerken en zwakke slechts één taak.</p>
+<p>De term ‘zwak’ of ‘sterk’ geeft hier aan hoe breed het expertisegebied van de machine is. Zo heeft een zwakke kunstmatig intelligente machine een smal expertisegebied. Met andere woorden: zwakke kunstmatige intelligentie is maar in één of een paar taken heel erg goed. Zwak wil hier niet zeggen dat het niet goed is. Een chatbot van een webwinkel is heel goed in het helpen van de klant, maar kan niet autorijden. Een zelfrijdende auto daarentegen kan weer niet helpen bij het terugvragen van je geld bij een webshop.</p>
+<p>Als we spreken van sterke kunstmatige intelligentie, dan hebben we het over een machine die de intelligentie van een mens evenaart of zelfs overstijgt. Daarnaast is een machine met sterke kunstmatige intelligentie zelfbewust. Dat houdt in dat de machine weet dat hij bestaat en onderscheid kan maken tussen zichzelf en de omgeving. Vooral dit laatste is een struikelblok. We begrijpen bewustzijn bij mensen niet eens, laat staan dat we het kunnen (na)maken.</p>
+<p>In populaire science fiction films zijn het vooral de sterke kunstmatig intelligente machines die in een verre toekomst voor een hoop drama zorgen (denk bijvoorbeeld aan WALL-E van Disney of BB-8 uit Star Wars). Toch behoort sterke kunstmatige intelligentie in de hedendaagse wereld nog slechts tot de fantasie. Er bestaat nog geen sterke kunstmatige intelligentie en sommige wetenschappers twijfelen of het überhaupt mogelijk is om het te bouwen.</p>
+<p>Bij de ChatBot heb je kennisgemaakt met een <em>zwakke</em> kunstmatige intelligentie. Van de technieken die we gaan bespreken in <a class="reference external" href="https://www.notion.so/3-Technieken-067b7f56311f492481ca7fb750f70f85">3. Technieken</a>, is <a class="reference external" href="https://www.notion.so/3-4-Cluster-analyse-94a4337d3d4441bba1a5c358300074dc">3.4. Cluster analyse</a> een voorbeeld van een zwakke AI en zijn <a class="reference external" href="https://www.notion.so/3-5-Neurale-netwerken-4778ac2fbe494b9cbe50001b3d19d1c9">3.5. Neurale netwerken</a> een voorbeelden van sterkere AI.</p>
+<div class="admonition-vragen admonition">
+<p class="admonition-title">🛠️ <strong>Vragen</strong></p>
+<ol class="arabic simple">
+<li><p>Wat is het verschil tussen een toepassing waarvan men zegt dat het zwakke AI is en een toepassing waarvan men zegt dat het sterke AI is?</p></li>
+<li><p>Zet de volgende lijst in de volgorde van zwakke naar sterke AI.</p>
+<ol class="arabic simple">
+<li><p>zelfrijdende auto</p></li>
+<li><p>gezichtsherkenning</p></li>
+<li><p>chatbot bij webwinkel</p></li>
+<li><p>postcode lezen</p></li>
+<li><p>beeldverwerking bij kankerscreening</p></li>
+</ol>
+</li>
+<li><p>Is Deep Blue, de schaakcomputer van IBM, een voorbeeld van een sterke of zwakke KI?</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Antwoorden<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<ol class="arabic simple">
+<li><p class="sd-card-text">Een toepassing in de klasse zwakke AI kan slechts een beperkt aantal taken uitvoeren. Een toepassing in de klasse sterke AI is breder inzetbaar en evenaart of overstijgt de intelligente vaardigheden van een mens.</p></li>
+<li><p class="sd-card-text">4, 5, 2, 3, 1</p></li>
+<li><p class="sd-card-text">In 1997 won Deep Blue een schaaktoernooi van de toenmalige schaakkampioen Garry Kasparov. Dat was een enorme prestatie en een mijlpaal in de informatica en kunstmatige intelligentie. Zou je echter Deep Blue vragen om te ganzenborden, dan zou er niets van terecht komen. Deep Blue was dus een zwakke kunstmatige intelligentie.</p></li>
+</ol>
+</div>
+</details></div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./achtergrond"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="geschiedenis.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">vorige</p>
+        <p class="prev-next-title"><span class="section-number">1.2. </span>Geschiedenis en toekomst</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="in-de-praktijk.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">volgende</p>
+        <p class="prev-next-title"><span class="section-number">1.4. </span>In de praktijk</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhoud
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imitatiespellen">1.3.1. Imitatiespellen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatten-met-een-bot">Chatten met een bot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#turing-test">Turing Test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chinese-kamer">Chinese Kamer</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sterke-en-zwakke-kunstmatige-intelligentie">1.3.2. Sterke en zwakke kunstmatige intelligentie</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Door cc-team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright SLO 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

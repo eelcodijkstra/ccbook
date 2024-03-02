@@ -1,0 +1,726 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="nl" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>2.3. FAIR data &#8212; Cognitive computing</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ethiek-en-ai/figs/fair-data';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Zoeken" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="nl"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../materiaal.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Cognitive computing - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Cognitive computing - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Zoeken</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../materiaal.html">
+                    Introductie
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Materiaal</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../achtergrond/achtergrond.html">1. Achtergrond</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../achtergrond/introductie.html">1.1. Introductie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../achtergrond/geschiedenis.html">1.2. Geschiedenis en toekomst</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../achtergrond/intelligentie.html">1.3. Wanneer is iets intelligent?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../achtergrond/in-de-praktijk.html">1.4. In de praktijk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../achtergrond/terugkoppeling.html">1.5. Terugkoppeling</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../ethiek/ethiek.html">2. Ethiek</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../ethiek/gevaren.html">2.1. Gevaren van kunstmatige intelligentie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ethiek/fast-principes.html">2.2. De FAST-principes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ethiek/fair-data.html">2.3. FAIR data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ethiek/terugkoppeling.html">2.4. Terugkoppeling</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../technieken/technieken.html">3. Technieken</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../technieken/introductie.html">3.1. Introductie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../technieken/machine-learning.html">3.2. Machine learning</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../technieken/associatie-analyse.html">3.4. Associatie-analyse</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../technieken/cluster-analyse.html">3.7. Clusteranalyse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../technieken/neurale-netwerken.html">3.8. Neurale netwerken</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../technieken/eigen-quickdraw.html">3.9. Eigen QuickDraw</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../technieken/multi-agentsystemen.html">3.10. Multi-agentsystemen</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../technieken/terugkoppeling.html">3.12. Terugkoppeling</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Verdieping</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ethiek-en-ai.html">1. E. Ethiek en AI</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ai-standaarden.html">1.1. AI standaarden en richtlijnen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fast-en-fair.html">1.2. FAST en FAIR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../engheidsmatrix.html">1.3. De engheidsmatrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../terugkoppeling.html">1.4. 2.4. Terugkoppeling</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../neurale-netwerken/neurale-netwerken.html">2. N. Neurale netwerken</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../neurale-netwerken/hoe-leert-neuraal-netwerk.html">2.1. N.1. Hoe leert een neuraal netwerk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../neurale-netwerken/naar-meer-lagen.html">2.2. N.2. Op weg naar meer lagen</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../neurale-netwerken/tensorflow-app.html">3. N.3 Tensorflow app</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../neurale-netwerken/docentenhandleiding.html">3.1. Docentenhandleiding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../neurale-netwerken/fase-1.html">3.2. Fase 1: Maak een eerste app</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../neurale-netwerken/fase-2.html">3.3. Fase 2: Optimaliseren Neuraal Netwerk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../neurale-netwerken/fase-3.html">3.4. Fase 3: Andere dataset gebruiken</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../neurale-netwerken/fase-4.html">3.5. Fase 4: Eigen dataset gebruiken</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../over-ons.html">Over ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../colofon.html">Colofon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../achtergrond/robotica.html">Robotica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/verzamelingen.html">Verzamelingenleer</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/keuzethemas/ccbook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Bronopslagplaats"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/keuzethemas/ccbook/issues/new?title=Issue%20on%20page%20%2Fethiek-en-ai/figs/fair-data.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open een probleem"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download deze pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/ethiek-en-ai/figs/fair-data.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download het bronbestand"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Afdrukken naar pdf"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Volledig scherm"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>2.3. FAIR data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhoud </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#de-principes-van-fair-data">De principes van FAIR data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vindbaarheid-findability">Vindbaarheid (findability)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#toegankelijkheid-accessibility">Toegankelijkheid (accessibility)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interoperabiliteit-interoperability">Interoperabiliteit (interoperability)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#herbruikbaarheid-reusability">Herbruikbaarheid (reusability)</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="fair-data">
+<h1>2.3. FAIR data<a class="headerlink" href="#fair-data" title="Permalink to this heading">#</a></h1>
+<section id="de-principes-van-fair-data">
+<h2>De principes van FAIR data<a class="headerlink" href="#de-principes-van-fair-data" title="Permalink to this heading">#</a></h2>
+<p>Naast de FAST-principes wordt vaak nog een afkorting gebruikt die specifiek gericht is op het gebruik van data: FAIR data. FAIR data omvat data die voldoet aan principes van vindbaarheid (<em>findability</em>), toegankelijkheid (<em>accessibility</em>), interoperabiliteit (<em>interoperability</em>) en herbruikbaarheid (<em>reusability)</em>. In eerste instantie gaat het daarbij om wetenschappelijke data. Daarbij ligt de nadruk op machine-actionability: het vermogen van computersystemen om gegevens te vinden, toegang te krijgen, samen te werken en te hergebruiken zonder of met minimale menselijke tussenkomst. De vier principes van FAIR data zijn elk weer onderverdeeld in een aantal uitgangspunten:</p>
+<p><img alt="FAIR data.png" src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/10eaf5da-5976-4d04-bdb9-591b28e35f42/FAIR_data.png" /></p>
+<section id="vindbaarheid-findability">
+<h3>Vindbaarheid (findability)<a class="headerlink" href="#vindbaarheid-findability" title="Permalink to this heading">#</a></h3>
+<p>Vindbaarheid van data gaat over het principe dat metadata en data gemakkelijk vindbaar moeten zijn, voor zowel mensen als computers. Metadata omvat gegevens die de karakteristieken van bepaalde gegevens beschrijven: data over data. Goede metadata is essentieel voor automatische detectie van datasets en services. Stel je eens voor dat een data scientist van een winkelketen een analyse wil maken van de klantdata om te ontdekken hoe vaste klanten vaker een specifieke, geïndividualiseerde aanbieding kunnen krijgen. Helaas kan zij  in het databestand met klantgegevens eigenlijk niet goed identificeren wat nou de aankopen van klanten zijn. Dan wordt zo’n onderzoek moeilijk. Wanneer vooraf, bij het ontwerpen van de klantdataset, duidelijk in de metadata was aangegeven wat aankopen zijn, zou dat veel extra werk hebben gescheeld.</p>
+<aside>
+🛠️ **Vraag**
+<ol class="arabic">
+<li><p>Welke van de volgende gegevens zou je als metadata mogen beschouwen?</p>
+<ol class="arabic simple">
+<li><p>Het bestandsformaat van een databestand.</p></li>
+<li><p>De naam van een databestand.</p></li>
+<li><p>Het moment van creatie van een databestand.</p></li>
+<li><p>De naam van een klant in een databestand met klantaankopen.</p></li>
+</ol>
+</li>
+<li><p>Bekijk de volgende tabel over het VO-onderwijs in Nederland:</p>
+<p><a class="reference external" href="https://opendata.cbs.nl/statline/#/CBS/nl/dataset/80041ned/table?ts=1640693574043">CBS Statline</a></p>
+<ol class="arabic simple">
+<li><p>Geef de metadata over geslacht, migratieachtergrond en havo leerjaar 3-5.</p></li>
+<li><p>Wat zijn de bronnen waarop deze tabel is gebaseerd?</p></li>
+</ol>
+</li>
+</ol>
+</aside>
+<ul>
+<li><p>Antwoord</p>
+<ol class="arabic">
+<li><p>a, b en c zijn metadata, d niet.</p></li>
+<li><p>Om deze metadata te vinden beweeg je je muis over de kolomtitels of druk je op de knop I.</p>
+<ol class="arabic simple">
+<li><p>Geslacht: inclusief leerlingen van wie het geslacht onbekend is.
+Migratieachtergrond: kenmerk dat weergeeft met welk land een persoon verbonden is op basis van het geboorteland van de ouders of van zichzelf; inclusief deelnemers met een onbekende migratieachtergrond.
+Havo leerjaar 3-5: hoger algemeen voortgezet onderwijs (havo), inclusief Engelse Stroom.</p></li>
+<li><p>Gebruikte databron(nen):</p></li>
+</ol>
+<ul>
+<li><p>Schooljaren 2003/4 tot en met 2004/5: Onderwijsnummerbestand Voortgezet Onderwijs (BRON-vo), Dienst Uitvoering Onderwijs (DUO)/CBS én leerlingtellingen vmbo
+landbouwonderwijs, Ministerie van Economische Zaken</p></li>
+<li><p>Schooljaar 2005/6: Onderwijsnummerbestand Voortgezet Onderwijs (BRON-vo), Dienst Uitvoering Onderwijs (DUO)/CBS</p></li>
+<li><p>Vanaf 2006/7: Eéncijferbestand Voortgezet Onderwijs, Dienst Uitvoering Onderwijs (DUO)/CBS</p></li>
+<li><p>Stelsel van Sociaal-statistische Bestanden (SSB), CBS.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</section>
+<section id="toegankelijkheid-accessibility">
+<h3>Toegankelijkheid (accessibility)<a class="headerlink" href="#toegankelijkheid-accessibility" title="Permalink to this heading">#</a></h3>
+<p>Wanneer een gebruiker data heeft gevonden, wordt het belangrijk hoe die data kunnen worden geraadpleegd, eventueel inclusief authenticatie en autorisatie ervan. Bedenk maar eens  hoe moeilijk het wordt om de klantaankopen uit het bovenstaande voorbeeld in de volgende situatie te analyseren: het bestand is beveiligd met een wachtwoord dat alleen bekend is bij een medewerker van een ICT-bedrijf dat al twee jaar geen diensten meer aan de winkelketen levert.</p>
+<aside>
+🛠️ **Vraag**
+<ol class="arabic simple">
+<li><p>Welke voorbeelden in de onderstaande lijst zijn goede voorbeelden van data accessibility?</p>
+<ol class="arabic simple">
+<li><p>Het bouwen van een dashboard dat gegevens uit verschillende tabellen van een database haalt, kan alleen worden voltooid door een teamlid dat weet hoe een database te doorzoeken met behulp van SQL of een andere gespecialiseerde querytaal.</p></li>
+<li><p>Het bouwen van een dashboard dat gegevens uit verschillende tabellen van een database haalt, kan alleen worden voltooid wanneer er formele toestemming is van de eigenaar van de data om die te mogen gebruiken.</p></li>
+<li><p>Het bouwen van een dashboard dat gegevens uit verschillende tabellen van een database haalt, kan alleen worden voltooid wanneer alle data is geprogrammeerd in dezelfde programmeertaal.</p></li>
+</ol>
+</li>
+<li><p>Een van de bronnen waarop de tabel over het VO-onderwijs in Nederland is gebaseerd, is het Eéncijferbestand Voortgezet Onderwijs, Dienst Uitvoering Onderwijs (DUO)/CBS. Een korte zoektocht op internet brengt je naar de <a class="reference external" href="https://duo.nl/open_onderwijsdata/">open data site van DUO</a>.</p>
+<ol class="arabic simple">
+<li><p>Doe deze zoektocht ook zelf.</p></li>
+<li><p>Ga op de site van DUO op zoek naar het aantal leerlingen op jouw school in de afdeling waar je nu zit in het vorige schooljaar (bijvoorbeeld havo lj 4-5 Natuur en Techniek,  of vwo lj 4-6 Natuur en Gezondheid).</p></li>
+<li><p>In welke mate voldoet de gevonden data aan vindbaarheid en toegankelijkheid?</p></li>
+<li><p>Vind je in dit bestand alle informatie die nodig is om de CBS-tabel te vormen?</p></li>
+</ol>
+</li>
+</ol>
+</aside>
+<ul class="simple">
+<li><p>Antwoord</p>
+<ol class="arabic simple">
+<li><p>a en b zijn goede voorbeelden van data accessibility; c is geen goed voorbeeld van data accessibility, maar gaat over interoperabiliteit.</p></li>
+<li><p>b) Binnen open data kies je voor Databestanden <strong>→</strong> Voortgezet onderwijs → Leerlingen → Leerlingen per vestiging naar onderwijstype, sector, afdeling, opleiding. Kies daar het bovenste Excel-bestand en ga op zoek naar de gegevens van jouw school.
+c) Vanuit de CBS-tabel was er niet direct een link naar de data, wat de vindbaarheid bemoeilijkt. De toegankelijkheid bij zowel het CBS als DUO is open, er is geen authenticatie en autorisatie aanwezig.
+d) Er zijn geen gegevens over migratieachtergrond aanwezig.</p></li>
+</ol>
+</li>
+</ul>
+</section>
+<section id="interoperabiliteit-interoperability">
+<h3>Interoperabiliteit (interoperability)<a class="headerlink" href="#interoperabiliteit-interoperability" title="Permalink to this heading">#</a></h3>
+<p>Je moet data samen met andere data kunnen gebruiken. Gegevens moeten dus geschikt zijn voor het samenwerken met applicaties of workflows voor analyse, opslag en verwerking. Om dat mogelijk te maken, moet data gebruikmaken van een formele, toegankelijke, gedeelde en breed toepasbare taal voor kennisrepresentatie. Stel je eens voor dat het programma waarmee het databestand met klantaankopen kan worden uitgelezen, ook nog eens geprogrammeerd is in een taal die niemand anders dan medewerkers van het oorspronkelijke ICT-bedrijf, nog kan lezen en schrijven.</p>
+<aside>
+🛠️ **Vraag**
+<ol class="arabic simple">
+<li><p>Welke voorbeelden in de onderstaande lijst zijn goede voorbeelden van interoperabiliteit van data?</p>
+<ol class="arabic simple">
+<li><p>De interne data-architectuur van een ziekenhuis en een huisartsenpraktijk is goed ingericht, waardoor deze twee zelfstandig opererende organisaties goed kunnen samenwerken.</p></li>
+<li><p>Een dierenartsenpraktijk heeft haar hrm-data zo ingericht dat zij zonder problemen data over medewerkers kan delen met een huisartsenpraktijk.</p></li>
+<li><p>De bedrijfsprocessen van een metaalfabriek en een toeleveringsbedrijf zijn zo op elkaar afgestemd dat zij onderling zonder problemen data over het productieproces kunnen delen.</p></li>
+</ol>
+</li>
+<li><p>Je hebt het databestand bij DUO opgehaald. Daar staat niets in over de migratieachtergrond. Die informatie staat waarschijnlijk in de bron <a class="reference external" href="https://www.cbs.nl/nl-nl/onze-diensten/methoden/onderzoeksomschrijvingen/korte-onderzoeksbeschrijvingen/stelsel-van-sociaal-statistische-bestanden--ssb--">Stelsel van Sociaal-statistische Bestanden</a>.</p>
+<ol class="arabic simple">
+<li><p>Wat is er minimaal nodig om deze koppeling te maken?</p></li>
+<li><p>Waarom zul je als buitenstaander niet alle gegevens over een leerling kunnen vinden?</p></li>
+<li><p>Zou je toegang tot de individuele gegevens kunnen krijgen?</p></li>
+</ol>
+</li>
+</ol>
+</aside>
+<ul class="simple">
+<li><p>Antwoord</p>
+<ol class="arabic simple">
+<li><p>a en c zijn goede voorbeelden van interoperabiliteit; bijvoorbeeld overdracht van gegevens van patiënten in a gaat dan goed, en bij c kan het toeleveringsbedrijf het voorraadbeheer afstemmen op de voorraad van de fabriek.
+b is geen goed voorbeeld omdat het delen van hrm-data van medewerkers in dit geval niet noodzakelijk (en wellicht zelfs niet wenselijk) is.</p></li>
+<li><p>In de tabel bij het CBS is er een uitsplitsing op migratieachtergrond aanwezig.</p>
+<ol class="arabic simple">
+<li><p>Dus óf er moet een uitsplitsing aanwezig zijn per school naar migratieachtergrond in de DUO-bestanden, óf het CBS moet toegang hebben tot alle gegevens van alle leerlingen via DUO en van alle leerlingen via de bron <a class="reference external" href="https://www.cbs.nl/nl-nl/onze-diensten/methoden/onderzoeksomschrijvingen/korte-onderzoeksbeschrijvingen/stelsel-van-sociaal-statistische-bestanden--ssb--">Stelsel van Sociaal-statistische Bestanden</a> waaruit de migratieachtergrond wordt geleverd. Voor geautomatiseerde verwerking is het dus nodig dat de data van deze bestanden overeenkomstige metadata heeft.</p></li>
+<li><p>Vanwege privacywetgeving mag niet iedereen individuele gegevens bekijken.</p></li>
+<li><p>In het <a class="reference external" href="https://www.cbs.nl/nl-nl/over-ons/organisatie/privacy">privacystatemen</a>t van het CBS staat onder meer:
+”<em>Het CBS gebruikt de gegevens alléén voor statistisch en wetenschappelijk doel. Gebruik voor fiscale, administratieve, controle en gerechtelijke doeleinden is wettelijk uitgesloten. Ook gebruiken we de gegevens niet voor marketing.”</em>
+en
+”<em>Ook worden persoonsgegevens verwerkt bij <a class="reference external" href="https://www.cbs.nl/nl-nl/onze-diensten/maatwerk-en-microdata/microdata-zelf-onderzoek-doen/publicaties">wetenschappelijke studies van derden</a>.”</em>
+Geautoriseerde medewerkers en geautoriseerde onderzoekers kunnen dus toegang krijgen tot individuele gegevens.</p></li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+</section>
+<section id="herbruikbaarheid-reusability">
+<h3>Herbruikbaarheid (reusability)<a class="headerlink" href="#herbruikbaarheid-reusability" title="Permalink to this heading">#</a></h3>
+<p>Het laatste principe van FAIR data gaat over de (her)bruikbaarheid van data. Data en metadata moeten goed worden beschreven met meerdere relevante attributen, zodat de herbruikbaarheid ervan optimaal is. Op die manier is data in verschillende omstandigheden en systemen mogelijk. Kijk maar eens naar het eerdere voorbeeld van de klantaankopen. Stel je voor dat een andere data scientist een jaar later de klantaankopen wil hergebruiken in een ander onderzoek. Het zou dan goed zijn wanneer de informatie over het bestand (de metadata) inmiddels is bijgewerkt, zodat de problemen van een jaar eerder niet opnieuw optreden.</p>
+<aside>
+🛠️ **Vraag**
+<ol class="arabic simple">
+<li><p>De overheid verzamelt van oudsher op reguliere basis data over personen, bedrijven, instellingen, markten, wegen, natuur, emissies, woningen et cetera. We noemen dit publieke data. Het CBS is daarin een belangrijke organisatie. Welke van de volgende beweringen over het belang van hergebruik van publieke data zijn juist?</p>
+<ol class="arabic simple">
+<li><p>Voor wetenschappers is publieke data van waarde, omdat ze vaak een grote populatie en/of een lang tijdsbestek bestrijkt en niemand doorgaans buiten de populatie van overheidsadministraties valt.</p></li>
+<li><p>Voor bedrijven is publieke data belangrijk, omdat ze daarmee een betrouwbare database van potentiële klanten voor hun producten en diensten kunnen opbouwen. Iedereen ‘zit’ immers in die publieke data.</p></li>
+<li><p>Voor overheden is publieke data een potentiële bron van kennis. Deze kennis werpt licht op het effect van hun beleid en helpt ze om complexe taken uit te voeren. Zo’n complexe taak is bijvoorbeeld het bewaken van waarden als veiligheid, privacy, zelfbeschikking, solidariteit en eerlijke concurrentie.</p></li>
+</ol>
+</li>
+</ol>
+</aside>
+<ul class="simple">
+<li><p>Antwoord</p>
+<ol class="arabic simple">
+<li><p>a en c zijn goede redenen waarom hergebruik van publieke data belangrijk is. b is een slecht voorbeeld, omdat publieke data geen persoonsgegevens bevat die bedrijven kunnen en mogen gebruiken.</p></li>
+</ol>
+</li>
+</ul>
+<p>We zijn aan het einde gekomen van de introductie van de ethische principes waaraan AI-systemen, en meer algemeen systemen die zijn gebaseerd op persoonlijke gegevens, zouden moeten voldoen. Dat niet alle systemen aan deze principes beantwoorden, is een zorg voor de samenleving en dus ook voor de politiek. Het is niet altijd makkelijk om aan alle principes te voldoen. In de verdieping <a class="reference external" href="https://www.notion.so/E-Ethiek-en-AI-b79972a1c7ba4148900c6d0447f42ffe">Ethiek en AI</a> kun je zelf aan de slag gaan met het analyseren van AI-systemen in relatie tot de principes FAST en FAIR.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./ethiek-en-ai/figs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhoud
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#de-principes-van-fair-data">De principes van FAIR data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vindbaarheid-findability">Vindbaarheid (findability)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#toegankelijkheid-accessibility">Toegankelijkheid (accessibility)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interoperabiliteit-interoperability">Interoperabiliteit (interoperability)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#herbruikbaarheid-reusability">Herbruikbaarheid (reusability)</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Door cc-team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright SLO 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

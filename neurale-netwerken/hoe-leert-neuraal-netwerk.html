@@ -1,0 +1,1524 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="nl" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>5.1. N.1. Hoe leert een neuraal netwerk &#8212; Cognitive computing</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'neurale-netwerken/hoe-leert-neuraal-netwerk';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Zoeken" href="../search.html" />
+    <link rel="next" title="5.2. N.2. Op weg naar meer lagen" href="naar-meer-lagen.html" />
+    <link rel="prev" title="5. Neurale netwerken" href="neurale-netwerken.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="nl"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../materiaal.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Cognitive computing - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Cognitive computing - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Zoeken</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../materiaal.html">
+                    Introductie
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Materiaal</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../achtergrond/achtergrond.html">1. Achtergrond</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../achtergrond/introductie.html">1.1. Introductie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../achtergrond/geschiedenis.html">1.2. Geschiedenis en toekomst</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../achtergrond/intelligentie.html">1.3. Wanneer is iets intelligent?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../achtergrond/in-de-praktijk.html">1.4. In de praktijk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../achtergrond/terugkoppeling.html">1.5. Terugkoppeling</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ethiek/ethiek.html">2. Ethiek</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek/gevaren.html">2.1. Gevaren van kunstmatige intelligentie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek/fast-principes.html">2.2. De FAST-principes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek/fair-data.html">2.3. FAIR data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek/terugkoppeling.html">2.4. Terugkoppeling</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../technieken/technieken.html">3. Technieken</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../technieken/introductie.html">3.1. Introductie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../technieken/machine-learning.html">3.2. Machine learning</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../technieken/associatie-analyse.html">3.4. Associatie-analyse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../technieken/cluster-analyse.html">3.5. Clusteranalyse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../technieken/neurale-netwerken.html">3.6. Neurale netwerken</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../technieken/eigen-quickdraw.html">3.7. Eigen QuickDraw</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../technieken/multi-agentsystemen.html">3.8. Multi-agentsystemen</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../technieken/terugkoppeling.html">3.10. Terugkoppeling</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Verdieping</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ethiek-en-ai/ethiek-en-ai.html">4. Ethiek en AI</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek-en-ai/ai-standaarden.html">4.1. AI standaarden en richtlijnen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek-en-ai/fast-en-fair.html">4.2. FAST en FAIR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek-en-ai/engheidsmatrix.html">4.3. De engheidsmatrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek-en-ai/ethiek-opdracht-essay.html">4.4. Opdracht: schrijf een essay over Ethiek en AI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek-en-ai/ethiek-bedenk-een-ai.html">4.5. Opdracht: bedenk een AI toepassing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="neurale-netwerken.html">5. Neurale netwerken</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.1. N.1. Hoe leert een neuraal netwerk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="naar-meer-lagen.html">5.2. N.2. Op weg naar meer lagen</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="tensorflow-app.html">6. N.3 Tensorflow app</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="docentenhandleiding.html">6.1. Docentenhandleiding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fase-1.html">6.2. Fase 1: Maak een eerste app</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fase-2.html">6.3. Fase 2: Optimaliseren Neuraal Netwerk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fase-3.html">6.4. Fase 3: Andere dataset gebruiken</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fase-4.html">6.5. Fase 4: Eigen dataset gebruiken</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../over-ons.html">Over ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../colofon.html">Colofon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../achtergrond/robotica.html">Robotica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/verzamelingen.html">Verzamelingenleer</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/keuzethemas/ccbook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Bronopslagplaats"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/keuzethemas/ccbook/issues/new?title=Issue%20on%20page%20%2Fneurale-netwerken/hoe-leert-neuraal-netwerk.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open een probleem"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download deze pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/neurale-netwerken/hoe-leert-neuraal-netwerk.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download het bronbestand"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Afdrukken naar pdf"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Volledig scherm"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>N.1. Hoe leert een neuraal netwerk</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhoud </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#de-werking-van-een-perceptron">5.1.1. De werking van een perceptron</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#het-leren-van-de-perceptron">5.1.1.1. Het leren van de perceptron</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#het-perceptron-algoritme">5.1.1.2. Het Perceptron Algoritme:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onderliggende-lijn">5.1.1.3. Onderliggende lijn.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bias">5.1.1.4. Bias</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trainen-van-het-netwerk">5.1.2. Trainen van het netwerk</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stappen-in-het-trainingsproces">5.1.2.1. Stappen in het trainingsproces</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aanpassen-gewichten">5.1.2.2. Aanpassen gewichten</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overdenking-trainingsstrategie">5.1.2.3. Overdenking trainingsstrategie</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wiskundige-onderbouwing">5.1.2.4. Wiskundige onderbouwing</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aan-de-slag-met-trainen">5.1.3. Aan de slag met trainen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#onderzoeksvragen">5.1.4. Onderzoeksvragen:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discussie">5.1.5. Discussie</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="n-1-hoe-leert-een-neuraal-netwerk">
+<h1><span class="section-number">5.1. </span>N.1. Hoe leert een neuraal netwerk<a class="headerlink" href="#n-1-hoe-leert-een-neuraal-netwerk" title="Permalink to this heading">#</a></h1>
+<p><img alt="Figuur 1: Schematische weergave van een verbonden ANN. Invoerlaag (in) verborgen lagen (h...) en een uitvoerlaag ( out)" src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8f43b8f7-8543-4a83-974b-7f0cb3ed7fd0/ann2.svg" /></p>
+<p>Figuur 1: Schematische weergave van een verbonden ANN. Invoerlaag (in) verborgen lagen (h…) en een uitvoerlaag ( out)</p>
+<p><img alt="Figuur 2: Een knoop in een neuraal netwerk wordt een perceptron genoemd. Tijdens de training wordt de invloed van de invoer bepaald door de gewichten  en " src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a8bc7a03-cebc-46e8-b340-28af0c3129c5/ann3.svg" /></p>
+<p>Figuur 2: Een knoop in een neuraal netwerk wordt een perceptron genoemd. Tijdens de training wordt de invloed van de invoer bepaald door de gewichten <span class="math notranslate nohighlight">\(w_1\)</span> en <span class="math notranslate nohighlight">\(w_2\)</span></p>
+<p>In de inleiding <a class="reference external" href="https://www.notion.so/ae6558ef79354551bb5442641452babb">neurale netwerken</a> van de sectie <a class="reference external" href="https://www.notion.so/4cf53c6234f5447e8fd90a2ba3361c81">technieken</a> heb je kennis gemaakt met de structuur van een kunstmatig neuraal netwerk (figuur 1).  Een neuraal netwerk bestaat uit een invoerlaag, verborgen lagen en een uitvoerlaag. De verborgen lagen en de uitvoerlaag zijn opgebouwd uit perceptrons (figuur 2), ook wel neuronen of knopen genoemd. Iedere percepton verwerkt de inkomende signalen tot een uitvoer door de inkomende signalen te wegen en het gewogen resultaat door te geven aan een ontvanger (volgende knoop of gebruiker). Tijdens het trainen van het netwerk wordt naar de meest passende wegingsfactoren gezocht. We gaan nu proberen het leerproces van een neuraal netwerk te verduidelijken en beginnen met het meest simpele netwerk waarmee we toch nog wat complexiteit kunnen duiden, een netwerk bestaande uit één perceptron met twee invoeren en één uitvoer. We gebruiken hier de trainingsvorm begeleid leren (=supervised learning).</p>
+<section id="de-werking-van-een-perceptron">
+<h2><span class="section-number">5.1.1. </span>De werking van een perceptron<a class="headerlink" href="#de-werking-van-een-perceptron" title="Permalink to this heading">#</a></h2>
+<p>De werking van een perceptron volgt het <strong>“feed-forward”-model.</strong> Dit betekent dat inputs naar het neuron worden gestuurd, worden verwerkt en resulteren in een output, de stroom van informatie is dus in één richting. In het bovenstaande diagram betekent dit dat het netwerk (één neuron) van links naar rechts leest: inputs komen binnen, worden verwerkt en als output doorgegeven.</p>
+<p>Laten we eens naar de verschillende stappen kijken.</p>
+<section id="het-leren-van-de-perceptron">
+<h3><span class="section-number">5.1.1.1. </span>Het leren van de perceptron<a class="headerlink" href="#het-leren-van-de-perceptron" title="Permalink to this heading">#</a></h3>
+<p>Stap 1: Ontvang invoer.</p>
+<p>Stel dat we een perceptron hebben met twee ingangen - laten we ze <span class="math notranslate nohighlight">\(x_{1}\)</span> en <span class="math notranslate nohighlight">\(x_{2}\)</span> noemen en als voorbeeld de volgende waarden geven:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+Invoer1:x_{1}=12 \\ Invoer2:x_{2}=4
+\end{split}\]</div>
+<p>Stap 2: Gewicht invoer.</p>
+<p>Bekijk nogmaals figuur 2. Elke invoer die naar een neuron wordt gestuurd, moet eerst worden gewogen, d.w.z. worden vermenigvuldigd met een bepaalde gewichtsfactor. Zoals boven al is gemeld, moeten juist die gewichtsfactoren door training worden bepaald. Bij het maken van een perceptron beginnen we meestal met het toewijzen van willekeurige gewichten. Laten we hier de invoer de volgende gewichten ( <span class="math notranslate nohighlight">\(w_{1}\)</span> en <span class="math notranslate nohighlight">\(w_{2}\)</span> ) geven:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+Gewicht1:w_{1}=0.5 \\ Gewicht2:w_{2}=−1
+\end{split}\]</div>
+<p>We nemen elke invoer en vermenigvuldigen deze met het bijbehorende gewicht:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+Gewicht1⋅Invoer1=x_{1}⋅w_{1}=12⋅0.5=6 \\ Gewicht2⋅Invoer2=x_{2}⋅w_{2}=4⋅−1=−4
+\end{split}\]</div>
+<p>Stap 3: Tel alle bijdragen op.</p>
+<p>De gewogen invoer worden vervolgens opgeteld:</p>
+<div class="math notranslate nohighlight">
+\[
+Som=x_{1}⋅w_{1}+x_{2}⋅w_{2}=6+−4=2
+\]</div>
+<p>Stap 4: Genereer uitvoer.</p>
+<p>De uitvoer (output) van een perceptron wordt gegenereerd door de som uit de vorige stap door een activeringsfunctie te laten gaan. In het geval van een binaire uitvoer, is het de activeringsfunctie die bepaalt op basis van de waarde van de som of deze moet “vuren” of niet. Je kunt je een LED voorstellen die is aangesloten op het uitgangssignaal van de perceptron: als hij vuurt, gaat het licht aan; zo niet, dan blijft het uit.</p>
+<p>Activeringsfuncties zijn er in verschillende vormen, simpele maar ook voor de leek moeilijker te begrijpen wiskundige functies. Voor ons eerste perceptron model houden we het zo simpel mogelijk. De activeringsfunctie die we hier kiezen is het <strong>teken van de waarde van de som</strong>. Met andere woorden, als de som een positief getal is, is de uitvoer 1, als het negatief is, is de uitvoer -1. In netwerken met meerdere lagen kan deze teken activeringsfunctie niet worden gebruikt om het netwerk te trainen (zie stap 4 in het <a class="reference external" href="https://www.johnval.nl/school/informatica/Artificial_Intelligence/neuraalNetwerk.htm#trainingsproces">trainingsproces</a> dat verder op in dit hoofdstuk wordt behandeld). In de figuur hiernaast zie je behalve de teken functie nog de sigmoïde functie en de tangens hyperbolicus, deze activeringsfuncties gebruiken we in het <a class="reference external" href="https://www.notion.so/N-2-Op-weg-naar-meer-lagen-3f0a3afb2dd94c0cbcc116ff6ec1a96f">volgende hoofdstuk</a>.</p>
+<p><img alt="Activeringsfuncties: De tekenfunctie heeft alleen de waarden -1,0,1 als uitvoer. De sigmoïde functie    stijgt van 0 naar 1. De tangens hyperbolicus functie tanh(x) stijgt van -1 naar 1. Al deze activeringsfuncties zijn puntsymetrisch in het snijpunt met de y-as. Dit is van belang in het trainingsproces van een netwerk. Je ziet dat de tanh functie een gladdere versie is van de tekenfunctie." src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2218e5d1-3caa-40ae-a3bc-2a5ed06a542a/activeringsfuncties.png" /></p>
+<p>Activeringsfuncties: De tekenfunctie heeft alleen de waarden -1,0,1 als uitvoer. De sigmoïde functie   <span class="math notranslate nohighlight">\(sig(x)=\frac{1}{1+e^{-x}}\)</span> stijgt van 0 naar 1. De tangens hyperbolicus functie tanh(x) stijgt van -1 naar 1. Al deze activeringsfuncties zijn puntsymetrisch in het snijpunt met de y-as. Dit is van belang in het trainingsproces van een netwerk. Je ziet dat de tanh functie een gladdere versie is van de tekenfunctie.</p>
+<p>De uitvoer van de perceptron wordt in ons geval:</p>
+<div class="math notranslate nohighlight">
+\[
+Uitvoer=teken(som)=teken(2)=1
+\]</div>
+<p>N.B. Observeer dat de uitvoer van de activeringsfunctie eigenlijk neerkomt op een schakelaar aan/uit. De sigmoïde en de tanh activeringsfuncties kun je zien als onvolledige schakelaars, ze kunnen nooit helemaal aan zijn en ook niet helemaal uit.</p>
+<p>Samengevat hebben we het volgende algoritme dat we hierna gaan programmeren.</p>
+</section>
+<section id="het-perceptron-algoritme">
+<h3><span class="section-number">5.1.1.2. </span>Het Perceptron Algoritme:<a class="headerlink" href="#het-perceptron-algoritme" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Vermenigvuldig elke invoer met het gewicht bij deze invoer.</p></li>
+<li><p>Bepaal de som van al deze gewogen waarden.</p></li>
+<li><p>Bereken de uitvoer van de perceptron gebaseerd op deze som met behulp van de activeringsfunctie (Hier het teken van de waarde van de som).</p></li>
+</ol>
+<ul>
+<li><p>Als je de bovenstaande theorie zelf in javascript wilt programmeren klap dan dit blok uit.</p>
+<p>We gaan bovenstaand perceptron algoritme in Javascript implementeren. In een andere taal kan dat natuurlijk ook. Neem het volgende html document als startpunt. Druk in de browser F12 om de uitvoer van <a class="reference external" href="https://www.w3schools.com/jsref/met_console_log.asp">console.log( … )</a> te zien.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;author&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;Jouw naam&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Neuraal netwerk: perceptron<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="p">&gt;</span>
+<span class="w">       </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Druk in de browser op f12.&quot;</span><span class="o">+</span>
+<span class="w">                   </span><span class="s2">&quot;Je ziet dan in de tab console deze tekst&quot;</span><span class="p">);</span>
+<span class="w">       </span><span class="kd">var</span><span class="w"> </span><span class="nx">invoer</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">12</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">];</span><span class="w"> </span><span class="c1">// x1,x2</span>
+<span class="w">       </span><span class="kd">var</span><span class="w"> </span><span class="nx">gewichten</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">0.5</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">];</span><span class="w">  </span><span class="c1">// w1,w2</span>
+<span class="w">    </span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Voeg nu code toe om de som van de gewogen invoer te berekenen en toon de som in de console.</p>
+<ul>
+<li><p>Uitwerking:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;author&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;Jouw naam&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Neuraal netwerk: perceptron<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="p">&gt;</span>
+<span class="w">       </span><span class="kd">var</span><span class="w"> </span><span class="nx">invoer</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">12</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">];</span><span class="w"> </span><span class="c1">// x1,x2</span>
+<span class="w">       </span><span class="kd">var</span><span class="w"> </span><span class="nx">gewichten</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">0.5</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">];</span><span class="w">  </span><span class="c1">// w1,w2</span>
+<span class="w">       </span><span class="kd">var</span><span class="w"> </span><span class="nx">som</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+
+<span class="w">       </span><span class="k">for</span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">invoer</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">       </span><span class="p">{</span>
+<span class="w">          </span><span class="nx">som</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">invoer</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">gewicht</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+<span class="w">       </span><span class="p">}</span>
+<span class="w">       </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;De gewogen som is &quot;</span><span class="o">+</span><span class="nx">som</span><span class="p">);</span>
+<span class="w">    </span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>Gebruik nu de <a class="reference external" href="https://www.w3schools.com/jsref/jsref_sign.asp">teken</a> methode als activeringsfunctie of schrijf die zelf. En laat zien wat de uitvoer van de perceptron is.</p>
+<ul>
+<li><p>Uitwerking:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;author&quot; content=&quot;Jouw naam&quot;&gt;
+    &lt;title&gt;Neuraal netwerk: perceptron&lt;/title&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+       var invoer    = [12 , 4]; // x1,x2
+       var gewichten = [0.5 , -1];  // w1,w2
+       var som = 0;
+
+       for(var i = 0; i &lt; invoer.length; i++)
+       {
+          som += invoer[i] * gewicht[i];
+       }
+
+       console.log(&quot;De gewogen som is &quot; + som);
+
+       uitvoer = Math.sign(som);
+       console.log(&quot;De uitvoer ofwel het teken van de som is &quot; + uitvoer);
+    &lt;/script&gt;
+  &lt;head&gt;
+  &lt;body&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="onderliggende-lijn">
+<h3><span class="section-number">5.1.1.3. </span>Onderliggende lijn.<a class="headerlink" href="#onderliggende-lijn" title="Permalink to this heading">#</a></h3>
+<p>Nu we het rekenproces van een perceptron begrijpen, gaan we deze met een herkenbaar voorbeeld in actie zetten. We hadden al gemeld dat neurale netwerken vaak worden gebruikt voor patroonherkenningstoepassingen, zoals gezichtsherkenning. Bij patroonherkenningstoepassingen wordt gezocht naar de klasse waartoe een patroon hoort. Zelfs met onze eenvoudige perceptron kunnen we de basisprincipes van classificatie demonstreren. In het volgende voorbeeld (figuur 3) gaan we, met slechts één perceptron, een scheidingslijn proberen te vinden tussen een regio -1 en +1. Om het netwerk te trainen, gebruiken we straks een verzameling punten met x- en y-coördinaten, in combinatie met de gewenste output per punt.</p>
+<p><img alt="Figuur 3: Voorspel of een punt onder (output moet -1 zijn) of boven (output moet +1 zijn) de lijn ligt." src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2e7012b8-7846-4e6f-be74-d25d6fbf2c5a/annLijn.png" /></p>
+<p>Figuur 3: Voorspel of een punt onder (output moet -1 zijn) of boven (output moet +1 zijn) de lijn ligt.</p>
+<p>Je zou kunnen denken aan het zoeken van een kaarsrechte grens tussen twee grondsoorten. Aan één kant van de grens zit klei in de ondergrond, aan de andere kant zand. Er worden grondboringen verricht. Als er klei naar bovenkomt  dan geven we dit monster de waarde 1, als er zand wordt aangeboord de waarde -1.</p>
+<p>We beschouwen dus een lijn in een tweedimensionale ruimte (Zie figuur 3). Punten in die ruimte kunnen worden ingedeeld in een groep van punten die aan de ene kant van een lijn liggen en een groep aan de ander kant. Hoewel dit een ietwat dom voorbeeld is (we kunnen namelijk heel makkelijk bepalen of een punt onder of boven een lijn ligt), laat het voorbeeld zien hoe een perceptron getraind kan worden om punten aan de ene kant versus de andere te herkennen. Geven we het getrainde netwerk als invoer een <span class="math notranslate nohighlight">\(x\)</span>- en <span class="math notranslate nohighlight">\(y\)</span>-coördinaat dan moet het ons vertellen aan welke kant van de lijn dit punt ligt, zonder dat de vergelijking direct aan de perceptron wordt gegeven. Bovendien zal je zien dat in het trainingsproces de gewichten wel een heel speciale waarde krijgen.</p>
+<p>We beginnen met het netwerk in figuur 2. Ofwel een neuraal netwerk met twee keer een invoer, één perceptron en één uitvoer gelijk aan de uitvoer van deze perceptron. De twee ingangen zijn de <span class="math notranslate nohighlight">\(x\)</span>- en <span class="math notranslate nohighlight">\(y\)</span>-coördinaten van een punt. Met behulp van een <strong>teken</strong> activeringsfunctie is de uitvoer -1, 0 of +1 — dat wil zeggen, de invoergegevens worden ingedeeld volgens het teken van de uitvoer. In figuur 3 kunnen we zien hoe elk punt zich onder de lijn (-1) of boven de lijn (+1) of op de lijn (0) bevindt.</p>
+</section>
+<section id="bias">
+<h3><span class="section-number">5.1.1.4. </span>Bias<a class="headerlink" href="#bias" title="Permalink to this heading">#</a></h3>
+<p>We hebben met slechts twee invoeren wel een groot probleem. Als we het punt (0,0) aan dit netwerk voeren, dan is de gewogen som van de invoer altijd 0, want: 
+<span class="math notranslate nohighlight">\(**som=x⋅w_{1}+y⋅w_{2}=0⋅w_{1}+0⋅w_{2}=0**\)</span>.
+Omdat de meeste lijnen niet door de oorsprong gaan kan dit recept in het algemeen niet werken.</p>
+<p>Om dit probleem te vermijden, heeft onze perceptron een derde input nodig, die wordt de <strong>bias (=afwijking)</strong> input genoemd. Een bias-input heeft altijd de waarde 1 en wordt ook gewogen. Hiernaast is in figuur 4 onze perceptron met de toegevoegde bias input weergegeven. De som wordt dan: 
+<span class="math notranslate nohighlight">\(**som=w0+x⋅w_{1}+y⋅w_{2}**\)</span>.
+De som voor het punt (0,0) is dan:
+<span class="math notranslate nohighlight">\(**som=w0+0⋅w_{1}+0⋅w_{2}=w_{0}\)</span>,**
+ofwel het gewicht van de bias. Het gewicht <span class="math notranslate nohighlight">\(w_{0}\)</span> bepaalt na training dus of (0,0) boven of onder de lijn ligt.</p>
+<p><img alt="Figuur 4: de perceptron in het neurale netwerk voor de lijn bepaling." src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f899633d-3131-4160-a5da-c77bae2b9ef6/ann4.svg" /></p>
+<p>Figuur 4: de perceptron in het neurale netwerk voor de lijn bepaling.</p>
+<p>Nadat de som is berekend wordt in dit voorbeeld de uitvoer berekent met de <strong>teken</strong> activeringsfunctie.</p>
+<p>teken(som) = 1 als som &gt; 0
+teken(som) = −1 als som &lt; 0 en
+teken(som) = 0 als som = 0</p>
+<p>In de applet hiernaast kun je de uitvoer van een realisatie van onze perceptron laten uitrekenen voor een punt (x,y) vooraf gegaan door de input 1 voor de bias. Je kunt ook het punt verslepen om ervaren dat als je de lijn passeert het teken wisselt. Als je de knop “Maak nieuw perceptron” indrukt dan worden de gewichten <span class="math notranslate nohighlight">\(w_{0},w_{1},w_{2}\)</span> opnieuw gekozen.</p>
+<p>Waarom zie je in figuur 5 de rechte lijn? Deze rechte lijn is de weergave van de status van het perceptron. Deze status wordt gevormd door de waarden van de gewichten. Bekijk nogmaals de som</p>
+<div class="math notranslate nohighlight">
+\[
+som=w_{0}+x⋅w_{1}+y⋅w_{2}
+\]</div>
+<p>en laten we eens kijken naar het geval dat de som nul is (dus ook <span class="math notranslate nohighlight">\(teken(som) = 0\)</span> ).</p>
+<div class="math notranslate nohighlight">
+\[
+0=w_{0}+x⋅w_{1}+y⋅w_{2}
+\]</div>
+<ul>
+<li><p>❓Wat voor een vergelijking is dit?</p>
+<p>Dit is een vergelijking voor een rechte lijn. Herken je die niet in deze vorm kijk dan naar de volgende herleiding.</p>
+<ul>
+<li><p>Herleiding:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+        \begin{array}{rcl}
+        0 &amp; =  &amp; w_{0} + x \cdot w_{1}+y \cdot w_{2} \Rightarrow \\
+        - y \cdot w_{2} &amp; = &amp; x \cdot w_{1}+ w_{0} \Rightarrow \\
+        y &amp; = &amp; \frac{w_{1}}{-w_{2}} \cdot x + \frac{w_{0}}{-w_{2}} \\
+        y &amp; = &amp; a \cdot x + b
+        \end{array}
+        \end{split}\]</div>
+</li>
+</ul>
+</li>
+</ul>
+<p><a class="reference external" href="https://www.johnval.nl/school/informatica/Artificial_Intelligence/SLO-apps/NNplusmin1.htm">Figuur 5:  de uitvoer van de perceptron: +1 als som groter dan 0, -1 als som kleiner dan 0. Vul een punt in (inclusief bias) en druk op de knop. Voor de uitleg van de grafiek zie de tekst.</a></p>
+<p>Figuur 5:  de uitvoer van de perceptron: +1 als som groter dan 0, -1 als som kleiner dan 0. Vul een punt in (inclusief bias) en druk op de knop. Voor de uitleg van de grafiek zie de tekst.</p>
+<p>De gestippelde blauwe lijn in figuur 5 is dus de lijn die bij de perceptron hoort.</p>
+<p>De code voor de perceptron in de applet vind je onder de knop hieronder. Echter zonder de graphics. Wil je die ook bewaar dan <a class="reference external" href="https://www.johnval.nl/school/informatica/Artificial_Intelligence/NNplusmin1.htm">dit</a> document. In de code is het deel voor de perceptron gebundeld in een Javascript class <em>Perceptron</em>. Heb je nog nooit met Javascript classes gewerkt? In dat geval is onderstaand voorbeeld waarschijnlijk wel te volgen. Voor meer informatie over classes in Javascript kan je kijken op <a class="reference external" href="https://www.w3schools.com/js/js_classes.asp">w3schools</a> of je kan <a class="reference external" href="https://www.youtube.com/watch?v=2ZphE5HcQPQ&amp;feature=youtu.be">deze video</a> bekijken.</p>
+<ul>
+<li><p>👓Nieuwe code met Perceptron class</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">volgproces</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"> </span><span class="c1">// variabele wordt straks gebruikt om naar het console te schrijven</span>
+<span class="w">      </span><span class="kd">var</span><span class="w"> </span><span class="nx">myPerceptron</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w">  </span><span class="c1">// myPerceptron object wordt straks gemaakt </span>
+<span class="w">      </span>
+<span class="w">      </span><span class="c1">// Het gebruik van objecten in javascript</span>
+<span class="w">      </span><span class="c1">// wordt uitgelegd op https://www.w3schools.com/js/js_classes.asp</span>
+<span class="w">      </span>
+<span class="w">      </span><span class="c1">// Definitie class Perceptron</span>
+<span class="w">      </span><span class="kd">class</span><span class="w"> </span><span class="nx">Perceptron</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="cm">/*</span>
+<span class="cm">         * de methode constructor wordt aangeroepen als we straks</span>
+<span class="cm">         * een Perceptron maken.</span>
+<span class="cm">         * @param: n is het aantal inputs (inclusief de bias) die de perceptron krijgt</span>
+<span class="cm">         * @param: f is de activeringsfunctie die de uitvoer bepaalt op basis van</span>
+<span class="cm">		     *         de som van invoer keer gewichten f(som)</span>
+<span class="cm">         */</span>
+<span class="w">        </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span><span class="w"> </span><span class="nx">f</span><span class="p">)</span><span class="w"> </span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="c1">// Overal waar &quot;this.&quot; voorstaat is een eigenschap</span>
+<span class="w">          </span><span class="c1">// van een Perceptron object.</span>
+<span class="w">          </span><span class="c1">// Sla het aantal knopen in een variabele op </span>
+<span class="w">          </span><span class="k">this</span><span class="p">.</span><span class="nx">aantalInvoerKnopen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">n</span><span class="p">;</span>
+
+<span class="w">          </span><span class="c1">// Sla de activeringsfunctie in een variabele op ;</span>
+<span class="w">          </span><span class="k">this</span><span class="p">.</span><span class="nx">activeringsfunctie</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">f</span><span class="p">;</span>
+
+<span class="w">          </span><span class="c1">// We maken nu een eerste gok voor de gewichten voor de Perceptron</span>
+<span class="w">          </span><span class="k">this</span><span class="p">.</span><span class="nx">gewichten</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+
+<span class="w">          </span><span class="c1">// maak random gewichten voor het perceptron  </span>
+<span class="w">          </span><span class="k">for</span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">n</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">          </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Trek een toevalsgetal tussen 0 en 1. Door deze</span>
+<span class="w">            </span><span class="c1">// met 2 te vermenigvuldigen en er 1 van af</span>
+<span class="w">            </span><span class="c1">// te trekken wordt het dus een toevalsgetal tussen -1 en 1</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">gewichten</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="cm">/*</span>
+<span class="cm">         * geefDoor is de feed-forward functie. De invoer [1, x1, ..., xn]</span>
+<span class="cm">         * wordt verwerkt tot de uitvoer</span>
+<span class="cm">         */</span>
+<span class="w">        </span><span class="nx">geefDoor</span><span class="p">(</span><span class="nx">invoer</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="kd">var</span><span class="w"> </span><span class="nx">som</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+<span class="w">          </span><span class="kd">var</span><span class="w"> </span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="nx">uitvoer</span><span class="p">;</span>
+
+<span class="w">          </span><span class="c1">// bepaal de som van de gewogen invoer</span>
+<span class="w">          </span><span class="k">for</span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">aantalInvoerKnopen</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">          </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">som</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">invoer</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">gewichten</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">          </span>
+<span class="w">          </span><span class="k">if</span><span class="p">(</span><span class="nx">volgproces</span><span class="p">)</span><span class="w"> </span>
+<span class="w">						</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;De som van de gewogen invoer is &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">som</span><span class="p">);</span>
+<span class="w">          </span>
+<span class="w">          </span><span class="c1">// verwerk de som met de activeringsfunctie</span>
+<span class="w">          </span><span class="k">return</span><span class="w"> </span><span class="nx">uitvoer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">activeringsfunctie</span><span class="p">(</span><span class="nx">som</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="c1">//einde definitie Perceptron</span>
+<span class="w">      </span>
+<span class="w">      </span><span class="c1">// De vind lijn app code</span>
+<span class="w">      </span><span class="cm">/*</span>
+<span class="cm">       * functie maakPerceptron maakt een globaal Perceptron object myPerceptron</span>
+<span class="cm">       * als die nog niet bestaat met n invoer knopen</span>
+<span class="cm">       */</span>
+<span class="w">      </span><span class="kd">function</span><span class="w"> </span><span class="nx">maakPerceptron</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span><span class="nx">f</span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">myPerceptron</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span>
+<span class="w">					</span><span class="nx">myPerceptron</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Perceptron</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span><span class="w"> </span><span class="nx">f</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span>
+<span class="w">      </span><span class="cm">/*</span>
+<span class="cm">       * functie waarLigtPunt vraagt aan de perceptron in welk gebied het punt ligt</span>
+<span class="cm">       * @param punt: [1, x-coördinaat , y - coördinaat ]</span>
+<span class="cm">       */</span>
+<span class="w">      </span><span class="kd">function</span><span class="w"> </span><span class="nx">waarLigtPunt</span><span class="p">(</span><span class="nx">punt</span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Maak zo nodig de perceptron met de lengte van het punt en de teken functie</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">myPerceptron</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nx">maakPerceptron</span><span class="p">(</span><span class="nx">invoer</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">sign</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;uitvoer&quot;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="o">=</span>
+<span class="w">          </span><span class="s2">&quot;De output voor het punt &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">punt</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot; is &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">myPerceptron</span><span class="p">.</span><span class="nx">geefDoor</span><span class="p">(</span><span class="nx">punt</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="c1">// einde vind lijn app code</span>
+<span class="w">	  </span>
+
+<span class="w">    </span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span> 
+  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;waarLigtPunt([1, 12 , 4])&quot;</span><span class="p">&gt;</span>Bereken de perceptron voor [1, 12 , 4]
+    ofwel voor het punt (x,y)=(12,4)<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;uitvoer&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Voeg aan de code een invoerveld toe zodat de applet ook uitvoer voor andere punten kan berekenen.</p>
+</li>
+</ul>
+</section>
+</section>
+<section id="trainen-van-het-netwerk">
+<h2><span class="section-number">5.1.2. </span>Trainen van het netwerk<a class="headerlink" href="#trainen-van-het-netwerk" title="Permalink to this heading">#</a></h2>
+<p>We hebben nu een perceptron die een voorspelling kan maken over de ligging van een punt (x,y) ten opzichte vaneen lijn. Dit doet de perceptron door middel van de uitvoer functie <em>geefDoor.</em>  Maar eigenlijk hebben we hier nog niks aan, de gewichten zijn namelijk willekeurig gekozen en toegewezen. We moeten het netwerk dus gaan trainen om het een goede voorspeller te laten zijn. In het trainingsproces is het de bedoeling dat het netwerk zelf tot een acceptabel resultaat komt. Afhankelijk van de complexiteit van een netwerk en de data zal dit trainen meer of minder moeite en dus ook tijd  kosten. Daarover later meer.</p>
+<p>Zoals eerder beloofd gebruiken we hier begeleid leren (supervised learning). We bieden de perceptron punten aan waarvan we weten wat de uitvoer is. Laten we nu eens kijken naar de essentiële stappen in het trainingsproces.</p>
+<section id="stappen-in-het-trainingsproces">
+<h3><span class="section-number">5.1.2.1. </span>Stappen in het trainingsproces<a class="headerlink" href="#stappen-in-het-trainingsproces" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Geef het netwerk invoer waarvoor het antwoord bekend is.</p></li>
+<li><p>Vraag het netwerk om een antwoord bij die invoer.</p></li>
+<li><p>Bereken de fout. (Was het antwoord van het netwerk goed of fout?)</p></li>
+<li><p>Als er een fout is, pas dan de gewichten binnen het netwerk aan.</p></li>
+<li><p>Ga terug naar stap 1 als er nog meer te trainen valt</p></li>
+</ol>
+<p>We passen begeleid leren toe. De trainer moet het netwerk (de  leerling) van correcte voorbeelden voorzien, zodat het kan leren wat goed en fout is. Dit doen we in stap 1. Bijvoorbeeld bij punt (2,3) hoort uitvoer 1 en bij punt (0, 0) hoort uitvoer 0.</p>
+<p>Stap 2 hebben we hierboven al behandeld, invoer [1, 2, 3] met de <strong>teken</strong> functie wordt omgezet in -1, 0 of  1 afhankelijk van de gewichten van de perceptron. Stel je geeft het punt (2, 3) aan de perceptron. Als de perceptron dan een uitvoerwaarde berekent die niet gelijk is aan 1, dan heeft de perceptron een fout gemaakt. Dit moeten we proberen te corrigeren zodat de perceptron de volgende keer hopelijk wel het goede antwoord geeft. Hiervoor moeten we eerst de fout berekenen.</p>
+<p>De <strong>fout van een perceptron</strong> (netwerk) kan worden gedefinieerd als het verschil tussen het gewenste antwoord en zijn voorspelling.</p>
+<p><strong>FOUT = GEWENSTE OUTPUT - VOORSPELLING PERCEPTRON</strong></p>
+<p>In het geval van onze perceptron, met de <strong>teken</strong> functie als activeringsfunctie, heeft de uitvoer slechts drie mogelijke waarden: +1, 0, of -1. De mogelijke combinaties en de bijbehorende fouten staan in de tabel onder de knop. Zo is bijvoorbeeld bij een gewenste uitkomst 1 en voorspelling -1 de fout gelijk aan  <span class="math notranslate nohighlight">\(1 − (−1) = 2\)</span> en andersom bij een gewenste uitkomst -1 en voorspelling 1 is de fout gelijk aan  <span class="math notranslate nohighlight">\((−1) − 1 = −2\)</span></p>
+<ul>
+<li><p><strong>Foutentabel</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \begin{array}{l|r|r|r|r|r|r|r|r|r|} \hline\colorbox{red}{\color{white}\text{Gewenst}} &amp; 1 &amp; 1 &amp; 1  &amp; 0 &amp; 0 &amp; 0  &amp; -1 &amp; -1 &amp; -1\\ \hline\colorbox{red}{\color{white} \text{Voorspeld}}&amp; -1 &amp; 0 &amp; 1  &amp; -1 &amp; 0 &amp; 1  &amp; -1 &amp; 0 &amp; 1\\ \hline\colorbox{red}{\color{white} \text{Fout}}&amp; 2 &amp; 1 &amp; 0  &amp; 1 &amp; 0 &amp; -1  &amp; 0 &amp; -1 &amp; -2\\\hline
+    \end{array}
+    \end{split}\]</div>
+</li>
+</ul>
+</section>
+<section id="aanpassen-gewichten">
+<h3><span class="section-number">5.1.2.2. </span>Aanpassen gewichten<a class="headerlink" href="#aanpassen-gewichten" title="Permalink to this heading">#</a></h3>
+<p>Nu we de fout hebben berekend moeten we de gewichten aanpassen. De fout is de bepalende factor in hoe de gewichten van de perceptron moeten worden aangepast. Wat we voor een bepaald gewicht willen berekenen, is de verandering in dat gewicht, vaak <strong>Δgewicht</strong> genoemd (of “delta”-gewicht, waarbij delta de Griekse letter Δ is). Op basis van deze verandering bereken we een nieuw gewicht.</p>
+<p><span class="math notranslate nohighlight">\(**nieuwgewicht = gewicht + Δgewicht**\)</span></p>
+<p><strong>Δgewicht</strong> wordt berekend door de fout te vermenigvuldigen met de invoer.</p>
+<p><span class="math notranslate nohighlight">\(**Δgewicht=fout⋅invoer**\)</span></p>
+<p>De waarden van de nieuwe gewichten voor <span class="math notranslate nohighlight">\(w_0\)</span>, voor de bias, <span class="math notranslate nohighlight">\(w_1\)</span>, voor input x, en <span class="math notranslate nohighlight">\(w_2\)</span>, voor input y, worden dus bepaald op basis van waarde van de fout en de waarden van de invoer. Waarom werkt onze methode? We komen daar snel op terug.</p>
+<p>Helaas zijn we er met bovenstaande regel nog niet helemaal. Omdat onze fout de waarden −2,−1, 0, 1 en 2 kan aannemen kan het zijn dat <strong>Δgewicht</strong> te groot is en we over ons doel heen springen. We moeten het daarom mogelijk maken de snelheid van de verandering te kunnen sturen. We gebruiken daarvoor een factor <strong>leersnelheid</strong>, zodat:</p>
+<p><span class="math notranslate nohighlight">\(**Δgewicht=leersnelheid⋅fout⋅invoer**\)</span></p>
+<p>Met deze laatste aanpassing is onze functie compleet en kunnen we het gaan toepassen in het leerproces van de perceptron.</p>
+<p>De laatste stap van het trainingsproces is recursief (het proces wordt nog een keer aangeroepen). Als de gewichten zijn aangepast kan er worden gekeken of de voorspellingen van de perceptron voor de trainingsdata overeenkomen met de uitvoer van de trainingsdata, zo niet dan moet er verder worden getraind.</p>
+</section>
+<section id="overdenking-trainingsstrategie">
+<h3><span class="section-number">5.1.2.3. </span>Overdenking trainingsstrategie<a class="headerlink" href="#overdenking-trainingsstrategie" title="Permalink to this heading">#</a></h3>
+<p>We hebben nu de regel om de gewichten van de perceptron te veranderen en leggen straks, met behulp van een wiskundige redevoering, uit waarom de regel werkt. Eerst denken we even na hoe trainingen kunnen worden georganiseerd.</p>
+<p>In het begeleid leren wordt het netwerk gevoed met trainingsvoorbeelden waarbij bij een gegeven invoer de uitvoer bekend is. Deze uitvoer is in de ideale situatie correct, maar bij experimentele gegevens is dat hopelijk bij benadering waar. B.v. voor de quickdraw applicatie tekent iemand een kat. De intentie is een kat, maar de tekening lijkt eigenlijk net iets meer op een  hond dan op een kat. Het plaatje gaat dan als kat de training van de applicatie in terwijl het eigenlijk als hond geclassificeerd had moeten worden.  Als er teveel fouten aanwezig zijn dan kan er ook met AI geen waardevolle conclusies uit de dataset worden getrokken. Voorbeelden van andere fouten die kunnen optreden zijn bijvoorbeeld meetfouten in de invoer en of meetfouten in de uitvoer. Fouten in de trainingsdataset noemt men <strong>experimentele</strong> bias.</p>
+<p>De manier van trainen in begeleid leren kan verschillen afhankelijk van de zekerheid van deze vooronderstellingen. Als zowel de invoer als de uitvoer volledig vast ligt, is het mogelijk om per trainingsvoorbeeld net zolang trainen tot het voorbeeld juist wordt voorspeld, dit is meestal efficiënter.</p>
+<p>Als er echter foute of moeilijk te onderscheiden waarnemingen in de trainingsvoorbeelden zitten dan is dit geen goede strategie. Er moet een mogelijkheid voor het netwerk zijn om aan het trainingsvoorbeeld te kunnen “ontsnappen”. Doe je dat niet dan kan zo’n fout invoer,uitvoer paar te zwaar meewegen in de berekeningen. Hierdoor kan het eindresultaat nooit helemaal correct voorspellingen doen, gezien het voorzien is van incorrecte of op elkaar gelijkende voorbeelden. Bij wijze van spreken kan zo’n fout paar niet in de grijze massa verdwijnen, maar is dan een dwingeland die met fake news zijn zin wil doordrijven. Als er fouten in de trainingsdata zijn (<strong>experimentele</strong> bias), dan zou het wiskundig het beste zijn om, vergelijkbaar met b.v. <a class="reference external" href="https://math4all.pragma-pod.nl/resources/section-pdfs/vd-b66.pdf">lineaire regressie</a>, alle fouten die in de voorspellingen van het netwerk samen nemen en dan pas een aanpassing aan de gewichten van de perceptron te doen. Bij een grote trainingsdataset is dat echter weer lastig uit te voeren. Daarom wordt meestal gekozen voor het één keer aanpassen per datapunt, dit vervolgens voor alle datapunten te doen. Vervolgens kan deze hele reeks weer worden herhaald tot een aanvaardbaar niveau van de voorspellingen is bereikt.</p>
+</section>
+<section id="wiskundige-onderbouwing">
+<h3><span class="section-number">5.1.2.4. </span>Wiskundige onderbouwing<a class="headerlink" href="#wiskundige-onderbouwing" title="Permalink to this heading">#</a></h3>
+<p>Nu is het toch echt tijd om duidelijk te maken waarom de regel
+<span class="math notranslate nohighlight">\(\mathbf{nieuw}\,\mathbf{gewicht} = \mathbf{gewicht} +  \mathbf{leersnelheid}\,\cdot\,\mathbf{fout}\,\cdot\,\mathbf{invoer}\)</span>
+werkt.
+Er zijn meerdere manieren om dit te doen. Wij bekijken een manier die weinig wiskundige kennis vergt, namelijk vanuit de fouten tabel. Omdat de kans heel klein is dat we een punt precies op de lijn vinden, bekijken we alleen de situatie dat de fout -2, 0 of 2 is.
+Als de fout 0 is dan is <span class="math notranslate nohighlight">\(\mathbf{leersnelheid}\,\cdot\,\mathbf{fout}\,\cdot\,\mathbf{invoer}=0\)</span> en veranderen de gewichten niet.
+Bekijk nu de situatie fout= -2. Dan is de gewenste voorspelling voor een punt <span class="math notranslate nohighlight">\([1,x,y]\)</span> gelijk aan -1 en de voorspelling van de perceptron voor dit punt gelijk aan 1. De voorspelling kregen we van de perceptron uit de som:
+<span class="math notranslate nohighlight">\(\mathbf{som}=w_{0}+w_{1}x+w_{2}y\)</span>.
+Deze is in dit geval positief <span class="math notranslate nohighlight">\((\gt 0)\)</span>. Om de som negatief <span class="math notranslate nohighlight">\((\lt 0)\)</span> te laten worden, ofwel de gewenste voorspelling te kunnen bereiken, moet de som in de volgende stap, dus met de nieuwe gewichten op zijn minst kleiner worden voordat som = 0 gepasseerd kan worden. De nieuwe gewichten bij fout = -2 zijn:
+<span class="math notranslate nohighlight">\([ w_{0}-2 \cdot \mathrm{leersnelheid}\,,\,w_{1}-2\cdot\mathrm{leersnelheid} \cdot x\,,\,w_{2}-2 \cdot\mathrm{leersnelheid} \cdot y]\)</span></p>
+<p>De nieuwe som is dan:
+<span class="math notranslate nohighlight">\(\mathrm{som}=w_{0}-2 \cdot \mathrm{leersnelheid}+(w_{1}-2\cdot\mathrm{leersnelheid} \cdot x)x+(w_{2}-2*\mathrm{leersnelheid} \cdot y)y\)</span></p>
+<p>Werken we de haakjes weg dan krijgen we iets mooiers:</p>
+<p><span class="math notranslate nohighlight">\(\mathrm{som}=w_{0}+w_{1}x+w_{2}y-2\cdot\mathrm{leersnelheid}-2\cdot\mathrm{leersnelheid} \cdot x^{2}-2\cdot\mathrm{leersnelheid} \cdot y^{2}\)</span></p>
+<p>En nog iets mooiers als we de leersnelheid buiten haakjes halen:</p>
+<p><span class="math notranslate nohighlight">\(\mathrm{som}=w_{0}+w_{1}x+w_{2}y-2\cdot\mathrm{leersnelheid}\cdot(1+ x^{2}+ y^{2})\)</span></p>
+<p>De oude som was <span class="math notranslate nohighlight">\(\mathrm{som}=w_{0}+w_{1}x+w_{2}y\)</span>, dit  is gelijk aan het eerste deel van de nieuwe som en die was groter dan nul.
+Omdat de leersnelheid positief is en ook <span class="math notranslate nohighlight">\(1+ x^{2}+ y^{2}\)</span> positief is, wordt dus een positief getal <span class="math notranslate nohighlight">\(2 \cdot \mathrm{leersnelheid} \cdot (1+ x^{2}+ y^{2})\)</span> van iets positiefs afgetrokken. De nieuwe som is dus echt kleiner. De regel voor de verandering van de gewichten werkt dus in ieder geval voor fout= -2.</p>
+<ul>
+<li><p>Laat zelf met een vergelijkbare redenering zien dat ook voor fout = 2
+de regel werkt.</p>
+<p>Zelf doen</p>
+</li>
+</ul>
+</section>
+</section>
+<section id="aan-de-slag-met-trainen">
+<h2><span class="section-number">5.1.3. </span>Aan de slag met trainen<a class="headerlink" href="#aan-de-slag-met-trainen" title="Permalink to this heading">#</a></h2>
+<p>Voor de wiskundige onderbouwing hebben we de manier  van trainen overdacht. In dit deel bekijken we deze overdenkingen met een simpele trainer alleen geschikt voor de perceptron. Deze trainer is aanwezig in de applet in figuur 6.  In de applet trainen we onze perceptron met de bedoeling een  juiste voorspelling voor de lijn (rood gestippeld in de figuur)
+<span class="math notranslate nohighlight">\(y=2x-1 \Leftrightarrow 1 - 2x + y =0\)</span>
+te bereiken.</p>
+<p>De gestreepte blauwe lijn is de representatie van de perceptron. Het doel van de trainer is dus dat de blauwe lijn op de rode lijn komt te liggen. De trainer zelf weet echter niets van de ligging van de rode lijn, behalve dat het een rechte lijn moet zijn.</p>
+<p>De invoer (punten (x,y)) wordt bij toeval gekozen en de gewenste uitvoer wordt precies bepaald door de ligging ten opzichte van de lijn. Ofwel er zijn geen meetfouten in de trainingsdata. De trainer kan alleen leren van de aangeboden punten.</p>
+<p><a class="reference external" href="https://www.johnval.nl/school/informatica/Artificial_Intelligence/SLO-apps/TillFitSampleTrainer.htm">Figuur 6: Een trainers app</a></p>
+<p>Figuur 6: Een trainers app</p>
+<ul>
+<li><p>Uitleg applet</p>
+<p>De knop <strong>herlaad</strong> zorgt ervoor dat er een nieuwe startwaarde voor de gewichten van de perceptron worden gemaakt.</p>
+<p>De knop <strong>Één keer</strong> onder het kopje <strong>Per punt één training</strong> genereert één punt met bijbehorende uitvoer en past bij een fout in de voorspelling van de perceptron de gewichten aan. Druk je meerdere keren op deze knop dan gaat de training van de perceptron verder met iedere keer een nieuw punt.</p>
+<ul>
+<li><p>Hier vind je een html bladzijde met de javascript code van de trainer alleen nog voorzien van de code voor deze optie. De graphics zijn niet aanwezig.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">volgproces</span><span class="o">=</span><span class="kc">false</span><span class="p">;</span><span class="w"> </span><span class="c1">// variabele wordt straks gebruikt om naar het console te schrijven</span>
+<span class="w">      </span><span class="kd">var</span><span class="w"> </span><span class="nx">trainer</span><span class="o">=</span><span class="kc">null</span><span class="p">;</span><span class="w"> </span><span class="c1">// de trainer van de perceptron</span>
+<span class="w">      </span><span class="cm">/*</span>
+<span class="cm">       De functie init maakt de trainer</span>
+<span class="cm">      */</span>
+<span class="w">      </span><span class="kd">function</span><span class="w"> </span><span class="nx">init</span><span class="p">()</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">trainer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Trainer</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">sign</span><span class="p">,</span><span class="w"> </span><span class="mf">0.01</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="c1">// Definitie class Perceptron</span>
+<span class="w">      </span><span class="kd">class</span><span class="w"> </span><span class="nx">Perceptron</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="cm">/*</span>
+<span class="cm">         * de methode constructor wordt aangeroepen als we straks</span>
+<span class="cm">         * een Perceptron maken.</span>
+<span class="cm">         * @param: n is het aantal inputs (inclusief de bias) die de perceptron krijgt</span>
+<span class="cm">         * @param: f is de activeringsfunctie</span>
+<span class="cm">         * @param: c is de snelheid van het leerproces</span>
+<span class="cm">         */</span>
+<span class="w">        </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span><span class="nx">f</span><span class="p">,</span><span class="nx">c</span><span class="p">)</span><span class="w"> </span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="c1">// Overal waar &quot;this.&quot; voorstaat is een eigenschap</span>
+<span class="w">          </span><span class="c1">// van een Perceptron object.</span>
+<span class="w">          </span><span class="c1">// Wijs het aantal knopen aan </span>
+<span class="w">          </span><span class="k">this</span><span class="p">.</span><span class="nx">aantalInvoerKnopen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">n</span><span class="p">;</span>
+<span class="w">          </span><span class="c1">// Zet de leersnelheid </span>
+<span class="w">          </span><span class="k">this</span><span class="p">.</span><span class="nx">leersnelheid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">c</span><span class="p">;</span>
+<span class="w">          </span><span class="c1">// Zet de activeringsfunctie </span>
+<span class="w">          </span><span class="k">this</span><span class="p">.</span><span class="nx">activeringsfunctie</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">f</span><span class="p">;</span>
+<span class="w">          </span>
+<span class="w">          </span><span class="c1">// We maken nu een eerste gok voor de gewichten voor de Perceptron</span>
+<span class="w">          </span><span class="k">this</span><span class="p">.</span><span class="nx">gewichten</span><span class="o">=</span><span class="p">[];</span>
+<span class="w">          </span><span class="c1">// maak random gewichten voor het perceptron  </span>
+<span class="w">          </span><span class="k">for</span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="nx">i</span><span class="o">=</span><span class="mf">0</span><span class="p">;</span><span class="nx">i</span><span class="o">&lt;</span><span class="nx">n</span><span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">          </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Trek een toevalsgetal tussen 0 en 1. Door deze</span>
+<span class="w">            </span><span class="c1">// met 2 te vermenigvuldigen en er 1 van af</span>
+<span class="w">            </span><span class="c1">// te trekken wordt het dus een toevals getal tussen -1 en 1</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">gewichten</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="o">=</span><span class="mf">2</span><span class="o">*</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="o">-</span><span class="mf">1</span><span class="p">;</span><span class="w"> </span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="cm">/*</span>
+<span class="cm">         * geefDoor is de feed-forward functie. De invoer [1,x1,...,xn]</span>
+<span class="cm">         * wordt verwerkt tot de uitvoer</span>
+<span class="cm">         * @param invoer: [1,,x1,...,xn]. De 1 is er voor de bias</span>
+<span class="cm">         */</span>
+<span class="w">        </span><span class="nx">geefDoor</span><span class="p">(</span><span class="nx">invoer</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="kd">var</span><span class="w"> </span><span class="nx">som</span><span class="w"> </span><span class="o">=</span><span class="mf">0</span><span class="p">;</span>
+<span class="w">          </span><span class="kd">var</span><span class="w"> </span><span class="nx">i</span><span class="p">,</span><span class="nx">uitvoer</span><span class="p">;</span>
+<span class="w">          </span><span class="c1">// bepaal de som van de gewogen invoer</span>
+<span class="w">          </span><span class="k">for</span><span class="p">(</span><span class="nx">i</span><span class="o">=</span><span class="mf">0</span><span class="p">;</span><span class="nx">i</span><span class="o">&lt;</span><span class="k">this</span><span class="p">.</span><span class="nx">aantalInvoerKnopen</span><span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">          </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">som</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">invoer</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">gewichten</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">          </span>
+<span class="w">          </span><span class="k">if</span><span class="p">(</span><span class="nx">volgproces</span><span class="p">)</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;De som van de gewogen invoer is &quot;</span><span class="o">+</span><span class="w"> </span><span class="nx">som</span><span class="p">);</span>
+<span class="w">          </span>
+<span class="w">          </span><span class="c1">// verwerk de som met de activeringsfunctie</span>
+<span class="w">          </span><span class="k">return</span><span class="w"> </span><span class="nx">uitvoer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">activeringsfunctie</span><span class="p">(</span><span class="nx">som</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="cm">/* train is de functie die de gewichten aanpast bij </span>
+<span class="cm">         * één invoer.</span>
+<span class="cm">         * @param invoer: de waarden van de invoer knopen </span>
+<span class="cm">         * vooraf gegaan door de bias=x0=1</span>
+<span class="cm">         * dus invoer = [1, x1,x2,...]</span>
+<span class="cm">         * @param gewensteUitvoer: wat zou de output van de percptron moeten zijn.</span>
+<span class="cm">         */</span>
+<span class="w">        </span><span class="nx">train</span><span class="p">(</span><span class="nx">invoer</span><span class="p">,</span><span class="nx">gewensteUitvoer</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="kd">var</span><span class="w"> </span><span class="nx">voorspelling</span><span class="o">=</span><span class="k">this</span><span class="p">.</span><span class="nx">geefDoor</span><span class="p">(</span><span class="nx">invoer</span><span class="p">);</span><span class="w"> </span><span class="c1">// Dit geeft de perceptron als voorspelling</span>
+<span class="w">          </span><span class="kd">var</span><span class="w"> </span><span class="nx">fout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">gewensteUitvoer</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">voorspelling</span><span class="p">;</span><span class="w"> </span>
+<span class="w">          </span><span class="c1">// Pas alle gewichten aan</span>
+<span class="w">          </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">aantalInvoerKnopen</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span>
+<span class="w">          </span><span class="p">{</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">gewichten</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">leersnelheid</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">fout</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">invoer</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">          </span><span class="k">if</span><span class="p">(</span><span class="nx">volgproces</span><span class="p">)</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;De nieuwe gewichten zijn &quot;</span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">gewichten</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="cm">/* </span>
+<span class="cm">         * schaalPerceptron schaalt w0 terug naar 1</span>
+<span class="cm">         * Dit is handig voor de weergave van de lijn.</span>
+<span class="cm">         */</span>
+<span class="w">        </span><span class="nx">schaalPerceptron</span><span class="p">()</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="kd">var</span><span class="w"> </span><span class="nx">lijngewichten</span><span class="o">=</span><span class="p">[</span><span class="mf">1</span><span class="p">];</span>
+<span class="w">          </span><span class="kd">var</span><span class="w"> </span><span class="nx">w0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">gewichten</span><span class="p">[</span><span class="mf">0</span><span class="p">];</span>
+<span class="w">          </span><span class="k">for</span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="nx">i</span><span class="o">=</span><span class="mf">1</span><span class="p">;</span><span class="nx">i</span><span class="o">&lt;</span><span class="k">this</span><span class="p">.</span><span class="nx">aantalInvoerKnopen</span><span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">          </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">lijngewichten</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">gewichten</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="o">/</span><span class="nx">w0</span><span class="p">;</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">          </span><span class="k">return</span><span class="w"> </span><span class="nx">lijngewichten</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="c1">//einde definitie Perceptron</span>
+
+<span class="w">      </span><span class="c1">// begin definitie van de trainer class </span>
+<span class="w">      </span><span class="cm">/* </span>
+<span class="cm">        De finitie van de class trainer die</span>
+<span class="cm">        wordt ingezet om een perceptron te trainen</span>
+<span class="cm">       */</span>
+<span class="w">      </span><span class="kd">class</span><span class="w"> </span><span class="nx">Trainer</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="cm">/* @param: n is het aantal inputs (inclusief de bias) die de   perceptron krijgt</span>
+<span class="cm">        * @param: c is de snelheid van het leerproces</span>
+<span class="cm">        * @param: f is de activeringsfunctie</span>
+<span class="cm">        */</span>
+<span class="w">        </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span><span class="nx">f</span><span class="p">,</span><span class="nx">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="k">this</span><span class="p">.</span><span class="nx">settings</span><span class="o">=</span><span class="p">{</span>
+<span class="w">            </span><span class="nx">myPreceptron</span><span class="o">:</span><span class="kc">null</span>
+<span class="w">          </span><span class="p">};</span>
+<span class="w">          </span><span class="k">this</span><span class="p">.</span><span class="nx">setPerceptron</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span><span class="nx">f</span><span class="p">,</span><span class="nx">c</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="nx">setPerceptron</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span><span class="nx">f</span><span class="p">,</span><span class="nx">c</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="k">this</span><span class="p">.</span><span class="nx">settings</span><span class="p">.</span><span class="nx">myPerceptron</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Perceptron</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span><span class="nx">f</span><span class="p">,</span><span class="nx">c</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="cm">/*</span>
+<span class="cm">         * functie  eenTraining(a,b) voert één training stap uit. In de functie wordt</span>
+<span class="cm">         *     eerst een nieuw punt gemaakt in het vierkant met zijden 8 en middelpunt</span>
+<span class="cm">         *    (0,0). Met dat punt doet de perceptron een training.</span>
+<span class="cm">         *    Resultaten worden in het uitvoer object getoond.</span>
+<span class="cm">         * $param a: richtingscoëfficient in y=ax+b </span>
+<span class="cm">         * $param b: y-coördinaat snijpunt y-as in y=ax+b </span>
+<span class="cm">         */</span>
+<span class="w">        </span><span class="nx">eenTraining</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="c1">// wat kortere benamingen</span>
+<span class="w">          </span><span class="kd">var</span><span class="w"> </span><span class="nx">myPerceptron</span><span class="o">=</span><span class="k">this</span><span class="p">.</span><span class="nx">settings</span><span class="p">.</span><span class="nx">myPerceptron</span><span class="p">;</span>
+<span class="w">          </span>
+<span class="w">          </span><span class="c1">// Maak een punt met toevalsgetallen</span>
+<span class="w">          </span><span class="kd">var</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">8</span><span class="o">*</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="o">-</span><span class="mf">4</span><span class="p">;</span>
+<span class="w">          </span><span class="kd">var</span><span class="w"> </span><span class="nx">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">8</span><span class="o">*</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="o">-</span><span class="mf">4</span><span class="p">;</span>
+<span class="w">          </span><span class="c1">// bepaal afwijking voor deze x en y t.o.v. lijn y=ax+b</span>
+<span class="w">          </span><span class="kd">var</span><span class="w"> </span><span class="nx">som</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="nx">b</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">a</span><span class="o">*</span><span class="nx">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">y</span><span class="p">;</span>
+<span class="w">          </span><span class="c1">// maak de invoer met bias</span>
+<span class="w">          </span><span class="c1">// bepaal gewenste voorspelling</span>
+<span class="w">          </span><span class="kd">var</span><span class="w"> </span><span class="nx">gewenst</span><span class="o">=</span><span class="nx">myPerceptron</span><span class="p">.</span><span class="nx">activeringsfunctie</span><span class="p">(</span><span class="nx">som</span><span class="p">);</span>
+<span class="w">          </span><span class="c1">// bepaal de som met de juiste punten</span>
+<span class="w">          </span><span class="kd">var</span><span class="w"> </span><span class="nx">invoer</span><span class="o">=</span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">];</span>
+<span class="w">          </span><span class="c1">// bepaal de voorspelling van het perceptron</span>
+<span class="w">          </span><span class="kd">var</span><span class="w"> </span><span class="nx">tekstGewichtenVoor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">arrayToString</span><span class="p">(</span><span class="nx">myPerceptron</span><span class="p">.</span><span class="nx">gewichten</span><span class="p">,</span><span class="mf">3</span><span class="p">);</span>
+<span class="w">          </span><span class="kd">var</span><span class="w"> </span><span class="nx">voorspelling</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">myPerceptron</span><span class="p">.</span><span class="nx">geefDoor</span><span class="p">(</span><span class="nx">invoer</span><span class="p">);</span>
+<span class="w">          </span><span class="c1">// train de perceptron</span>
+<span class="w">          </span><span class="nx">myPerceptron</span><span class="p">.</span><span class="nx">train</span><span class="p">(</span><span class="nx">invoer</span><span class="p">,</span><span class="nx">gewenst</span><span class="p">);</span>
+<span class="w">          </span><span class="c1">// status na de training</span>
+<span class="w">          </span><span class="kd">var</span><span class="w"> </span><span class="nx">tekstGewichtenNa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">arrayToString</span><span class="p">(</span><span class="nx">myPerceptron</span><span class="p">.</span><span class="nx">gewichten</span><span class="p">,</span><span class="mf">3</span><span class="p">);</span>
+<span class="w">          </span><span class="kd">var</span><span class="w"> </span><span class="nx">voorspellingNaTraining</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">myPerceptron</span><span class="p">.</span><span class="nx">geefDoor</span><span class="p">(</span><span class="nx">invoer</span><span class="p">);</span>
+<span class="w">          </span>
+<span class="w">          </span><span class="c1">// produceer tekst voor de gebruiker over de huidige toestand</span>
+<span class="w">          </span><span class="kd">var</span><span class="w"> </span><span class="nx">tekst</span><span class="o">=</span><span class="s2">&quot;Gewenste voorspelling voor&lt;br/&gt;&quot;</span><span class="o">+</span>
+<span class="w">            </span><span class="s2">&quot;punt [&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">arrayToString</span><span class="p">(</span><span class="nx">invoer</span><span class="p">,</span><span class="mf">2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;] is &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">gewenst</span><span class="w"> </span><span class="o">+</span>
+<span class="w">            </span><span class="s2">&quot;&lt;br/&gt; bij de lijn y=&quot;</span><span class="o">+</span><span class="nx">a</span><span class="o">+</span><span class="s2">&quot;x + &quot;</span><span class="o">+</span><span class="nx">b</span><span class="o">+</span><span class="s2">&quot;.&quot;</span><span class="o">+</span>
+<span class="w">            </span><span class="s2">&quot;&lt;br/&gt;Voorspelling voor training is &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">voorspelling</span><span class="w"> </span><span class="o">+</span><span class="w"> </span>
+<span class="w">            </span><span class="s2">&quot;.&lt;br/&gt;Gewichten:&lt;br/&gt;&quot;</span><span class="o">+</span>
+<span class="w">            </span><span class="s2">&quot;voor training: [&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">tekstGewichtenVoor</span><span class="o">+</span><span class="s2">&quot;].&quot;</span><span class="o">+</span>
+<span class="w">            </span><span class="s2">&quot;.&lt;br/&gt;na training: [&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">tekstGewichtenNa</span><span class="w"> </span><span class="o">+</span><span class="s2">&quot;].&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">            </span><span class="s2">&quot;.&lt;br/&gt;De voorspelling na training: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">voorspellingNaTraining</span><span class="p">;</span>
+<span class="w">            </span>
+<span class="w">          </span><span class="k">if</span><span class="p">(</span><span class="nx">voorspelling</span><span class="o">==</span><span class="nx">gewenst</span><span class="p">)</span>
+<span class="w">          </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">tekst</span><span class="o">+=</span><span class="s2">&quot;.&lt;br/&gt;Gewenst en voorspelling zijn gelijk dus er is niets gebeurd&quot;</span><span class="p">;</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">          </span><span class="k">else</span>
+<span class="w">          </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">tekst</span><span class="o">+=</span><span class="s2">&quot;.&lt;br/&gt;Gewenst en voorspelling zijn niet gelijk dus de gewichten zijn veranderd&quot;</span><span class="p">;</span>
+<span class="w">          </span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">          </span><span class="c1">// plaats de tekst in het uitvoerveld</span>
+<span class="w">          </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;uitvoer&quot;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="o">=</span><span class="nx">tekst</span><span class="p">;</span>
+<span class="w">      </span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="c1">//einde trainer</span>
+<span class="w">      </span>
+<span class="w">      </span><span class="c1">// andere functies</span>
+<span class="w">      </span><span class="cm">/* de functie yLine berekent de y waarde bij gegeven x voor</span>
+<span class="cm">         de lijn y=ax+b</span>
+<span class="cm">      */</span>
+<span class="w">      </span><span class="kd">function</span><span class="w"> </span><span class="nx">yLine</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">,</span><span class="nx">x</span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">a</span><span class="o">*</span><span class="nx">x</span><span class="o">+</span><span class="nx">b</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span>
+<span class="w">      </span><span class="cm">/*</span>
+<span class="cm">       * functie vraagt aan de perceptron in welk gebied het punt ligt</span>
+<span class="cm">       * @param punt: [1, x-coördinaat , y - coördinaat ]</span>
+<span class="cm">       */</span>
+<span class="w">      </span><span class="kd">function</span><span class="w"> </span><span class="nx">waarLigtPunt</span><span class="p">(</span><span class="nx">punt</span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">invoer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">eval</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">punt</span><span class="p">).</span><span class="nx">value</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="nx">trainer</span><span class="o">==</span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="nx">trainer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Trainer</span><span class="p">(</span><span class="w"> </span><span class="nx">invoer</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">sign</span><span class="p">,</span><span class="w"> </span><span class="mf">0.01</span><span class="w"> </span><span class="p">);</span>
+<span class="w">        </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;uitvoer&quot;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="o">=</span>
+<span class="w">          </span><span class="s2">&quot;De output voor het punt &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">invoer</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot; is &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">trainer</span><span class="p">.</span><span class="nx">settings</span><span class="p">.</span><span class="nx">myPerceptron</span><span class="p">.</span><span class="nx">geefDoor</span><span class="p">(</span><span class="nx">invoer</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span>
+<span class="w">      </span><span class="cm">/*</span>
+<span class="cm">       * functie arrayToString maakt van een getallen rij een</span>
+<span class="cm">       * komma gescheiden reeks in hetgewenste aantal decimalen</span>
+<span class="cm">       * @param array: de javascript array</span>
+<span class="cm">       * @param decimals: het gewenste aantal decimalen</span>
+<span class="cm">       */</span>
+<span class="w">      </span><span class="kd">function</span><span class="w"> </span><span class="nx">arrayToString</span><span class="p">(</span><span class="nx">array</span><span class="p">,</span><span class="nx">decimals</span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">tekst</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">first</span><span class="o">=</span><span class="kc">true</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="nx">i</span><span class="o">=</span><span class="mf">0</span><span class="p">;</span><span class="nx">i</span><span class="o">&lt;</span><span class="nx">array</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="k">if</span><span class="p">(</span><span class="nx">first</span><span class="p">)</span><span class="w"> </span><span class="nx">first</span><span class="o">=</span><span class="kc">false</span><span class="p">;</span>
+<span class="w">          </span><span class="k">else</span><span class="w"> </span><span class="nx">tekst</span><span class="o">+=</span><span class="s2">&quot;,&quot;</span><span class="p">;</span>
+<span class="w">          </span><span class="nx">tekst</span><span class="o">+=</span><span class="nx">array</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">toFixed</span><span class="p">(</span><span class="nx">decimals</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">tekst</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span> 
+    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span> <span class="na">onload</span><span class="o">=</span><span class="s">&quot;init()&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;margin:0px; &quot;</span><span class="p">&gt;</span>
+    Één training:<span class="p">&lt;</span><span class="nt">br</span><span class="p">/&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;knop&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;location.reload();&quot;</span><span class="p">&gt;</span>Herlaad<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;knop&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;trainer.eenTraining(2,-1)&quot;</span><span class="p">&gt;</span>Één keer<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;uitvoer&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;font-size: smaller; overflow-y: auto; width: 250px; height: 170px;&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>De knop <strong>100 keer</strong> onder het kopje <strong>Per punt één training</strong> genereert 100 punten met bijbehorende uitvoer en past bij een fout in de voorspelling van de perceptron de gewichten aan. Druk je meerdere keren op deze knop dan gaat de training van de perceptron verder met iedere keer een toevoeging van 100 punten. De oude punten doen niet meer mee in de training.</p>
+<ul>
+<li><p>Voor deze situatie is aan de trainer class hierboven de functie  <strong>nTraining(a,b)</strong> toegevoegd.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm"> * functie  nTraining(a,b) voert één training stap per punt uit. In de functie wordt</span>
+<span class="cm"> *     n keer een nieuw punt gemaakt in het vierkant met zijden 8 en middelpunt</span>
+<span class="cm"> *    (0,0). Met dat punt doet de perceptron één training.</span>
+<span class="cm"> *    Resultaten worden in het uitvoer object getoond.</span>
+<span class="cm"> * $param a: richtingscoëfficient in y=ax+b </span>
+<span class="cm"> * $param b: y-coördinaat snijpunt y-as in y=ax+b </span>
+<span class="cm"> */</span>
+<span class="nx">nTraining</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">,</span><span class="nx">n</span><span class="o">=</span><span class="mf">100</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">myPerceptron</span><span class="o">=</span><span class="k">this</span><span class="p">.</span><span class="nx">settings</span><span class="p">.</span><span class="nx">myPerceptron</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">i</span><span class="p">,</span><span class="nx">k</span><span class="o">=</span><span class="mf">0</span><span class="p">,</span><span class="nx">gewenst</span><span class="p">,</span><span class="nx">voorspelling</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">,</span><span class="nx">som</span><span class="p">,</span><span class="nx">invoer</span><span class="p">,</span><span class="nx">tekst</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">;</span>
+<span class="w">  </span><span class="k">for</span><span class="p">(</span><span class="nx">i</span><span class="o">=</span><span class="mf">0</span><span class="p">;</span><span class="nx">i</span><span class="o">&lt;</span><span class="nx">n</span><span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">	</span><span class="c1">// Maak een punt met toevalsgetallen</span>
+<span class="w">	</span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">8</span><span class="o">*</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="o">-</span><span class="mf">4</span><span class="p">;</span>
+<span class="w">	</span><span class="nx">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">8</span><span class="o">*</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="o">-</span><span class="mf">4</span><span class="p">;</span>
+<span class="w">	</span><span class="nx">som</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="nx">b</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">a</span><span class="o">*</span><span class="nx">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">y</span><span class="p">;</span>
+<span class="w">	</span><span class="c1">// maak de invoer met bias</span>
+<span class="w">	</span><span class="c1">// bepaal gewenste voorspelling</span>
+<span class="w">	</span><span class="nx">gewenst</span><span class="o">=</span><span class="nx">myPerceptron</span><span class="p">.</span><span class="nx">activeringsfunctie</span><span class="p">(</span><span class="nx">som</span><span class="p">);</span>
+<span class="w">	</span><span class="c1">// bepaal de som met de juiste punten</span>
+<span class="w">	</span><span class="nx">invoer</span><span class="o">=</span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">];</span>
+<span class="w">	</span><span class="c1">// bepaal de voorspelling van het perceptron</span>
+<span class="w">	</span><span class="nx">voorspelling</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">myPerceptron</span><span class="p">.</span><span class="nx">geefDoor</span><span class="p">(</span><span class="nx">invoer</span><span class="p">);</span>
+<span class="w">	</span><span class="k">if</span><span class="p">(</span><span class="nx">gewenst</span><span class="o">!=</span><span class="nx">voorspelling</span><span class="p">)</span>
+<span class="w">	</span><span class="p">{</span>
+<span class="w">	  </span><span class="c1">// voer een perceptron training uit</span>
+<span class="w">	  </span><span class="nx">myPerceptron</span><span class="p">.</span><span class="nx">train</span><span class="p">(</span><span class="nx">invoer</span><span class="p">,</span><span class="nx">gewenst</span><span class="p">);</span>
+<span class="w">	  </span><span class="c1">// produceer tekst voor de gebruiker over de nieuwe toestand</span>
+<span class="w">	  </span><span class="nx">k</span><span class="o">++</span><span class="p">;</span>
+<span class="w">	  </span><span class="nx">tekst</span><span class="o">+=</span>
+<span class="w">		</span><span class="s2">&quot;Nieuwe gewichten bij punt &quot;</span><span class="o">+</span><span class="nx">i</span><span class="o">+</span><span class="s2">&quot; : [&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span>
+<span class="w">		</span><span class="nx">arrayToString</span><span class="p">(</span><span class="nx">myPerceptron</span><span class="p">.</span><span class="nx">gewichten</span><span class="p">,</span><span class="mf">3</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="s2">&quot;]&lt;br/&gt;&quot;</span><span class="p">;</span><span class="w">      </span>
+<span class="w">	</span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="c1">// geen aanpassingen gewichten geweest</span>
+<span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="nx">k</span><span class="o">==</span><span class="mf">0</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">	</span><span class="nx">tekst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Gewichten blijven : [&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span>
+<span class="w">	  </span><span class="nx">arrayToString</span><span class="p">(</span><span class="nx">myPerceptron</span><span class="p">.</span><span class="nx">gewichten</span><span class="p">,</span><span class="mf">3</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="s2">&quot;]&lt;br/&gt;&quot;</span><span class="p">;</span><span class="w">  </span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="c1">// plaats de tekst in het uitvoerveld</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">gewichtenGeschaald</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">myPerceptron</span><span class="p">.</span><span class="nx">schaalPerceptron</span><span class="p">();</span>
+<span class="w">  </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;uitvoer&quot;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="o">=</span><span class="s2">&quot;Er &quot;</span><span class="o">+</span><span class="p">(</span><span class="nx">k</span><span class="o">!=</span><span class="mf">1</span><span class="o">?</span><span class="s2">&quot;zijn &quot;</span><span class="o">+</span><span class="nx">k</span><span class="o">+</span><span class="s2">&quot; punten&quot;</span><span class="o">:</span><span class="s2">&quot; is één punt&quot;</span><span class="p">)</span><span class="o">+</span>
+<span class="w">	  </span><span class="s2">&quot; effectief geweest.&lt;br/&gt;&quot;</span><span class="o">+</span>
+<span class="w">	  </span><span class="s2">&quot;Gevonden vergelijking van de lijn is nu&lt;br/&gt;0 = 1 + &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">gewichtenGeschaald</span><span class="p">[</span><span class="mf">1</span><span class="p">].</span><span class="nx">toFixed</span><span class="p">(</span><span class="mf">3</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;x + &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">gewichtenGeschaald</span><span class="p">[</span><span class="mf">2</span><span class="p">].</span><span class="nx">toFixed</span><span class="p">(</span><span class="mf">3</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="s2">&quot;y&lt;br/&gt;Als benadering voor de lijn&lt;br/&gt;0=&quot;</span><span class="o">+</span><span class="p">(</span><span class="o">-</span><span class="nx">b</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;+&quot;</span>
+<span class="w">	  </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="o">-</span><span class="nx">a</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;x + y&lt;br/&gt;&quot;</span><span class="o">+</span><span class="nx">tekst</span><span class="w"> </span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>De knop <strong>Één keer</strong> onder het kopje <strong>Tot goede voorspelling -per punt</strong> genereert één punt met bijbehorende uitvoer en past bij een fout in de voorspelling van de perceptron de gewichten aan net zolang tot het punt door de perceptron goed wordt voorspeld.</p>
+<ul>
+<li><p>Voor deze situatie is aan de trainer class hierboven de functie <strong>eenTrainingTotKlopt(a,b)</strong> toegevoegd.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm"> * functie eenTrainingTotKlopt(a,b) voert meerdere trainingen met het zelfde uit, </span>
+<span class="cm"> *    tot dat het punt goed wordt voorspeld.</span>
+<span class="cm"> *    In de functie wordt  eerst een nieuw punt gemaakt in het vierkant met zijden 8 </span>
+<span class="cm"> *    en middelpunt (0,0). Met dat punt doet de perceptron een training.</span>
+<span class="cm"> *    Resultaten worden in het uitvoer object getoond evenals de lijnenwaaier van</span>
+<span class="cm"> *    de tussenstappen.</span>
+<span class="cm"> * $param a: richtingscoëfficient in y=ax+b </span>
+<span class="cm"> * $param b: y-coördinaat snijpunt y-as in y=ax+b </span>
+<span class="cm"> */</span>
+<span class="nx">eenTrainingTotKlopt</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">myPerceptron</span><span class="o">=</span><span class="k">this</span><span class="p">.</span><span class="nx">settings</span><span class="p">.</span><span class="nx">myPerceptron</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">tekst</span><span class="p">,</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">,</span><span class="nx">invoer</span><span class="p">,</span><span class="nx">gewenst</span><span class="p">,</span><span class="nx">uitgevoerd</span><span class="p">,</span><span class="nx">som</span><span class="p">,</span><span class="nx">i</span><span class="o">=</span><span class="mf">1</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">8</span><span class="o">*</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="o">-</span><span class="mf">4</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">8</span><span class="o">*</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="o">-</span><span class="mf">4</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">som</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="nx">b</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">a</span><span class="o">*</span><span class="nx">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">y</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">invoer</span><span class="o">=</span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">];</span>
+<span class="w">  </span><span class="nx">gewenst</span><span class="o">=</span><span class="nx">myPerceptron</span><span class="p">.</span><span class="nx">activeringsfunctie</span><span class="p">(</span><span class="nx">som</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">tekst</span><span class="o">=</span><span class="s2">&quot;Stap 0: Begingewichten: [&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">arrayToString</span><span class="p">(</span><span class="nx">myPerceptron</span><span class="p">.</span><span class="nx">gewichten</span><span class="p">,</span><span class="mf">3</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="s2">&quot;]&lt;br/&gt;&quot;</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">tekst</span><span class="o">+=</span><span class="s2">&quot;Trainings punt [&quot;</span><span class="o">+</span><span class="nx">arrayToString</span><span class="p">(</span><span class="nx">invoer</span><span class="p">,</span><span class="mf">2</span><span class="p">)</span><span class="w">  </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;]&lt;br/&gt;met gewenste uitvoer: &quot;</span><span class="o">+</span><span class="nx">gewenst</span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;&lt;br/&gt;&lt;br/&gt;&quot;</span><span class="p">;</span>
+<span class="w">    </span>
+<span class="w">  </span><span class="k">do</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">tekst</span><span class="o">+=</span><span class="s2">&quot;Stap &quot;</span><span class="o">+</span><span class="nx">i</span><span class="o">+</span><span class="s2">&quot;:Voorspelling:&lt;br/&gt;&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">tekst</span><span class="o">+=</span><span class="s2">&quot;voor training &quot;</span><span class="o">+</span><span class="nx">myPerceptron</span><span class="p">.</span><span class="nx">geefDoor</span><span class="p">(</span><span class="nx">invoer</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="s2">&quot;&lt;br/&gt;&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">myPerceptron</span><span class="p">.</span><span class="nx">train</span><span class="p">(</span><span class="nx">invoer</span><span class="p">,</span><span class="nx">gewenst</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">tekst</span><span class="o">+=</span><span class="s2">&quot;na training &quot;</span><span class="o">+</span><span class="nx">myPerceptron</span><span class="p">.</span><span class="nx">geefDoor</span><span class="p">(</span><span class="nx">invoer</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="s2">&quot;&lt;br/&gt;&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">tekst</span><span class="o">+=</span>
+<span class="w">      </span><span class="s2">&quot;Nieuwe gewichten: [&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">arrayToString</span><span class="p">(</span><span class="nx">myPerceptron</span><span class="p">.</span><span class="nx">gewichten</span><span class="p">,</span><span class="mf">3</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="s2">&quot;]&lt;br/&gt;&lt;br/&gt;&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">uitgevoerd</span><span class="o">=</span><span class="nx">myPerceptron</span><span class="p">.</span><span class="nx">geefDoor</span><span class="p">(</span><span class="nx">invoer</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">i</span><span class="o">++</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">while</span><span class="p">(</span><span class="nx">uitgevoerd</span><span class="o">!=</span><span class="nx">gewenst</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">gewichtenGeschaald</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">myPerceptron</span><span class="p">.</span><span class="nx">schaalPerceptron</span><span class="p">();</span>
+<span class="w">  </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;uitvoer&quot;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="s2">&quot;Aantal aanpassingen: &quot;</span><span class="o">+</span><span class="w"> </span><span class="nx">i</span><span class="o">+</span>
+<span class="w">    </span><span class="s2">&quot;&lt;br/&gt;Gevonden vergelijking van de lijn is&lt;br/&gt;0 = 1 + &quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="nx">gewichtenGeschaald</span><span class="p">[</span><span class="mf">1</span><span class="p">].</span><span class="nx">toFixed</span><span class="p">(</span><span class="mf">3</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;x + &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span>
+<span class="w">    </span><span class="nx">gewichtenGeschaald</span><span class="p">[</span><span class="mf">2</span><span class="p">].</span><span class="nx">toFixed</span><span class="p">(</span><span class="mf">3</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="s2">&quot;y&lt;br/&gt;Als benadering voor de lijn&lt;br/&gt;0=&quot;</span>
+<span class="w">    </span><span class="o">+</span><span class="p">(</span><span class="o">-</span><span class="nx">b</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;+&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="o">-</span><span class="nx">a</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;x + y&lt;br/&gt;&lt;br/&gt;&quot;</span><span class="o">+</span><span class="nx">tekst</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>De knop <strong>100 keer</strong> onder het kopje <strong>Tot goede voorspelling -per punt</strong> genereert 100 punten met bijbehorende uitvoer en past voor ieder opvolgend punt bij een fout in de voorspelling van de perceptron de gewichten aan net zolang tot dit punt door de perceptron goed wordt voorspeld.</p>
+<ul>
+<li><p>Voor deze situatie is aan de trainer class hierboven de functie <strong>nTrainingTotKlopt(a,b)</strong> toegevoegd.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="cm">/* functie nTrainingTotKlopt(a,b) voert 100 keer</span>
+<span class="cm"> *    meerdere trainingen met een zelfde punt uit, </span>
+<span class="cm"> *     tot dat het punt goed wordt voorspeld.</span>
+<span class="cm"> *    In de functie wordt  100 keer </span>
+<span class="cm"> *    eerst een nieuw punt gemaakt in het vierkant met zijden 8 </span>
+<span class="cm"> *    en middelpunt (0,0). Met dat punt doet de perceptron een training.</span>
+<span class="cm"> *    Het laatste resultaat wordt in het uitvoer object getoond.</span>
+<span class="cm"> * $param a: richtingscoëfficient in y=ax+b </span>
+<span class="cm"> * $param b: y-coördinaat snijpunt y-as in y=ax+b </span>
+<span class="cm"> */</span>
+<span class="nx">nTrainingTotKlopt</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">,</span><span class="nx">n</span><span class="o">=</span><span class="mf">100</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">myPerceptron</span><span class="o">=</span><span class="k">this</span><span class="p">.</span><span class="nx">settings</span><span class="p">.</span><span class="nx">myPerceptron</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">,</span><span class="nx">invoer</span><span class="p">,</span><span class="nx">som</span><span class="p">,</span><span class="nx">i</span><span class="o">=</span><span class="mf">1</span><span class="p">,</span><span class="nx">j</span><span class="p">,</span><span class="nx">k</span><span class="o">=</span><span class="mf">0</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">gewenst</span><span class="p">,</span><span class="nx">voorspeld</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">tekst</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">;</span>
+<span class="w">  </span><span class="k">for</span><span class="p">(</span><span class="nx">j</span><span class="o">=</span><span class="mf">0</span><span class="p">;</span><span class="nx">j</span><span class="o">&lt;</span><span class="nx">n</span><span class="p">;</span><span class="nx">j</span><span class="o">++</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">8</span><span class="o">*</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="o">-</span><span class="mf">4</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">8</span><span class="o">*</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="o">-</span><span class="mf">4</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">som</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="nx">b</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">a</span><span class="o">*</span><span class="nx">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">y</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">invoer</span><span class="o">=</span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">];</span>
+<span class="w">    </span><span class="nx">i</span><span class="o">=</span><span class="mf">0</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">gewenst</span><span class="o">=</span><span class="nx">myPerceptron</span><span class="p">.</span><span class="nx">activeringsfunctie</span><span class="p">(</span><span class="nx">som</span><span class="p">);</span>
+<span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="nx">gewenst</span><span class="o">!=</span><span class="p">(</span><span class="nx">voorspeld</span><span class="o">=</span><span class="nx">myPerceptron</span><span class="p">.</span><span class="nx">geefDoor</span><span class="p">(</span><span class="nx">invoer</span><span class="p">)))</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">myPerceptron</span><span class="p">.</span><span class="nx">train</span><span class="p">(</span><span class="nx">invoer</span><span class="p">,</span><span class="nx">gewenst</span><span class="p">);</span>
+<span class="w">      </span><span class="nx">i</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="nx">i</span><span class="o">&gt;</span><span class="mf">0</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">k</span><span class="o">++</span><span class="p">;</span>
+<span class="w">      </span><span class="nx">tekst</span><span class="o">+=</span>
+<span class="w">        </span><span class="s2">&quot;Nieuwe gewichten bij punt &quot;</span><span class="o">+</span><span class="nx">j</span><span class="o">+</span><span class="s2">&quot; in &quot;</span><span class="o">+</span><span class="nx">i</span><span class="o">+</span><span class="p">(</span><span class="nx">i</span><span class="o">&gt;</span><span class="mf">1</span><span class="o">?</span><span class="s2">&quot; stappen&quot;</span><span class="o">:</span><span class="s2">&quot; stap&quot;</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;: [&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span>
+<span class="w">        </span><span class="nx">arrayToString</span><span class="p">(</span><span class="nx">myPerceptron</span><span class="p">.</span><span class="nx">gewichten</span><span class="p">,</span><span class="mf">3</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="s2">&quot;]&lt;br/&gt;&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="c1">// geen aanpassingen gewichten geweest</span>
+<span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="nx">k</span><span class="o">==</span><span class="mf">0</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">tekst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Gewichten blijven : [&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span>
+<span class="w">      </span><span class="nx">arrayToString</span><span class="p">(</span><span class="nx">myPerceptron</span><span class="p">.</span><span class="nx">gewichten</span><span class="p">,</span><span class="mf">3</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="s2">&quot;]&lt;br/&gt;&quot;</span><span class="p">;</span><span class="w">  </span>
+<span class="w">  </span><span class="p">}</span><span class="w">        </span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">gewichtenGeschaald</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">myPerceptron</span><span class="p">.</span><span class="nx">schaalPerceptron</span><span class="p">();</span>
+<span class="w">  </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;uitvoer&quot;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>
+<span class="w">    </span><span class="s2">&quot;&lt;br/&gt;Gevonden vergelijking van de lijn is&lt;br/&gt;0 = 1 + &quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="nx">gewichtenGeschaald</span><span class="p">[</span><span class="mf">1</span><span class="p">].</span><span class="nx">toFixed</span><span class="p">(</span><span class="mf">3</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;x + &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span>
+<span class="w">    </span><span class="nx">gewichtenGeschaald</span><span class="p">[</span><span class="mf">2</span><span class="p">].</span><span class="nx">toFixed</span><span class="p">(</span><span class="mf">3</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="s2">&quot;y&lt;br/&gt;Als benadering voor de lijn&lt;br/&gt;0=&quot;</span>
+<span class="w">    </span><span class="o">+</span><span class="p">(</span><span class="o">-</span><span class="nx">b</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;+&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="o">-</span><span class="nx">a</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;x + y&lt;br/&gt;&lt;br/&gt;&quot;</span><span class="o">+</span><span class="nx">tekst</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>De knop <strong>voeg 25 punten</strong> toe onder het kopje P<strong>er verzameling</strong> genereert 25 punten met bijbehorende uitvoer en voegt die toe aan trainingsdata. Vervolgens wordt de strategie <strong>1 punt per training</strong> toegepast op de trainingsdata en eventueel herhaald tot er geen verandering meer is van de gewichten.</p>
+<ul>
+<li><p>Voor deze situatie is aan de trainer class hierboven de functie <strong>sampleTrainingTotKlopt(a,b)</strong> toegevoegd.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm"> * functie sampleTrainingTotKlopt(a,b,n) voert </span>
+<span class="cm"> *    meerdere trainingen op een punten verzameling uit, </span>
+<span class="cm"> *     tot dat de verzameling goed wordt voorspeld.</span>
+<span class="cm"> *    In de functie wordt  n keer </span>
+<span class="cm"> *    eerst een nieuw punt gemaakt in het vierkant met zijden 8</span>
+<span class="cm"> *    en middelpunt (0,0)  en toegevoegd aan de puntenverzameling. </span>
+<span class="cm"> *     Met de punten in de verzameling doet de perceptron een training.</span>
+<span class="cm"> *    De verzameling wordt net zolang aangeboden</span>
+<span class="cm"> *    tot alle punten goed worden voorspeld</span>
+<span class="cm"> * $param a: richtingscoëfficient in y=ax+b </span>
+<span class="cm"> * $param b: y-coördinaat snijpunt y-as in y=ax+b </span>
+<span class="cm"> * $param n: punten die aan de verzameling moeten worden toegevoegd       </span>
+<span class="cm"> */</span>
+<span class="nx">sampleTrainingTotKlopt</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">,</span><span class="nx">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">25</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">myPerceptron</span><span class="o">=</span><span class="k">this</span><span class="p">.</span><span class="nx">settings</span><span class="p">.</span><span class="nx">myPerceptron</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">puntenVerzameling</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">settings</span><span class="p">.</span><span class="nx">puntenVerzameling</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">i</span><span class="p">,</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">,</span><span class="nx">som</span><span class="p">,</span><span class="nx">invoer</span><span class="p">,</span><span class="nx">gewenst</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">veranderd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">ronde</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">tekst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">vl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">puntenVerzameling</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// voeg punten toe</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">eind</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">vl</span><span class="o">+</span><span class="nx">n</span><span class="p">;</span>
+<span class="w">  </span><span class="k">for</span><span class="p">(</span><span class="nx">i</span><span class="o">=</span><span class="nx">vl</span><span class="p">;</span><span class="nx">i</span><span class="o">&lt;</span><span class="nx">eind</span><span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">	  </span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">8</span><span class="o">*</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="o">-</span><span class="mf">4</span><span class="p">;</span>
+<span class="w">	  </span><span class="nx">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">8</span><span class="o">*</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="o">-</span><span class="mf">4</span><span class="p">;</span>
+<span class="w">	  </span><span class="nx">som</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="nx">b</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">a</span><span class="o">*</span><span class="nx">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">y</span><span class="p">;</span>
+<span class="w">	  </span><span class="nx">invoer</span><span class="o">=</span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">];</span>
+<span class="w">	  </span><span class="nx">gewenst</span><span class="o">=</span><span class="nx">myPerceptron</span><span class="p">.</span><span class="nx">activeringsfunctie</span><span class="p">(</span><span class="nx">som</span><span class="p">);</span>
+<span class="w">	  </span><span class="nx">puntenVerzameling</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="nx">invoer</span><span class="p">,</span><span class="nx">gewenst</span><span class="p">];</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="c1">// herhaal training tot er geen foute plaatsing meer is</span>
+<span class="w">  </span><span class="k">do</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">	  </span><span class="nx">veranderd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+<span class="w">	  </span><span class="c1">// ga alle punten af (we gaan van eind naar begin </span>
+<span class="w">	  </span><span class="c1">// om eerst de toegevoegde punten te behandelen)</span>
+<span class="w">	  </span><span class="k">for</span><span class="p">(</span><span class="nx">i</span><span class="o">=</span><span class="nx">eind</span><span class="o">-</span><span class="mf">1</span><span class="p">;</span><span class="nx">i</span><span class="o">&gt;=</span><span class="mf">0</span><span class="p">;</span><span class="nx">i</span><span class="o">--</span><span class="p">)</span>
+<span class="w">	  </span><span class="p">{</span>
+<span class="w">	    </span><span class="k">if</span><span class="p">(</span><span class="nx">puntenVerzameling</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mf">1</span><span class="p">]</span><span class="o">!=</span><span class="nx">myPerceptron</span><span class="p">.</span><span class="nx">geefDoor</span><span class="p">(</span><span class="nx">puntenVerzameling</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mf">0</span><span class="p">]))</span>
+<span class="w">	    </span><span class="p">{</span>
+<span class="w">		    </span><span class="nx">myPerceptron</span><span class="p">.</span><span class="nx">train</span><span class="p">(</span><span class="nx">puntenVerzameling</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mf">0</span><span class="p">],</span><span class="nx">puntenVerzameling</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mf">1</span><span class="p">]);</span>
+<span class="w">		    </span><span class="nx">veranderd</span><span class="o">++</span><span class="p">;</span>
+<span class="w">	    </span><span class="p">}</span>
+<span class="w">	  </span><span class="p">}</span>
+<span class="w">	  </span><span class="nx">ronde</span><span class="o">++</span><span class="p">;</span>
+<span class="w">	  </span><span class="nx">tekst</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s2">&quot;Ronde &quot;</span><span class="o">+</span><span class="nx">ronde</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;:Aantal veranderingen: &quot;</span><span class="o">+</span><span class="nx">veranderd</span><span class="w"> </span><span class="o">+</span><span class="s2">&quot;&lt;br/&gt;&quot;</span><span class="o">+</span><span class="s2">&quot;Perceptron gewichten: [&quot;</span><span class="o">+</span><span class="nx">arrayToString</span><span class="p">(</span><span class="nx">myPerceptron</span><span class="p">.</span><span class="nx">gewichten</span><span class="p">,</span><span class="mf">3</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;]&lt;br/&gt;&quot;</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nx">veranderd</span><span class="o">!=</span><span class="mf">0</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">gewichtenGeschaald</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">myPerceptron</span><span class="p">.</span><span class="nx">schaalPerceptron</span><span class="p">();</span>
+<span class="w">  </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;uitvoer&quot;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>
+<span class="w">	</span><span class="s2">&quot;Aantal rondes:&quot;</span><span class="o">+</span><span class="nx">ronde</span><span class="o">+</span>
+<span class="w">	</span><span class="s2">&quot;&lt;br/&gt;Gevonden vergelijking van de lijn is&lt;br/&gt;0 = 1 + &quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">	</span><span class="nx">gewichtenGeschaald</span><span class="p">[</span><span class="mf">1</span><span class="p">].</span><span class="nx">toFixed</span><span class="p">(</span><span class="mf">3</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;x + &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span>
+<span class="w">	</span><span class="nx">gewichtenGeschaald</span><span class="p">[</span><span class="mf">2</span><span class="p">].</span><span class="nx">toFixed</span><span class="p">(</span><span class="mf">3</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">	</span><span class="s2">&quot;y&lt;br/&gt;Als benadering voor de lijn&lt;br/&gt;0=&quot;</span>
+<span class="w">	</span><span class="o">+</span><span class="p">(</span><span class="o">-</span><span class="nx">b</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;+&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="o">-</span><span class="nx">a</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;x + y&lt;br/&gt;&lt;br/&gt;&quot;</span><span class="o">+</span><span class="nx">tekst</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="onderzoeksvragen">
+<h2><span class="section-number">5.1.4. </span>Onderzoeksvragen:<a class="headerlink" href="#onderzoeksvragen" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Druk bij  <strong>per punt één training</strong> herhaaldelijk op de knop <strong>Één keer</strong>. In welke gebieden wordt de perceptron aangepast en in welke gebieden niet?</p></li>
+<li><p>Druk bij <strong>per punt tot goede voorspelling</strong> herhaaldelijk op de knop <strong>Één keer</strong>. Soms zie je bij de doorgaande training dat er een lijnenwaaier getoond wordt. Waarom?</p></li>
+<li><p>Druk op herlaad en druk daarna bij <strong>per punt één training</strong> op de knop <strong>100 keer</strong>. Hoe vaak vond er een verandering van de gewichten plaats? (Herhaal dit een aantal malen)</p></li>
+<li><p>Je ziet waarschijnlijk een flink aantal punten die tussen de twee lijnen liggen. Wat zouden die punten nog kunnen betekenen in een vervolg van het trainingsproces?</p></li>
+<li><p>Druk op herlaad en druk daarna bij  <strong>per punt tot goede voorspelling</strong> op de knop <strong>100 keer</strong>. Hoe vaak vond er een verandering van de gewichten plaats?(Herhaal dit een aantal malen)</p></li>
+<li><p>Ook hier zie je ook nog punten tussen de lijnen liggen. Waarom? Wat zouden die punten nog kunnen betekenen in een vervolg van het trainingsproces?</p></li>
+<li><p>Druk op herlaad en druk daarna bij per <strong>verzameling tot goede voorspelling</strong> op de knop <strong>voeg 25 punten toe</strong>. Hoe veel rondes worden uitgevoerd en hoe vaak vond er in totaal een verandering van de gewichten plaats?(Herhaal dit een aantal malen)</p></li>
+<li><p>Hier zie je geen punten meer tussen de lijnen liggen. Waarom?</p></li>
+<li><p>Soms zie je dat het aantal aanpassingen in een volgende ronde hoger is. Waarom?</p></li>
+</ol>
+<ul class="simple">
+<li><p>Antwoorden</p>
+<ol class="arabic simple">
+<li><p>Er vindt alleen een verandering van de perceptron plaats als de voorspelling van de perceptron bij een punt niet gelijk is aan de gewenste voorspelling. Je ziet waarschijnlijk ook dat het punt dan in een gebied tussen de twee lijnen ligt.</p></li>
+<li><p>Er komt een lijnenwaaier als er per punt meerdere keren getraind wordt. Merk ook op dat de lijn voorstelling van de perceptron draait naar de werkelijk lijn, al kan dat wel een draaiing zijn van meer dan 90 graden. De oorzaak van een grote draaiing is het teken van de gewichten. Waarom? Wel als je
+ <span class="math notranslate nohighlight">\(a+b⋅x+c⋅y=0\)</span> vergelijkt met  <span class="math notranslate nohighlight">\(−a−b⋅x−c⋅y=0\)</span> dan zijn beide een vergelijking voor de zelfde lijn, echter het teken bij een willekeurig punt niet op de lijn is tegenovergesteld. De lijn wijst als het ware de andere kant op.</p></li>
+<li><p>Je observeert dat veel minder dan 50% van de punten geen verandering geven. Je schiet dus vaak mis bij het sturen van het netwerk. Dit is één van de redenen dat het trainen van een Neuraal Netwerk zo lastig.</p></li>
+<li><p>Afhankelijk van het toeval valt na 100 keer  de blauwe lijn meer of minder samen met de groene. De punten tussen de lijnen geven nog een foute voorspelling en zouden dus nogmaals gebruikt kunnen worden in het trainingsproces.</p></li>
+<li><p>Je observeert dat nog steeds veel minder dan 50% van de punten een verandering geven. Je ziet ook dat er nu punten zijn waarvoor er meer stappen per punt worden gemaakt om dat punt goed te laten voorspellen.</p></li>
+<li><p>Ondanks dat we ieder punt het netwerk trainen totdat het punt goed voorspeld wordt, blijft deze eigenschap niet noodzakelijk aanwezig in een volgende training van een ander punt. De gewichten kunnen dan zo worden aangepast dat de lijn bepaald door die gewichten net een andere draaiing krijgt. Het resultaat kan dan zijn dat een eerder goed voorspeld punt aan de verkeerde kant van de lijn behorend bij de gewichten komt te liggen. De punten tussen de lijnen geven nog een foute voorspelling en zouden dus nogmaals gebruikt kunnen worden in het trainingsproces.</p></li>
+<li><p>Je observeert dat er meestal meerdere trainingsrondes over de verzameling worden uitgevoerd, waar meer of minder trainingen moeten worden gedaan. Deze vorm van trainen wordt het meest gebruikt bij het trainen van een netwerk. Een verzameling van punten wordt meerdere malen aan het netwerk aangeboden. Daarbij kan er, als er foutieve invoer/uitvoer aanwezig is, wel sprake zijn van wat men noemt  <strong>een overtraining van een netwerk</strong>. Dat wil zeggen dat de foutieve waarden een grotere invloed hebben op de voorspellingen.</p></li>
+<li><p>Er wordt net zolang getraind tot alle punten juist worden voorspeld. Alleen tussen de lijnen is er een verschil in het teken en daar liggen de punten die niet juist worden voorspeld. Die zijn er niet meer.</p></li>
+<li><p>In de voorgaande opdrachten heb je gezien dat een lijn weg kan draaien van al eerder juist voorspelde punten. Dit draaien kan er soms voor zorgen dat er meerdere punten in de verkeerde zone komen te liggen.</p></li>
+</ol>
+</li>
+</ul>
+</section>
+<section id="discussie">
+<h2><span class="section-number">5.1.5. </span>Discussie<a class="headerlink" href="#discussie" title="Permalink to this heading">#</a></h2>
+<p>In het laatste stuk van dit hoofdstuk vatten we de mogelijkheden, onmogelijkheden en eigenschappen van de perceptron, het simpelste neurale netwerk, samen. Als eerste moet je beseffen dat een enkele perceptron ( en dus ook iedere knoop in een ingewikkelder neuraal netwerk) slechts één lineair probleem kan oplossen (zie figuur 8).
+Een lineair probleem is daarin niet altijd een lijn. Met bijvoorbeeld drie invoeren en de bias heeft het preceptron 4 gewichten die samen de vergelijking <span class="math notranslate nohighlight">\(w_{0} + w_{1} \cdot x + w_{2} \cdot y + w_{3} \cdot z = 0\)</span> als grens vormen. Dit is de vergelijking van een plat vlak. In de wiskunde staat lineair voor termen waarin er geen machten, producten of andere functies van termen staan. Zo zijn bijvoorbeeld  <span class="math notranslate nohighlight">\(1 + x^2 + y  = 0\)</span> , <span class="math notranslate nohighlight">\(2 + x \cdot y + 3 y  = 0\)</span> en <span class="math notranslate nohighlight">\(1 + log(x)  + \sin(y)  = 0\)</span>  geen lineaire vergelijkingen.</p>
+<p><img alt="figuur 8: Het probleem links kan wel met één perceptron worden opgelost, er is één grenslijn. Het probleem rechts kan niet met één perceptron worden opgelost, de grens is niet lineair.Bron: Nature of code" src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/77a36217-7805-4011-9b41-3d035b3e9802/ditKanNietMet1Perceptron.png" /></p>
+<p>figuur 8: Het probleem links kan wel met één perceptron worden opgelost, er is één grenslijn. Het probleem rechts kan <strong>niet</strong> met één perceptron worden opgelost, de grens is niet lineair.
+Bron: <a class="reference external" href="https://natureofcode.com/book/chapter-10-neural-networks/">Nature of code</a></p>
+<p>Neurale netwerken zijn te trainen om o.a. handschriften, geluiden en te gezichten te herkennen. Dit zijn zeker geen lineaire structuren. Gelukkig kun je dit soort structuren weer opknippen in lijnstukjes of platte figuurtjes die dan wel weer door één preceptron te leren zijn. Er moeten dan natuurlijk wel meerdere perceptrons in het netwerk aanwezig zijn. Hoe complex zo’n netwerk moet zijn is niet altijd makkelijk te bepalen. In het volgende hoofdstuk gaan we hier dieper op in. Op de afbeelding hieronder (heb je ook al gezien in <a class="reference external" href="https://www.notion.so/ae6558ef79354551bb5442641452babb">technieken</a>) zie je dat er heel veel typen neurale netwerken zijn.
+Ieder type heeft een eigen toepassingsgebied. Klik <a class="reference external" href="https://towardsdatascience.com/the-mostly-complete-chart-of-neural-networks-explained-3fb6f2367464">hier</a> als je er meer over wilt weten.</p>
+<p>In het trainen van ons simpele netwerk heb je al gezien dat er heel veel
+trainingspunten nodig zijn. Dit is in het algemeen zo. Het leren van
+een netwerk kost veel tijd en energie. In ons simpele netwerk waren er
+slechts drie gewichten die moeten worden aangepast. Zetten we er nog een
+zelfde perceptron naast dan worden dat er al zes. In een netwerk van zes
+knopen met twee inputs en een bias zijn dat er al <span class="math notranslate nohighlight">\(6 \cdot 3 = 18\)</span>. Om al die gewichten voldoende nauwkeurig te schatten zijn heel veel datapunten nodig.</p>
+<p><img alt="neuralnetworktypes.png" src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ae39cfdf-dbdd-409d-bb2e-484c332fa011/neuralnetworktypes.png" /></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./neurale-netwerken"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="neurale-netwerken.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">vorige</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Neurale netwerken</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="naar-meer-lagen.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">volgende</p>
+        <p class="prev-next-title"><span class="section-number">5.2. </span>N.2. Op weg naar meer lagen</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhoud
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#de-werking-van-een-perceptron">5.1.1. De werking van een perceptron</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#het-leren-van-de-perceptron">5.1.1.1. Het leren van de perceptron</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#het-perceptron-algoritme">5.1.1.2. Het Perceptron Algoritme:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onderliggende-lijn">5.1.1.3. Onderliggende lijn.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bias">5.1.1.4. Bias</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trainen-van-het-netwerk">5.1.2. Trainen van het netwerk</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stappen-in-het-trainingsproces">5.1.2.1. Stappen in het trainingsproces</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aanpassen-gewichten">5.1.2.2. Aanpassen gewichten</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overdenking-trainingsstrategie">5.1.2.3. Overdenking trainingsstrategie</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wiskundige-onderbouwing">5.1.2.4. Wiskundige onderbouwing</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aan-de-slag-met-trainen">5.1.3. Aan de slag met trainen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#onderzoeksvragen">5.1.4. Onderzoeksvragen:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discussie">5.1.5. Discussie</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Door cc-team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright SLO 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

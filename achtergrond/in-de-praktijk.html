@@ -1,0 +1,802 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="nl" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>1.4. In de praktijk &#8212; Cognitive computing</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'achtergrond/in-de-praktijk';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Zoeken" href="../search.html" />
+    <link rel="next" title="1.5. Terugkoppeling" href="terugkoppeling.html" />
+    <link rel="prev" title="1.3. Wanneer is iets intelligent?" href="intelligentie.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="nl"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../materiaal.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Cognitive computing - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Cognitive computing - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Zoeken</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../materiaal.html">
+                    Introductie
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Materiaal</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="achtergrond.html">1. Achtergrond</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introductie.html">1.1. Introductie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geschiedenis.html">1.2. Geschiedenis en toekomst</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intelligentie.html">1.3. Wanneer is iets intelligent?</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.4. In de praktijk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="terugkoppeling.html">1.5. Terugkoppeling</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ethiek/ethiek.html">2. Ethiek</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek/gevaren.html">2.1. Gevaren van kunstmatige intelligentie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek/fast-principes.html">2.2. De FAST-principes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek/fair-data.html">2.3. FAIR data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek/terugkoppeling.html">2.4. Terugkoppeling</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../technieken/technieken.html">3. Technieken</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../technieken/introductie.html">3.1. Introductie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../technieken/machine-learning.html">3.2. Machine learning</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../technieken/associatie-analyse.html">3.4. Associatie-analyse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../technieken/cluster-analyse.html">3.5. Clusteranalyse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../technieken/neurale-netwerken.html">3.6. Neurale netwerken</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../technieken/eigen-quickdraw.html">3.7. Eigen QuickDraw</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../technieken/multi-agentsystemen.html">3.8. Multi-agentsystemen</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../technieken/terugkoppeling.html">3.10. Terugkoppeling</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Verdieping</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ethiek-en-ai/ethiek-en-ai.html">4. Ethiek en AI</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek-en-ai/ai-standaarden.html">4.1. AI standaarden en richtlijnen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek-en-ai/fast-en-fair.html">4.2. FAST en FAIR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek-en-ai/engheidsmatrix.html">4.3. De engheidsmatrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek-en-ai/ethiek-opdracht-essay.html">4.4. Opdracht: schrijf een essay over Ethiek en AI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek-en-ai/ethiek-bedenk-een-ai.html">4.5. Opdracht: bedenk een AI toepassing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../neurale-netwerken/neurale-netwerken.html">5. Neurale netwerken</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../neurale-netwerken/hoe-leert-neuraal-netwerk.html">5.1. N.1. Hoe leert een neuraal netwerk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neurale-netwerken/naar-meer-lagen.html">5.2. N.2. Op weg naar meer lagen</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../neurale-netwerken/tensorflow-app.html">6. N.3 Tensorflow app</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../neurale-netwerken/docentenhandleiding.html">6.1. Docentenhandleiding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neurale-netwerken/fase-1.html">6.2. Fase 1: Maak een eerste app</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neurale-netwerken/fase-2.html">6.3. Fase 2: Optimaliseren Neuraal Netwerk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neurale-netwerken/fase-3.html">6.4. Fase 3: Andere dataset gebruiken</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neurale-netwerken/fase-4.html">6.5. Fase 4: Eigen dataset gebruiken</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../over-ons.html">Over ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../colofon.html">Colofon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="robotica.html">Robotica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/verzamelingen.html">Verzamelingenleer</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/keuzethemas/ccbook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Bronopslagplaats"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/keuzethemas/ccbook/issues/new?title=Issue%20on%20page%20%2Fachtergrond/in-de-praktijk.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open een probleem"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download deze pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/achtergrond/in-de-praktijk.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download het bronbestand"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Afdrukken naar pdf"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Volledig scherm"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>In de praktijk</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhoud </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alphago">1.4.1. AlphaGo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#technieken">Technieken</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#toepassingen">Toepassingen</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tay-de-twitter-bot">1.4.2. Tay de Twitter bot</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Technieken</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Toepassingen</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gan">1.4.3. GAN</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#techniek">Techniek</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Toepassingen</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#medisch">Medisch</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#beeldmateriaal">Beeldmateriaal</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#deepfakes">Deepfakes</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#muzikale-ai">Muzikale AI</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#foto-s-maken">Foto’s maken</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#deze-persoon-bestaat-niet">Deze persoon bestaat niet(!)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="in-de-praktijk">
+<span id="ki-in-de-praktijk"></span><h1><span class="section-number">1.4. </span>In de praktijk<a class="headerlink" href="#in-de-praktijk" title="Permalink to this heading">#</a></h1>
+<p>Tegenwoordig zie je op steeds meer plekken kunstmatige intelligentie terug komen. Er zijn tal van fantastische voorbeelden die je misschien wel eens tegen bent gekomen, en elk jaar komen er tientallen nieuwe plekken bij! We zullen gaan kijken naar een klein aantal bekende en recente implementaties van KI.</p>
+<section id="alphago">
+<h2><span class="section-number">1.4.1. </span>AlphaGo<a class="headerlink" href="#alphago" title="Permalink to this heading">#</a></h2>
+<figure class="align-right" id="id4">
+<a class="reference internal image-reference" href="https://live.staticflickr.com/1626/25708381781_eee5664c65_c.jpg"><img alt="https://live.staticflickr.com/1626/25708381781_eee5664c65_c.jpg" src="https://live.staticflickr.com/1626/25708381781_eee5664c65_c.jpg" style="width: 250px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1.12 </span><span class="caption-text">AlphaGo die een spel speelt<br>
+tegen Lee Sedol</span><a class="headerlink" href="#id4" title="Permallink naar deze afbeelding">#</a></p>
+</figcaption>
+</figure>
+<p>In het hoofdstuk <a class="reference internal" href="geschiedenis.html#geschiedenis-en-toekomst"><span class="std std-ref">Geschiedenis en toekomst</span></a> hebben we gelezen over de doorbraak van DeepMind’s AlphaGo, een KI die gespecialiseerd is in het spelen van het gelijknamige spel Go. AlphaGo wist in 2015 voor het eerst de beste speler ter wereld te verslaan in een spelletje.</p>
+<p>Het spel heeft enorm veel mogelijke zetten, waardoor het niet mogelijk is voor simpelere algoritmes om dit probleem op te lossen.</p>
+<section id="technieken">
+<h3>Technieken<a class="headerlink" href="#technieken" title="Permalink to this heading">#</a></h3>
+<p>AlphaGo gebruikt een combinatie van <a class="reference external" href="https://en.wikipedia.org/wiki/Monte_Carlo_tree_search"><em>Monte Carlo Tree Search</em></a> (MCTS) en deep learning <a class="reference external" href="https://www.notion.so/3-5-Neurale-netwerken-4778ac2fbe494b9cbe50001b3d19d1c9"><em>neurale netwerken</em></a>. Monte Carlo Tree search is een techniek die gebruikt wordt om zo goed mogelijk te zoeken naar een oplossing. Het maakt hiervoor gebruik van heuristieken, zoals bijvoorbeeld ook gedaan wordt bij het <a class="reference external" href="https://www.educative.io/edpresso/what-is-the-a-star-algorithm">zoekalgoritme A*</a>.</p>
+<p><em>Deep learning</em> gebruikt een neuraal netwerk met meerdere “lagen” aan neuronen. Over het algemeen zijn veel toepasbare vormen van AI <em>deep neural networks</em>.</p>
+</section>
+<section id="toepassingen">
+<h3>Toepassingen<a class="headerlink" href="#toepassingen" title="Permalink to this heading">#</a></h3>
+<p>MCTS wordt toegepast om computers bord en videospellen te laten spelen. Zo is er met MCTS een bot gemaakt voor schaken, kolonisten van Catan, Ms. Pac-Man, Poker, Fable Legends, etc. Het wordt ook toegepast in het spel TOTAL WAR: ROME II om de speler het zo moeilijk mogelijk te maken.</p>
+<p>Daarnaast wordt het ook gebruikt door de <a class="reference external" href="https://youtu.be/j0z4FweCy4M?t=4929">autopiloot in Tesla</a> auto’s om beslissingen te maken.</p>
+<p>Deep learning is enorm breed en wordt in veel gebieden toegepast. Zoals Financial fraud detection, Medical image analysis, Drug discovery and toxicology, Natural language processing, Image recognition en nog veel andere velden.</p>
+<p>Je kunt hier later meer over leren in <a class="reference internal" href="../technieken/neurale-netwerken.html#technieken-neurale-netwerken"><span class="std std-ref">Neurale netwerken</span></a>.</p>
+</section>
+</section>
+<section id="tay-de-twitter-bot">
+<h2><span class="section-number">1.4.2. </span>Tay de Twitter bot<a class="headerlink" href="#tay-de-twitter-bot" title="Permalink to this heading">#</a></h2>
+<p>Microsoft heeft in 2016 een twitterbot gemaakt met KI technieken. De bot leerde door middel van de tweets van andere twitter gebruikers. Hoewel het idee erg leuk was, ging dit compleet fout. Binnen de kortste keren begon de bot onder andere racistische en seksistische opmerkingen te maken. Nadat Microsoft hierachter kwam, hebben ze snel de bot offline gehaald. Volgens Microsoft was het probleem dat “internet trollen” massaal misbruik maakte van de KI, waardoor deze de door hen gestuurde opmerkingen ging herhalen.</p>
+<figure class="align-default" id="id5">
+<a class="reference internal image-reference" href="../_images/microsoft-twitter-bot.jpeg"><img alt="../_images/microsoft-twitter-bot.jpeg" src="../_images/microsoft-twitter-bot.jpeg" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1.13 </span><span class="caption-text">Hier kan je zien hoe de tweets van Tay binnen een dag veranderden: van vriendelijk, naar hatelijk.</span><a class="headerlink" href="#id5" title="Permallink naar deze afbeelding">#</a></p>
+</figcaption>
+</figure>
+<section id="id1">
+<h3>Technieken<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<p>Om teksten te kunnen genereren en lezen, moet een systeem taal begrijpen. Hoewel dit voor een mens over het algemeen niet heel lastig is, is het voor een computer nog aardig moeilijk om taal écht te snappen. De overkoepelende term voor het verwerken en schrijven van taal in informatica is <a class="reference external" href="https://en.wikipedia.org/wiki/Natural_language_processing"><em>Natural Language Processing</em></a> (<em>NLP</em>), of in het Nederlands <em>Natuurlijke Taalverwerking</em>. NLP wordt tegenwoordig veel gedaan door middel van neurale netwerken. Vroeger werden statistische modellen gebruikt om deze taak uit te voeren, deze zijn bijna compleet overbodig geworden.</p>
+<p>Microsoft zal een vorm van <em>Reinforcement Learning</em> gebruikt hebben, om te kunnen leren van de communicatie met gebruikers. Bij reinforcement learning moet de KI zelf beredeneren of een actie goed of slecht was. Dat kan bijvoorbeeld door positieve of negatieve feedback op een actie. Als de KI iets doet wat de gebruiker waardeert, zal de KI leren om dit vaker te doen. Indien de gebruiker het niet waardeert, zal het minder vaak zo reageren.</p>
+</section>
+<section id="id2">
+<h3>Toepassingen<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<p>NLP wordt enorm veel gebruikt, elke keer als je met een chatbot praat (bij een online webshop of ergens anders) dan wordt er gebruik gemaakt van NLP.</p>
+<p>Hele bekende voorbeelden die enorm veel gebruik moeten maken van NLP zijn Google Now, Siri en Alexa, de spraakassistenten van Google, Apple en Amazon. Deze systemen moeten onder andere gebruik maken van NLP om spraak naar tekst om te zetten, tekst te begrijpen en een tekst weer uit te kunnen spreken.</p>
+</section>
+</section>
+<section id="gan">
+<h2><span class="section-number">1.4.3. </span>GAN<a class="headerlink" href="#gan" title="Permalink to this heading">#</a></h2>
+<p>Heel veel bekende vormen van KI maken gebruik van GANs, <em>Generative Adversarial Networks</em>. Netwerken die hier gebruik van maken zijn enorm goed in het creëren van data, die lijkt op de getrainde data. Je kan het zien alsof je een vriend een incomplete puzzel geeft, waar 10 puzzelstukjes van missen. Maar wonder boven wonder kan je vriend de missende puzzelstukjes zelf bedenken en tekenen!</p>
+<section id="techniek">
+<h3>Techniek<a class="headerlink" href="#techniek" title="Permalink to this heading">#</a></h3>
+<p>Deze slimme systemen bestaan uit twee onderdelen: een generator en een discriminator. De generator moet zorgen dat het data weet te maken wat de discriminator niet kan onderscheiden van echte data. De discriminator moet op haar beurt leren om zo goed mogelijk de neppe van de echte data te onderscheiden.</p>
+<p>Je kan het vergelijken met valsemunters (generator) en de politie (discriminator). De Europese bank stopt allemaal verschillende beveiligingskenmerken in de Euro, zodat de politie het echte geld kan onderscheiden van het nepgeld. De illegale drukkers proberen al die verschillende kenmerken te imiteren, zodat het heel lastig wordt om het neppe geld te onderscheiden van echt geld. De politie moet steeds beter gaan kijken of het geld nep of echt is, waarna de gelddrukkers nóg beter illegaal geld gaan drukken. Dit is een wedloop die voort blijft gaan.</p>
+</section>
+<section id="id3">
+<h3>Toepassingen<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<p>Deze netwerken zijn helemaal “hot and happening”, maar waar kunnen ze voor gebruikt worden in de echte wereld?</p>
+<section id="medisch">
+<h4>Medisch<a class="headerlink" href="#medisch" title="Permalink to this heading">#</a></h4>
+<p>In de medische wereld worden sinds kort ook dergelijke systemen gebruikt voor de bestrijding van ziektes als kanker. Het netwerk wordt gebruikt om moleculaire structuren te genereren, die gebruikt kunnen worden in medicijnen tegen ziektes.</p>
+</section>
+<section id="beeldmateriaal">
+<h4>Beeldmateriaal<a class="headerlink" href="#beeldmateriaal" title="Permalink to this heading">#</a></h4>
+<p>GANs kunnen ook gebruikt worden om oude foto’s of films te “restaureren”. De KI wordt gevoerd met een verouderde zwart-wit foto of video en het genereert een foto of video van hoge kwaliteit. Op deze manier kunnen we een ongekende blik in het verleden krijgen.</p>
+<p>Het kan ook gebruikt worden om bijvoorbeeld games op een hoge resolutie te spelen. Tegenwoordig heb je 4K en zelfs 8K schermen, een 8K scherm heeft meer dan 33 miljoen pixels! Om deze allemaal aan te kunnen sturen is veel rekenkracht nodig, soms te veel. Om het mogelijk te maken om toch al die pixels aan te sturen terwijl je een spelletje speelt, kan een KI de resolutie verhogen. Jouw computer maakt dus een plaatje van bijvoorbeeld 2 miljoen pixels waarna de KI er 31 miljoen bij bedenkt!</p>
+<p>In de toekomst zullen we veel meer toepassingen gaan zien van GANs. Omdat het een relatief nieuwe KI is, zijn er nog veel velden onderbelicht en onontdekt.</p>
+</section>
+<section id="deepfakes">
+<h4>Deepfakes<a class="headerlink" href="#deepfakes" title="Permalink to this heading">#</a></h4>
+<p>Deepfakes zijn sinds de laatste jaren steeds populairder en makkelijker om te maken. Zo maken veel apps gebruik van “filters” gebaseerd op de techniek. Deepfakes kunnen erg grappig zijn, maar ze kunnen ook veel schade aanrichten. Zo kunnen kwaadwillenden interviews of statements van bekende personen of politici namaken. Deze filmpjes zijn door het blote oog niet makkelijk te onderscheiden van <em>echte</em> interviews.</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
+<div class="sd-col sd-d-flex-column docutils">
+<iframe width="300" height="169" src="https://www.youtube.com/embed/gNYkspmq5e0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<iframe width="300" height="169" src="https://www.youtube.com/embed/IvY-Abd2FfM?si=WYKiZwbEn7S0b592" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=gNYkspmq5e0">https://www.youtube.com/watch?v=gNYkspmq5e0</a></p>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=IvY-Abd2FfM">https://www.youtube.com/watch?v=IvY-Abd2FfM</a></p>
+<p>De 47 minuten durende, maar zeer interessante, documentaire  “<a class="reference external" href="https://www.npostart.nl/vpro-tegenlicht/07-03-2021/VPWON_1322213">Zien is geloven</a>” van VPRO tegenlicht geeft goed inzicht in de problemen rond Deep Fakes maar laat ook zien dat er goede dingen mee kunnen worden gedaan.</p>
+<div class="admonition-opdracht admonition">
+<p class="admonition-title">🛠 Opdracht</p>
+<p>Zoek zelf nog een aansprekend Deepfake videofragment.</p>
+</div>
+</section>
+<section id="muzikale-ai">
+<h4>Muzikale AI<a class="headerlink" href="#muzikale-ai" title="Permalink to this heading">#</a></h4>
+<p>De onderzoekers van OpenAI hebben <a class="reference external" href="https://openai.com/blog/jukebox/">GANs</a> gebruikt om een <a class="reference external" href="https://openai.com/blog/jukebox/">kunstmatige intelligentie muziek</a> te laten maken. Of beter gezegd, de KI moet bekende liedjes afmaken. Het systeem krijgt het begin van een liedje te <em>horen</em>, waarna het zelf moet bedenken hoe het liedje verder zal gaan. De uitkomsten zijn vaak erg bizar en klinken totaal anders dan je zou verwachten.</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Pop, in the style of Rick Astley - Jukebox by OpenAI</p>
+</div>
+<a class="sd-stretched-link reference external" href="https://soundcloud.com/openai_audio/jukebox-914891098"></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">OpenAI jukebox achtergronden (research)</p>
+</div>
+<a class="sd-stretched-link reference external" href="https://openai.com/research/jukebox"></a></div>
+</div>
+</div>
+</div>
+<div class="admonition-opdracht admonition">
+<p class="admonition-title">🛠 Opdracht</p>
+<p>Luister naar de nummers. Zijn de teksten die worden gegenereerd enigszins realistisch?</p>
+</div>
+</section>
+<section id="foto-s-maken">
+<h4>Foto’s maken<a class="headerlink" href="#foto-s-maken" title="Permalink to this heading">#</a></h4>
+<p>Een GAN kan ook foto’s generen aan de hand van simplistische tekeningen. Deze technieken laten de gebruiker een simpel plaatje tekenen van bijvoorbeeld een kat, waarna deze gegenereerd wordt op een zo realistisch mogelijke manier.</p>
+<p><a class="reference external" href="https://slo-ai.github.io/pix2pix/">https://slo-ai.github.io/pix2pix/</a></p>
+<iframe width="800" height="500" src="https://slo-ai.github.io/pix2pix/" title="pix2pix" frameborder="0"
+allowfullscreen></iframe>
+<div class="admonition-opdracht admonition">
+<p class="admonition-title">🛠 Opdracht</p>
+<p>Probeer zelf een in bovenstaande applet een aantal eigen tekeningen (minimaal 5 voor één categorie) naar een foto om te zetten. Maak screenshots van je pogingen  en geef ze een cijfer van 1 tot 10 voor de mate van realisme .</p>
+</div>
+<p><a class="reference external" href="https://www.nvidia.com/en-us/studio/canvas/">NVIDIA</a> heeft deze techniek ook toegepast op landschappen. Het systeem genereert een realistisch ogend landschap gebasseerd op een abstracte tekening van een landschap. De kleuren op het plaatje betekenen allemaal iets anders, elke kleur staat voor een bepaald materiaal. Zo wordt grijs vertaald naar wolken, lichtblauw naar zee, bordeaux rood naar bloemen, etc.</p>
+<figure class="align-default" id="id6">
+<a class="reference internal image-reference" href="../_images/gaugan_input.png"><img alt="../_images/gaugan_input.png" src="../_images/gaugan_input.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1.14 </span><span class="caption-text">NVIDIA Canvas voorbeeld-landschap</span><a class="headerlink" href="#id6" title="Permallink naar deze afbeelding">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="deze-persoon-bestaat-niet">
+<h4>Deze persoon bestaat niet(!)<a class="headerlink" href="#deze-persoon-bestaat-niet" title="Permalink to this heading">#</a></h4>
+<p>Onderzoekers hebben in december 2019 een paper uitgebracht over <em>StyleGAN2</em>, een netwerk dat mensen en objecten kan genereren die nooit bestaan hebben. Om te laten zien hoe goed hun netwerk is, hebben ze een website gemaakt: <a class="reference external" href="https://thispersondoesnotexist.com">https://thispersondoesnotexist.com</a>.</p>
+<p>Op de website wordt groot een foto van een persoon getoond, maar de grap is dat deze persoon niet bestaat en compleet is gegenereerd door de GAN.</p>
+<figure class="align-default" id="id7">
+<a class="reference internal image-reference" href="../_images/thispersondoesnotexist-fig.png"><img alt="../_images/thispersondoesnotexist-fig.png" src="../_images/thispersondoesnotexist-fig.png" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1.15 </span><span class="caption-text"><a class="reference external" href="https://thispersondoesnotexist.com/">https://thispersondoesnotexist.com/</a></span><a class="headerlink" href="#id7" title="Permallink naar deze afbeelding">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition-opdracht admonition">
+<p class="admonition-title">🛠 Opdracht</p>
+<p>Ga naar de website en bekijk de personen. De website laat een nieuwe foto zien als je de pagina herlaadt (F5). Kan jij de foto’s van echt onderscheiden? Zo ja, hoe? Zo niet, waarom niet?</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Antwoord<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<a class="reference internal image-reference" href="../_images/5_example.png"><img alt="../_images/5_example.png" class="align-center" src="../_images/5_example.png" style="width: 300px;" /></a>
+<a class="reference internal image-reference" href="../_images/3_example.png"><img alt="../_images/3_example.png" class="align-center" src="../_images/3_example.png" style="width: 300px;" /></a>
+<a class="reference internal image-reference" href="../_images/7_example.png"><img alt="../_images/7_example.png" class="align-center" src="../_images/7_example.png" style="width: 300px;" /></a>
+<p class="sd-card-text">Misschien vond je het erg lastig, of had je het snel door als je goed keek naar het plaatje. Vaak kan je bij overgangen van personen naar objecten/achtergrond nog wel eens een “artifact” vinden. Haar, ogen en kleding kunnen ook nog wel eens fout gaan. Als je heel ver in de plaatjes inzoomt kan je ook soms wel zien dat het een beetje raar oogt.</p>
+<p class="sd-card-text">Ook kan het gebeuren dat het netwerk een object een beetje half heeft gegenereerd. Hierdoor is het voor een deel zichtbaar of doorzichtig. Een beetje een geest-achtig effect geeft dit.</p>
+</div>
+</details></div>
+<div class="admonition-vragen admonition">
+<p class="admonition-title">🛠 Vragen</p>
+<ol class="arabic simple">
+<li><p>Wat is Monte Carlo Tree search?</p></li>
+<li><p>Wat is de overkoepelende term voor het verwerken en schrijven van taal in informatica?</p></li>
+<li><p>Leg uit wat een GAN is en noem 2 serieuze toepassingen waarin GAN’s worden gebruikt.</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Antwoorden<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<ol class="arabic simple">
+<li><p class="sd-card-text">Monte Carlo Tree search is een techniek die gebruik wordt om zo optimaal mogelijk te zoeken naar een oplossing.</p></li>
+<li><p class="sd-card-text">Natural language processing / Natuurlijke taalverwerking</p></li>
+<li><p class="sd-card-text">Een GAN is een neuraal netwerk dat nieuwe data genereert op basis van trainingsdata van de zelfde vorm. Serieuze voorbeelden: Restauratie van oud beeldmateriaal, Zoeken naar nieuwe chemische verbindingen voor werkende medicijnen, …</p></li>
+</ol>
+</div>
+</details></div>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./achtergrond"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intelligentie.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">vorige</p>
+        <p class="prev-next-title"><span class="section-number">1.3. </span>Wanneer is iets intelligent?</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="terugkoppeling.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">volgende</p>
+        <p class="prev-next-title"><span class="section-number">1.5. </span>Terugkoppeling</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhoud
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alphago">1.4.1. AlphaGo</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#technieken">Technieken</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#toepassingen">Toepassingen</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tay-de-twitter-bot">1.4.2. Tay de Twitter bot</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Technieken</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Toepassingen</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gan">1.4.3. GAN</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#techniek">Techniek</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Toepassingen</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#medisch">Medisch</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#beeldmateriaal">Beeldmateriaal</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#deepfakes">Deepfakes</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#muzikale-ai">Muzikale AI</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#foto-s-maken">Foto’s maken</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#deze-persoon-bestaat-niet">Deze persoon bestaat niet(!)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Door cc-team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright SLO 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

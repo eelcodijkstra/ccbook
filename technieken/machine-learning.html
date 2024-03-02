@@ -1,0 +1,726 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="nl" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>3.2. Machine learning &#8212; Cognitive computing</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'technieken/machine-learning';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Zoeken" href="../search.html" />
+    <link rel="next" title="3.4. Associatie-analyse" href="associatie-analyse.html" />
+    <link rel="prev" title="3.1. Introductie" href="introductie.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="nl"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../materiaal.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Cognitive computing - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Cognitive computing - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Zoeken</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../materiaal.html">
+                    Introductie
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Materiaal</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../achtergrond/achtergrond.html">1. Achtergrond</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../achtergrond/introductie.html">1.1. Introductie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../achtergrond/geschiedenis.html">1.2. Geschiedenis en toekomst</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../achtergrond/intelligentie.html">1.3. Wanneer is iets intelligent?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../achtergrond/in-de-praktijk.html">1.4. In de praktijk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../achtergrond/terugkoppeling.html">1.5. Terugkoppeling</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ethiek/ethiek.html">2. Ethiek</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek/gevaren.html">2.1. Gevaren van kunstmatige intelligentie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek/fast-principes.html">2.2. De FAST-principes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek/fair-data.html">2.3. FAIR data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek/terugkoppeling.html">2.4. Terugkoppeling</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="technieken.html">3. Technieken</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introductie.html">3.1. Introductie</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.2. Machine learning</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="associatie-analyse.html">3.4. Associatie-analyse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cluster-analyse.html">3.5. Clusteranalyse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="neurale-netwerken.html">3.6. Neurale netwerken</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eigen-quickdraw.html">3.7. Eigen QuickDraw</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi-agentsystemen.html">3.8. Multi-agentsystemen</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="terugkoppeling.html">3.10. Terugkoppeling</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Verdieping</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ethiek-en-ai/ethiek-en-ai.html">4. Ethiek en AI</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek-en-ai/ai-standaarden.html">4.1. AI standaarden en richtlijnen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek-en-ai/fast-en-fair.html">4.2. FAST en FAIR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek-en-ai/engheidsmatrix.html">4.3. De engheidsmatrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek-en-ai/ethiek-opdracht-essay.html">4.4. Opdracht: schrijf een essay over Ethiek en AI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek-en-ai/ethiek-bedenk-een-ai.html">4.5. Opdracht: bedenk een AI toepassing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../neurale-netwerken/neurale-netwerken.html">5. Neurale netwerken</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../neurale-netwerken/hoe-leert-neuraal-netwerk.html">5.1. N.1. Hoe leert een neuraal netwerk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neurale-netwerken/naar-meer-lagen.html">5.2. N.2. Op weg naar meer lagen</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../neurale-netwerken/tensorflow-app.html">6. N.3 Tensorflow app</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../neurale-netwerken/docentenhandleiding.html">6.1. Docentenhandleiding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neurale-netwerken/fase-1.html">6.2. Fase 1: Maak een eerste app</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neurale-netwerken/fase-2.html">6.3. Fase 2: Optimaliseren Neuraal Netwerk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neurale-netwerken/fase-3.html">6.4. Fase 3: Andere dataset gebruiken</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neurale-netwerken/fase-4.html">6.5. Fase 4: Eigen dataset gebruiken</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../over-ons.html">Over ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../colofon.html">Colofon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../achtergrond/robotica.html">Robotica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/verzamelingen.html">Verzamelingenleer</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/keuzethemas/ccbook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Bronopslagplaats"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/keuzethemas/ccbook/issues/new?title=Issue%20on%20page%20%2Ftechnieken/machine-learning.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open een probleem"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download deze pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/technieken/machine-learning.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download het bronbestand"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Afdrukken naar pdf"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Volledig scherm"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Machine learning</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhoud </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">3.2. Machine learning</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#online-en-offline-leren">3.3. Online en offline leren</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#categorieen-machine-learning">3.3.1. Categorieën machine learning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supervised-learning">3.3.2. Supervised learning</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overfitting">Overfitting</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unsupervised-learning">3.3.3. Unsupervised learning</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clustering-en-associatie-analyse">Clustering en Associatie analyse</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reinforcement-learning">3.3.4. Reinforcement learning</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kenmerken-van-toepassingen-van-reinforcement-learning">Kenmerken van toepassingen van reinforcement learning</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="machine-learning">
+<h1><span class="section-number">3.2. </span>Machine learning<a class="headerlink" href="#machine-learning" title="Permalink to this heading">#</a></h1>
+<p>In de <a class="reference external" href="https://www.notion.so/3-1-Introductie-b49a35ee8d8b45bba29636e026abc2fa?pvs=21">introductie</a> van dit hoofdstuk heb je gezien dat er onderscheid werd gemaakt tussen niet lerende en lerende AI. Lerende AI noemen we <strong>machine learning</strong>. Machine learning vindt plaats aan de hand van data. Het leerproces levert een algoritme dat een <strong>agent</strong> (vertegenwoordiger van leerproces) gebruikt om te reageren op vragen van de gebruiker. Een gebruiker hoeft daarin niet een persoon te zijn, daarover later meer in de sectie  <a class="reference external" href="https://www.notion.so/3-7-Multi-agentsystemen-0fb0126dccb2403d842753d2f513b991?pvs=21">multi-agentsystemen</a>. Machine learning wordt weer onderverdeeld in een groep waar de relatie tussen data en de uitvoer van het geleerde algoritme van de agent vast ligt en een groep waarin de relatie tussen de data en de uitvoer van het geleerde algoritme onbekend is. De machine learning techniek die in de laatste situatie wordt hoort bij neurale netwerken en wordt deep learning genoemd.</p>
+<p>Machine learning (of <strong>machinaal leren</strong> in het Nederlands)  leert dus van data. De technieken binnen machine learning zorgen ervoor dat een systeem steeds beter wordt in een taak of zich steeds beter aanpast aan zijn omgeving. Mensen vinden deze vorm van kunstmatige intelligentie vaak fascinerend, omdat het lijkt alsof een systeem als vanzelf slimmer wordt. Het kunnen leren wordt dan ook vaak gekoppeld aan intelligentie; een hond die goed leert, noemen we ook slim.</p>
+<p>Er zijn mooie voorbeelden op het internet te vinden van toepassingen van machine learning. Vaak gaat het dan om een combinatie van meerdere machine learning-technieken. In deze filmpjes is een computerprogramma getraind om Super Mario te spelen. Het is opvallend hoe goed de computer uiteindelijk geworden is.</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-column docutils">
+<a class="reference internal image-reference" href="../_images/technieken-image3.png"><img alt="../_images/technieken-image3.png" src="../_images/technieken-image3.png" style="width: 350px;" /></a>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<a class="reference internal image-reference" href="../_images/technieken-image4.png"><img alt="../_images/technieken-image4.png" src="../_images/technieken-image4.png" style="width: 350px;" /></a>
+</div>
+</div>
+</div>
+<div class="admonition-vragen admonition">
+<p class="admonition-title">🛠️ Vragen</p>
+<ol class="arabic simple">
+<li><p>Denk je dat de agent (Super Mario) bijleert tijdens het spelen van een level, of steeds aan het einde?</p></li>
+<li><p>Stel dat je de agent laat stoppen met leren en hem neemt zoals hij is aan het einde van het filmpje. Denk je dat hij ook goed zou kunnen presteren in een ander level?</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Antwoorden<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<ol class="arabic simple">
+<li><p class="sd-card-text">Waarschijnlijk leert de agent steeds aan het einde. Als Mario afgaat, dan is dat een signaal aan de computer om de volgende keer net iets anders te spelen.</p></li>
+<li><p class="sd-card-text">Bij de meeste games worden de levels steeds moeilijker en verschijnen er nieuwe uitdagingen. Als de agent alleen maar getraind is in dit level, zal hij waarschijnlijk niet zo ver komen.</p></li>
+</ol>
+</div>
+</details></div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="online-en-offline-leren">
+<h1><span class="section-number">3.3. </span>Online en offline leren<a class="headerlink" href="#online-en-offline-leren" title="Permalink to this heading">#</a></h1>
+<p>Je kunt machine learning-algoritmen verdelen in twee groepen, namelijk in <em>online learning-</em> en <em>offline learning</em>**-**algoritmen. Deze groepen hebben niets te maken met verbindingen met het internet, maar de termen hebben betrekking op het moment waarop een algoritme aan het leren is. Online learning is leren ‘on the job’.  Hierbij leert het algoritme terwijl het in productie draait. <a class="reference external" href="https://blogs.fireflies.ai/how-does-voice-recognition-work/">Spraakherkenning</a> is hier een voorbeeld van. De software kan per persoon leren welke uitspraak van deze persoon bij welk woord hoort. Bij offline learning wordt het algoritme van tevoren getraind, waarna het in productie wordt genomen. Een postsorteerrobot is daar een voorbeeld van.  De robot heeft een algoritme dat, op basis van heel veel voorbeelden, is ontstaan door training met het offline-learning algoritme. Eenmaal in de hal van de postverwerking geplaatst, zal deze robot niet meer bijleren.</p>
+<section id="categorieen-machine-learning">
+<h2><span class="section-number">3.3.1. </span>Categorieën machine learning<a class="headerlink" href="#categorieen-machine-learning" title="Permalink to this heading">#</a></h2>
+<p>Er zijn verschillende manieren om een computerprogramma iets aan te leren, net zoals er verschillende manieren zijn om mensen iets aan te leren. Denk bijvoorbeeld aan boekjes voor kleine kinderen met eenvoudige woorden en bijbehorende plaatjes (boom, huis, kat, etc.). Het kind wordt hierbij als het ware aan de hand genomen tijdens het leren.</p>
+<p>Een andere, minder behulpzame manier om iets aan te leren, is door simpelweg in het diepe te worden gegooid. Dit gebeurt bijvoorbeeld als je zonder voorbereiding naar het buitenland gaat en langzaam de taal ‘vanzelf’ leert te begrijpen.</p>
+<p>Weer een andere manier om te leren, is door je eigen gedrag te toetsen en daardoor te verbeteren. Onbewust deed je dat als klein kind toen je met vallen en opstaan leerde lopen. Als je nu bijvoorbeeld voor een sport traint of een muziek instrument leert bespelen dan doe je dat waarschijnlijk bewuster. Je probeert met telkens net iets andere handelwijzen en door zelf je resultaten te observeren (in de momenten zonder trainer) tot de beste handelwijze te komen.</p>
+<p>Deze manieren van leren hierboven genoemd worden ook binnen machine learning gebruikt. We onderscheiden de volgende drie basisvormen:</p>
+<ol class="arabic simple">
+<li><p><strong>supervised learning</strong> (begeleid leren);</p></li>
+<li><p><strong>unsupervised learning</strong> (onbegeleid leren);</p></li>
+<li><p><strong>reinforcement learning</strong> (versterkend leren).</p></li>
+</ol>
+<p>Zoals gezegd vormen deze categorieën de basis voor machine learning. Dat wil zeggen dat er nog meer zijn. Zo kom je bijvoorbeeld ook tussenvormen tegen. We behandelen hier echter alleen deze drie basiscategorieën.</p>
+</section>
+<section id="supervised-learning">
+<h2><span class="section-number">3.3.2. </span>Supervised learning<a class="headerlink" href="#supervised-learning" title="Permalink to this heading">#</a></h2>
+<p>Supervised learning lijkt op het leren met het kleuterboekje: een agent krijgt voorbeelden met betekenissen te zien en wordt aan de hand van deze voorbeelden getraind om zelf conclusies te trekken. Deze vorm van leren wordt toegepast in het trainen van <a class="reference external" href="https://www.notion.so/a0cfa2a90fc244f98f28bf75a7dd10d9?pvs=21">neurale netwerken</a>.</p>
+<p>Stel dat je een applicatie wil gebruiken om afbeeldingen te herkennen, dan moet deze eerst leren van een reeks met afbeeldingen met de bijbehorende woorden. De agent van de applicatie heeft als doel om een willekeurige afbeelding te voorzien van een etiket: om de gegeven afbeelding in een bepaalde geleerde categorie te plaatsen. Het herkennen van beeldmateriaal, zoals handschriftherkenning, is hiervan een voorbeeld. Bij deze manier van machine learning zijn er drie fases: de <em>training-</em>, de <em>validatie-</em> en de <em>testfase</em>.</p>
+<p><strong>Fase 1: training</strong></p>
+<p>De trainingfase is de eerste van de drie. Hier wordt de agent voorzien van voorbeelden om mee te trainen, de zogenaamde <strong>trainingset</strong>. De agent zal zich herhaaldelijk over de trainingsset buigen, voordat er naar de volgende fase wordt overgegaan.</p>
+<p><strong>Fase 2: validatie</strong></p>
+<p>De validatiefase volgt op de trainingfase. In deze fase wordt de huidige werking van de getrainde agent gevalideerd; dat wil zeggen dat gecontroleerd wordt hoe goed deze getraind is. Hier wordt de zogenaamde <em>validatieset</em> voor gebruikt. Dit is een vergelijkbare reeks voorbeelden als bij de trainingset, maar ze zijn nooit hetzelfde. Als de agent deze validatieset goed verwerkt, dan wordt overgegaan op de volgende fase. Als de uitkomsten echter niet acceptabel zijn, dan moeten het programma en/of de trainingset worden aangepast en wordt teruggegaan naar de trainingfase.</p>
+<p><strong>Fase 3: testen</strong></p>
+<p>Ten slotte is er de testfase. Deze naam is misschien misleidend, want in deze fase wordt de agent echt in gebruik genomen. Deze fase heeft dus niets te maken met software testen! Bij deze daadwerkelijke toepassing van de getrainde agent, noemen we de input die het programma krijgt, de <em>testset</em>.</p>
+<p>Omdat bij een zuiver supervised learning-algoritme altijd alleen geleerd wordt tijdens de trainingfase (en niet in de testfase), spreken we bij deze categorie van offline learning.</p>
+<section id="overfitting">
+<h3>Overfitting<a class="headerlink" href="#overfitting" title="Permalink to this heading">#</a></h3>
+<p>Het trainen van een applicatie doe je om de agent in de praktijk te kunnen gebruiken met inputs die je nog niet weet. Bijvoorbeeld, als je een agent bouwt die handgeschreven tekst moet kunnen herkennen, dan kun je niet alle handschriften ter wereld in de trainingsfase stoppen. Bij het trainen van een agent is er een gevaar dat je de agent te goed leert werken met de trainingset. Je noemt dit <em>overfitting</em>. De validatie fase is onder andere nodig om deze overfitting te voorkomen.</p>
+<p>Aan het begin van dit hoofdstuk heb je een filmpje van Super Mario bekeken. Omdat Super Mario steeds hetzelfde level speelt, is hier sprake van overfitting. De agent zal in een ander level waarschijnlijk heel slecht presteren.</p>
+</section>
+</section>
+<section id="unsupervised-learning">
+<h2><span class="section-number">3.3.3. </span>Unsupervised learning<a class="headerlink" href="#unsupervised-learning" title="Permalink to this heading">#</a></h2>
+<p>Bij unsupervised learning wordt de agent aan zijn lot overgelaten. Er wordt hem van tevoren niets ingefluisterd en er worden geen voorbeelden gegeven. Deze manier van leren heeft heel andere doeleinden dan bij supervised learning. Je kunt bijvoorbeeld geen handschriftherkenning met unsupervised learning voor elkaar krijgen; de agent heeft namelijk nooit etiketten – in dit geval de letters van het alfabet – gekregen.</p>
+<section id="clustering-en-associatie-analyse">
+<h3>Clustering en Associatie analyse<a class="headerlink" href="#clustering-en-associatie-analyse" title="Permalink to this heading">#</a></h3>
+<p>Cluster en associatie analyse die vallen beide onder unsupervised machine learning. Bijvoorbeeld, bij clusteren wordt de data verdeeld groepjes, in clusters. De agent die aan het leren is, kan deze indelingen maken zonder de betekenis van deze clusters te weten. Als je dus bijvoorbeeld unsupervised learning toepast op handgeschreven letters, dan deelt de agent misschien de ‘u’ en de ‘v’ in een cluster (op basis van hun vormen) en de ‘i’ en de ‘j’ in een ander cluster, zonder te weten dat dit letters van ons alfabet zijn. Bij associatie analyse bepaalt de data welke onderdelen in de dataset meer met elkaar geassocieerd zijn ofwel welke onderdelen meer verband met elkaar houden. Er is van te voren geen oordeel over welke verband er moet zijn. In de secties <a class="reference external" href="https://www.notion.so/7cf0b1c90c364061bc52aabe1afd4fa7?pvs=21">cluster analyse</a> en <a class="reference external" href="https://www.notion.so/c9bc318c726243a480de86b38c390904?pvs=21">associatie analyse</a> bekijken we unsupervised leren in detail.</p>
+</section>
+</section>
+<section id="reinforcement-learning">
+<h2><span class="section-number">3.3.4. </span>Reinforcement learning<a class="headerlink" href="#reinforcement-learning" title="Permalink to this heading">#</a></h2>
+<p>De laatste categorie machine learning die we behandelen, is reinforcement learning. Deze vorm van leren is een speciaal geval van begeleid leren. De applicatie is zijn eigen trainer. Bij deze categorie van machine learning zoekt de agent naar oplossingen voor een probleem en bepaalt de agent na iedere poging zelf hoe goed hij gepresteerd heeft. Denk aan een kleine muis die door een doolhof rent. Als hij bij een T-splitsing naar links draait, krijgt hij een stukje kaas; als hij naar rechts draait, krijgt hij een kleine elektrische schok (maak je geen zorgen, dit is maar een doe-alsof-muis). Vermoedelijk zal de muis na verloop van tijd leren om naar links te draaien. Zijn neurale netwerk neemt een beslissing met een uitkomst (draai naar links of rechts) en observeert zijn omgeving (lekker of au). Je zou dus kunnen zeggen dat bij reinforcement learning goed gedrag beloond wordt en slecht gedrag bestraft. Dit moment van belonen vindt altijd achteraf plaats, dus nadat de agent zelf heeft gehandeld in een bepaalde situatie. De beloning zelf heet het <strong>reinforcement signal</strong>. Het Super Mario-filmpje is een voorbeeld van reinforcement learning.</p>
+<section id="kenmerken-van-toepassingen-van-reinforcement-learning">
+<h3>Kenmerken van toepassingen van reinforcement learning<a class="headerlink" href="#kenmerken-van-toepassingen-van-reinforcement-learning" title="Permalink to this heading">#</a></h3>
+<p>Om reinforcement learning toe te passen op een probleem, moet het probleem zich wel lenen voor deze categorie van machine learning. Er zijn meerdere kenmerken waaraan een probleem kan voldoen, waaruit blijkt in hoeverre dit door een reinforcement learning-algoritme kan worden opgepakt. We noemen er een aantal:</p>
+<p><strong>De oplossingen zijn voldoende meetbaar</strong></p>
+<p>Voor een reinforcement signal is het nodig dat deze afgeleid kan worden van de door het programma bedachte oplossingen. De oplossingen moeten dus meetbaar zijn, zodat ze kunnen worden vertaald naar dit reinforcement signal.</p>
+<p><strong>De omgeving is voldoende <em>deterministisch</em></strong></p>
+<p>Een omgeving is deterministisch als je precies kunt bepalen hoe de omgeving eruit ziet na een actie. Een schaakbord is bijvoorbeeld deterministisch (want je weet precies hoe de stukken staan na elke zet). Als een omgeving niet deterministisch is (b.v. het resultaat van een worp met een dobbelsteen), dan weet je dus niet of de acties van het computerprogramma hebben geleid tot een bepaalde oplossing en dan kun je dus ook geen reinforcement signaal toekennen. Is er slechts kleine variatie in de uitkomst van een experiment bij een bepaalde beginsituatie dan kan het systeem nog voldoende deterministisch zijn voor een succesvol leerproces.</p>
+<p><strong>Er is genoeg ruimte om te leren</strong></p>
+<p>Reinforcement learning is leren met vallen en opstaan. Sommige problemen lenen zich hier niet voor, omdat er geen ruimte is voor fouten. Reinforcement learning is bijvoorbeeld niet geschikt om een apparaat slim genoeg te maken om een hartfilmpje te leren monitoren: fouten zijn te cruciaal.</p>
+<div class="admonition-vragen admonition">
+<p class="admonition-title">🛠️ Vragen</p>
+<p>Speel even met onderstaande <a class="reference external" href="https://experiments.withgoogle.com/ai/bird-sounds/view/">vogelapplicatie</a>. Let op: zet je geluid niet te hard! Beantwoord daarna de volgende vragen.</p>
+<ol class="arabic simple">
+<li><p>Wat is hier waarschijnlijk gebruikt om de kunstmatige intelligentie te trainen: supervised, unsupervised of reinforcement learning? Leg uit waarom je dit denkt.</p></li>
+<li><p>In het <a class="reference external" href="https://experiments.withgoogle.com/ai/bird-sounds/view/">filmpje</a> dat erbij hoort leggen de makers uit wat ze hebben gedaan. Zo vertellen ze dat de kunstmatige intelligentie de namen van de vogels niet heeft gebruikt. Verandert dit je antwoord op vraag 1?</p></li>
+<li><p>Stel dat jij als mens geluiden zou moeten groeperen, hoe zou je dit dan doen? Denk je dat dit lijkt op hoe de kunstmatige intelligentie van dit programma het heeft gedaan?</p></li>
+<li><p>Wat is het verschil tussen online en offline learning van een AI applicatie?</p></li>
+<li><p>Geef in de juiste volgorde de drie stappen die gemaakt worden in supervised learning.</p></li>
+<li><p>Een postcode robot krijgt jouw kerstkaart die je stuurt naar je oma onder de lens. In welke stap van supervised learning is deze robot?</p></li>
+</ol>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Antwoorden<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<ol class="arabic simple">
+<li><p class="sd-card-text">De vogels zijn gerangschikt op hun geluid. Vogels die ongeveer gelijk aan elkaar klinken zijn gegroepeerd. Dit is clustering. Er is dus unsupervised learning gebruikt. De vogels zijn ook voorzien van een naam (een etiket). Er kan dus ook supervised learning zijn gebruikt.</p></li>
+<li><p class="sd-card-text">Supervised learning valt daardoor af.</p></li>
+<li><p class="sd-card-text">Waarschijnlijk zouden mensen op basis van toonhoogte, frequentie en volume groeperen. Je kunt als mens redelijk eenvoudig horen wat op elkaar lijkt. Een computer vertaalt geluid naar diagrammen en doet eigenlijk beeldherkenning op die diagrammen. Het is dus niet helemaal hetzelfde.</p></li>
+<li><p class="sd-card-text">Bij online learning leert de agent van de AI applicatie bij als die in bedrijf is in de test stap. Bij offline learning wordt de AI applicatie getraind. De agent die daarna in bedrijf is leert niet meer bij.</p></li>
+<li><p class="sd-card-text">trainen, valideren, testen</p></li>
+<li><p class="sd-card-text">De robot bevindt zich in de testfase. Hij is op dat moment in bedrijf om werkelijk het werk te doen waar de applicatie voor is ontwikkeld.</p></li>
+</ol>
+</div>
+</details></div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./technieken"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="introductie.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">vorige</p>
+        <p class="prev-next-title"><span class="section-number">3.1. </span>Introductie</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="associatie-analyse.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">volgende</p>
+        <p class="prev-next-title"><span class="section-number">3.4. </span>Associatie-analyse</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhoud
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">3.2. Machine learning</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#online-en-offline-leren">3.3. Online en offline leren</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#categorieen-machine-learning">3.3.1. Categorieën machine learning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supervised-learning">3.3.2. Supervised learning</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overfitting">Overfitting</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unsupervised-learning">3.3.3. Unsupervised learning</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clustering-en-associatie-analyse">Clustering en Associatie analyse</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reinforcement-learning">3.3.4. Reinforcement learning</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kenmerken-van-toepassingen-van-reinforcement-learning">Kenmerken van toepassingen van reinforcement learning</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Door cc-team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright SLO 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

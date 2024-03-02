@@ -1,0 +1,927 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="nl" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>3.4. Associatie-analyse &#8212; Cognitive computing</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'technieken/associatie-analyse';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Zoeken" href="../search.html" />
+    <link rel="next" title="3.5. Clusteranalyse" href="cluster-analyse.html" />
+    <link rel="prev" title="3.2. Machine learning" href="machine-learning.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="nl"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../materiaal.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Cognitive computing - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Cognitive computing - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Zoeken</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../materiaal.html">
+                    Introductie
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Materiaal</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../achtergrond/achtergrond.html">1. Achtergrond</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../achtergrond/introductie.html">1.1. Introductie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../achtergrond/geschiedenis.html">1.2. Geschiedenis en toekomst</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../achtergrond/intelligentie.html">1.3. Wanneer is iets intelligent?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../achtergrond/in-de-praktijk.html">1.4. In de praktijk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../achtergrond/terugkoppeling.html">1.5. Terugkoppeling</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ethiek/ethiek.html">2. Ethiek</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek/gevaren.html">2.1. Gevaren van kunstmatige intelligentie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek/fast-principes.html">2.2. De FAST-principes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek/fair-data.html">2.3. FAIR data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek/terugkoppeling.html">2.4. Terugkoppeling</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="technieken.html">3. Technieken</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introductie.html">3.1. Introductie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine-learning.html">3.2. Machine learning</a></li>
+
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.4. Associatie-analyse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cluster-analyse.html">3.5. Clusteranalyse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="neurale-netwerken.html">3.6. Neurale netwerken</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eigen-quickdraw.html">3.7. Eigen QuickDraw</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi-agentsystemen.html">3.8. Multi-agentsystemen</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="terugkoppeling.html">3.10. Terugkoppeling</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Verdieping</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ethiek-en-ai/ethiek-en-ai.html">4. Ethiek en AI</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek-en-ai/ai-standaarden.html">4.1. AI standaarden en richtlijnen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek-en-ai/fast-en-fair.html">4.2. FAST en FAIR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek-en-ai/engheidsmatrix.html">4.3. De engheidsmatrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek-en-ai/ethiek-opdracht-essay.html">4.4. Opdracht: schrijf een essay over Ethiek en AI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek-en-ai/ethiek-bedenk-een-ai.html">4.5. Opdracht: bedenk een AI toepassing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../neurale-netwerken/neurale-netwerken.html">5. Neurale netwerken</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../neurale-netwerken/hoe-leert-neuraal-netwerk.html">5.1. N.1. Hoe leert een neuraal netwerk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neurale-netwerken/naar-meer-lagen.html">5.2. N.2. Op weg naar meer lagen</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../neurale-netwerken/tensorflow-app.html">6. N.3 Tensorflow app</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../neurale-netwerken/docentenhandleiding.html">6.1. Docentenhandleiding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neurale-netwerken/fase-1.html">6.2. Fase 1: Maak een eerste app</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neurale-netwerken/fase-2.html">6.3. Fase 2: Optimaliseren Neuraal Netwerk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neurale-netwerken/fase-3.html">6.4. Fase 3: Andere dataset gebruiken</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neurale-netwerken/fase-4.html">6.5. Fase 4: Eigen dataset gebruiken</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../over-ons.html">Over ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../colofon.html">Colofon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../achtergrond/robotica.html">Robotica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/verzamelingen.html">Verzamelingenleer</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/keuzethemas/ccbook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Bronopslagplaats"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/keuzethemas/ccbook/issues/new?title=Issue%20on%20page%20%2Ftechnieken/associatie-analyse.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open een probleem"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download deze pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/technieken/associatie-analyse.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download het bronbestand"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Afdrukken naar pdf"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Volledig scherm"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Associatie-analyse</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhoud </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inleiding">3.4.1. Inleiding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#toepassingen">3.4.2. Toepassingen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#theorie">3.4.3. Theorie</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verzamelingenleer">3.4.4. Verzamelingenleer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#associatieregels">3.4.5. Associatieregels</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apriori-algoritme">3.4.6. Apriori algoritme</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#voorbeeld">voorbeeld</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fase1-het-maken-van-een-collectie-f-met-verzamelingen-die-voldoende-frequent-groter-dan-een-minimale-support-zijn-in-c">Fase1: Het maken van een collectie <em>F</em> met verzamelingen die voldoende frequent (groter dan een minimale support) zijn in <em>C</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fase-2-het-opstellen-van-associatieregels-met-verzamelingen-uit-f-met-voldoende-betrouwbaarheid-groter-dan-een-minimale-confidence-in-c">Fase 2: Het opstellen van associatieregels met verzamelingen uit <em>F</em> met voldoende betrouwbaarheid (groter dan een minimale confidence) in <em>C</em>.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Fase 2: Het opstellen van associatieregels met verzamelingen uit <em>F</em> met voldoende betrouwbaarheid (groter dan een minimale confidence) in <em>C</em>.</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="associatie-analyse">
+<h1><span class="section-number">3.4. </span>Associatie-analyse<a class="headerlink" href="#associatie-analyse" title="Permalink to this heading">#</a></h1>
+<p>In de <a class="reference internal" href="introductie.html#technieken-introductie"><span class="std std-ref">Introductie</span></a> heb je gezien dat AI applicaties data-gestuurd zijn. Hoe werkt dat sturen door data? In dit hoofdstuk en volgende hoofdstukken gaan we dat in een aantal technieken bekijken. De meeste toepassingen gebruiken artificiële intelligentie om bijvoorbeeld patronen te herkennen of groeperingen te maken.</p>
+<p>De berekeningen in deze paragraaf en in <a class="reference internal" href="cluster-analyse.html"><span class="doc std std-doc">cluster-analyse</span></a>  zijn niet heel erg ingewikkeld en zouden voor iedere leerling op havo en vwo uit te voeren moeten zijn. Lukt het niet stel dan vragen aan je docent.</p>
+<p>Na deze paragraaf:</p>
+<ul class="simple">
+<li><p>Kun je in eigen woorden het doel en de taak van associatie analyse bij datamining toelichten.</p></li>
+<li><p>Kun je de begrippen verzamelingenleer, associatieanalyse en associatieregel uitleggen.</p></li>
+<li><p>Weet je de toepassingen van associatie analyse, bijvoorbeeld winkelmandjesanalyse (basket analysis).</p></li>
+<li><p>Ben je in staat praktische voorbeelden van associaties op te noemen.</p></li>
+<li><p>Kun je de berekeningen binnen het <em>apriori algoritme</em> uitvoeren, onder andere:</p>
+<ul>
+<li><p>het bepalen van de doorsnede en de vereniging van twee of meer verzamelingen;</p></li>
+<li><p>het berekenen van de support van een deelverzameling;</p></li>
+<li><p>het vinden van de associatieregels in een eenvoudig probleem;</p></li>
+<li><p>het berekenen van de betrouwbaarheid (confidence) van een associatieregel van een deelverzameling;</p></li>
+<li><p>het uitvoeren van alle nodige iteraties in het apriori algoritme.</p></li>
+</ul>
+</li>
+</ul>
+<section id="inleiding">
+<h2><span class="section-number">3.4.1. </span>Inleiding<a class="headerlink" href="#inleiding" title="Permalink to this heading">#</a></h2>
+<figure class="align-right" id="id2">
+<a class="reference internal image-reference" href="../_images/technieken-rumchocobanaan1.png"><img alt="../_images/technieken-rumchocobanaan1.png" src="../_images/technieken-rumchocobanaan1.png" style="width: 200px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.6 </span><span class="caption-text">Rum-choco-banaan</span><a class="headerlink" href="#id2" title="Permallink naar deze afbeelding">#</a></p>
+</figcaption>
+</figure>
+<p>Stel je wordt manager van een supermarkt in een wijk waar veel studenten wonen. Na een paar dagen krijg je de indruk dat er veel bananen samen met chocolade verkocht worden. Daarom overweeg je de bananen met de chocolade vlak bij de kassa’s te leggen om zo de klanten die langs lopen tot meer impulsaankopen te verleiden.  Je wilt als verkoper ook niet impulsief te werk gaan, dus ga je een onderzoek doen met alle kassaregistraties van de klanten als gegevens voor je onderzoek. Eén kassaregistratie geeft dan natuurlijk aan wat de klant in het winkelmandje had.</p>
+<p>De methoden die je als onderzoeker tot je beschikking hebt om deze gegevens te onderzoeken vallen onder <em>associatie-analyse</em>. Voor we algemeen aan de slag gaan en één van de methoden, het <em>apriori algoritme</em>, in detail uitwerken gaan we eerst intuïtief met bovenstaand voorbeeld aan de slag. Na een week heb je deze gegevens verzameld:</p>
+<ul class="simple">
+<li><p>er blijken 8051 klanten te zijn geweest;</p></li>
+<li><p>905 keer stond banaan op de rekening;</p></li>
+<li><p>750 keer stond chocolade op de rekening;</p></li>
+<li><p>samen kwamen bananen en chocolade 653 keer voor.</p></li>
+</ul>
+<figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="../_images/bananen-chocolade.drawio.png"><img alt="../_images/bananen-chocolade.drawio.png" src="../_images/bananen-chocolade.drawio.png" style="width: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.7 </span><span class="caption-text">De verzamelingen mandjes, mandjes met bananen, mandjes met chocolade, en met de combinatie.</span><a class="headerlink" href="#id3" title="Permallink naar deze afbeelding">#</a></p>
+</figcaption>
+</figure>
+<p>Begrippen die centraal staan in de associatie analyse zijn <em>support</em>, <em>associatieregel</em> en <em>betrouwbaarheid</em>.</p>
+<p><strong>Support</strong> van een artikel of van een combinatie van artikelen is de experimentele kans dat een mandje deze artikelen bevat. Zo is</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathrm{support}(\{\mathrm{banaan}\}) = 905/8051 \approx 0.112\)</span> of wel ongeveer 11%.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathrm{support}(\{\mathrm{chocolade}\}) = 750/8051 \approx 0.093\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathrm{support}(\{\mathrm{chocolade}, \mathrm{banaan}\}) = 653/8051 \approx 0.081\)</span>.</p></li>
+</ul>
+<figure class="align-default" id="id4">
+<a class="reference internal image-reference" href="../_images/als-banaan-dan-chocolade.drawio.png"><img alt="../_images/als-banaan-dan-chocolade.drawio.png" src="../_images/als-banaan-dan-chocolade.drawio.png" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.8 </span><span class="caption-text">De verzameling bananen-mandjes - totaal en met chocolade.</span><a class="headerlink" href="#id4" title="Permallink naar deze afbeelding">#</a></p>
+</figcaption>
+</figure>
+<p>Om nu te weten te komen of het vermoeden dat bananen vaker samen met chocolade worden verkocht klopt, ben je geïnteresseerd in de vraag: als een klant bananen koopt, hoe groot is dan de kans dat deze klant ook chocolade koopt? Ofwel hoe waar is de uitspraak(<strong>???</strong>): <em>Als een klant bananen koopt, koopt de klant ook chocolade</em>? Een dergelijke uitspraak noemt men een <strong>associatieregel.</strong>  Met de gegevens hierboven kunnen we de betrouwbaarheid (<strong>=confidence</strong>) van deze uitspraak uitrekenen in de vorm van een kans:</p>
+<p><strong>Confidence</strong> ( <em>Als een klant bananen koopt, koopt de klant ook chocolade</em> ) =
+aantal winkelmandjes met bananen èn chocolade / totaal aantal winkelmandjes met bananen= 653/905=0,72.</p>
+<p>In ongeveer driekwart van de gevallen zal de klant die bananen in zijn mandje legt doorlopen naar de chocolade. Zullen we het die klant maar eens gemakkelijker maken door deze producten dichter bij elkaar te plaatsen?</p>
+<p>In het voorbeeld hierboven hebben we specifiek gekeken naar bananen en chocolade. Het is zinvoller als we uitgaan van alle aankopen en met een methode uitvissen wat de interessante combinaties zijn. De <strong>apriori methode</strong>, die we hier straks uitwerken, is zo’n methode. Eerst even een meer algemene introductie over associatie analyse.</p>
+<p>Bij <a class="reference external" href="https://en.wikipedia.org/wiki/Association_rule_learning">associatie analyse</a> is het de bedoeling dat een gegeven set kenmerken die een gebruiker in een toepassing aanlevert, bijvoorbeeld jouw leeftijd, geslacht, ingetypte zoekopdracht, beluisterde muziek, artikelen in je winkelmand, wordt vergeleken met dezelfde kenmerken van andere gebruikers. Gezocht wordt dan naar overeenkomsten tussen de gebruikers. Het resultaat van de associatie is dan bijvoorbeeld de uitvoer van de toepassing, bijvoorbeeld de reclame die in de zoekmachine verschijnt, muziek die jij ook wel leuk zou vinden, artikelen die jij ook zou willen kopen. Om zinvolle suggestie te doen moet een grote hoeveelheid gegevens worden geanalyseerd.</p>
+<p>Bedrijven verkrijgen deze gegevens via de verkoopregistraties van de kassa’s of via de registratie van het gebruik door personen van hun apps, bijvoorbeeld een webwinkel, sociaal medium, enzovoort. Gezocht wordt dan naar overeenkomsten tussen de personen die samengaan, zoals de gezamenlijke aankoop van bananen en chocola.</p>
+<p>De AI techniek associatie analyse die voor deze situaties wordt gebruikt heeft als belangrijkste AI-kenmerk: <em>de invoer die het programma krijgt, is niet volledig te bepalen en is complex</em> . Het leerproces dat in associatie analyse wordt gebruikt is  <em>unsupervised learning</em>.</p>
+</section>
+<section id="toepassingen">
+<h2><span class="section-number">3.4.2. </span>Toepassingen<a class="headerlink" href="#toepassingen" title="Permalink to this heading">#</a></h2>
+<p>Voor we de theorie van associatie analyse behandelen en leren toepassen geven we een aantal voorbeelden van gebieden waarin associatie analyse wordt gebruikt:</p>
+<p><strong>Gezondheidszorg</strong></p>
+<p>Artsen kunnen associatieregels gebruiken om een diagnose van patiënten te stellen. Omdat veel ziekten overeenkomstige symptomen hebben, zijn er veel variabelen waarmee rekening moet worden gehouden bij het stellen van een diagnose. Een AI applicatie met associatie analyse, die getraind is met alle symptomen en de daarbij behorende ziekten, kan een arts die ziekten tonen die het meest waarschijnlijk zijn. De arts moet daarvoor de symptomen die hij of zij ziet invoeren.</p>
+<p>Als er nieuwe symptomen bij een ziekte optreden of als er nieuwe ziekten bijkomen, kan het machine learning-model opnieuw getraind worden met de oude en bijgewerkte gegevens.</p>
+<p><strong>Detailhandel</strong></p>
+<p>Detailhandelaren kunnen gegevens over aankooppatronen verzamelen en aankoopgegevens registreren en die verwerken met associatie analyse. Daarna kan dan worden gekeken welke producten het meest waarschijnlijk samen worden gekocht. De winkelier kan vervolgens de marketing- en verkoopstrategie aanpassen om van deze informatie te profiteren.</p>
+<p><strong>User experience (UX) design</strong></p>
+<p>Ontwikkelaars kunnen gegevens verzamelen over hoe consumenten een door hen gemaakte website/app gebruiken. Ze kunnen vervolgens associaties in de gegevens gebruiken om de gebruikersinterface van de website te optimaliseren - door bijvoorbeeld te analyseren waar gebruikers op klikken en hoe ze de kans dat een bezoeker een gewenste handeling verricht kan vergroten.</p>
+<p><strong>Sociale media en entertainment</strong></p>
+<p>Services zoals Facebook, Youtube, Netflix, Twitter, Spotify kunnen associatieregels gebruiken om hun engine voor contentaanbeveling van brandstof te voorzien. Machine learning-modellen analyseren gegevens over gebruikersgedrag uit het verleden op frequente patronen, ontwikkelen associatieregels en gebruiken die regels om gebruikers aanbevelingen te doen die hun ook zal interesseren, b.v. die leuke foto van een ooievaar, omdat je als vogelaar heel vaak foto’s van vogels bekijkt.</p>
+</section>
+<section id="theorie">
+<h2><span class="section-number">3.4.3. </span>Theorie<a class="headerlink" href="#theorie" title="Permalink to this heading">#</a></h2>
+<p>In de opwarmer aan het begin van dit hoofdstuk hebben we geprobeerd om op een intuïtieve manier het doel van associatie analyse, een AI algoritme, duidelijk te maken. We meldden daar ook al dat we op basis van alle kassaregistraties zinvolle verbanden willen vinden. Zoals typisch is voor AI bepalen de gegevens, door deze te in te voeren in een iteratief proces, de uitkomst van de analyse.</p>
+<p>De wiskundige techniek die wordt gebruikt in associatie analyse is gebaseerd op verzamelingen, de zogenaamde verzamelingenleer.  Het is dus nuttig eerst wat begrippen in de verzamelingenleer te introduceren. Een aantal van deze begrippen ben je waarschijnlijk al eens in de wiskundeles tegengekomen.  Daarna gebruiken we deze begrippen in de apriori methode, een veel gebruikte methode in de associatie analyse.</p>
+</section>
+<section id="verzamelingenleer">
+<h2><span class="section-number">3.4.4. </span>Verzamelingenleer<a class="headerlink" href="#verzamelingenleer" title="Permalink to this heading">#</a></h2>
+<p>Als leerling zit je in een klas, als voetballer zit je in een team, je play-list bevat een aantal leuke liedjes, …. Zo kunnen we nog een tijd doorgaan met het geven van voorbeelden. Voorbeelden die allemaal gaan over verzamelingen. In plaats van een klas, team, play list spreken we van een <em>verzameling</em>, in het Engels <em>set</em>. In een verzameling bevinden zich <em>elementen</em> (leerlingen, spelers, liedjes). We noteren een verzameling als volgt:</p>
+<div class="math notranslate nohighlight">
+\[
+\small V=\{v_1,v_2,v_3,\cdots,v_n\}
+\]</div>
+<p>Verzameling <span class="math notranslate nohighlight">\(*\small V*\)</span> bevat elementen <span class="math notranslate nohighlight">\(*\small v*\)</span> die we kunnen nummeren. <span class="math notranslate nohighlight">\(v_{1}\)</span> is dan het eerste element in de verzameling, <span class="math notranslate nohighlight">\(v_{2}\)</span> het tweede, <span class="math notranslate nohighlight">\(v_{3}\)</span> is dan het derde, enz. De complete verzameling noteer je door accolades {..} om de lijst van elementen te zetten.</p>
+<p>Een verzameling bestaat dus uit elementen, en als <span class="math notranslate nohighlight">\(v\)</span> <em>een element is van een verzameling</em> <span class="math notranslate nohighlight">\(\small V\)</span> noteren we dit wiskundig als <span class="math notranslate nohighlight">\(\small v \in V\)</span>.</p>
+<p>Voorbeeld: De verzameling winkelmandje met de elementen melk, brood, en kaas noteren we als:</p>
+<div class="math notranslate nohighlight">
+\[
+\small \text{winkelmandje} = \{\text{melk}, \text{brood}, \text{kaas}\}
+\]</div>
+<p>Als we schrijven <span class="math notranslate nohighlight">\(\small \textbf{melk} \in \textbf{winkelmandje}\)</span>, dan zeggen we dus dat melk in het winkelmandje aanwezig is.</p>
+<aside>
+🚨 **Deelverzameling**
+<p>Als voor twee verzamelingen <span class="math notranslate nohighlight">\(\small X\)</span> en <span class="math notranslate nohighlight">\(\small Y\)</span> geldt dat elk element van <span class="math notranslate nohighlight">\(\small X\)</span> ook een element is van <span class="math notranslate nohighlight">\(\small Y\)</span>, dan zeggen we dat <span class="math notranslate nohighlight">\(\small X\)</span> een <em>deelverzameling</em> (of <em>subset</em>) is van <span class="math notranslate nohighlight">\(\small Y\)</span>. Notatie: <span class="math notranslate nohighlight">\(\small X⊂Y\)</span>.</p>
+</aside>
+<p>Zo geldt bijvoorbeeld voor <span class="math notranslate nohighlight">\(\small X=\{\text{melk},\text{kaas}\}\)</span> en <span class="math notranslate nohighlight">\(\small Y=\{\text{melk},\text{brood},\text{kaas}\}\)</span> dat <span class="math notranslate nohighlight">\(\small X ⊂ Y\)</span>, <span class="math notranslate nohighlight">\(\small X\)</span> is een deelverzameling van <span class="math notranslate nohighlight">\(\small Y\)</span> want melk en kaas, de elementen van <span class="math notranslate nohighlight">\(X\)</span>, zijn ook aanwezig in <span class="math notranslate nohighlight">\(Y\)</span>.</p>
+<aside>
+🚨 **Doorsnede**
+<p>De <em>doorsnede</em> (of <em>intersection</em>) <span class="math notranslate nohighlight">\(\small X∩Y\)</span> van twee verzamelingen <span class="math notranslate nohighlight">\(\small X\)</span> en <span class="math notranslate nohighlight">\(\small Y\)</span> bestaat uit de gemeenschappelijke elementen van <span class="math notranslate nohighlight">\(\small X\)</span> en <span class="math notranslate nohighlight">\(\small Y\)</span>. In de figuur rechts is de doorsnede het lichtgroene gebied.</p>
+</aside>
+<p>!<a class="reference external" href="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7dbb6d2a-a837-4edb-82c7-5ab602858f8c/doorsnede.svg">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7dbb6d2a-a837-4edb-82c7-5ab602858f8c/doorsnede.svg</a></p>
+<p>Zo is bijvoorbeeld de doorsnede van de verzamelingen <span class="math notranslate nohighlight">\(\small X = \{\text{melk}, \text{brood}, \text{kaas}\}\)</span> en <span class="math notranslate nohighlight">\(\small Y = \{\text{melk}, \text{brood}, \text{pindakaas}\}\)</span> de verzameling met melk en brood, <span class="math notranslate nohighlight">\(\small \{\text{melk}, \text{brood}\}\)</span>, want die zijn in beide verzameling aanwezig. In wiskundige notatie is dit:</p>
+<p><span class="math notranslate nohighlight">\(\small \{\text{melk}, \text{brood}, \text{kaas}\} \cap \{\text{melk}, \text{brood}, \text{pindakaas}\} = \{\text{melk}, \text{brood}\}\)</span></p>
+<aside>
+<p>🚨 <strong>Vereniging</strong></p>
+<p>De <em>vereniging</em> (of <em>union</em>) <span class="math notranslate nohighlight">\(\small X∪Y\)</span> van twee verzamelingen <span class="math notranslate nohighlight">\(\small X\)</span> en <span class="math notranslate nohighlight">\(\small Y\)</span> bestaat uit de elementen die tot <span class="math notranslate nohighlight">\(\small X\)</span>, tot <span class="math notranslate nohighlight">\(\small Y\)</span> of tot beide horen. In de figuur rechts bestaat de vereniging uit alle enigszins gele gebieden.</p>
+</aside>
+<p>!<a class="reference external" href="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e77fa85d-7f25-4332-9883-db9a7b332f1e/vereniging.svg">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e77fa85d-7f25-4332-9883-db9a7b332f1e/vereniging.svg</a></p>
+<p>Zo is bijvoorbeeld de vereniging van de verzamelingen  <span class="math notranslate nohighlight">\(\small X = \{\text{melk}, \text{brood}, \text{kaas}\}\)</span>  en de verzameling <span class="math notranslate nohighlight">\(\small Y = \{\text{melk}, \text{brood}, \text{pindakaas}\}\)</span> verzameling met de elementen Kaas, Melk, Brood en Pindakaas, <span class="math notranslate nohighlight">\(\small \{\text{melk}, \text{brood}, \text{kaas}, \text{pindakaas}\}\)</span> want alle elementen uit <span class="math notranslate nohighlight">\(X\)</span> en <span class="math notranslate nohighlight">\(Y\)</span> zijn aanwezig. Notatie:</p>
+<p><span class="math notranslate nohighlight">\(\small \{\text{melk}, \text{brood}, \text{kaas}\} \cup \{\text{melk}, \text{brood}, \text{pindakaas}\} = \{\text{melk}, \text{brood}, \text{kaas}, \text{pindakaas}\}\)</span></p>
+<aside>
+<p>🚨 <strong>Kardinaliteit</strong></p>
+<p>Voor een eindige verzameling <span class="math notranslate nohighlight">\(\small X\)</span> definiëren we <span class="math notranslate nohighlight">\(**\small \#X**\)</span> als het <strong>aantal</strong> elementen in <span class="math notranslate nohighlight">\(\small X\)</span>. Dit wordt ook wel de <em><strong>kardinaliteit</strong></em> genoemd.</p>
+</aside>
+<p>Zo is bijvoorbeeld <span class="math notranslate nohighlight">\(\small \#\{\text{chips}, \text{zeep}, \text{appels}\}=3\)</span>.</p>
+<p>Een element van een verzameling kan zelf ook een verzameling zijn. Zo bestaat de verzameling</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\small \begin{array}{rcl}C &amp;=&amp; \{\{\text{chips}, \text{zeep}, \text{appels}\}\\&amp;&amp;, \{\text{chips}, \text{zeep}, \text{appels}\}\\&amp;&amp;, \{\text{zeep}, \text{bananen}\}\\&amp;&amp;, \{\text{chips}, \text{zeep}, \text{bananen}\}\\&amp;&amp;\}\end{array}
+\end{split}\]</div>
+<p>uit vier elementen, ieder element is een verzameling.</p>
+<p>Een verzameling waarin de elementen ook weer verzamelingen zijn noemt men ook wel een <em>collectie</em>.</p>
+</section>
+<section id="associatieregels">
+<h2><span class="section-number">3.4.5. </span>Associatieregels<a class="headerlink" href="#associatieregels" title="Permalink to this heading">#</a></h2>
+<p>We hadden het al over associaties tussen dataverzamelingen, tijd om dat precies te maken. Daarbij maken we gebruik van het voorbeeld hieronder. Het is een collectie van acht winkelmandjes uit een supermarkt, natuurlijk versimpeld. De meest supermarkten hebben wel vijftig soorten chocola.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\small \begin{array}{lcl}C&amp;=&amp;\{\{\text{ melk, brood, kaas }\}\\ &amp; &amp; ,\{\text{ yoghurt, rozijnen, appel }\}\\ &amp; &amp; ,\{\text{ pindakaas, brood, melk, komkommer }\}\\ &amp; &amp; ,\{\text{ brood, banaan }\}\\ &amp; &amp; ,\{\text{ banaan, appel, chocolade }\}\\ &amp; &amp; ,\{\text{ brood }\}\\ &amp; &amp; ,\{\text{ chocolade, brood, banaan }\}\\ &amp; &amp; ,\{\text{ rozijnen, chocolade, pindakaas }\}\\ &amp; &amp; ,\{\text{ melk, brood, banaan, kaas, chocolade}\}\\ &amp; &amp; ,\{\text{ melk, chocolade }\}\\ &amp; &amp; \}\end{array}
+\end{split}\]</div>
+<p>De collectie D bestaat nu uit de inhoud van de acht winkelmandjes, van iedere klant één. Ieder mandje is een verzameling van producten:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\small\begin{array}{rcl}C_1&amp;=&amp; \{\text{ melk, brood, kaas }\} \\C_2&amp;=&amp; \{\text{ yoghurt, rozijnen, appel }\} \\C_3&amp;=&amp; \{\text{ pindakaas, brood, melk, komkommer }\} \\C_4&amp;=&amp; \{\text{ brood, banaan }\} \\C_5&amp;=&amp; \{\text{ banaan, appel, chocolade }\} \\C_6&amp;=&amp; \{\text{ brood }\} \\C_7&amp;=&amp; \{\text{ chocolade, brood, banaan }\} \\C_8&amp;=&amp; \{\text{ rozijnen, chocolade, pindakaas }\} \\ C_9&amp;=&amp; \{\text{ melk, brood, banaan, kaas, chocolade}\} \\C_{10}&amp;=&amp; \{\text{ melk, chocolade }\}\end{array}
+\end{split}\]</div>
+<p>Om uitspraken te kunnen doen over verbanden tussen verzamelingen en de waarde van die verzamelingen zijn de volgende definities van belang.</p>
+<aside>
+🚨 **Associatieregel**
+<p>De associatieregel <span class="math notranslate nohighlight">\(*\small X⇒Y*\)</span> betekent: als de deelverzameling <span class="math notranslate nohighlight">\(*\small X*\)</span> voorkomt dan komt ook de deelverzameling <span class="math notranslate nohighlight">\(*\small Y*\)</span>  voor.</p>
+</aside>
+<p>Bijvoorbeeld <span class="math notranslate nohighlight">\(*\small \{\text{melk}\} ⇒ \{\text{melk},\text{brood}\}\)</span>* betekent dat als melk in een winkelmand zit, dan zit er ook brood in. In een winkelmandjes analyse is dit natuurlijk niet altijd waar, maar in associatie analyse is het van belang om te kijken hoe groot de kans op deze associatieregel is, ofwel hoe <em><strong>betrouwbaar</strong></em> is deze regel. Om de betrouwbaarheid te bepalen hebben we nog wat gereedschap nodig.</p>
+<p>De deelverzamelingen waar we het hier over hebben zijn niet de kassabonnen zelf, maar setjes van artikelen - <span class="math notranslate nohighlight">\(*\small \{\text{melk}\} ⇒ \{\text{melk},\text{brood}\}\)</span>* - waarvan we onderzoeken of ze samen gekocht worden. Daarvoor gebruiken we de term <strong>itemset</strong>.</p>
+<aside>
+🚨 **Itemset**
+<p>Een <em>itemset</em> is een deelverzameling van losse elementen in een collectie. Een <span class="math notranslate nohighlight">\(*\small k\)</span>-itemset* is een deelverzameling die <span class="math notranslate nohighlight">\(*\small k*\)</span> ****elementen bevat.</p>
+</aside>
+<p>Zo algemeen geformuleerd klinkt het behoorlijk moeilijk. Bedenk dat het in ons voorbeeld gewoon gaat om setjes van artikelen die we in winkelmandjes vinden. Dat is dus een setje artikelen uit de verzameling artikelen die voorkomen:</p>
+<p><span class="math notranslate nohighlight">\(\small \{ \text{ melk, brood, kaas, yoghurt, rozijnen, appel ,} \\ \text{ \,\,pindakaas, komkommer, banaan, appel, chocolade } \}\)</span></p>
+<aside>
+🚨 **Support**
+<p>De <em>support</em>  van een deelverzameling <span class="math notranslate nohighlight">\(*\small X*\)</span> is het aantal deelverzamelingen van een collectie <span class="math notranslate nohighlight">\(*\small C*\)</span> waar de elementen van <span class="math notranslate nohighlight">\(*\small X*\)</span> in voorkomen gedeeld door het aantal elementen van deze collectie.</p>
+<div class="math notranslate nohighlight">
+\[
+ ⁍
+\]</div>
+<p>Hierin is <span class="math notranslate nohighlight">\(**\small \mathrm{freq}(X)**\)</span> het aantal (<em><strong>frequentie</strong></em>) van de (deel)verzamelingen waarin de elementen van <span class="math notranslate nohighlight">\(***\small X***\)</span> voorkomen. Support is dus vaktaal voor de experimentele kans (of relatieve frequentie) dat een mandje de (deel)verzameling <span class="math notranslate nohighlight">\(***\small X***\)</span> bevat.</p>
+</aside>
+<p>Bekijk weer de bovenstaande collectie winkelmandjes <span class="math notranslate nohighlight">\(*\small D*\)</span> dan vind je bijvoorbeeld:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\small \mathrm{freq}(\{\text{banaan}\})=4\)</span>, want er zijn 4 elementen in C waartoe element banaan behoort, namelijk <span class="math notranslate nohighlight">\(\small C_{4},C_{5},C_{7},C_{9}\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(*\small \mathrm{support}(\{\text{melk}\})=\frac{4}{8}*\)</span>, want er zijn <span class="math notranslate nohighlight">\(\small \mathrm{freq}(\{\text{melk}\})=4\)</span> van de <span class="math notranslate nohighlight">\(\small \#C=10\)</span> elementen van <span class="math notranslate nohighlight">\(\small C\)</span> waar het element <span class="math notranslate nohighlight">\(*\small \text{melk}*\)</span> in voorkomt.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\small \mathrm{support}(\{\text{banaan},\text{chocolade}\})=\frac{3}{10}\)</span>, want er zijn 3 van de 10 deelverzamelingen waarin de elementen banaan en chocolade samen voorkomen.</p></li>
+</ul>
+<p>Nog een voorbeeld van een praktische toepassing. Bij marktonderzoek is de support van een stel artikelen (bijvoorbeeld <span class="math notranslate nohighlight">\(*\small K=\{\text{televisie},\text{surroundset}\}*\)</span>) het aantal klanten dat al die artikelen samen koopt, op het totaal aantal klanten, meestal weergegeven als percentage.</p>
+<p>In de associatieanalyse kan niet altijd alles worden meegenomen. Vaak is men alleen geïnteresseerd in artikelen en combinaties van artikelen die vaak voorkomen en dus frequent zijn.</p>
+<aside>
+🚨 **Frequent**
+<p>Een stel artikelen <span class="math notranslate nohighlight">\(***\small K*\)</span>** met hoge support, boven een zekere drempel, heet <em><strong>frequent</strong></em>. Ofwel: ten opzichte van het totaal aantal klanten kopen veel klanten alle artikelen in <span class="math notranslate nohighlight">\(***\small K***\)</span>.</p>
+</aside>
+<p>In de associatieanalyse, bijvoorbeeld bij de winkelmandjes, wil men handelen op basis van associatieregels. Deze associatieregels stelt men dan op voor frequente itemsets. Maar dat is niet voldoende, de associatieregel moet ook nog interessant zijn. De kans op de associatie moet vrij groot zijn. Het heeft niet veel zin om te gaan adverteren voor Y bij mensen die X kopen, als uit de data helemaal niet blijkt dat X-kopers vaak Y kopen. We willen weten of de associatie vaak voorkomt. In de vaktaal heet dat de <strong>confidence</strong> ofwel de <strong>betrouwbaarheid</strong> van de associatieregel.</p>
+<p>Laten we terugkeren naar het voorbeeld van de bananen en de chocolade. We hebben tien winkelmandjes. Banaan zit in vier van die winkelmandjes en drie van de vier bevatten weer chocolade. Dat is 75%, een kans van driekwart dat de associatie optreedt. Nu is een collectie van tien winkelmandjes niet echt groot genoeg om die kans echt te bepalen, maar wanneer je zo een miljoen winkelmandjes onderzoekt, is de kans behoorlijk zeker.
+De betrouwbaarheid van een associatieregel bepalen we dus zo.</p>
+<aside>
+🚨 **Betrouwbaarheid**
+<p>De <em>betrouwbaarheid</em> (of <em>confidence</em>) van de associatieregel <span class="math notranslate nohighlight">\(*\small X⇒Y*\)</span> wordt berekend door de support van de vereniging van <span class="math notranslate nohighlight">\(*\small X*\)</span> en <span class="math notranslate nohighlight">\(*\small Y*\)</span> te delen door de support van <span class="math notranslate nohighlight">\(*\small X*\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+\small \mathrm{confidence}(X \Rightarrow Y) = \frac{\mathrm{support}(X \cup Y)}{\mathrm{support}(X)}
+\]</div>
+<p>Je kunt dit ook simpeler uitrekenen door de frequenties op elkaar te delen, dit geeft dezelfde uitkomst.</p>
+<div class="math notranslate nohighlight">
+\[
+\small \mathrm{confidence}(X \Rightarrow Y) =\frac{\mathrm{freq}(X \cup Y)}{\mathrm{freq}(X)}
+\]</div>
+</aside>
+<p>In ons voorbeeld kunnen we de betrouwbaarheid van de associatieregel
+<span class="math notranslate nohighlight">\(\{\small \text{ banaan } \} \Rightarrow \{\small \text{ banaan, chocolade } \}\)</span> dus uitrekenen door de support te delen: 3/10 gedeeld door 4/10. Of simpeler, door de frequenties op elkaar te delen: 3/4.</p>
+</section>
+<section id="apriori-algoritme">
+<h2><span class="section-number">3.4.6. </span>Apriori algoritme<a class="headerlink" href="#apriori-algoritme" title="Permalink to this heading">#</a></h2>
+<p>Er bestaan veel algoritmes om associatieregels te ontdekken. De oudste en meest bekende methode is het Apriori algoritme (a priori bekent: op basis van eerder onderzoek) ontwikkeld voor transacties (verkopen). Het is in de jaren negentig bedacht door <a class="reference external" href="https://en.wikipedia.org/wiki/Apriori_algorithm">Agrawal en collega’s</a>.</p>
+<p>Met het algoritme vind je interessante associatieregels voor producten die voldoende frequent gekocht worden. Voldoende voorkomend (frequent) betekent in dit geval dat we niet alle verbanden even nuttig vinden. Als producten te weinig voorkomen, ofwel te weinig support hebben, dan nemen we die niet mee in het algoritme.</p>
+<p>Je geeft een ondergrens aan de support op, de <strong>minimale support</strong>.</p>
+<p>Naast deze minimale support kun je ook instellen hoe betrouwbaar de associatieregels moeten zijn (hoe sterk zijn de aanwijzingen), ofwel je geeft een <strong>minimale confidence</strong> op.</p>
+<aside>
+🚨 Apriori algoritme
+<p>Het Apriori algoritme voor een collectie <em>C</em> bestaat uit de volgende twee fasen:</p>
+<ol class="arabic simple">
+<li><p>Het maken van een collectie <em>F</em> met verzamelingen die voldoende frequent (groter dan een minimale support) zijn in <em>C</em>,</p></li>
+<li><p>Het opstellen van associatieregels met verzamelingen uit <em>F</em> met voldoende betrouwbaarheid (groter dan een minimale confidence) in <em>C</em>.</p></li>
+</ol>
+</aside>
+<section id="voorbeeld">
+<h3>voorbeeld<a class="headerlink" href="#voorbeeld" title="Permalink to this heading">#</a></h3>
+<p>We gaan door deze twee fasen heen aan de hand van de collectie winkelmandjes die we al eerder gebruikten. Die is klein, in echte toepassing zijn dat er duizenden, of miljoenen.</p>
+<p><span class="math notranslate nohighlight">\(\small \begin{array}{lcl}C&amp;=&amp;\{
+\{\text{ melk, brood, kaas }\}\\ &amp; &amp; ,
+\{\text{ yoghurt, rozijnen, appel }\}\\ &amp; &amp; ,
+\{\text{ pindakaas, brood, melk, komkommer }\}\\ &amp; &amp; ,
+\{\text{ brood, banaan }\}\\ &amp; &amp; ,
+\{\text{ banaan, appel, chocolade }\}\\ &amp; &amp; ,
+\{\text{ brood }\}\\ &amp; &amp; ,
+\{\text{ chocolade, brood, banaan }\}\\ &amp; &amp; ,
+\{\text{ rozijnen, chocolade, pindakaas }\}\\ &amp; &amp; ,
+\{\text{ melk, brood, banaan, kaas, chocolade}\}\\ &amp; &amp; ,
+\{\text{ melk, chocolade }\}\\ &amp; &amp; \}
+\end{array}\)</span></p>
+<p>De centrale vraag is: welke combinaties van producten zijn interessant? We vinden combinaties interessant als er een minimale support is van 0.3 (of 30%) en we zijn alleen geïnteresseerd in associatieregels met een betrouwbaarheid van minimaal 70%.</p>
+</section>
+<section id="fase1-het-maken-van-een-collectie-f-met-verzamelingen-die-voldoende-frequent-groter-dan-een-minimale-support-zijn-in-c">
+<h3>Fase1: Het maken van een collectie <em>F</em> met verzamelingen die voldoende frequent (groter dan een minimale support) zijn in <em>C</em><a class="headerlink" href="#fase1-het-maken-van-een-collectie-f-met-verzamelingen-die-voldoende-frequent-groter-dan-een-minimale-support-zijn-in-c" title="Permalink to this heading">#</a></h3>
+<p>Het algoritme bouwt een verzameling van frequente itemsets op. Dat gaat van onderop (“bottom up”): eerst itemsets van 1 item, dan van 2, enzovoort. Probleem is dat het aantal itemsets erg groot wordt, als de winkel veel artikelen heeft. Bij duizend artikelen heb je al meer dan 100 miljoen setjes van drie artikelen! Het algoritme gebruikt een truc om niet zoveel itemsets te hoeven bekijken. Zometeen meer daarover.</p>
+<p>Na de start van het algoritme maken we eerst de lege collectie <span class="math notranslate nohighlight">\(F = \{\}\)</span> en zetten het aantal elementen <span class="math notranslate nohighlight">\(k\)</span> aanwezig in een itemset op 0. Gelijk daarna maken we <span class="math notranslate nohighlight">\(k\)</span> gelijk aan 1 en gaan we naar het oranje blok:</p>
+<aside>
+🚨 **Genereer alle kandidaat itemsets met lengte 1**
+<p>We verzamelen de 1-itemset in de collectie <span class="math notranslate nohighlight">\(*S_1*\)</span>. De collectie <span class="math notranslate nohighlight">\(*S_1*\)</span> bestaat dan uit alle verzamelingen met slechts één item. (b.v. alle verschillende artikelen die je in al de winkelmandjes tegenkomt).</p>
+<p><strong>voorbeeld:</strong></p>
+<p><span class="math notranslate nohighlight">\(*\small S_1= \{ \text{ melk, brood, kaas, yoghurt, rozijnen, appel,} \\ \text{ pindakaas, komkommer, \, banaan, appel, chocolade } \}*\)</span></p>
+</aside>
+<p>Vervolgens gaan we naar de stap in het blauwe blok:</p>
+<aside>
+🚨 **Bereken de support van elke 1- itemset uit $S_1$ in C**
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{ll}\colorbox{red}{\color{white} \text{Support in C}}\\ \colorbox{red}{\color{white}\text{Element in } S1}  &amp; \colorbox{red}{\color{white}\text{Support}}\\\{melk\} &amp; 40\% \\\{brood\}&amp; 60\%\\\{kaas\}&amp; \color{red}20\% \\\{yoghurt\}&amp; \color{red}10\% \\\{rozijnen\}&amp; \color{red}20\% \\\{appel\}&amp; \color{red}20\% \\\{pindakaas\}&amp; \color{red}20\% \\\{komkommer\}&amp; \color{red}10\% \\\{banaan\}&amp; 40\% \\\{chocolade\}&amp; 50\% \end{array}
+\end{split}\]</div>
+</aside>
+<p>Als laatste gaan we in de eerste iteratie naar het paarse blok:</p>
+<aside>
+🚨 **Voeg de 1-itemsets met voldoende support toe aan de collectie *F***
+<p><strong>voorbeeld:</strong></p>
+<p>In de tabel hierboven zie je dat alleen <span class="math notranslate nohighlight">\(\{melk\}\)</span>,<span class="math notranslate nohighlight">\(\{brood\}\)</span>,<span class="math notranslate nohighlight">\(\{banaan\}\)</span>  en <span class="math notranslate nohighlight">\(\{chocolade\}\)</span> de grens van 30% halen. De collectie <span class="math notranslate nohighlight">\(F\)</span> met itemsets met voldoende support breiden we dus uit met deze vier 1-itemsets.</p>
+<div class="math notranslate nohighlight">
+\[
+F=\{Spaghetti\},\{Tomatensaus\}, \{Brood\}
+\]</div>
+</aside>
+<p>We komen nu aan bij de test “Is er in deze ronde een k-itemset aan <em>F</em> toegevoegd?”. In het voorbeeld hebben we net vier verzamelingen met 1-item toegevoegd en is het antwoord dus ja, we  zijn dus nog niet klaar. We verhogen k naar 2 en gaan weer verder bij het oranje blok:</p>
+<aside>
+🚨 **Genereer alle kandidaat itemsets met lengte 2**
+<p>We verzamelen de 2-itemset in de collectie <em>S2</em>. De collectie <em>S2</em> bestaat dan uit alle verzamelingen met twee items waarbij we alleen nog kijken naar de items die in <em>F</em> aanwezig zijn.</p>
+<p><strong>voorbeeld:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+*S*2=\{Spaghetti, Tomatensaus\}, \{Spaghetti, Brood\}, \{Tomatensaus, Brood\}
+\]</div>
+</aside>
+<p>De truc van het algoritme is dat we niet alle combinaties van twee artikelen bekijken, maar alleen de - nu vier - frequente artikelen gebruiken. Het heeft geen zin een combinatie met een niet-frequent artikel te bekijken. Apart komt dat al te weinig voor, laat staan in combinatie. We gaan dus door met de vier items uit ronde 1, die samen zes combinaties leveren.</p>
+<aside>
+🚨 **voorbeeld:**
+<p><span class="math notranslate nohighlight">\(S_{2}=\{\{melk,brood\},\{melk,banaan\},\{melk,chocolade\},\\
+\{brood, banaan \}, \{brood, chocolade \}, \{banaan, chocolade \}\}\)</span></p>
+</aside>
+<p>Op naar het blauwe blok om de support te berekenen:</p>
+<aside>
+🚨 **Bereken de support van elke 2- itemset uit S2 in C**
+<p><strong>voorbeeld:</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{ll}\colorbox{red}{\color{white} \text{ Support in C}}\\ \colorbox{red}{\color{white}\text{Element in S2}} &amp; \colorbox{red}{\color{white}\text{Support}}\\\{melk,brood\} &amp; 30\% \\\{melk,banaan\}&amp; \color{red} 10\%\\\{melk,chocolade\}&amp; \color{red} 20\%\\\{brood, banaan\}&amp; 30\% \\\{brood, chocolade\}&amp; \color{red} 10\%\\\{brood, banaan\}&amp; 30\% \end{array}
+\end{split}\]</div>
+</aside>
+<p>Kunnen we weer itemsets toevoegen aan <em>F</em>?</p>
+<aside>
+🚨 **Voeg de 2-itemsets met voldoende support toe aan de collectie *F***
+<p><strong>voorbeeld:</strong></p>
+<p>In de tabel hierboven zie je dat niet alle 2-itemsets de grens van 30% halen. De collectie <span class="math notranslate nohighlight">\(F\)</span> met itemsets met voldoende support breiden we dus alleen uit met de 2-itemsets
+<span class="math notranslate nohighlight">\(\{melk,brood\}, \{brood, banaan \}\)</span> en {banaan, chocolade}.</p>
+<p><span class="math notranslate nohighlight">\(\begin{array}{ll}  F= &amp; \{\{melk\}, \\ 	&amp;  \{brood\}, \\	&amp;  \{banaan\}, \\	&amp;  \{chocolade\}, \\	&amp;  \{melk,brood\}, \\	&amp;  \{brood, banaan\}, \\	&amp;  \{banaan, chocolade\} \}\end{array}\)</span></p>
+</aside>
+<p>We komen nu weer aan bij de test “Is er in deze ronde een k-itemset aan <em>F</em> toegevoegd?”. In het voorbeeld hebben we er weer drie toegevoegd en is het antwoord dus ja, we  zijn dus nog steeds niet klaar. We verhogen k naar 3 en gaan weer verder bij het oranje blok:</p>
+<aside>
+🚨 **Genereer alle kandidaat itemsets met lengte 3**
+<p>We verzamelen de 3-itemset in de collectie <em>S3</em>. De collectie <em>S3</em> bestaat dan uit alle verzamelingen met drie items waarbij we alleen nog kijken naar de items die in <em>F</em> aanwezig zijn.</p>
+<p><strong>voorbeeld:</strong></p>
+<p><span class="math notranslate nohighlight">\(S_{3}=\{\{melk, brood, banaan \}, \{melk, brood, chocolade \}, \\ \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\{brood, banaan, chocolade \} \}\)</span></p>
+</aside>
+<p>Het blauwe blok levert nu de support:</p>
+<aside>
+🚨 **Bereken de support van elke 3- itemset uit S3 in C**
+<p><strong>voorbeeld:</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{ll}\colorbox{red}{\color{white} \text{ Support in C}}\\ \colorbox{red}{\color{white}\text{Element in S3}} &amp; \colorbox{red}{\color{white}\text{Support}}\\\{melk, brood, banaan\} &amp; \color{red} 10\% \\\{melk, brood, chocolade\} &amp; \color{red} 10\% \\\{brood, banaan, chocolade\} &amp; \color{red} 10\% \\\end{array}
+\end{split}\]</div>
+</aside>
+<p>Kunnen we weer itemsets toevoegen aan <em>F</em>?</p>
+<aside>
+🚨 **Voeg de 3-itemsets met voldoende support toe aan de collectie *F***
+<p><strong>voorbeeld:</strong></p>
+<p>In de tabel hierboven zie je dat alle 3-itemsets de grens van 20% niet halen. Er kan niets aan F worden toegevoegd. De collectie F blijft dus:</p>
+<p><span class="math notranslate nohighlight">\(*\begin{array}{ll}  F= &amp; \{\{melk\}, \\ 	&amp;  \{brood\}, \\	&amp;  \{banaan\}, \\	&amp;  \{chocolade\}, \\	&amp;  \{melk,brood\}, \\	&amp;  \{brood, banaan\}, \\	&amp;  \{banaan, chocolade\} \}\end{array}*\)</span></p>
+</aside>
+<p>We komen nu weer aan bij de test “Is er in deze ronde een k-itemset aan <em>F</em> toegevoegd?”. In het voorbeeld hebben we niets meer hebben toegevoegd dus nee, we  zijn klaar en eindigen met de bovenstaande verzameling <span class="math notranslate nohighlight">\(F\)</span> verzameling</p>
+<p>In het voorbeeld zijn in het algoritme dus 3 iteraties nodig geweest om het proces te stoppen. Andere samenstellingen van de winkelmandjes met vooral meer artikelen zal ervoor zorgen dat er veel meer iteraties nodig zijn.</p>
+<p>We zijn nu aan het eind van fase 1 gekomen en gaan nu kijken welke associatieregels interessant zijn.</p>
+</section>
+<section id="fase-2-het-opstellen-van-associatieregels-met-verzamelingen-uit-f-met-voldoende-betrouwbaarheid-groter-dan-een-minimale-confidence-in-c">
+<h3>Fase 2: Het opstellen van associatieregels met verzamelingen uit <em>F</em> met voldoende betrouwbaarheid (groter dan een minimale confidence) in <em>C</em>.<a class="headerlink" href="#fase-2-het-opstellen-van-associatieregels-met-verzamelingen-uit-f-met-voldoende-betrouwbaarheid-groter-dan-een-minimale-confidence-in-c" title="Permalink to this heading">#</a></h3>
+<p>Als de collectie <span class="math notranslate nohighlight">\(F\)</span> is gevonden kunnen we met de verzamelingen in <span class="math notranslate nohighlight">\(F\)</span> associatieregels gaan maken. Voor elke associatieregel bepalen we de confidence. Alleen in die associatieregels met voldoende confidence zijn we geïnteresseerd.</p>
+<p>Nu is een associatieregel van de vorm: “Als een klant artikel(set) X koopt, koopt de klant dan ook artikel Y”. In formule - voor het voorbeeld waarmee we dit onderwerp begonnen: <span class="math notranslate nohighlight">\(\{banaan\} \Rightarrow \{banaan, chocolade\}\)</span>.</p>
+<p>In zo’n regel staan dus rechts meer items dan links. We kunnen rechts dus de drie 2-itemsets uit <span class="math notranslate nohighlight">\(F\)</span> zetten. Bij elk kunnen we twee associatieregels onderzoeken. Naast <span class="math notranslate nohighlight">\(\{banaan\} \Rightarrow \{banaan, chocolade\}\)</span> is dat ook <span class="math notranslate nohighlight">\(\{chocolade\} \Rightarrow \{banaan, chocolade\}\)</span>. Zo krijgen we de zes mogelijke associatieregels in de tabel hieronder. Voor elke regel delen we de support van de betrokken itemsets.</p>
+</section>
+<section id="id1">
+<h3>Fase 2: Het opstellen van associatieregels met verzamelingen uit <em>F</em> met voldoende betrouwbaarheid (groter dan een minimale confidence) in <em>C</em>.<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<p>Als de collectie <span class="math notranslate nohighlight">\(F\)</span> is gevonden kunnen we met de verzamelingen in <span class="math notranslate nohighlight">\(F\)</span> associatieregels gaan maken. Voor elke associatieregel bepalen we de confidence. Alleen in die associatieregels met voldoende confidence zijn we geïnteresseerd.</p>
+<p>Nu is een associatieregel van de vorm: “Als een klant artikel(set) X koopt, koopt de klant dan ook artikel Y”. In formule - voor het voorbeeld waarmee we dit onderwerp begonnen: <span class="math notranslate nohighlight">\(\{banaan\} \Rightarrow \{banaan, chocolade\}\)</span>.</p>
+<p>In zo’n regel staan dus rechts meer items dan links. We kunnen rechts dus de drie 2-itemsets uit <span class="math notranslate nohighlight">\(F\)</span> zetten. Bij elk kunnen we twee associatieregels onderzoeken. Naast <span class="math notranslate nohighlight">\(\{banaan\} \Rightarrow \{banaan, chocolade\}\)</span> is dat ook <span class="math notranslate nohighlight">\(\{chocolade\} \Rightarrow \{banaan, chocolade\}\)</span>. Zo krijgen we de zes mogelijke associatieregels in de tabel hieronder. Voor elke regel delen we de support van de betrokken itemsets.</p>
+<p>n de eerste regel in de tabel hierboven geeft voor associatieregel 
+{banaan}⇒{banaan,chocolade} een betrouwbaarheid van 75%. Dit zegt dat in 75% van de gevallen dat een banaan koopt, deze ook chocolade gaat kopen. 75% is groter dan 70%, voldoende betrouwbaar dus. De derde regel laat zien dat als iemand brood koopt, deze persoon in 50% van de gevallen een banaan koopt, te weinig voorspellend om rekening mee te houden want kleiner dan 70%. Dus blijven over de associatieregels</p>
+<p>Tijd om dit zelf toe te passen:</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./technieken"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="machine-learning.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">vorige</p>
+        <p class="prev-next-title"><span class="section-number">3.2. </span>Machine learning</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="cluster-analyse.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">volgende</p>
+        <p class="prev-next-title"><span class="section-number">3.5. </span>Clusteranalyse</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhoud
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inleiding">3.4.1. Inleiding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#toepassingen">3.4.2. Toepassingen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#theorie">3.4.3. Theorie</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verzamelingenleer">3.4.4. Verzamelingenleer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#associatieregels">3.4.5. Associatieregels</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apriori-algoritme">3.4.6. Apriori algoritme</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#voorbeeld">voorbeeld</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fase1-het-maken-van-een-collectie-f-met-verzamelingen-die-voldoende-frequent-groter-dan-een-minimale-support-zijn-in-c">Fase1: Het maken van een collectie <em>F</em> met verzamelingen die voldoende frequent (groter dan een minimale support) zijn in <em>C</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fase-2-het-opstellen-van-associatieregels-met-verzamelingen-uit-f-met-voldoende-betrouwbaarheid-groter-dan-een-minimale-confidence-in-c">Fase 2: Het opstellen van associatieregels met verzamelingen uit <em>F</em> met voldoende betrouwbaarheid (groter dan een minimale confidence) in <em>C</em>.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Fase 2: Het opstellen van associatieregels met verzamelingen uit <em>F</em> met voldoende betrouwbaarheid (groter dan een minimale confidence) in <em>C</em>.</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Door cc-team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright SLO 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

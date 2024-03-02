@@ -1,0 +1,2037 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="nl" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>3.5. Clusteranalyse &#8212; Cognitive computing</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'technieken/cluster-analyse';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Zoeken" href="../search.html" />
+    <link rel="next" title="3.6. Neurale netwerken" href="neurale-netwerken.html" />
+    <link rel="prev" title="3.4. Associatie-analyse" href="associatie-analyse.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="nl"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../materiaal.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Cognitive computing - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Cognitive computing - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Zoeken</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../materiaal.html">
+                    Introductie
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Materiaal</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../achtergrond/achtergrond.html">1. Achtergrond</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../achtergrond/introductie.html">1.1. Introductie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../achtergrond/geschiedenis.html">1.2. Geschiedenis en toekomst</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../achtergrond/intelligentie.html">1.3. Wanneer is iets intelligent?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../achtergrond/in-de-praktijk.html">1.4. In de praktijk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../achtergrond/terugkoppeling.html">1.5. Terugkoppeling</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ethiek/ethiek.html">2. Ethiek</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek/gevaren.html">2.1. Gevaren van kunstmatige intelligentie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek/fast-principes.html">2.2. De FAST-principes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek/fair-data.html">2.3. FAIR data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek/terugkoppeling.html">2.4. Terugkoppeling</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="technieken.html">3. Technieken</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introductie.html">3.1. Introductie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine-learning.html">3.2. Machine learning</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="associatie-analyse.html">3.4. Associatie-analyse</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.5. Clusteranalyse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="neurale-netwerken.html">3.6. Neurale netwerken</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eigen-quickdraw.html">3.7. Eigen QuickDraw</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi-agentsystemen.html">3.8. Multi-agentsystemen</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="terugkoppeling.html">3.10. Terugkoppeling</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Verdieping</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ethiek-en-ai/ethiek-en-ai.html">4. Ethiek en AI</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek-en-ai/ai-standaarden.html">4.1. AI standaarden en richtlijnen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek-en-ai/fast-en-fair.html">4.2. FAST en FAIR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek-en-ai/engheidsmatrix.html">4.3. De engheidsmatrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek-en-ai/ethiek-opdracht-essay.html">4.4. Opdracht: schrijf een essay over Ethiek en AI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ethiek-en-ai/ethiek-bedenk-een-ai.html">4.5. Opdracht: bedenk een AI toepassing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../neurale-netwerken/neurale-netwerken.html">5. Neurale netwerken</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../neurale-netwerken/hoe-leert-neuraal-netwerk.html">5.1. N.1. Hoe leert een neuraal netwerk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neurale-netwerken/naar-meer-lagen.html">5.2. N.2. Op weg naar meer lagen</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../neurale-netwerken/tensorflow-app.html">6. N.3 Tensorflow app</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../neurale-netwerken/docentenhandleiding.html">6.1. Docentenhandleiding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neurale-netwerken/fase-1.html">6.2. Fase 1: Maak een eerste app</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neurale-netwerken/fase-2.html">6.3. Fase 2: Optimaliseren Neuraal Netwerk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neurale-netwerken/fase-3.html">6.4. Fase 3: Andere dataset gebruiken</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../neurale-netwerken/fase-4.html">6.5. Fase 4: Eigen dataset gebruiken</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../over-ons.html">Over ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../colofon.html">Colofon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../achtergrond/robotica.html">Robotica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/verzamelingen.html">Verzamelingenleer</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/keuzethemas/ccbook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Bronopslagplaats"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/keuzethemas/ccbook/issues/new?title=Issue%20on%20page%20%2Ftechnieken/cluster-analyse.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open een probleem"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download deze pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/technieken/cluster-analyse.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download het bronbestand"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Afdrukken naar pdf"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Volledig scherm"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Zoeken" aria-label="Zoeken" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Clusteranalyse</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhoud </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inleiding">3.5.1. Inleiding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#toepassingen">3.5.2. Toepassingen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identificatie-van-nepnieuws">Identificatie van nepnieuws</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#biologie">Biologie</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#marketing">Marketing</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clusters-en-afstanden">3.5.3. Clusters en afstanden</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#afstandsmaten">Afstandsmaten</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#afstand-tussen-objecten">Afstand tussen objecten</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#afstandsmatrix">Afstandsmatrix</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#afstand-tussen-clusters">3.5.4. Afstand tussen clusters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#centrum-van-een-cluster">3.5.5. Centrum van een cluster</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-means-clustering">3.5.6. <span class="math notranslate nohighlight">\(K\)</span>-means-clustering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#andere-methoden">3.5.7. Andere methoden</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vragen-en-opdrachten">3.5.8. Vragen en opdrachten</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vraag-1">Vraag 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opdracht-1">Opdracht 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opdracht-2-verdiepend">Opdracht 2 (verdiepend)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opdracht-3-verdiepend">Opdracht 3 (verdiepend)</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="clusteranalyse">
+<h1><span class="section-number">3.5. </span>Clusteranalyse<a class="headerlink" href="#clusteranalyse" title="Permalink to this heading">#</a></h1>
+<p>Na dit hoofdstuk:</p>
+<ul class="simple">
+<li><p>weet je het doel en de taak van clusteranalyse bij datamining.</p></li>
+<li><p>kun je een paar toepassingen van clustering noemen.</p></li>
+<li><p>kun je de begrippen datapunt, object, cluster, centrum, centroide, Euclidische afstand, Manhattan afstand en centrum uitleggen .</p></li>
+<li><p>kun je de afstand tussen zowel twee objecten als twee clusters met behulp van afstandsmaten zoals Euclidische afstand en Manhattan afstand berekenen.</p></li>
+<li><p>kun je het centrum of de centroide van een cluster bepalen.</p></li>
+<li><p>ben je in staat de <span class="math notranslate nohighlight">\(K\)</span>-means methode op passende problemen toepassen</p></li>
+<li><p>weet je dat er ook nog andere clustermethoden zijn.</p></li>
+<li><p>ben je je bewust van de problemen die bij clustering op kunnen treden</p></li>
+</ul>
+<section id="inleiding">
+<h2><span class="section-number">3.5.1. </span>Inleiding<a class="headerlink" href="#inleiding" title="Permalink to this heading">#</a></h2>
+<div class="admonition-voorbeeld admonition">
+<p class="admonition-title">voorbeeld</p>
+<p>👓 Stel er komt een aantal buitenlandse studenten binnen op de hogeschool waar jij als studiecoördinator werkt en jij moet er voor zorgen dat deze studenten worden bijgeschoold in Engels voordat zij mogen beginnen met de rest van de opleiding.</p>
+<p>Er zijn twee docenten beschikbaar en je wilt de studenten indelen in twee groepen (een groep noemen we in het vervolg een <strong>cluster</strong>), groep A en groep B. Bij de indeling wil je clusters maken van studenten van gelijk niveau. De grootte van de clusters is onbelangrijk.</p>
+<p>Je wilt indelen op de twee eigenschappen lezen en verstaan van Engels. Je laat daarom alle studenten een test maken waaruit een score van 1 tot 10 komt. Daarbij geef je alleen gehele punten als cijfer.</p>
+<p>Om inzicht te krijgen hoe je de clusters kunt indelen zet je de studenten in een schema waarbij de horizontale as het cijfer voor  lezen aangeeft en de verticale as het cijfer voor verstaan. In het onderstaande schema zijn de resultaten van de vijf studenten s1 t/m s5 weergegeven.</p>
+<a class="reference internal image-reference" href="../_images/clusters-fig-1.png"><img alt="../_images/clusters-fig-1.png" src="../_images/clusters-fig-1.png" style="width: 600px;" /></a>
+<hr class="docutils" />
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Welke clusters zou jij maken?<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<a class="reference internal image-reference" href="../_images/clusters-fig-2.png"><img alt="../_images/clusters-fig-2.png" src="../_images/clusters-fig-2.png" style="width: 600px;" /></a>
+<p class="sd-card-text">De meest logische indeling is om s1 en s4 in groep A te stoppen en s2,s3 en s5 in groep B.</p>
+</div>
+</details></div>
+<p>In het voorbeeld was het niet zo moeilijk om te bepalen welke clusters je het best kon maken. Maar wat nu als er veel meer studenten zijn en/of veel meer eigenschappen zijn waar je rekening mee wilt houden?</p>
+<p><strong>Clusteranalyse</strong> is het classificeren of het groeperen in ‘clusters’ of ‘klassen’ van <em>objecten</em> op grond van hun <em>kenmerken</em> zonder vooraf de clusters vast te leggen. De gebruikte algoritmen bepalen wel de weg om tot clusters te komen, maar de gegevens bepalen welke clusters het worden. Deze algoritmen zijn, net als de algoritmen uit de
+associatie-analyse, vormen van <strong>unsupervised learning</strong> (= ongestuurd leren). Het belangrijkste AI-kenmerk is ook hier: <strong>de invoer die het programma krijgt, is niet volledig te bepalen en is complex.</strong></p>
+<div class="admonition-vraag admonition">
+<p class="admonition-title">Vraag</p>
+<p>Wat zijn in het voorbeeld de objecten en de kenmerken?</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Antwoord<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">De objecten zijn de studenten, de kenmerken de resultaten voor lezen en verstaan.</p>
+</div>
+</details></div>
+<a class="reference internal image-reference" href="../_images/clusters-classificatie.png"><img alt="../_images/clusters-classificatie.png" class="align-right" src="../_images/clusters-classificatie.png" style="width: 300px;" /></a>
+<p>Het doel van clusteranalyse (<em>trainingsfase</em>) is het vormen van deelverzamelingen (clusters of groepen) die elk hun eigen gedeelde kenmerken bevatten. De clusters en liefst ook het aantal clusters zijn vooraf niet bekend. Het streven is zoveel mogelijk gelijkenis binnen een groep en zoveel mogelijk verschil tussen de groepen te krijgen.</p>
+<p>De clusteranalyse levert een aantal groepen, de clusters, op. Op basis van die groepen kun je bepalen tot welke groep een nieuw aan de applicatie aangeboden object behoort. In het voorbeeld van de studenten waren er al twee klassen gemaakt, een nieuwe student wordt dan toegevoegd aan de best passende klas. Een ander voorbeeld zou kunnen zijn dat jij films krijgt aangeboden nadat jij een aantal wensen hebt aangegeven op een website. Van te voren is er al een classificatie van films gemaakt en jij krijgt dan die films voorgeschoteld die in het cluster zitten dat het best bij jouw wensen past.</p>
+<p>Men zou ook dit aangeboden object aan de trainingsdata kunnen toevoegen en de clusteranalyse opnieuw uitvoeren. Dit zou kunnen leiden tot een nieuwe groepsindeling. We gaan het hier vooral over de trainingsfase hebben: het algoritme <strong>K-means-clustering</strong>.</p>
+<div class="admonition-vraag admonition">
+<p class="admonition-title">Vraag</p>
+<p>Er meldt zich weer een nieuwe buitenlandse student bij de hogeschool, een week na de start van de bijscholing. Deze student haalt een 4 voor lezen en een 3 voor verstaan. In welke groep wordt deze student geplaatst?</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Antwoord<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Deze leerling past het best in groep A.</p>
+</div>
+</details></div>
+<p>Voor we één algoritme (<span class="math notranslate nohighlight">\(K\)</span>-means-clustering) meer in detail uitwerken en jullie laten kennismaken met alternatieven geven we eerst een aantal voorbeelden van terreinen waarin clusteranalyse wordt toegepast. Meer voorbeelden zijn onder andere <a class="reference external" href="https://datafloq.com/read/7-innovative-uses-of-clustering-algorithms/">hier</a> en <a class="reference external" href="https://www.analytixlabs.co.in/blog/types-of-clustering-algorithms/#sub4">hier</a> te vinden.</p>
+</section>
+<section id="toepassingen">
+<h2><span class="section-number">3.5.2. </span>Toepassingen<a class="headerlink" href="#toepassingen" title="Permalink to this heading">#</a></h2>
+<section id="identificatie-van-nepnieuws">
+<h3>Identificatie van nepnieuws<a class="headerlink" href="#identificatie-van-nepnieuws" title="Permalink to this heading">#</a></h3>
+<p>Nepnieuws is geen nieuw fenomeen, maar het treedt meer en meer op de voorgrond vooral binnen sociale media. Zelfs president Trump schaamde zich niet om zijn campagne met nepnieuws te voeren of ander onwelgevallige berichten tot nepnieuws te bombarderen.</p>
+<p>In een <a class="reference external" href="http://snap.stanford.edu/mis2/files/MIS2_paper_2.pdf">artikel</a> gepubliceerd door twee informaticastudenten (Seyedmehdi Hosseinimotlagh en Evangelos E. Papalexakis, University of California, Riverside) wordt een clusteralgoritme gebruikt om nepnieuws te identificeren. Het algoritme krijgt (nep)nieuwsartikelen aangeboden. Uit deze artikelen worden de belangrijkste en meest sensatierijke woorden gevist. Op deze woorden wordt dan geclusterd. Omdat sensatie beluste woorden de aandacht van mensen trekt komen deze woorden vaker voor in nepnieuwsartikelen. De clusters bevatten dus combinaties van dit soort woorden waarmee nieuwe berichten geclassificeerd kunnen worden op mate van nepnieuws.</p>
+</section>
+<section id="biologie">
+<h3>Biologie<a class="headerlink" href="#biologie" title="Permalink to this heading">#</a></h3>
+<p>In de biologie zijn er meerdere gebieden waar clusteranalyse wordt toegepast. Denk bijvoorbeeld aan de classificatie van verschillende organismen. Elk organisme hoort bij een soort. Soorten kunnen op hun beurt weer worden onderverdeeld in lagere taxa, zoals ondersoort en variëteit. Soorten zelf worden samengevoegd in geslachten en deze weer in families en in taxa van nog hogere rang. Een ander voorbeeld van het gebruiken clustertechnieken in de biologie is het maken van groepen met genen die een bepaalde erfelijke ziekte kunnen bevatten. Door het gebruik van clustermethoden kunnen groepen met samenwerkende genen gevonden worden. Als deze groepen bekend zijn, kan deze kennis helpen om meer gericht onderzoek te doen naar medicijnen die een erfelijke ziekte gekoppeld aan de groep genen kan voorkomen of genezen.</p>
+</section>
+<section id="marketing">
+<h3>Marketing<a class="headerlink" href="#marketing" title="Permalink to this heading">#</a></h3>
+<p>Personalisatie en bepaling van doelgroepen in marketing is big business. Dit wordt bereikt door naar specifieke kenmerken van een persoon te kijken en campagnes met hen te delen die succesvol zijn geweest met andere vergelijkbare mensen. Doet een bedrijf dat niet of verkeerd dan loopt het bedrijf de kans niets te verkopen of nog erger het vertrouwen van klanten te verliezen. Clusteranalyse helpt de doelgroepen te bepalen.</p>
+</section>
+</section>
+<section id="clusters-en-afstanden">
+<h2><span class="section-number">3.5.3. </span>Clusters en afstanden<a class="headerlink" href="#clusters-en-afstanden" title="Permalink to this heading">#</a></h2>
+<p>Om verder te kunnen met de clusteranalyse, hebben we extra begrippen nodig. Het gaat vooral om het begrip ‘afstand’. Hoe meet je nu precies of twee objecten met hun eigenschappen <strong>dicht bij elkaar</strong> liggen?</p>
+<section id="afstandsmaten">
+<h3>Afstandsmaten<a class="headerlink" href="#afstandsmaten" title="Permalink to this heading">#</a></h3>
+<p>In clustering speelt afstand tussen gegevens een grote rol. Een computer heeft daar meestal getallen voor nodig. Vaak moet er eerst een bewerking van gegevens plaatsvinden om deze om te zetten in getallen. Combinatie van verschillende eigenschappen leveren dan datapunten op in een assenstelsel. Iedere eigenschap heeft zijn eigen as, b.v. leeftijd, sociale klasse, salaris, …</p>
+<div class="admonition-vraag admonition">
+<p class="admonition-title">Vraag</p>
+<p>Welke assen zijn er in het hogeschool voorbeeld?</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Antwoord<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Er is een as voor verstaan en een as voor lezen.</p>
+</div>
+</details></div>
+</section>
+<section id="afstand-tussen-objecten">
+<h3>Afstand tussen objecten<a class="headerlink" href="#afstand-tussen-objecten" title="Permalink to this heading">#</a></h3>
+<div class="admonition-voorbeeld admonition">
+<p class="admonition-title">Voorbeeld</p>
+<p>👓 In ons voorbeeld met de vaardigheden in de Engelse taal zijn er twee assen: luister- en leesvaardigheid. Studenten hebben een toets gedaan waarbij ze een <strong>cijfer</strong> kregen voor hun vaardigheid. Zo kregen we getallen voor de eigenschappen. We kunnen de cijfers dan in een assenstelsel zetten:</p>
+<a class="reference internal image-reference" href="../_images/clusters-data-points.svg"><img alt="../_images/clusters-data-points.svg" class="align-center" src="../_images/clusters-data-points.svg" width="400" /></a>
+<p><strong>Vraag:</strong> Wat is de afstand tussen <span class="math notranslate nohighlight">\(s_{1}\)</span> en <span class="math notranslate nohighlight">\(s_{4}\)</span>?</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Antwoord<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">De kortste afstand tussen  <span class="math notranslate nohighlight">\(s_{1}\)</span> en <span class="math notranslate nohighlight">\(s_{4}\)</span> is <span class="math notranslate nohighlight">\(\sqrt{13}\)</span>. Weet je hoe je die afstand berekent?
+Als je alleen langs de roosterlijnen mag meten dan is de kortste afstand 5.
+Het is dus van belang eerst een lengtemaat vast te leggen.</p>
+</div>
+</details></div>
+<figure class="align-right" id="id1">
+<a class="reference internal image-reference" href="../_images/clusters-pythagoras.png"><img alt="../_images/clusters-pythagoras.png" src="../_images/clusters-pythagoras.png" style="width: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.9 </span><span class="caption-text">Stelling van Pythagoras</span><a class="headerlink" href="#id1" title="Permallink naar deze afbeelding">#</a></p>
+</figcaption>
+</figure>
+<p>Hebben we datapunten zoals hierboven dan kunnen we wiskundig de afstand tussen punten uitrekenen. Je hebt waarschijnlijk de vorige vraag beantwoord met de stelling van Pythagoras. De stelling van Pythagoras (Figuur 2) is de manier om de afstand van de schuine zijde in een tweedimensionale rechthoekige driehoek te berekenen. In een assenstelsel vormen de verplaatsingen langs de assen de rechthoekzijden en de lengte van schuine zijde de kortste afstand tussen de punten. Deze afstand noemt men ook wel de Euclidische afstand, ook wel de vogelvluchtafstand. In drie dimensies en hoger wordt op een zelfde manier de afstand tussen twee punten berekend.</p>
+<hr class="docutils" />
+<p>🚨 <strong>Definitie: Euclidische afstand</strong></p>
+<p>De Euclidische afstand tussen twee punten <span class="math notranslate nohighlight">\(A=(a_1, a_2)\)</span> en <span class="math notranslate nohighlight">\(B=(b_1, b_2)\)</span>  in het platte vlak is</p>
+<div class="math notranslate nohighlight">
+\[
+d(A,B)=\sqrt{(a_{1}-b_{1})^{2}+ (a_{2}-b_{2})^{2}}
+\]</div>
+<p>De letter d gebruiken we voor de afstand (<strong>distance</strong>). De definitie van de Euclidische afstand kunnen we algemeen maken, voor punten met <span class="math notranslate nohighlight">\(n\)</span> eigenschappen. Je kwadrateert dan de verschillen in al die eigenschappen en doet eigenlijk hetzelfde als bij twee dimensies.</p>
+<p>De <em>Euclidische afstand</em> tussen twee punten <span class="math notranslate nohighlight">\(A=(a_{1},a_{2},\dots , a_{n-1}, a_{n})\)</span> en <span class="math notranslate nohighlight">\(B=(b_{1},b_{2},\dots , b_{n-1}, b_{n})\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\small \begin{array}{rcl}d(A,B)&amp; = &amp;\sqrt{\sum_{i=1}^{n}(a_{i}-b_{i})^{2} }\\ &amp; = &amp;\sqrt{(a_{1}-b_{1})^{2}+ (a_{2}-b_{2})^{2}+ \dots + (a_{n}-b_{n})^{2}}\end{array}
+\end{split}\]</div>
+<figure class="align-right" id="id2">
+<a class="reference internal image-reference" href="../_images/clusters-manhattan.png"><img alt="../_images/clusters-manhattan.png" src="../_images/clusters-manhattan.png" style="width: 250px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.10 </span><span class="caption-text">Typisch stratenpatroon in Manhattan</span><a class="headerlink" href="#id2" title="Permallink naar deze afbeelding">#</a></p>
+</figcaption>
+</figure>
+<p>Naast de Euclidische afstand is er een andere maat die vaak gebruikt wordt, de Manhattan of City-block afstand. In figuur 3 zie je een stukje van de kaart van Manhattan. Je kunt alleen van hoek naar hoek komen als je door de straten gaat. In een rooster dus alleen evenwijdig aan de assen.</p>
+<hr class="docutils" />
+<p>🚨 <strong>Definitie: Manhattan afstand</strong></p>
+<p>De <em>Manhattan</em> of <em>City-block</em> <em>afstand</em> tussen twee punten  <span class="math notranslate nohighlight">\(A=(a_{1},a_{2},\dots , a_{n-1}, a_{n})\)</span> en <span class="math notranslate nohighlight">\(B=(b_{1},b_{2},\dots , b_{n-1}, b_{n})\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{rcl}d(A,B)&amp; = &amp;\sum_{i=1}^{n} |a_{i}-b_{i}|\\ &amp; = &amp;|a_{1}-b_{1}|+ |a_{2}-b_{2}|+ \dots + |a_{n}-b_{n}|\end{array}
+\end{split}\]</div>
+<p>Hierin is <span class="math notranslate nohighlight">\(|x|\)</span> de absolute waarde van <span class="math notranslate nohighlight">\(x\)</span>, |2|=2 maar ook |-2|=2, ofwel afstanden zijn altijd positief.</p>
+<hr class="docutils" />
+<p>👓 <strong>Voorbeeld A</strong></p>
+<p>Bereken de Manhattan afstand en de Euclidische afstand tussen de volgende objecten in een 5 dimensionale ruimte:</p>
+<p>Object <span class="math notranslate nohighlight">\(A = (10, 12, 15, 13, 9)\)</span></p>
+<p>Object <span class="math notranslate nohighlight">\(B = (18, 23, 13, 15, 17)\)</span></p>
+<hr class="docutils" />
+<p>Om de Manhattan of City-block afstand te bereken moeten we evenwijdig aan de assen lopen langs de eerste as gaan we van 10 naar 18 ofwel afstand 8, dan van 12 naar 23 ofwel 11, etc. Een afstand moet altijd positief zijn, 10-18 en 18-10 moeten beide antwoord 8 geven. Dat doe je door de absolute waarde te nemen van het verschil
+<span class="math notranslate nohighlight">\(|10-18|=|18-10|=8\)</span>.
+Min wordt plus en plus blijft plus.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\small d(A,B)=|10−18|+|12−23|+|15−13|+|13−15|+|9−17|=\\ 8+11+2+2+8 =31
+\end{split}\]</div>
+<hr class="docutils" />
+<p>De Euclidische bereken je door al de afstanden langs de assen te kwadrateren, deze kwadraten op te tellen en vervolgens de wortel te trekken van het totaal:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\small d(A,B)=\sqrt{(10−18)^{2}+(12−23)^{2}+(15−13)^{2}+(13−15)^{2}+(9−17)^{2}} =\\ \sqrt{64+121+4+4+64}=\sqrt{257}=16,03
+\end{split}\]</div>
+</section>
+<hr class="docutils" />
+<section id="afstandsmatrix">
+<h3>Afstandsmatrix<a class="headerlink" href="#afstandsmatrix" title="Permalink to this heading">#</a></h3>
+<aside>
+👓 **Voorbeeld B**
+<p>Gegeven een dataset met vier objecten.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|ll}
+  &amp; x &amp; y \\ \hline
+A &amp; 2 &amp; 1 \\
+B &amp; 4 &amp; 2 \\
+C &amp; 6 &amp; 1 \\
+D &amp; 7 &amp; 2
+\end{array}
+\end{split}\]</div>
+<p>Gebruik de euclidische afstand. Laat zien dat de afstand van A naar D gelijk is aan 5,10 en geef de gehele afstandsmatrix.</p>
+<p><span class="math notranslate nohighlight">\(d(A,D)=\sqrt{(7-2)^{2}+(2-1)^{2}}=\sqrt{26}=5,10\)</span></p>
+<p>Gebruiken we de gewone Euclidische afstand dan ziet de afstandsmatrix er als volgt uit:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|llll}
+  &amp; A    &amp; B    &amp; C   &amp; D     \\ \hline
+A &amp; 0.00 &amp; 2.24 &amp; 4.00 &amp; 5.10 \\
+B &amp; 2.24 &amp; 0.00 &amp; 2.24 &amp; 3.00 \\
+C &amp; 4.00 &amp; 2.24 &amp; 0.00 &amp; 1.41 \\
+D &amp; 5.10 &amp; 3.00 &amp; 1.41 &amp; 0.00
+\end{array}
+\end{split}\]</div>
+<p>Horizontaal en verticaal staan de punten, op het kruispunt de afstand. Op de diagonaal staan natuurlijk nullen (van A naar A is …) en de tabel is symmetrisch om de diagonaal.</p>
+</aside>
+</section>
+</section>
+<section id="afstand-tussen-clusters">
+<h2><span class="section-number">3.5.4. </span>Afstand tussen clusters<a class="headerlink" href="#afstand-tussen-clusters" title="Permalink to this heading">#</a></h2>
+<p>Als je de afstand tussen elk paar van objecten weet, wat is dan de
+afstand tussen twee clusters <span class="math notranslate nohighlight">\(C_{1}\)</span> en <span class="math notranslate nohighlight">\(C_{2}\)</span>?
+We nemen hier de kleinste afstand tussen twee objecten waarvan er één
+in <span class="math notranslate nohighlight">\(C_{1}\)</span> aanwezig is en de andere in C_{2}. Deze afstand noemt men
+<em>Single Linkage</em></p>
+<div class="warning admonition">
+<p class="admonition-title">Definitie: Single linkage</p>
+<p>Single linkage ofwel de afstand tussen twee clusters <span class="math notranslate nohighlight">\(C_1\)</span> en <span class="math notranslate nohighlight">\(C_2\)</span> wordt berekend door het minimum te nemen van alle afstanden tussen punten in <span class="math notranslate nohighlight">\(C_1\)</span> en <span class="math notranslate nohighlight">\(C_2\)</span> . In wiskundige notatie:</p>
+<div class="math notranslate nohighlight">
+\[
+d(C_{1},C_{2})=\min\{d(A,B)|A \in C_{1}\,\,en\,\, B \in C_{2} \}
+\]</div>
+</div>
+<div class="admonition-voorbeeld-c admonition">
+<p class="admonition-title">Voorbeeld C</p>
+<p>Gegeven een dataset met zes punten.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|ll}
+      &amp; x &amp; y \\ \hline
+A_{1} &amp; 1 &amp; 3 \\
+A_{2} &amp; 1 &amp; 4 \\
+A_{3} &amp; 2 &amp; 2 \\ \hline
+B_{1} &amp; 5 &amp; 1 \\
+B_{2} &amp; 5 &amp; 2 \\
+B_{3} &amp; 7 &amp; 2
+\end{array}
+\end{split}\]</div>
+<p>De clusters zijn <span class="math notranslate nohighlight">\(C_{1}=\{A_{1},A_{2},A_{3}\}\)</span> en <span class="math notranslate nohighlight">\(C_{2}=\{B_{1},B_{2},B_{3}\}\)</span>. Geef de minimale afstand tussen <span class="math notranslate nohighlight">\(C_{1}\)</span> en <span class="math notranslate nohighlight">\(C_{2}\)</span>.</p>
+<p>De afstandsmatrix tussen punt uit <span class="math notranslate nohighlight">\(C_{1}\)</span> en punten uit <span class="math notranslate nohighlight">\(C_{2}\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|lll}
+      &amp; B_1  &amp; B_2  &amp; B_3  \\ \hline
+A_{1} &amp; 4.47 &amp; 4.12 &amp; 6.03 \\
+A_{2} &amp; 5.00 &amp; 4.47 &amp; 6.32 \\
+A_{3} &amp; 3.16 &amp; 3.00 &amp; 5.00
+\end{array}
+\end{split}\]</div>
+<p>De kleinste afstand en dus de afstand tussen <span class="math notranslate nohighlight">\(C_1\)</span> en <span class="math notranslate nohighlight">\(C_2\)</span> is de kleinste afstand in de matrix:</p>
+<div class="math notranslate nohighlight">
+\[
+d(C_{1},C_{2})=\min\{d(A,B)|A \in C_{1}\,\,en\,\, B \in C_{2} \}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+=d(A_{3},B_{2})=\sqrt{(5-2)^{2}+(2-2)^2}=3
+\]</div>
+</div>
+</section>
+<section id="centrum-van-een-cluster">
+<h2><span class="section-number">3.5.5. </span>Centrum van een cluster<a class="headerlink" href="#centrum-van-een-cluster" title="Permalink to this heading">#</a></h2>
+<p>Als we straks na de training clusters hebben gevormd en willen bepalen in welk cluster een nieuw object moet worden geplaatst is het heel efficiënt om een cluster op een bepaalde manier samen te vatten. Het centrum <span class="math notranslate nohighlight">\(M(m_{1},m_{2}, \dots, m_{n})\)</span> van een cluster bestaande uit <span class="math notranslate nohighlight">\(k\)</span> punten wordt die samenvatting. Het centrum is een punt <span class="math notranslate nohighlight">\(M\)</span> met <span class="math notranslate nohighlight">\(n\)</span> coördinaten <span class="math notranslate nohighlight">\(m_{1},m_{2}, \dots, m_{n}\)</span> en wordt berekend door het gemiddelde te nemen van al de coördinaten van de punten in de cluster. Wiskundig gezien is het centrum het zwaartepunt van de veelhoek ( een lichaam in hogere dimensie) die door de punten wordt gevormd.</p>
+<div class="warning admonition">
+<p class="admonition-title">Definitie: Clustercentrum</p>
+<p>Centrum <span class="math notranslate nohighlight">\(M\)</span> van een cluster:</p>
+<div class="math notranslate nohighlight">
+\[
+M(m_{1},m_{2}, \dots, m_{n})= \left( \frac{\sum^{k}_{i=1} a_{i1}}{k},\frac{\sum^{k}_{i=1} a_{i2}}{k}, \dots, \frac{\sum^{k}_{i=1} a_{in}}{k}\right)
+\]</div>
+<p>Hierin is <span class="math notranslate nohighlight">\(a_{ij}\)</span> de waarde van de <span class="math notranslate nohighlight">\({j}\)</span>-de coördinaat van het <span class="math notranslate nohighlight">\(i\)</span>-de punt in de cluster,
+<span class="math notranslate nohighlight">\(j=1,2,\cdots,n\)</span> en <span class="math notranslate nohighlight">\(i=1,2,\cdots,k\)</span>.</p>
+</div>
+<div class="admonition-voorbeeld admonition">
+<p class="admonition-title">Voorbeeld</p>
+<p>Gegeven een cluster <span class="math notranslate nohighlight">\(C\)</span> die de volgende objecten bevat:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|ll}
+      &amp; x &amp; y  \\ \hline
+A_{1} &amp; 0 &amp; 0  \\
+A_{2} &amp; 7 &amp; 8  \\
+A_{3} &amp; 4 &amp; 8  \\
+A_{4} &amp; 3 &amp; 0     
+\end{array}
+\end{split}\]</div>
+<p>Bereken het centrum van de cluster <span class="math notranslate nohighlight">\(C\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+C=\{A_{1},A_{2},A_{3},A_{4}\}
+\]</div>
+<p>Het centrum komt uit de volgende berekening:</p>
+<div class="math notranslate nohighlight">
+\[
+M(x,y)= \left( \frac{\sum_{i=1}^{4} x_{i}}{4},\frac{\sum_{i=1}^{4} y_{i}}{4}\right)
+\]</div>
+<p>Dat ziet er lastig uit maar <span class="math notranslate nohighlight">\(x\)</span> is niets anders dan het gemiddelde van de <span class="math notranslate nohighlight">\(x\)</span>-coördinaten en <span class="math notranslate nohighlight">\(y\)</span> is niets anders dan het gemiddelde van de <span class="math notranslate nohighlight">\(y\)</span>-coördinaten van de punten:</p>
+<div class="math notranslate nohighlight">
+\[
+x=\frac{0+7+4+3}{4}=3\frac{1}{2}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+y=\frac{0+8+8+0}{4}=4
+\]</div>
+<p>Het centrum <span class="math notranslate nohighlight">\(M\)</span> is dus het punt:</p>
+<div class="math notranslate nohighlight">
+\[
+M= \left( \frac{0 + 7 + 4 +3 }{4},\frac{0+8+8+0}{4}\right)=( 3\frac{1 }{2},4)
+\]</div>
+</div>
+</section>
+<section id="k-means-clustering">
+<h2><span class="section-number">3.5.6. </span><span class="math notranslate nohighlight">\(K\)</span>-means-clustering<a class="headerlink" href="#k-means-clustering" title="Permalink to this heading">#</a></h2>
+<figure class="align-right" id="id3">
+<a class="reference internal image-reference" href="../_images/clusters-k-means-animatie.gif"><img alt="../_images/clusters-k-means-animatie.gif" src="../_images/clusters-k-means-animatie.gif" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.11 </span><span class="caption-text">Animatie van k-means clustering</span><a class="headerlink" href="#id3" title="Permallink naar deze afbeelding">#</a></p>
+</figcaption>
+</figure>
+<p>Er zijn verschillende methoden die gebruikt worden om tot clusters te komen. We presenteren hier K-means-clustering. In figuur 4 zie je een animatie van de werking, waarbij de data stap voor stap in drie groepen wordt verdeeld. De kleuren geven de clusters aan en de kruisjes die je ziet bewegen zijn de centra van de clusters.</p>
+<p>K-means clustering is een eenvoudige en relatief snelle iteratieve manier van clusteren. Het is het oudste en meest bekende clusteralgoritme. Later zijn er veel varianten van deze methode ontwikkeld die het clusteren weer net wat sneller, slimmer aanpakken. Het gaat te ver om die hier te bekijken.</p>
+<p>Je bepaalt vooraf hoeveel clusters je wilt krijgen, bijvoorbeeld <span class="math notranslate nohighlight">\(k=3\)</span>. De clustering (training) op basis van de gegevens levert dan die clusters die worden samengevat door de bijbehorende centra.</p>
+<blockquote>
+<div><p>Het algoritme meet veel afstanden, we passen het daarom toe op punten in het platte vlak, zodat je met pen, papier en liniaal eenvoudig het algoritme na kan spelen.</p>
+</div></blockquote>
+<figure class="align-right" id="id4">
+<a class="reference internal image-reference" href="../_images/clusters-k-means-flowchart.svg"><img alt="../_images/clusters-k-means-flowchart.svg" src="../_images/clusters-k-means-flowchart.svg" width="400" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.12 </span><span class="caption-text">K-means clustering algoritme</span><a class="headerlink" href="#id4" title="Permallink naar deze afbeelding">#</a></p>
+</figcaption>
+</figure>
+<p>In figuur 5 staat het stroomdiagram van het algoritme dat we hieronder in meer detail beschouwen.</p>
+<p>Om de optimale(???) clustering te vinden ga je als volgt te werk:</p>
+<ol class="arabic simple">
+<li><p>Start: Kies de centra van de clusters de eerste keer willekeurig en bepaal het maximaal aantal stappen dat je toestaat.</p></li>
+<li><p>Daarna bepaal je van elk datapunt de afstand tot ieder centrum, en wijs je ieder datapunt toe aan de cluster waarvan het centrum het dichtstbij is.</p>
+<ul class="simple">
+<li><p>Als er punten zijn die in de vorige stap van cluster zijn veranderd en je nog niet voorbij het vooraf gekozen maximum aantal iteraties bent gekomen dan ga je naar stap 3. Anders ben je klaar.</p></li>
+</ul>
+</li>
+<li><p>Alle datapunten zitten weer in een cluster. Er zijn datapunten die in een andere cluster terecht zijn gekomen. De centra zijn dan niet voor alle clusters meer hetzelfde en moeten dus opnieuw worden berekend. Hiervoor gebruik je voor ieder cluster apart de volgende formule:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+M(m_{1},m_{2}, \dots, m_{n})= \left( \frac{\sum^{1}_{n} a_{1i}}{n},\frac{\sum^{1}_{n} a_{2i}}{n}, \dots, \frac{\sum^{1}_{n} a_{ni}}{n}\right)
+\]</div>
+<p><span class="math notranslate nohighlight">\(n\)</span> is dan het aantal elementen in één cluster.</p>
+<hr class="docutils" />
+<p>Met die nieuwe centra veranderen ook weer de afstanden van de datapunten tot die centra en moet je dus het hele proces vanaf stap 2 weer herhalen, ofwel start de volgende iteratie.</p>
+<p>Leuk zo’n verhaal maar voorbeelden maken het inzichtelijker.</p>
+<div class="admonition-voorbeeld-e admonition">
+<p class="admonition-title">👓 <strong>Voorbeeld E</strong></p>
+<p>Gegeven zijn de volgende vier objecten:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|ll}
+      &amp; x &amp; y \\ \hline
+A_{1} &amp; 2 &amp; 2 \\
+A_{2} &amp; 4 &amp; 2 \\
+A_{3} &amp; 6 &amp; 1 \\
+A_{4} &amp; 8 &amp; 2
+\end{array}
+\end{split}\]</div>
+<p>We bepalen vooraf dat we twee clusters willen, dus <span class="math notranslate nohighlight">\(k=2\)</span>. Bepaal met het <span class="math notranslate nohighlight">\(K\)</span>-means algoritme een geschikte clustering. Als afstandsmaat gebruik je de normale (Euclidische) afstand.</p>
+<hr class="docutils" />
+<p><strong>Start</strong></p>
+<p>Kies twee willekeurig centra. <span class="math notranslate nohighlight">\(M_{1}=(4,4)\)</span> en <span class="math notranslate nohighlight">\(M_{2}=(6,2)\)</span> voor respectievelijk de clusters <span class="math notranslate nohighlight">\(C_{1}\)</span> en <span class="math notranslate nohighlight">\(C_{2}\)</span>. Dit geeft de figuur hieronder.</p>
+<p><strong>Iteratie 1</strong></p>
+<ol class="arabic simple">
+<li><p>Bepaal de afstanden van de datapunten tot de centra en plaats de datapunten in het juiste cluster. Een punt komt in het cluster waarvan de afstand tussen het punt ne het centrum het kleinst is. De afstandsmatrix wordt:</p></li>
+</ol>
+<ul class="simple">
+<li><p>Klap dit uit voor een heel handige tip!</p></li>
+</ul>
+<p>Als je op een ruitjesblaadje de situatie hierboven natekent, dan kun je de afstanden ook meten met een liniaal in plaats van iedere keer Pythagoras te moeten doen. Dat scheelt heel veel tijd. Het hoeft in deze voorbeelden en de opgaven er na echt niet heel precies.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|ll|l}
+      &amp; M_1  &amp; M_2  &amp; \mathrm{toewijzing}  \\ \hline
+A_{1} &amp; 2.83 &amp; 4 &amp; C_1 \\
+A_{2} &amp; 2 &amp; 2 &amp; C_1 \\
+A_{3} &amp; 3.61 &amp; 1 &amp; C_2 \\
+A_{4} &amp; 4.41 &amp; 2 &amp; C_2
+\end{array}
+\end{split}\]</div>
+<p>De nieuwe clusters zijn:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+C_{1} = \{A_{1},A_{2}\} \\
+C_{2} = \{A_{3},A_{4}\}
+\end{split}\]</div>
+<ol class="arabic simple" start="3">
+<li><p>Bereken de nieuwe centra:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{rcl}M_{1}'&amp;=&amp;(\frac{4+2}{2},\frac{2+2}{2})=(3,2) \\ \\
+M_{2}'&amp;=&amp;(\frac{6+8}{2},\frac{1+2}{2})=(7,1.5)
+\end{array}
+\end{split}\]</div>
+<p>We hebben nieuwe centra we moeten verder bij stap 1</p>
+<p><strong>Iteratie 2</strong></p>
+<p>Bepaal de afstanden van de datapunten tot de centra en plaats de datapunten in het juiste cluster. De afstandsmatrix wordt:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|ll|l}
+      &amp; M_1  &amp; M_2  &amp; \mathrm{toewijzing}  \\ \hline
+A_{1} &amp; 1 &amp; 5.02 &amp; C_1 \\
+A_{2} &amp; 1 &amp; 3.04 &amp; C_1 \\
+A_{3} &amp; 3.16 &amp; 1.12 &amp; C_2 \\
+A_{4} &amp; 5 &amp; 1.12 &amp; C_2
+\end{array}
+\end{split}\]</div>
+<p>Alle datapunten zitten in hetzelfde cluster uit de vorige iteratie. De clusters zijn niet veranderd er zijn dus ook geen nieuwe centra. We kunnen stoppen. Het doel is bereikt. De geschikte clustering is:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+C_{1} = \{A_{1},A_{2}\}  \\
+C_{2} = \{A_{3},A_{4}\}
+\end{split}\]</div>
+<p>Met centra</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{rcl}M_{1}&amp;=&amp;(\frac{4+2}{2},\frac{2+2}{2})=(3,2) \\ \\
+M_{2}&amp;=&amp;(\frac{6+8}{2},\frac{1+2}{2})=(7,1.5)
+\end{array}
+\end{split}\]</div>
+</div>
+<div class="admonition-voorbeeld-f admonition">
+<p class="admonition-title">Voorbeeld F</p>
+<p>Gegeven zijn de volgende vijf objecten:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|ll}
+      &amp; x &amp; y  \\ \hline
+A_{1} &amp; 0 &amp; 1  \\
+A_{2} &amp; 3 &amp; 1  \\
+A_{3} &amp; 3 &amp; 2  \\
+A_{4} &amp; 0 &amp; 3  \\
+A_{5} &amp; 4 &amp; 1      
+\end{array}
+\end{split}\]</div>
+<p>We bepalen vooraf dat we twee clusters willen, dus <span class="math notranslate nohighlight">\(k=2\)</span>. Bepaal een juiste clustering. Als afstandsmaat gebruik je de normale (Euclidische) afstand. Bepaal na afloop van de clustering in welk cluster het punt P=(1,1) wordt geplaatst.</p>
+<p><strong>Start</strong></p>
+<p>Kies twee willekeurig centra. <span class="math notranslate nohighlight">\(M_{1}=(2,2)\)</span> en <span class="math notranslate nohighlight">\(M_{2}=(3,0)\)</span></p>
+<p><strong>Iteratie 1</strong></p>
+<ol class="arabic simple">
+<li><p>De afstandsmatrix wordt:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|ll|l}
+      &amp; M_1  &amp; M_2  &amp; \mathrm{toewijzing}  \\ \hline
+A_{1} &amp; 2.24 &amp; 3.16 &amp; C_1 \\
+A_{2} &amp; 1.41 &amp; 1 &amp; C_2 \\
+A_{3} &amp; 1 &amp; 2 &amp; C_1 \\
+A_{4} &amp; 2.24 &amp; 4.24 &amp; C_1 \\
+A_{5} &amp; 2.24 &amp; 1.41 &amp; C_2
+\end{array}
+\end{split}\]</div>
+<ol class="arabic simple" start="2">
+<li><p>De nieuwe clusters zijn:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{lcl}C_{1}&amp; =&amp; \{A_{1},A_{3},A_{4}\} \\
+C_{2} &amp; = &amp; \{A_{2},A_{5}\}
+\end{array}
+\end{split}\]</div>
+<p>De nieuwe centra zijn:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{lclcl}M_{1}'&amp;=&amp;(\frac{0+3+0}{3},\frac{1+2+3}{3})&amp;=&amp;(1,2)\\ \\
+M_{2}'&amp;=&amp;(\frac{3+4}{2},\frac{1+1}{2})&amp;=&amp;(3.5,1)
+\end{array}
+\end{split}\]</div>
+<p><strong>Iteratie 2</strong></p>
+<ol class="arabic simple">
+<li><p>De afstandsmatrix wordt:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|ll|l}
+      &amp; M_1  &amp; M_2  &amp; \mathrm{toewijzing}  \\ \hline
+A_{1} &amp; 1.41 &amp; 3.5 &amp; C_1 \\
+A_{2} &amp; 2.24 &amp; 0.5 &amp; C_2 \\
+A_{3} &amp; 2 &amp; 1.12 &amp; C_2 \\
+A_{4} &amp; 1.41 &amp; 4.03 &amp; C_1 \\
+A_{5} &amp; 3.16 &amp; 0.5 &amp; C_2
+\end{array}
+\end{split}\]</div>
+<ol class="arabic simple" start="2">
+<li><p>De nieuwe clusters zijn:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{lcl}C_{1}&amp; =&amp; \{A_{1},A_{4}\} \\
+C_{2} &amp; = &amp; \{A_{2},A_{3},A_{5}\}
+\end{array}
+\end{split}\]</div>
+<ol class="arabic simple" start="3">
+<li><p>De nieuwe centra zijn:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{lclcl}M_{1}''&amp;=&amp;(\frac{0+0}{2},\frac{1+3}{2})&amp;=&amp;(0,2)\\ \\
+M_{2}''&amp;=&amp;(\frac{3+3+4}{3},\frac{1+2+1}{3})&amp;=&amp;(3.33,1.33)
+\end{array}
+\end{split}\]</div>
+<p>In het plaatje na iteratie 2 zie je eenvoudig in dat een derde iteratie niet tot een verandering van clusters zal gaan leiden. De iteratie moet een computer wel uitvoeren. Maar jij als mens ziet dat in deze situatie in één oogopslag.  Dus de juiste clusters met bijbehorende centra zijn:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{lcl}C_{1}&amp; =&amp; \{A_{1},A_{4}\} \\
+C_{2} &amp; = &amp; \{A_{2},A_{3},A_{5}\}
+\end{array}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{lclcl}M_{1}&amp;=&amp;(0,2)\\ 
+M_{2}&amp;=&amp;(3.33,1.33)
+\end{array}
+\end{split}\]</div>
+<p>Om te bepalen tot welk cluster het punt P=(1,1) behoort berekenen we de afstand van P tot M_1 en M_2.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|ll|l}
+      &amp; M_1  &amp; M_2  &amp; \mathrm{toewijzing}  \\ \hline
+P &amp; 1.41 &amp; 2,4 &amp; C_1 
+\end{array}
+\end{split}\]</div>
+<p>P wordt ingedeeld bij het cluster behorende bij het dichtstbijzijnde centrum, <span class="math notranslate nohighlight">\(C_1\)</span>.</p>
+</div>
+<p><strong>Keuze van startpunten.</strong> De keuze van de startpunten voor de centra is willekeurig, maar ze moeten wel een beetje in de buurt van de objecten liggen. Als een cluster leeg blijft kan het algoritme niet goed werken, het geeft zelfs een fout. Een simpele keuze is gewoon een paar punten uit de lijst van objecten te nemen.</p>
+<p><strong>Maximaal aantal iteraties.</strong> Ten tweede is er het aantal iteraties. Bij grote puntenwolken kan het algoritme heel lang doorgaan, waarbij steeds minder punten van cluster wisselen. Er verandert dan op den duur weinig meer en je kunt net zo goed stoppen. Wat ook kan optreden is dat een object in een oneindige herhaling per iteratie van cluster wisselt. Om dergelijke problemen te voorkomen kun je een maximaal aantal iteraties opgeven.</p>
+<hr class="docutils" />
+<div class="admonition-opdracht-1 admonition">
+<p class="admonition-title">Opdracht 1</p>
+<p>Gegeven is een dataset met 6 datapunten:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|llll}
+      &amp; x_1 &amp; x_2 &amp; x_3 &amp; x_4 \\ \hline
+A_{1} &amp; 6 &amp; 3 &amp; 4 &amp; 5 \\
+A_{2} &amp; 2 &amp; 3 &amp; 5 &amp; 4 \\
+A_{3} &amp; 5 &amp; 4 &amp; 6 &amp; 3 \\
+A_{4} &amp; 9 &amp; 1 &amp; 1 &amp; 8 \\
+A_{5} &amp; 8 &amp; 2 &amp; 0 &amp; 9 \\
+A_{6} &amp; 8 &amp; 0 &amp; 1 &amp; 8
+\end{array}
+\end{split}\]</div>
+<p>Als afstandsmaat gebruiken we de normale (Euclidische) afstand.</p>
+<p>(a) Bereken de Euclidische afstand van <span class="math notranslate nohighlight">\(A_{1}\)</span> en <span class="math notranslate nohighlight">\(A_{2}\)</span></p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Antwoord<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{lcl}
+     d(A_{1},A_{2})&amp;=&amp;\sqrt{(6-2)^{2}+(3-3)^{2}+(4-5)^{2}+(5-4)^{2}}\\ &amp;=&amp;\sqrt{18}=3\sqrt{2}
+\end{array}
+\end{split}\]</div>
+</div>
+</details><p>(b) We clusteren deze gegevens in twee clusters:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{lcl}C_{1}&amp; =&amp; \{A_{1},A_{2},A_{3}\} \\
+C_{2} &amp; = &amp; \{A_{4},A_{5},A_{6}\}
+\end{array}
+\end{split}\]</div>
+<p>Vul de volgende afstandsmatrix in:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|l|l|l|}
+      &amp; A_3 &amp; A_4 &amp; A_5  \\ \hline
+A_{1} &amp; &amp; &amp; \\ \hline
+A_{2} &amp; &amp; &amp; \\ \hline
+A_{3} &amp; &amp; &amp; \\ \hline
+\end{array}
+\end{split}\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Antwoord<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|l|l|l}
+      &amp; A_3 &amp; A_4 &amp; A_5  \\ \hline
+A_{1} &amp; 5.57 &amp; 6.08 &amp; 5.57  \\ \hline
+A_{2} &amp; 9.22 &amp; 9.33 &amp; 8.77 \\ \hline
+A_{3} &amp; 8.66 &amp; 9.22 &amp; 8.66  \\
+\end{array}
+\end{split}\]</div>
+</div>
+</details><p>(c) Geef de afstand tussen de clusters <span class="math notranslate nohighlight">\(C_1\)</span> en <span class="math notranslate nohighlight">\(C_2\)</span></p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Antwoord<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">De afstand tussen  <span class="math notranslate nohighlight">\(C_1\)</span> en <span class="math notranslate nohighlight">\(C_2\)</span> is de kleinste afstand in de tabel dus: <span class="math notranslate nohighlight">\(d(C_{1},C_{2})=5.57\)</span></p>
+</div>
+</details><p>(d) Bereken de centra van de clusters  <span class="math notranslate nohighlight">\(C_1\)</span> en  <span class="math notranslate nohighlight">\(C_1\)</span></p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Antwoord<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l l l}
+C_{1} : &amp; \mathrm{centrum} &amp;  M_{1}=(4.33,3.33,5,4) \\
+					C_{2} : &amp;  \mathrm{centrum} &amp;M_{2}=(8.33,1,0.67,8.33)
+\end{array}
+\end{split}\]</div>
+</div>
+</details></div>
+<div class="admonition-opdracht-2 admonition">
+<p class="admonition-title">Opdracht 2</p>
+<p>Gegeven zijn de volgende vier objecten:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|ll}
+      &amp; x_{1} &amp; x_{2} \\ \hline
+O_{1} &amp; 2 &amp; 2 \\
+O_{2} &amp; 8 &amp; 6 \\
+O_{3} &amp; 6 &amp; 8 \\
+O_{4} &amp; 2 &amp; 4
+\end{array}
+\end{split}\]</div>
+<p>Als afstandsmaat gebruiken we de normale (Euclidische) afstand. We willen deze gegevens clusteren in twee clusters (k=2), met behulp van het K-means algoritme. Start met de clusters:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{lcl}C_{1}&amp; =&amp; \{O_{1},O_{3}\} \\
+C_{2} &amp; = &amp; \{O_{2},O_{4}\}
+\end{array}
+\end{split}\]</div>
+<p>(a) Bereken het centrum <span class="math notranslate nohighlight">\(M_1\)</span> van <span class="math notranslate nohighlight">\(C_1\)</span> en het centrum <span class="math notranslate nohighlight">\(M_2\)</span> van <span class="math notranslate nohighlight">\(C_2\)</span>.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Antwoord<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l l l}
+C_{1} : &amp; \mathrm{centrum} &amp;  M_{1}=(4,5) \\
+					C_{2} : &amp;  \mathrm{centrum} &amp;M_{2}=(5,5)
+\end{array}
+\end{split}\]</div>
+</div>
+</details><p>(b) Maak een tekening van de situatie en vul de volgende afstandsmatrix in en bereken daarmee de afstand tussen clusters <span class="math notranslate nohighlight">\(C_1\)</span> en <span class="math notranslate nohighlight">\(C_2\)</span> :</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|l|l|}
+      &amp; O_2 &amp; O_4   \\ \hline
+O_{1} &amp;  &amp;  \\ \hline
+O_{3} &amp;  &amp;  \\ \hline
+\end{array}
+\end{split}\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Antwoord<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|l|l|}
+      &amp; O_2 &amp; O_4   \\ \hline
+O_{1} &amp; 7.21 &amp; 2 \\ \hline
+O_{3} &amp; 2.83 &amp;  5.7 \\ \hline
+\end{array}
+\end{split}\]</div>
+</div>
+</details><p>Dus de afstand <span class="math notranslate nohighlight">\(d(C_{1},C_{2})=2\)</span></p>
+<p>(c) Bereken de afstanden tot de centra <span class="math notranslate nohighlight">\(M_1\)</span>  en <span class="math notranslate nohighlight">\(M_2\)</span>  en vul de volgende tabel in:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|ll|l}
+      &amp; M_1  &amp; M_2  &amp; \mathrm{toewijzing}  \\ \hline
+O_{1} &amp;  &amp;  &amp;  \\
+O_{2} &amp;  &amp;  &amp;  \\
+O_{3} &amp;  &amp;  &amp;  \\
+O_{4} &amp;  &amp;  &amp;  
+\end{array}
+\end{split}\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Antwoord<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|ll|l}
+      &amp; M_1  &amp; M_2  &amp; \mathrm{toewijzing}  \\ \hline
+O_{1} &amp; 3.6 &amp; 4.2 &amp; C_{1} \\
+O_{2} &amp; 3.6 &amp; 3.2 &amp; C_{2} \\
+O_{3} &amp; 4.1 &amp; 3.2 &amp; C_{2} \\
+O_{4} &amp; 2.2 &amp; 3.2 &amp; C_{1} 
+\end{array}
+\end{split}\]</div>
+</div>
+</details><p>(d) Wat zijn uiteindelijk de clusters van het K-means algoritme?</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Antwoord<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">De clusters na iteratie 1 zijn:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{lcl}C_{1}&amp; =&amp; \{O_{1},O_{4}\} \\
+C_{2} &amp; = &amp; \{O_{2},O_{3}\}
+\end{array}
+\end{split}\]</div>
+<p class="sd-card-text">Met centra:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l l l}
+C_{1} : &amp; \mathrm{centrum} &amp;  M'_{1}=(2,3) \\
+					C_{2} : &amp;  \mathrm{centrum} &amp;M'_{2}=(7,7)
+\end{array}
+\end{split}\]</div>
+<p class="sd-card-text">Iteratie 2: bepaal de afstanden tot de nieuwe centra</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|ll|l}
+      &amp; M'_1  &amp; M'_2  &amp; \mathrm{toewijzing}  \\ \hline
+O_{1} &amp; 1 &amp; 7.1 &amp; C_{1} \\
+O_{2} &amp; 6.7 &amp; 1.4 &amp; C_{2} \\
+O_{3} &amp; 6.4 &amp; 1.4 &amp; C_{2} \\
+O_{4} &amp; 1 &amp; 5.8 &amp; C_{1} 
+\end{array}
+\end{split}\]</div>
+<p class="sd-card-text">Clusters zijn gelijk gebleven. Dus een juiste clustering is:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{lcl}C_{1}&amp; =&amp; \{O_{1},O_{4}\} \\
+C_{2} &amp; = &amp; \{O_{2},O_{3}\}
+\end{array}
+\end{split}\]</div>
+</div>
+</details></div>
+<div class="admonition-opdracht-3 admonition">
+<p class="admonition-title">Opdracht 3</p>
+<p>Gegeven zijn de volgende 6 datapunten:</p>
+<p>\begin{array}{l|ll}
+&amp; x_{1} &amp; x_{2} \ \hline
+D_{1} &amp; 6 &amp; 3 \
+D_{2} &amp; 2 &amp; 3 \
+D_{3} &amp; 5 &amp; 4 \
+D_{4} &amp; 9 &amp; 1 \
+D_{5} &amp; 8 &amp; 2 \
+D_{6} &amp; 8 &amp; 0
+\end{array}</p>
+<p>Als afstandsmaat gebruiken we de normale (Euclidische) afstand. We willen deze gegevens clusteren in drie clusters (k=3), met behulp van het K-means algoritme. Initialiseer het algoritme met de clusters:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{lcl}C_{1}&amp; =&amp; \{D_{1},D_{2}\} \\
+C_{2} &amp; = &amp; \{D_{3},D_{4}\}\\
+C_{3} &amp; = &amp; \{D_{5},D_{6}\}
+\end{array}
+\end{split}\]</div>
+<p>(a) Bereken het centrum <span class="math notranslate nohighlight">\(M_1\)</span> van <span class="math notranslate nohighlight">\(C_1\)</span> , het centrum <span class="math notranslate nohighlight">\(M_2\)</span>  van <span class="math notranslate nohighlight">\(C_2\)</span> en het centrum <span class="math notranslate nohighlight">\(M_3\)</span> van <span class="math notranslate nohighlight">\(C_3\)</span>.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Antwoord<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l l l}
+C_{1} : &amp; \mathrm{centrum} &amp;  M_{1}=(4,3) \\
+					C_{2} : &amp;  \mathrm{centrum} &amp;M_{2}=(7,2.5) \\
+					C_{3} : &amp;  \mathrm{centrum} &amp;M_{3}=(8,1)
+\end{array
+\end{split}\]</div>
+</div>
+</details><p>(b) Bereken de afstanden van de datapunten tot de centra <span class="math notranslate nohighlight">\(M_1\)</span>, <span class="math notranslate nohighlight">\(M_2\)</span> en <span class="math notranslate nohighlight">\(M_3\)</span> vul de volgende tabel in en voer zo nodig een herclustering uit:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|lll|l}
+      &amp; M_1  &amp; M_2  &amp; M_3  &amp;\mathrm{toewijzing}  \\ \hline
+D_{1} &amp;  &amp;  &amp;  \\
+D_{2} &amp;  &amp;  &amp;  \\
+D_{3} &amp;  &amp;  &amp;  \\
+D_{4} &amp;  &amp;  &amp;  \\
+D_{5} &amp;  &amp;  &amp;  \\
+D_{6} &amp;  &amp;  &amp;  
+\end{array}
+\end{split}\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Antwoord<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|lll|l}
+      &amp; M_1  &amp; M_2  &amp; M_3  &amp;\mathrm{toewijzing}  \\ \hline
+D_{1} &amp; 2 &amp; 1.1 &amp;  2.8 &amp; C_{2} \\
+D_{2} &amp; 2  &amp; 5.0 &amp;  6.3 &amp;C_{1}\\
+D_{3} &amp; 1.4 &amp; 2.5  &amp; 4.2 &amp;C_{1}\\
+D_{4} &amp; 5.4 &amp; 2.5 &amp;  1 &amp;C_{3}\\
+D_{5} &amp; 4.1 &amp; 1.1  &amp;  1 &amp;C_{3}\\
+D_{6} &amp; 5 &amp; 2.7 &amp;  1 &amp;C_{3}
+\end{array}
+\end{split}\]</div>
+</div>
+</details><p>Er is de herclustering:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{lcl}C_{1}&amp; =&amp; \{D_{2},D_{3}\} \\
+C_{2} &amp; = &amp; \{D_{1}\}\\
+C_{3} &amp; = &amp; \{D_{4},D_{5},D_{6}\}
+\end{array}
+\end{split}\]</div>
+<p>(c) Wat zijn de nieuwe centra en zijn we nu klaar?.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Antwoord<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l l l}
+C_{1} : &amp; \mathrm{centrum} &amp;  M'_{1}=(3.5,3.5) \\
+					C_{2} : &amp;  \mathrm{centrum} &amp;M'_{2}=(6,3) \\
+					C_{3} : &amp;  \mathrm{centrum} &amp;M'_{3}=(8.3,1)
+\end{array}
+\end{split}\]</div>
+<p class="sd-card-text">De afstand tussen de nieuwe centra en de datapunten zijn nu:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|lll|l}
+      &amp; M'_1  &amp; M'_2  &amp; M'_3  &amp;\mathrm{toewijzing}  \\ \hline
+D_{1} &amp; 2.5 &amp; 0 &amp;  3 &amp; C_{2} \\
+D_{2} &amp; 1.6  &amp; 4 &amp;  6.6 &amp;C_{1}\\
+D_{3} &amp; 1.6 &amp; 1.4  &amp; 4.5 &amp;C_{2}\\
+D_{4} &amp; 6  &amp; 3.6 &amp;  0.7 &amp;C_{3}\\
+D_{5} &amp; 4.8 &amp; 2.3  &amp;  1.1 &amp;C_{3}\\
+D_{6} &amp; 5.7 &amp; 3.6 &amp;  1.1 &amp;C_{3}
+\end{array}
+\end{split}\]</div>
+<p class="sd-card-text">Er is weer verandering in de clustering, met:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{lcl}C_{1}&amp; =&amp; \{D_{2}\} \\
+C_{2} &amp; = &amp; \{D_{1},D_{3}\}\\
+C_{3} &amp; = &amp; \{D_{4},D_{5},D_{6}\}
+\end{array}
+\end{split}\]</div>
+<p class="sd-card-text">Er is dus minstens nog een iteratie nodig.</p>
+</div>
+</details></div>
+<div class="admonition-opdracht-4 admonition">
+<p class="admonition-title">Opdracht 4</p>
+<p>Gegeven de volgende vier objecten:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|ll}
+      &amp; x_{1} &amp; x_{2} \\ \hline
+A_{1} &amp; 0 &amp; 0 \\
+A_{2} &amp; 7 &amp; 8 \\
+A_{3} &amp; 4 &amp; 8 \\
+A_{4} &amp; 3 &amp; 0
+\end{array}
+\end{split}\]</div>
+<p>Als afstandsmaat gebruiken we de normale (Euclidische) afstand.
+Cluster de gegevens volledig in twee clusters (k=2), met behulp van het K-means algoritme. Bepaal na afloop bij welk cluster het punt P=(5,5) wordt ingedeeld.</p>
+<p><em>Wees verstandig en maak tekeningen zoals in het voorbeeld en gebruik je liniaal om afstanden te meten.</em></p>
+<p>Initialiseer het algoritme met de willekeurige centra:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l l l}
+C_{1} : &amp; \mathrm{centrum} &amp;  M_{1}=(0,6) \\
+					C_{2} : &amp;  \mathrm{centrum} &amp;M_{2}=(7,2) 
+\end{array}
+\end{split}\]</div>
+<p>Vul je resultaten in onderstaande tabel in:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|l|l}
+      &amp; \mathrm{Clusters} &amp; \mathrm{Centra} \\ \hline
+\mathrm{Start} &amp; &amp; 
+\begin{array}{lcl}
+M_{1}&amp;=&amp;(0,6) \\
+M_{2}&amp;=&amp;(7,2)
+\end{array} \\ \hline
+\mathrm{Iteratie} 1 &amp; 
+\begin{array}{lcl}
+C_{1}&amp;=&amp; \\
+C_{2}&amp;=&amp;
+\end{array} &amp; 
+\begin{array}{lcl}
+M'_{1}&amp;=&amp; \\
+M'_{2}&amp;=&amp;
+\end{array} \\ \hline
+\mathrm{Iteratie} 2 &amp; 
+\begin{array}{lcl}
+C_{1}&amp;=&amp; \\
+C_{2}&amp;=&amp;
+\end{array} &amp; 
+\begin{array}{lcl}
+M''_{1}&amp;=&amp; \\
+M''_{2}&amp;=&amp;
+\end{array} \\ \hline
+\cdots &amp; &amp; \\ \hline
+\end{array}
+\end{split}\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Antwoord<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Iteratie 1:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|ll|l}
+      &amp; M_1  &amp; M_2  &amp; \mathrm{toewijzing}  \\ \hline
+A_{1} &amp; 6.0 &amp; 7.3 &amp; C_{1} \\
+A_{2} &amp; 7.3 &amp; 6.0 &amp; C_{2} \\
+A_{3} &amp; 4.5 &amp; 6.7 &amp; C_{1} \\
+A_{4} &amp; 6.7 &amp; 4.5 &amp; C_{2} 
+\end{array}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|l|l}
+      &amp; \mathrm{Clusters} &amp; \mathrm{Centra} \\ \hline
+\mathrm{Start} &amp; &amp; 
+\begin{array}{lcl}
+M_{1}&amp;=&amp;(0,6) \\
+M_{2}&amp;=&amp;(7,2)
+\end{array} \\ \hline
+\mathrm{Iteratie} 1 &amp; 
+\begin{array}{lcl}
+C_{1}&amp;=&amp; \{A_1,A_3\}\\
+C_{2}&amp;=&amp; \{A_2,A_4\}
+\end{array} &amp; 
+\begin{array}{lcl}
+M'_{1}&amp;=&amp; (2,4)\\
+M'_{2}&amp;=&amp; (5,4)
+\end{array} \\ \hline
+\end{array}
+\end{split}\]</div>
+<p class="sd-card-text">Iteratie 2:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|ll|l}
+      &amp; M'_1  &amp; M'_2  &amp; \mathrm{toewijzing}  \\ \hline
+A_{1} &amp; 4.5 &amp; 6.4 &amp; C_{1} \\
+A_{2} &amp; 6.4 &amp; 4.5 &amp; C_{2} \\
+A_{3} &amp; 4.5 &amp; 4.1 &amp; C_{2} \\
+A_{4} &amp; 4.1 &amp; 4.5 &amp; C_{1} 
+\end{array}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|l|l}
+      &amp; \mathrm{Clusters} &amp; \mathrm{Centra} \\ \hline
+\mathrm{Start} &amp; &amp; 
+\begin{array}{lcl}
+M_{1}&amp;=&amp;(0,6) \\
+M_{2}&amp;=&amp;(7,2)
+\end{array} \\ \hline
+\mathrm{Iteratie} 1 &amp; 
+\begin{array}{lcl}
+C_{1}&amp;=&amp; \{A_1,A_3\}\\
+C_{2}&amp;=&amp; \{A_2,A_4\}
+\end{array} &amp; 
+\begin{array}{lcl}
+M'_{1}&amp;=&amp; (2,4)\\
+M'_{2}&amp;=&amp; (5,4)
+\end{array} \\ \hline
+\mathrm{Iteratie} 2 &amp; 
+\begin{array}{lcl}
+C_{1}&amp;=&amp; \{A_1,A_4\}\\
+C_{2}&amp;=&amp; \{A_2,A_3\}
+\end{array} &amp; 
+\begin{array}{lcl}
+M''_{1}&amp;=&amp; (1.5,0)\\
+M''_{2}&amp;=&amp; (5.5,8)
+\end{array} \\ \hline
+\cdots &amp; &amp; \\ \hline
+\end{array}
+\end{split}\]</div>
+<p class="sd-card-text">Iteratie 3:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|ll|l}
+      &amp; M'_1  &amp; M'_2  &amp; \mathrm{toewijzing}  \\ \hline
+A_{1} &amp; 1.5 &amp; 9.7 &amp; C_{1} \\
+A_{2} &amp; 9.7 &amp; 1.5 &amp; C_{2} \\
+A_{3} &amp; 8.4 &amp; 1.5 &amp; C_{2} \\
+A_{4} &amp; 1.5 &amp; 8.4 &amp; C_{1} 
+\end{array}
+\end{split}\]</div>
+<p class="sd-card-text">Geen verandering clustering dus klaar:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{lcl}C_{1}&amp; =&amp; \{A_{1},A_{4}\} \\
+C_{2} &amp; = &amp; \{A_{2},A_{3}\}
+\end{array}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{lcl}M_{1}&amp; =&amp; (1.5,0)\\
+M_{2} &amp; = &amp;  (5.5,8)
+\end{array}
+\end{split}\]</div>
+<p class="sd-card-text">Voor P=(5,5) geldt nu de afstandsmatrix met als conclusie een toewijzing aan cluster <span class="math notranslate nohighlight">\(C_2\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|ll|l}
+      &amp; M_1  &amp; M_2  &amp; \mathrm{toewijzing}  \\ \hline
+P &amp; 6.1 &amp; 3.0 &amp; C_{2} 
+\end{array}
+\end{split}\]</div>
+</div>
+</details></div>
+<div class="admonition-opdracht-5 admonition">
+<p class="admonition-title">Opdracht 5</p>
+<p>Een reisagentschap wil zijn klanten opdelen in twee clusters (k=2), op basis van leeftijd en duur van geboekte vakanties. De informatie van het reisagentschap is gegeven in de onderstaande tabel. De leeftijd van klanten uitgedrukt in aantal jaren, de duur van de vakantie in het aantal dagen.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|ll}
+      &amp; \mathrm{Leeftijd} &amp; \mathrm{Duur\,vakantie} \\ \hline
+TO_{1} &amp; 19 &amp; 3 \\
+TO_{2} &amp; 25 &amp; 8 \\
+TO_{3} &amp; 43 &amp; 14 \\
+TO_{4} &amp; 61 &amp; 14 \\
+TO_{5} &amp; 30 &amp; 7 \\
+TO_{6} &amp; 22 &amp; 10
+\end{array}
+\end{split}\]</div>
+<p>Als afstandsmaat gebruiken we de normale (Euclidische) afstand. Cluster de gegevens volledig in twee clusters (k=2), met behulp van het K-means algoritme. Initialiseer het algoritme met centra:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l l l}
+C_{1} : &amp; \mathrm{centrum} &amp;  M_{1}=TO_{1} \\
+					C_{2} : &amp;  \mathrm{centrum} &amp;M_{2}=TO_{2} 
+\end{array}
+\end{split}\]</div>
+<p>Vul je resultaten in onderstaande tabel in.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|l|l}
+      &amp; \mathrm{Clusters} &amp; \mathrm{Centra} \\ \hline
+\mathrm{Start} &amp; &amp; 
+\begin{array}{lcl}
+M_{1}&amp;=&amp;(19,3) \\
+M_{2}&amp;=&amp;(25,8)
+\end{array} \\ \hline
+\mathrm{Iteratie} 1 &amp; 
+\begin{array}{lcl}
+C_{1}&amp;=&amp; \\
+C_{2}&amp;=&amp;
+\end{array} &amp; 
+\begin{array}{lcl}
+M'_{1}&amp;=&amp; \\
+M'_{2}&amp;=&amp;
+\end{array} \\ \hline
+\mathrm{Iteratie} 2 &amp; 
+\begin{array}{lcl}
+C_{1}&amp;=&amp; \\
+C_{2}&amp;=&amp;
+\end{array} &amp; 
+\begin{array}{lcl}
+M''_{1}&amp;=&amp; \\
+M''_{2}&amp;=&amp;
+\end{array} \\ \hline
+\cdots &amp; &amp; \\ \hline
+\end{array}
+\end{split}\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Antwoord<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Iteratie 1:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|ll|l}
+      &amp; M_1  &amp; M_2  &amp; \mathrm{toewijzing}  \\ \hline
+TO_{1} &amp; 0.0 &amp; 7.8 &amp; C_{1} \\
+TO_{2} &amp; 7.8 &amp; 0.0 &amp; C_{2} \\
+TO_{3} &amp; 26.4 &amp; 19.0 &amp; C_{2} \\
+TO_{4} &amp; 43.4 &amp; 36.5 &amp; C_{2} \\
+TO_{5} &amp; 11.7 &amp; 5.1&amp; C_{2} \\
+TO_{6} &amp; 7.6 &amp; 3.6 &amp; C_{2} 
+\end{array}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|l|l}
+      &amp; \mathrm{Clusters} &amp; \mathrm{Centra} \\ \hline
+\mathrm{Start} &amp; &amp; 
+\begin{array}{lcl}
+M_{1}&amp;=&amp;(19,3) \\
+M_{2}&amp;=&amp;(25,8)
+\end{array} \\ \hline
+\mathrm{Iteratie} 1 &amp; 
+\begin{array}{lcl}
+C_{1}&amp;=&amp; \{TO_1\}\\
+C_{2}&amp;=&amp; \{TO_2,TO_3,TO_4,TO_5,TO_6\}
+\end{array} &amp; 
+\begin{array}{lcl}
+M'_{1}&amp;=&amp; (19,3)\\
+M'_{2}&amp;=&amp; (36.2,10.6)
+\end{array} \\ \hline
+\end{array}
+\end{split}\]</div>
+<p class="sd-card-text">Iteratie 2:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|ll|l}
+      &amp; M'_1  &amp; M'_2  &amp; \mathrm{toewijzing}  \\ \hline
+TO_{1} &amp; 0.0 &amp; 18.8 &amp; C_{1} \\
+TO_{2} &amp; 7.8 &amp; 11.5 &amp; C_{1} \\
+TO_{3} &amp; 26.4 &amp; 7.6 &amp; C_{2} \\
+TO_{4} &amp; 43.4 &amp; 25.0 &amp; C_{2} \\
+TO_{5} &amp; 11.7 &amp; 7.2 &amp; C_{2} \\
+TO_{6} &amp; 7.6 &amp; 14.2 &amp; C_{1} 
+\end{array}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|l|l}
+      &amp; \mathrm{Clusters} &amp; \mathrm{Centra} \\ \hline
+\mathrm{Start} &amp; &amp; 
+\begin{array}{lcl}
+M_{1}&amp;=&amp;(19,3) \\
+M_{2}&amp;=&amp;(25,8)
+\end{array} \\ \hline
+\mathrm{Iteratie} 1 &amp; 
+\begin{array}{lcl}
+C_{1}&amp;=&amp; \{TO_1\}\\
+C_{2}&amp;=&amp; \{TO_2,TO_3,TO_4,TO_5,TO_6\}
+\end{array} &amp; 
+\begin{array}{lcl}
+M'_{1}&amp;=&amp; (19,3)\\
+M'_{2}&amp;=&amp; (36.2,10.6)
+\end{array} \\ \hline
+\mathrm{Iteratie} 2 &amp; 
+\begin{array}{lcl}
+C_{1}&amp;=&amp; \{TO_1,TO_2,TO_6\}\\
+C_{2}&amp;=&amp; \{TO_3,TO_4,TO_5\}
+\end{array} &amp; 
+\begin{array}{lcl}
+M'_{1}&amp;=&amp; (22,7)\\
+M'_{2}&amp;=&amp; (44.7,11.7)
+\end{array} \\ \hline
+\end{array}
+\end{split}\]</div>
+<p class="sd-card-text">Iteratie 3:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|ll|l}
+      &amp; M'_1  &amp; M'_2  &amp; \mathrm{toewijzing}  \\ \hline
+TO_{1} &amp; 5 &amp; 27.1 &amp; C_{1} \\
+TO_{2} &amp; 3.2 &amp; 20.0 &amp; C_{1} \\
+TO_{3} &amp; 22.1 &amp; 2.9 &amp; C_{2} \\
+TO_{4} &amp; 39.6 &amp; 16.5 &amp; C_{2} \\
+TO_{5} &amp; 8 &amp; 15.4 &amp; C_{1} \\
+TO_{6} &amp; 3 &amp; 22.7 &amp; C_{1} 
+\end{array}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|l|l}
+      &amp; \mathrm{Clusters} &amp; \mathrm{Centra} \\ \hline
+\mathrm{Start} &amp; &amp; 
+\begin{array}{lcl}
+M_{1}&amp;=&amp;(19,3) \\
+M_{2}&amp;=&amp;(25,8)
+\end{array} \\ \hline
+\mathrm{Iteratie} 1 &amp; 
+\begin{array}{lcl}
+C_{1}&amp;=&amp; \{TO_1\}\\
+C_{2}&amp;=&amp; \{TO_2,TO_3,TO_4,TO_5,TO_6\}
+\end{array} &amp; 
+\begin{array}{lcl}
+M'_{1}&amp;=&amp; (19,3)\\
+M'_{2}&amp;=&amp; (36.2,10.6)
+\end{array} \\ \hline
+\mathrm{Iteratie} 2 &amp; 
+\begin{array}{lcl}
+C_{1}&amp;=&amp; \{TO_1,TO_2,TO_6\}\\
+C_{2}&amp;=&amp; \{TO_3,TO_4,TO_5\}
+\end{array} &amp; 
+\begin{array}{lcl}
+M'_{1}&amp;=&amp; (22,7)\\
+M'_{2}&amp;=&amp; (44.7,11.7)
+\end{array} \\ \hline
+\mathrm{Iteratie} 3 &amp; 
+\begin{array}{lcl}
+C_{1}&amp;=&amp; \{TO_1,TO_2,TO_5,TO_6\}\\
+C_{2}&amp;=&amp; \{TO_3,TO_4\}
+\end{array} &amp; 
+\begin{array}{lcl}
+M'_{1}&amp;=&amp; (24,7)\\
+M'_{2}&amp;=&amp; (52,14)
+\end{array} \\ \hline
+\end{array}
+\end{split}\]</div>
+<p class="sd-card-text">Iteratie 4:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|ll|l}
+      &amp; M'_1  &amp; M'_2  &amp; \mathrm{toewijzing}  \\ \hline
+TO_{1} &amp; 6.4 &amp; 34.8 &amp; C_{1} \\
+TO_{2} &amp; 1.4 &amp; 27.7 &amp; C_{1} \\
+TO_{3} &amp; 20.3 &amp; 9 &amp; C_{2} \\
+TO_{4} &amp; 37.7 &amp; 9 &amp; C_{2} \\
+TO_{5} &amp; 6 &amp; 23.1 &amp; C_{1} \\
+TO_{6} &amp; 3.6 &amp; 30.3 &amp; C_{1} 
+\end{array}
+\end{split}\]</div>
+<p class="sd-card-text">Geen verandering clustering dus klaar:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{lcl}
+C_{1}&amp;=&amp; \{TO_1,TO_2,TO_5,TO_6\}\\
+C_{2}&amp;=&amp; \{TO_3,TO_4\}
+\end{array}
+\end{split}\]</div>
+</div>
+</details></div>
+<div class="admonition-opdracht-6 admonition">
+<p class="admonition-title">Opdracht 6</p>
+<p>Hieronder staan gegevens van 4 (fictieve) studenten van een data mining cursus. We noteren respectievelijk het aantal bijgewoonde lessen, het aantal dagen examenvoorbereiding, en of ze al dan niet voor het examen kwamen opdagen:</p>
+<p><span class="math notranslate nohighlight">\(D=\{S_{1}(0.0,0,1),S_{2}(7.8 ,2,1),S_{3}(4.8,2,1),S_{4}(3.0,0,1)\}\)</span></p>
+<p>We willen deze objecten clusteren met de K-means methode.	Kies k=2, en als initiële willekeurige cluster centra: <span class="math notranslate nohighlight">\(M_1=(0.6,1,0)\)</span> en  <span class="math notranslate nohighlight">\(M_2=(7.2,1,0)\)</span>.
+Pas de K-means methode toe op <span class="math notranslate nohighlight">\(D\)</span> tot een maximum van 3 stappen. Noteer voor elke iteratie welke clusters gevormd worden en wat de centra zijn.</p>
+<p>Convergeert de methode? Zo ja, leg uit.</p>
+<p>Vul de resultaten in de onderstaande tabel in:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|l|l}
+      &amp; \mathrm{Clusters} &amp; \mathrm{Centra} \\ \hline
+\mathrm{Start} &amp; &amp; 
+\begin{array}{lcl}
+M_{1}&amp;=&amp;(0.6,1,0) \\
+M_{2}&amp;=&amp;(7.2,1,0)
+\end{array} \\ \hline
+\mathrm{Iteratie} 1 &amp; 
+\begin{array}{lcl}
+C_{1}&amp;=&amp; \\
+C_{2}&amp;=&amp;
+\end{array} &amp; 
+\begin{array}{lcl}
+M'_{1}&amp;=&amp; \\
+M'_{2}&amp;=&amp;
+\end{array} \\ \hline
+\mathrm{Iteratie} 2 &amp; 
+\begin{array}{lcl}
+C_{1}&amp;=&amp; \\
+C_{2}&amp;=&amp;
+\end{array} &amp; 
+\begin{array}{lcl}
+M''_{1}&amp;=&amp; \\
+M''_{2}&amp;=&amp;
+\end{array} \\ \hline
+\cdots &amp; &amp; \\ \hline
+\end{array}
+\end{split}\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Antwoord<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Iteratie 1:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|ll|l}
+      &amp; M_1  &amp; M_2  &amp; \mathrm{toewijzing}  \\ \hline
+S_{1} &amp; 1.5 &amp; 7.3 &amp; C_{1} \\
+S_{2} &amp; 7.3 &amp; 1.5 &amp; C_{2} \\
+S_{3} &amp; 4.4 &amp; 2.8 &amp; C_{2} \\
+S_{4} &amp; 2.8 &amp; 4.4 &amp; C_{1} 
+\end{array}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|l|l}
+      &amp; \mathrm{Clusters} &amp; \mathrm{Centra} \\ \hline
+\mathrm{Start} &amp; &amp; 
+\begin{array}{lcl}
+M_{1}&amp;=&amp;(0.6,1,0) \\
+M_{2}&amp;=&amp;(7.2,1,0)
+\end{array} \\ \hline
+\mathrm{Iteratie} 1 &amp; 
+\begin{array}{lcl}
+C_{1}&amp;=&amp; \{S_{1},S_{4}\}\\
+C_{2}&amp;=&amp; \{S_{2},S_{3}\}
+\end{array} &amp; 
+\begin{array}{lcl}
+M'_{1}&amp;=&amp; (1.5,0,1)\\
+M'_{2}&amp;=&amp; (6.3,2,1)
+\end{array} \\ \hline
+\end{array}
+\end{split}\]</div>
+<p class="sd-card-text">Iteratie 2:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l|ll|l}
+      &amp; M_1  &amp; M_2  &amp; \mathrm{toewijzing}  \\ \hline
+S_{1} &amp; 1.5 &amp; 6.6 &amp; C_{1} \\
+S_{2} &amp; 6.6 &amp; 1.5 &amp; C_{2} \\
+S_{3} &amp; 3.9 &amp; 1.5 &amp; C_{2} \\
+S_{4} &amp; 1.5 &amp; 3.9 &amp; C_{1} 
+\end{array}
+\end{split}\]</div>
+<p class="sd-card-text">De clusters zijn ongewijzigd, binnen 3 stappen is er convergentie.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{lcl}
+C_{1}&amp;=&amp; \{S_{1},S_{4}\}\\
+C_{2}&amp;=&amp; \{S_{2},S_{3}\}
+\end{array}
+\end{split}\]</div>
+</div>
+</details></div>
+</section>
+<section id="andere-methoden">
+<h2><span class="section-number">3.5.7. </span>Andere methoden<a class="headerlink" href="#andere-methoden" title="Permalink to this heading">#</a></h2>
+<p>Als het K-means algoritme zo eenvoudig en snel is, waarom zijn er dan, zoals eerder genoemd, andere clusteralgoritmen? Het antwoord hierop is dat er dataverzamelingen zijn die niet passen bij het K-means algoritme. Bekijk maar eens het volgende plaatje.</p>
+<figure class="align-default" id="id5">
+<a class="reference internal image-reference" href="../_images/clusters-compare.png"><img alt="../_images/clusters-compare.png" src="../_images/clusters-compare.png" style="width: 700px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3.13 </span><span class="caption-text">Verschillende verdelingen datapunten (bron) en algoritmen.</span><a class="headerlink" href="#id5" title="Permallink naar deze afbeelding">#</a></p>
+</figcaption>
+</figure>
+<p>(bron: <a class="reference external" href="https://towardsdatascience.com/the-5-clustering-algorithms-data-scientists-need-to-know-a36d136ef68">https://towardsdatascience.com/the-5-clustering-algorithms-data-scientists-need-to-know-a36d136ef68</a>)</p>
+<p>De eerste kolom hoort bij een <span class="math notranslate nohighlight">\(K\)</span>-means variant. Alleen de verdeling in de vijfde rij past daar echt goed bij. Welk algoritme denk jij dat bij de verschillende rijen het beste past? Er zijn een aantal algoritmen die bij meerdere verdelingen goed scoren, maar die hebben weer andere minpunten. Het is dus van belang om te controleren of je de juiste versie kiest. Heb je meer dan twee assen dan wordt een visuele inspectie zoals in de figuur al een stuk lastiger.</p>
+<p>De clusteralgoritmen kunnen worden onderverdeeld in <em>partitiemethoden</em> en <em>hiërarchische methoden</em>. In de partitiemethoden staat clustering met een centrum centraal. Het <span class="math notranslate nohighlight">\(K\)</span>-means valt in deze groep. In de hiërarchische methoden zijn naaste buren belangrijker. Deze buren vormen dan een stamboom vergelijkbaar met een indeling in het dierenrijk. Iedere splitsing vormt op dat niveau een cluster. In figuur 6 is Agglomerative Clustering daarvan een voorbeeld.</p>
+<p>Voor een eerste kennismaking met clustering is het voldoende te weten dat er verschillende methoden zijn en dat deze allen iteratief werken en op afstandsmaten zijn gebaseerd. Wil je je in deze cursus meer verdiepen in clustering dan zijn de verdiepingsopdrachten hieronder een startpunt.</p>
+</section>
+<section id="vragen-en-opdrachten">
+<h2><span class="section-number">3.5.8. </span>Vragen en opdrachten<a class="headerlink" href="#vragen-en-opdrachten" title="Permalink to this heading">#</a></h2>
+<section id="vraag-1">
+<h3>Vraag 1<a class="headerlink" href="#vraag-1" title="Permalink to this heading">#</a></h3>
+<ol class="arabic">
+<li><p>Wat is het verschil tussen hiërarchische methoden en partitiemethoden?</p>
+<ul>
+<li><p>Antwoord</p>
+<p>In hiërarchische wordt een stamboom gevormd op basis van nabijheid tot omliggende punten, bij partitiemethoden worden puntenverzamelingen gevormd op basis van afstand tot centra van de die puntenverzamelingen.</p>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="opdracht-1">
+<h3>Opdracht 1<a class="headerlink" href="#opdracht-1" title="Permalink to this heading">#</a></h3>
+<aside>
+🛠️ **Opdracht 1**
+<p>Verdieping: Ga naar de site <a class="reference external" href="https://educlust.dbvis.de/#">educlust</a>. Er worden hier verschillende clustermethoden aangeboden en verschillende datasets vergelijkbaar met figuur 6. Van iedere methode wordt het algoritme getoond.</p>
+<ol class="arabic simple">
+<li><p>Kies methode “k-means” en kies de dataset “Three circles sparse” en zet k op 3. Druk op de het zwarte knopje. Hoeveel iteraties zijn er gemaakt om tot het resultaat te komen? Ben je tevreden over het resultaat?</p></li>
+<li><p>Kies weer de methode “k-means” en kies de dataset “Three equal circles” en zet k op 3. Druk op de het zwarte knopje. Hoeveel iteraties zijn er gemaakt om tot het resultaat te komen? Ben je tevreden over het resultaat?</p></li>
+<li><p>Kies de hiërarchische methode “Single linkage” en kies de dataset “Three circles sparse”. Druk op de het zwarte knopje. Aan het eind van het proces hebben alle punten een gelijke kleur. Onder de figuur vind je een dendogram (boomstructuur). Als je in het dendogram met je muis over de bolletjes bij de splitsingen gaat zie je punten oplichten die onder de betreffende splitsing vallen. Hoeveel stappen zijn er gemaakt om tot het resultaat te komen? Ben je tevreden over het resultaat?</p></li>
+<li><p>Kies weer de hiërarchische methode “Single linkage” en kies de dataset “Three equal circles”. Druk op de het zwarte knopje en heb veel geduld. Hoeveel stappen zijn er gemaakt om tot het resultaat te komen? Ben je tevreden over het resultaat?</p></li>
+<li><p>Wat leer je uit de bovenstaande opdrachten?</p></li>
+</ol>
+</aside>
+</section>
+<section id="opdracht-2-verdiepend">
+<h3>Opdracht 2 (verdiepend)<a class="headerlink" href="#opdracht-2-verdiepend" title="Permalink to this heading">#</a></h3>
+<aside>
+🛠️ **Opdracht 2 (verdiepend)**
+<p>In de vorige opdracht heb je met een klein experiment twee methoden vergeleken. Ga naar de site <a class="reference external" href="https://towardsdatascience.com/the-5-clustering-algorithms-data-scientists-need-to-know-a36d136ef68">towards datascience</a>. Daar staat informatie over verschillende clustermethoden waaronder <span class="math notranslate nohighlight">\(K\)</span>-means clustering en Agglomerative Hierarchical Clustering (= Single linkage). Zoek in de tekst de voordelen en de problemen bij deze twee methoden. Ook op de site <a class="reference external" href="https://www.analytixlabs.co.in/blog/types-of-clustering-algorithms/#sub2">Analytixslab</a> worden voor en nadelen van deze methoden beschouwd (Agglomerative Hierarchical Clustering heet hier AGNES). Wordt hier de zelfde informatie gegeven?</p>
+</aside>
+</section>
+<section id="opdracht-3-verdiepend">
+<h3>Opdracht 3 (verdiepend)<a class="headerlink" href="#opdracht-3-verdiepend" title="Permalink to this heading">#</a></h3>
+<aside>
+🛠️ **Opdracht 3 (verdiepend)**
+<p>Ga weer naar de site <a class="reference external" href="https://educlust.dbvis.de/#">educlust</a>. Maak je eigen keuze van methoden die je wilt vergelijken. Zoek vervolgens uit hoe de methoden precies werken en wat de voor en nadelen van de methoden zijn. Verwerk je onderzoek in een verslag (website / tekstdocument / poster)</p>
+</aside></section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./technieken"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="associatie-analyse.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">vorige</p>
+        <p class="prev-next-title"><span class="section-number">3.4. </span>Associatie-analyse</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="neurale-netwerken.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">volgende</p>
+        <p class="prev-next-title"><span class="section-number">3.6. </span>Neurale netwerken</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhoud
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inleiding">3.5.1. Inleiding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#toepassingen">3.5.2. Toepassingen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identificatie-van-nepnieuws">Identificatie van nepnieuws</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#biologie">Biologie</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#marketing">Marketing</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clusters-en-afstanden">3.5.3. Clusters en afstanden</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#afstandsmaten">Afstandsmaten</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#afstand-tussen-objecten">Afstand tussen objecten</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#afstandsmatrix">Afstandsmatrix</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#afstand-tussen-clusters">3.5.4. Afstand tussen clusters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#centrum-van-een-cluster">3.5.5. Centrum van een cluster</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-means-clustering">3.5.6. <span class="math notranslate nohighlight">\(K\)</span>-means-clustering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#andere-methoden">3.5.7. Andere methoden</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vragen-en-opdrachten">3.5.8. Vragen en opdrachten</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vraag-1">Vraag 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opdracht-1">Opdracht 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opdracht-2-verdiepend">Opdracht 2 (verdiepend)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#opdracht-3-verdiepend">Opdracht 3 (verdiepend)</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Door cc-team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright SLO 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
